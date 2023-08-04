@@ -1,6 +1,7 @@
+import { useState } from "react"
 import { Link, NavLink } from "react-router-dom"
 import Logo from "../assests/cube.png"
-import { useState } from "react"
+
 
 export const Header = () => {
   const [isHidden, setIsHidden] = useState(true)
