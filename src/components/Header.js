@@ -20,7 +20,7 @@ export const Header = () => {
             </svg>
         </button>
         <div className={ isHidden ? `w-full md:block md:w-auto` :`hidden w-full md:block md:w-auto`} id="navbar-dropdown">
-          <ul className="flex flex-col font-medium p-4 md:p-0 mt-4  rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white">
+          <ul className="flex flex-col font-medium p-4 md:p-0   rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white">
             <li>
               <NavLink to="/shop" className="block py-2 pl-3 pr-4 text-xl font-Bebas text-blk rounded hover:bg-gray-100">Shop</NavLink>
             </li>

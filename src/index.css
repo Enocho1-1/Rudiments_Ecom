@@ -7,3 +7,57 @@
     box-sizing: border-box;
     margin: 0;
 }
+
+
+/* Home Page Button Images */
+
+#buttonOne{
+    background-image: url("https://obakki.com/cdn/shop/products/obakki-mens-basic-t-shirt-clothing-691041_1024x.jpg?v=1643662448");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-x: 50%;
+}
+
+#buttonTwo{
+    background-image: url("https://i5.walmartimages.com/asr/cf3ceeba-d337-4a50-af2b-986ada9e0439.2adb39e86ae8a458b2d2945dd1c9ac63.jpeg?odnHeight=768&odnWidth=768&odnBg=FFFFFF");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#buttonThree{
+    background-image: url("https://media.sportisgood.com/catalog/product/cache/image/1800x/9df78eab33525d08d6e5fb8d27136e95/n/u/nudie-jeans_114197_bleu_1.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#buttonFour{
+    background-image: url("https://norwoodshop.ca/cdn/shop/products/brixton-choice-chino-short-khaki-04215-2.jpg?v=1658460854");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#buttonFive{
+    background-image: url("https://m.media-amazon.com/images/I/61GL9pmt5lL._AC_UY1000_.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#buttonSix{
+    background-image: url("https://m.media-amazon.com/images/I/61WuMqZ645L.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+  /* Media Query for Mobile Devices */
+  @media (max-width: 480px) {
+    #buttonTwo, #buttonThree, #buttonFour,#buttonFive{
+       background-position-x: 40%;
+    }
+}
+  
+/* Media Query for low resolution  Tablets, Ipads */
+@media (min-width: 481px) and (max-width: 767px) {
+    #buttonTwo, #buttonThree, #buttonFour,#buttonFive{
+        background-position-x: 20%;
+     }
+}
