@@ -13,17 +13,10 @@ module.exports = {
          /* Media Query for Mobile Devices */
         'mobile': '480px',
         /* Media Query for Tablets Ipads portrait mode */
-        'tablet': '769px'
+        'tablet': '769px',
+        /* Media Query for small Laptops*/
+        'laptop':'1024px'
       },
-      gridTemplateColumns: {
-        // Simple 2 column grid
-        'two': 'repeat(2,1fr)'
-      },
-      gridTemplateRows: {
-        // Simple 3 row grid
-        'three': 'repeat(3, 100px)',
-
-      }
     },
   },
   plugins: [],
