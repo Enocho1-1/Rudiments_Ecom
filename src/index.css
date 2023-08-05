@@ -58,6 +58,6 @@
 /* Media Query for low resolution  Tablets, Ipads */
 @media (min-width: 481px) and (max-width: 767px) {
     #buttonTwo, #buttonThree, #buttonFour,#buttonFive{
-        background-position-x: 20%;
+        background-position-x: 50%;
      }
 }

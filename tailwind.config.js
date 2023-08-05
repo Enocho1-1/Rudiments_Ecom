@@ -15,6 +15,15 @@ module.exports = {
         /* Media Query for Tablets Ipads portrait mode */
         'tablet': '769px'
       },
+      gridTemplateColumns: {
+        // Simple 2 column grid
+        'two': 'repeat(2,1fr)'
+      },
+      gridTemplateRows: {
+        // Simple 3 row grid
+        'three': 'repeat(3, 100px)',
+
+      }
     },
   },
   plugins: [],
