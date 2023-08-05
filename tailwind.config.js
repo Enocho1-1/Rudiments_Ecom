@@ -15,7 +15,7 @@ module.exports = {
         /* Media Query for Tablets Ipads portrait mode */
         'tablet': '769px',
         /* Media Query for small Laptops*/
-        'laptop':'1024px'
+        'laptop':'1024px',
       },
     },
   },

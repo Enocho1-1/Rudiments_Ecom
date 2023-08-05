@@ -68,4 +68,11 @@
         background-position-x: 50%;
      }
 }
+
+  /* Media Query for Laptops and Desktops */
+  @media (min-width: 1025px){
+    #buttonOne,#buttonTwo,#buttonThree, #buttonFour{
+        background-position-y: 50%;
+     }
+}
   
