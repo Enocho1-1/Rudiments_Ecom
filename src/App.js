@@ -1,5 +1,5 @@
 import { AllRoutes } from './routes/AllRoutes';
-import { Header } from './components/Header';
+import { Header,Footer } from './components';
 import './App.css';
 
 function App() {
@@ -7,6 +7,7 @@ function App() {
     <main>
       <Header/>
       <AllRoutes/>
+      <Footer />
     </main>
   );
 }

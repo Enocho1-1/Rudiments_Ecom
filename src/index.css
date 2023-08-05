@@ -67,6 +67,10 @@
     #buttonTwo,#buttonThree, #buttonFour{
         background-position-x: 50%;
      }
+
+     #buttonFive,#buttonSix{
+        background-position-x: 30%;
+     }
 }
 
   /* Media Query for Laptops and Desktops */
