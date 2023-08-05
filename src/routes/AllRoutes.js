@@ -7,7 +7,7 @@ export const AllRoutes = () => {
       <Routes>
         <Route path="/" element={(<Home />)}/>
         <Route path="cart" element={(<Cart />)}/>
-        <Route path="shop" element={(<CollectionPage/>)}/>
+        <Route path="shop" element={(<CollectionPage apiPath="/shop" />)}/>
         <Route path="t-shirt" element={(<PiecePage />)}/>
         <Route path="shirt" element={(<PiecePage />)}/>
         <Route path="pants" element={(<PiecePage />)}/>

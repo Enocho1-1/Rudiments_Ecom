@@ -1,6 +1,10 @@
+import { useFetch } from "../hooks/useFetch"
 
+export const CollectionPage = ({apiPath}) => {
+  const { data } = useFetch(apiPath)
 
-export const CollectionPage = () => {
+  console.log(data)
+
   return (
     <div>CollectionPage</div>
   )
