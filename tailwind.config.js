@@ -8,6 +8,7 @@ module.exports = {
       },
       fontFamily: {
         Bebas: ['Bebas Neue', 'sans-serif'],
+        Inconsolata: ['Inconsolata', 'monospace']
       },
       screens: {
          /* Media Query for Mobile Devices */

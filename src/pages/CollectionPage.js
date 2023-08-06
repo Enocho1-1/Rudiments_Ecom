@@ -15,12 +15,13 @@ export const CollectionPage = ({apiPath}) => {
   const paginate = (pageNumber) => {
     setPage(pageNumber)
   }
-  console.log(data.length)
+
 
   return (
     <section>
-      <h1 className="mx-4 mt-6 text-5xl font-Bebas">MEN'S CLOTHES Collection</h1>
-      <aside className="m-auto mt-4 px-4 grid grid-cols-3 gap-y-4 justify-items-center">
+      <header className="w-fit"></header>
+      <h1 className="text-center mt-6 text-5xl font-Bebas">MEN'S CLOTHES Collection</h1>
+      <aside className="m-auto mt-4 px-4 grid max-mobile:grid-cols-2 mobile:max-tablet:grid-cols-2 mobile:max-tablet:gap-y-2 tablet:grid-cols-3 tablet:gap-y-4 justify-items-center">
         {products.map( item => (
           <ProductCard key={item.id} product={item}/>
         ))}
