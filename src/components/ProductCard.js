@@ -11,7 +11,7 @@ export const ProductCard = ({product}) => {
 
   return (
     
-    <div className="w-[100%] bg-white  rounded-lg ">
+    <div className=" bg-white  rounded-lg individualCard">
         <Link to="#" 
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
