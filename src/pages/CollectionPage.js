@@ -20,7 +20,7 @@ export const CollectionPage = ({apiPath}) => {
   return (
     <section>
       <h1 className="mx-4 mt-6 text-5xl font-Bebas">MEN'S CLOTHES Collection</h1>
-      <aside className="m-auto mt-4 px-4 grid grid-cols-3 gap-y-4">
+      <aside className="m-auto mt-4 px-4 grid grid-cols-3 gap-y-4 justify-items-center">
         {products.map( item => (
           <ProductCard key={item.id} product={item}/>
         ))}
