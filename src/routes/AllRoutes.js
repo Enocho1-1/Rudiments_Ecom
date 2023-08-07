@@ -10,7 +10,7 @@ export const AllRoutes = () => {
         <Route path="shop" element={(<CollectionPage apiPath="/shop" />)}/>
         <Route path="t-shirt" element={(<PiecePage apiPath="/t-shirt" title="MEN'S Essential Tees"/>)}/>
         <Route path="shirt" element={(<PiecePage apiPath="/shirt" title="Men's Shirts"/>)}/>
-        <Route path="pants" element={(<PiecePage />)}/>
+        <Route path="pants" element={(<PiecePage apiPath="/pants" title="Men's Pants"/>)}/>
         <Route path="shorts" element={(<PiecePage />)}/>
         <Route path="shoes" element={(<PiecePage />)}/>
         <Route path="accessories" element={(<PiecePage />)}/>
