@@ -1,9 +1,10 @@
 import { useState } from "react"
-import { useFetch } from "../hooks/useFetch"
+import { useFetch, useTitle } from "../hooks"
 import { ProductCard, Pagination, Loading } from "../components"
 
-export const CollectionPage = ({apiPath}) => {
+export const CollectionPage = ({apiPath, title}) => {
   
+  useTitle(title)
   const [page, setPage] = useState(1)
   const [postsPerPage] = useState(6)
   const { data, loading } = useFetch(apiPath)

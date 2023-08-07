@@ -1,7 +1,10 @@
+import { useTitle } from "../hooks/useTitle"
 import { Carousel } from "../components/Carousel"
 import { NavLink } from "react-router-dom"
 
-export const Home = () => {
+export const Home = ({title}) => {
+
+  useTitle(title)
   return (
     <section className="">
       <Carousel />
