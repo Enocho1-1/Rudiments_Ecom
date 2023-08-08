@@ -30,7 +30,7 @@ export const ItemDetail = () => {
         (
           <> 
           <div id="carouselExample" className="carousel slide">
-          <div className="carousel-inner">
+          <div className="carousel-inner items-carousel">
               <div className="carousel-item active">
                 <img src={imageUrl} className="block w-full " alt="..."/>
               </div>
@@ -67,7 +67,7 @@ export const ItemDetail = () => {
       : 
       (
         <>
-            <div className="grid grid-cols-2 grid-rows-2 tablet:max-laptop:grid-cols-gridCols tablet:max-laptop:grid-rows-gridRows w-full mt-4">
+            <div className="grid grid-cols-2 grid-rows-2 tablet:max-laptop:grid-cols-gridCols tablet:max-laptop:grid-rows-gridRows w-full mt-4 individualImg">
               <img src={imageUrl} className=" w-full " alt="..."/>
               <img src={imageUrl_Two} className="w-full " alt="..."/>
               <img src={imageUrl_Three} className=" w-full " alt="..."/>
