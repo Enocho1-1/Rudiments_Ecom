@@ -1,10 +1,12 @@
 import { useState } from "react"
+import { useSelector } from "react-redux"
 import { Link, NavLink } from "react-router-dom"
 import Logo from "../assests/cube.png"
 
 
 export const Header = () => {
   const [isHidden, setIsHidden] = useState(false)
+  const cart = useSelector(state => state.cart)
   return (
     
     <nav className="bg-white border-gray-200">
@@ -28,7 +30,7 @@ export const Header = () => {
               <NavLink to="/about" className="block py-2 pl-3 pr-4 text-xl font-Bebas text-blk rounded hover:bg-gray-100">About</NavLink>
             </li>
             <li>
-              <NavLink to="/cart" className="block py-2 pl-3 pr-4 text-xl font-Bebas text-blk rounded hover:bg-gray-100">Cart ( 2 )</NavLink>
+              <NavLink to="/cart" className="block py-2 pl-3 pr-4 text-xl font-Bebas text-blk rounded hover:bg-gray-100">Cart ( {cart.length} )</NavLink>
             </li>
           </ul>
         </div>
