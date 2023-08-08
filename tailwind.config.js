@@ -17,7 +17,16 @@ module.exports = {
         'tablet': '769px',
         /* Media Query for small Laptops*/
         'laptop':'1024px',
+        /* Media Query for Large Laptop and Desktops */
+        "desktop": "1350px",
       },
+      gridTemplateColumns: {
+        // Simple 2 column grid
+        'gridCols': 'repeat(2, minmax(0, 220px))',
+      },
+      gridTemplateRows: {
+        'gridRows': 'repeat(2, minmax(0, 1fr))',
+      }
     },
   },
   plugins: [],
