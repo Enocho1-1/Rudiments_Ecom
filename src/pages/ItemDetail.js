@@ -1,16 +1,20 @@
 import { useEffect,useState } from "react"
 import { useParams } from "react-router-dom"
+import { Loading } from "../components"
 import "./ItemDetail.css"
 
 export const ItemDetail = () => {
   const [data, setData] = useState([])
+  const [loading, setLoading] = useState(true)
   const param = useParams()
   useEffect(() => {
     const fetchProducts = async () => {
       try{
+        setLoading(true)
         const response = await fetch(`https://api.mocki.io/v2/f3308aac/items/${param.id}`)
         const result = await response.json()
         setData(result)
+        setLoading(false)
       }catch(error){
         console.log(error)
       }
@@ -23,6 +27,7 @@ export const ItemDetail = () => {
  const mobileView = "flex flex-col"
   return (
     <section>
+      {loading && <Loading/>}
       <aside className={window.innerWidth < 769 ? mobileView : "flex flex-row justify-evenly"}>
         {window.innerWidth < 769 
         ? 
@@ -41,7 +46,7 @@ export const ItemDetail = () => {
                 <img src={imageUrl_Three} className="block w-full " alt="..."/>
               </div>
               <div className="carousel-item">
-                <img src={imageUrl_Four} className="block w-full " alt="..."/>
+                {imageUrl_Four ? ( <img src={imageUrl_Four} className="block w-full " alt="..."/>):(<div className="bg-white w-fit h-fit"></div>)}
               </div>
             </div>
             <button className="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
@@ -71,7 +76,7 @@ export const ItemDetail = () => {
               <img src={imageUrl} className=" w-full " alt="..."/>
               <img src={imageUrl_Two} className="w-full " alt="..."/>
               <img src={imageUrl_Three} className=" w-full " alt="..."/>
-              <img src={imageUrl_Four} className="w-full " alt="..."/>
+              {imageUrl_Four ? ( <img src={imageUrl_Four} className="block w-full " alt="..."/>):(<div className="bg-white w-fit h-fit"></div>)}
             </div>
             <div className="flex tablet:max-laptop:w-[75%] laptop:w-[30%]">
               <aside className="mt-12 tablet:desktop:ml-8">
