@@ -92,139 +92,126 @@ export const ItemDetail = () => {
             </aside>
             <hr />
             <aside className="flex flex-col">
-                {/* Sizes */}
-                { shirt ? 
-                ( 
-              <aside className="my-4 flex justify-center">
-                <ul class="flex flex-row  text-sm">
-                    <li>
-                      <button className="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">XXS</button>
-                    </li>
-                    <li>
-                      <button className="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">XS</button>
-                    </li>
-                    <li>
-                      <button className="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">S</button>
-                    </li>
-                    <li>
-                      <button className="fleX items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">M</button>
-                    </li>
-                    <li>
-                      <button className="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">L</button>
-                    </li>
-                    <li>
-                      <button className="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">XXL</button>
-                    </li>
-                    <li>
-                      <button className="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">XXXL</button>
-                    </li>
-                </ul>
-              </aside>
-            ) 
-              : 
-              pants ?
-              (
-               <aside className="">
-                  <button onClick={() => setHidden(!hidden)} id="dropdownHoverButton" data-dropdown-toggle="dropdownHover" data-dropdown-trigger="hover" className="text-black bg-white hover:bg-slate-800 border border-slate-400 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center" type="button">Select Size <svg class="w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                        <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4"/>
-                      </svg></button>
-                   {/* Dropdwon */}
-                    <div id="dropdownHover" className={ hidden ? "z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700" : "z-10 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700"}>
-                        <ul className="py-2 text-sm text-gray-700" aria-labelledby="dropdownHoverButton">
-                          <li>
-                            <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">28(US)</a>
-                          </li>
-                          <li>
-                            <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">29(US)</a>
-                          </li>
-                          <li>
-                            <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">30(US)</a>
-                          </li>
-                          <li>
-                            <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">31(US)</a>
-                          </li>
-                          <li>
-                            <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">32(US)</a>
-                          </li>
-                          <li>
-                            <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">33(US)</a>
-                          </li>
-                          <li>
-                            <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">34(US)</a>
-                          </li>
-                          <li>
-                            <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">35(US)</a>
-                          </li>
-                          <li>
-                            <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">36(US)</a>
-                          </li>
-                          <li>
-                            <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">37(US)</a>
-                          </li>
-                          <li>
-                            <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">38(US)</a>
-                          </li>
-                          <li>
-                            <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">39(US)</a>
-                          </li>
-                          <li>
-                            <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">40(US)</a>
-                          </li>
-                        </ul>
-                    </div>
-               </aside>
 
-              ): shoes ? 
-              (  <aside className="">
-                <button onClick={() => setHidden(!hidden)} id="dropdownHoverButton" data-dropdown-toggle="dropdownHover" data-dropdown-trigger="hover" className="text-black bg-white hover:bg-slate-800 border border-slate-400 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center" type="button">Select Size <svg class="w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                      <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4"/>
-                    </svg></button>
-                {/* Dropdwon */}
-                  <div id="dropdownHover" className={ hidden ? "z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700" : "z-10 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700"}>
-                      <ul className="py-2 text-sm text-gray-700" aria-labelledby="dropdownHoverButton">
+                { 
+                    // Shirt Size CSS
+                    shirt ? 
+                    ( 
+                  <aside className="my-4 flex justify-center">
+                    <ul class="flex flex-row  text-sm">
                         <li>
-                          <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">28(US)</a>
+                          <button className="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">XXS</button>
                         </li>
                         <li>
-                          <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">29(US)</a>
+                          <button className="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">XS</button>
                         </li>
                         <li>
-                          <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">30(US)</a>
+                          <button className="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">S</button>
                         </li>
                         <li>
-                          <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">31(US)</a>
+                          <button className="fleX items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">M</button>
                         </li>
                         <li>
-                          <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">32(US)</a>
+                          <button className="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">L</button>
                         </li>
                         <li>
-                          <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">33(US)</a>
+                          <button className="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">XXL</button>
                         </li>
                         <li>
-                          <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">34(US)</a>
+                          <button className="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">XXXL</button>
                         </li>
-                        <li>
-                          <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">35(US)</a>
-                        </li>
-                        <li>
-                          <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">36(US)</a>
-                        </li>
-                        <li>
-                          <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">37(US)</a>
-                        </li>
-                        <li>
-                          <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">38(US)</a>
-                        </li>
-                        <li>
-                          <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">39(US)</a>
-                        </li>
-                        <li>
-                          <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">40(US)</a>
-                        </li>
-                      </ul>
-                  </div>
-            </aside>
-              ) : (<div>not shirt pants shoes</div>)
+                    </ul>
+                  </aside>
+                ) 
+                  : 
+                  // Pants Size CSS
+                  pants ?
+                  (
+                  <aside className="">
+                      <button onClick={() => setHidden(!hidden)} id="dropdownHoverButton" data-dropdown-toggle="dropdownHover" data-dropdown-trigger="hover" className="text-black bg-white hover:bg-slate-800 border border-slate-400 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center" type="button">Select Size <svg class="w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                            <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4"/>
+                          </svg></button>
+                      {/* Dropdwon */}
+                        <div id="dropdownHover" className={ hidden ? "z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700" : "z-10 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700"}>
+                            <ul className="py-2 text-sm text-gray-700" aria-labelledby="dropdownHoverButton">
+                              <li>
+                                <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">28(US)</a>
+                              </li>
+                              <li>
+                                <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">29(US)</a>
+                              </li>
+                              <li>
+                                <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">30(US)</a>
+                              </li>
+                              <li>
+                                <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">31(US)</a>
+                              </li>
+                              <li>
+                                <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">32(US)</a>
+                              </li>
+                              <li>
+                                <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">33(US)</a>
+                              </li>
+                              <li>
+                                <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">34(US)</a>
+                              </li>
+                              <li>
+                                <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">35(US)</a>
+                              </li>
+                              <li>
+                                <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">36(US)</a>
+                              </li>
+                              <li>
+                                <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">37(US)</a>
+                              </li>
+                              <li>
+                                <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">38(US)</a>
+                              </li>
+                              <li>
+                                <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">39(US)</a>
+                              </li>
+                              <li>
+                                <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">40(US)</a>
+                              </li>
+                            </ul>
+                        </div>
+                  </aside>
+
+                  ): shoes ? 
+                  (  <aside className="">
+                    <button onClick={() => setHidden(!hidden)} id="dropdownHoverButton" data-dropdown-toggle="dropdownHover" data-dropdown-trigger="hover" className="text-black bg-white hover:bg-slate-800 border border-slate-400 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center" type="button">Select Size <svg class="w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                          <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4"/>
+                        </svg></button>
+                    {/* Dropdwon */}
+                      <div id="dropdownHover" className={ hidden ? "z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700" : "z-10 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700"}>
+                          <ul className="py-2 text-sm text-gray-700" aria-labelledby="dropdownHoverButton">
+                            <li>
+                              <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">7</a>
+                            </li>
+                            <li>
+                              <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">8</a>
+                            </li>
+                            <li>
+                              <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">9</a>
+                            </li>
+                            <li>
+                              <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">10</a>
+                            </li>
+                            <li>
+                              <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">11</a>
+                            </li>
+                            <li>
+                              <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">12</a>
+                            </li>
+                            <li>
+                              <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">13</a>
+                            </li>
+                          </ul>
+                      </div>
+                </aside>
+              ) : (
+              <div></div>
+              )
               }
             </aside>
           </div>
@@ -250,7 +237,8 @@ export const ItemDetail = () => {
               </aside>
 
               {/* Sizes */}
-              { shirt
+              { 
+              shirt
               ? 
               ( 
               <aside className="my-4 flex justify-center">
@@ -279,7 +267,7 @@ export const ItemDetail = () => {
                 </ul>
               </aside>
             ) 
-              :
+              : pants ?
               (
                <aside className="">
                   <button onClick={() => setHidden(!hidden)} id="dropdownHoverButton" data-dropdown-toggle="dropdownHover" data-dropdown-trigger="hover" className="mt-4 mx-2 text-black bg-white hover:bg-slate-800 border border-slate-400 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center" type="button">Select Size <svg class="w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
@@ -330,10 +318,41 @@ export const ItemDetail = () => {
                         </ul>
                     </div>
                </aside> 
-              )
+              ) : shoes ? 
+              ( 
+                <aside className="">
+                <button onClick={() => setHidden(!hidden)} id="dropdownHoverButton" data-dropdown-toggle="dropdownHover" data-dropdown-trigger="hover" className="mt-4 mx-2 text-black bg-white hover:bg-slate-800 border border-slate-400 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center" type="button">Select Size <svg class="w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                      <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4"/>
+                    </svg></button>
+                {/* Dropdwon */}
+                  <div id="dropdownHover" className={ hidden ? "z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700" : "z-10 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700"}>
+                      <ul className="py-2 text-sm text-gray-700" aria-labelledby="dropdownHoverButton">
+                        <li>
+                          <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">7</a>
+                        </li>
+                        <li>
+                          <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">8</a>
+                        </li>
+                        <li>
+                          <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">9</a>
+                        </li>
+                        <li>
+                          <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">10</a>
+                        </li>
+                        <li>
+                          <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">11</a>
+                        </li>
+                        <li>
+                          <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">12</a>
+                        </li>
+                        <li>
+                          <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">13</a>
+                        </li>
+                      </ul>
+                  </div>
+                </aside> 
+           ) : (<div></div>)
               }
-             
-              <hr />
             </div>
         </>
       )}
