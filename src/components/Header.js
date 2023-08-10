@@ -9,8 +9,8 @@ export const Header = () => {
   const cart = useSelector(state => state.cart)
   return (
     
-    <nav className="bg-white border-gray-200">
-      <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+    <nav className="bg-white border-gray-200 top-0 fixed z-20 w-screen">
+      <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto">
         <Link to="/" className="flex items-center">
             <img src={Logo} className="h-8 mr-3" alt="Rudiments Logo" />
             <span className="self-center text-3xl leading-loose font-semibold whitespace-nowrap text-blk font-Bebas ">RUDIMENTS</span>
@@ -34,9 +34,6 @@ export const Header = () => {
             </li>
           </ul>
         </div>
-      </div>
-      <div className="w-full bg-blk flex justify-center items-center h-8">
-        <p className="text-xl font-Bebas font-medium text-gray-200">Free Delivery on orders over $100</p>
       </div>
     </nav>
 
