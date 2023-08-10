@@ -9,7 +9,13 @@
     margin: 0;
 }
 
+main{
+    overflow-x: hidden;
+}
 
+section{
+    padding-top: 100px;
+}
 /* Home Page Button Images */
 
 #buttonOne,#buttonTwo,#buttonThree, #buttonFour,#buttonFive,#buttonSix{
