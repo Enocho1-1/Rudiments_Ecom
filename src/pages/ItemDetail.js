@@ -59,7 +59,16 @@ export const ItemDetail = () => {
   }
   })
 
- 
+  const item = {
+    id: data.id,
+    title: data.title,
+    price: data.price,
+    quantity: 1,
+    size: selectSize,
+    image: imageUrl
+  }
+
+
 
 
   return (
@@ -112,7 +121,7 @@ export const ItemDetail = () => {
                     <ul className="flex flex-row  text-sm">
                     {shirtSizes.map( (item, index) => (
                       <li key={index}>
-                        <button className=" shirtSize flex items-center justify-center px-3 h-8 leading-tight text-gray-800 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">{item}</button>
+                        <button onClick={(e)=> {console.log(e.target.textContent)}} className=" shirtSize flex items-center justify-center px-3 h-8 leading-tight text-gray-800 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">{item}</button>
                       </li>
                     ))}
                     </ul>
@@ -160,7 +169,7 @@ export const ItemDetail = () => {
               )
               }
                     {/* Add To Cart */}
-                    <button type="button" onClick={() => dispatch(addItemToCart(data))} className=" cart flex justify-center self-center focus:outline-none text-black font-Bebas text-xl bg-yellow-400  focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg w-[75%] p-2 mt-2 ">Add To Bag<img src={Logo} className="h-6 mx-2"/></button>
+                    <button type="button" onClick={() => dispatch(addItemToCart(item))} className=" cart flex justify-center self-center focus:outline-none text-black font-Bebas text-xl bg-yellow-400  focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg w-[75%] p-2 mt-2 ">Add To Bag<img src={Logo} className="h-6 mx-2"/></button>
             </aside>
           </div>
           </>
@@ -193,7 +202,7 @@ export const ItemDetail = () => {
                 <ul className=" flex flex-row  text-sm ">
                   {shirtSizes.map( (item, index) => (
                   <li key={index}>
-                    <button className=" shirtSize flex items-center justify-center px-3 h-8 leading-tight text-gray-800 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">{item}</button>
+                    <button onClick={(e)=> {setSelectSize(e.target.textContent)}} className=" shirtSize flex items-center justify-center px-3 h-8 leading-tight text-gray-800 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">{item}</button>
                   </li>
                   ))}
                 </ul>
@@ -237,7 +246,7 @@ export const ItemDetail = () => {
               }
 
               {/* Add To Cart */}
-              <button type="button" onClick={() => dispatch(addItemToCart(data))} className=" cart flex flew-row justify-center focus:outline-none text-black font-Bebas text-xl bg-yellow-400  focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg w-[75%] p-2 mt-8 ">Add To Bag<img src={Logo} className="h-6 mx-2"/></button>
+              <button type="button" onClick={() => dispatch(addItemToCart(item))} className=" cart flex flew-row justify-center focus:outline-none text-black font-Bebas text-xl bg-yellow-400  focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg w-[75%] p-2 mt-8 ">Add To Bag<img src={Logo} className="h-6 mx-2"/></button>
             </div>
         </>
       )}
