@@ -52,13 +52,14 @@ export const ItemDetail = () => {
     productitle(title)
 
     stringArray.includes("Tee") || stringArray.includes( "Button") || stringArray.includes("Shirt") ? 
-    setShirt(true) : stringArray.includes("trousers") || stringArray.includes( "Joggers") || stringArray.includes("Jeans") ? 
+    setShirt(true) : stringArray.includes("trousers") || stringArray.includes( "Joggers") || stringArray.includes("Jeans") || stringArray.includes("shorts")? 
     setPants(true) : stringArray.includes("Shoes") || stringArray.includes( "loafers") || stringArray.includes("trainers") ||     stringArray.includes("sandals") || stringArray.includes("sliders") ? setShoes(true) : console.log("done")
   } else {
     console.log('no title')
   }
   })
 
+// Cart Item Object
   const item = {
     id: data.id,
     title: data.title,
@@ -121,7 +122,7 @@ export const ItemDetail = () => {
                     <ul className="flex flex-row  text-sm">
                     {shirtSizes.map( (item, index) => (
                       <li key={index}>
-                        <button onClick={(e)=> {console.log(e.target.textContent)}} className=" shirtSize flex items-center justify-center px-3 h-8 leading-tight text-gray-800 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">{item}</button>
+                        <button onClick={(e)=> {setSelectSize(e.target.textContent)}} className=" shirtSize flex items-center justify-center px-3 h-8 leading-tight text-gray-800 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">{item}</button>
                       </li>
                     ))}
                     </ul>
@@ -139,7 +140,7 @@ export const ItemDetail = () => {
                         <div id="dropdownHover" className={ hidden ? "z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700" : "z-10 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 h-[150px] overflow-y-scroll"}>
                             <ul className="py-2 text-sm text-gray-700" aria-labelledby="dropdownHoverButton">
                               { pantSizes.map((item, index) => (
-                                  <li key={index}>
+                                  <li onClick={(e) => {setSelectSize(e.target.textContent); setHidden(!hidden)}} key={index}>
                                      <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">    {item}</a>
                                    </li>
                               ))}
@@ -157,7 +158,7 @@ export const ItemDetail = () => {
                       <div id="dropdownHover" className={ hidden ? "z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700" : "z-10 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 h-[150px] overflow-y-scroll"}>
                           <ul className="py-2 text-sm text-gray-700" aria-labelledby="dropdownHoverButton">
                           { shoeSizes.map( (item, index) => (
-                            <li key={index}>
+                            <li onClick={(e) => {setSelectSize(e.target.textContent); setHidden(!hidden)}} key={index}>
                               <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">{item}</a>
                             </li>
                           ))}
@@ -218,7 +219,7 @@ export const ItemDetail = () => {
                     <div id="dropdownHover" className={ hidden ? "z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700" : "z-10 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 h-[150px] overflow-y-scroll"}>
                         <ul className=" py-2 text-sm text-gray-700" aria-labelledby="dropdownHoverButton">
                         { pantSizes.map((item, index) => (
-                                  <li key={index}>
+                                  <li onClick={(e) => {setSelectSize(e.target.textContent); setHidden(!hidden)}} key={index}>
                                      <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">    {item}</a>
                                    </li>
                               ))}
@@ -235,7 +236,7 @@ export const ItemDetail = () => {
                   <div id="dropdownHover" className={ hidden ? "z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700" : "z-10 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 h-[150px] overflow-y-scroll"}>
                       <ul className="py-2 text-sm text-gray-700" aria-labelledby="dropdownHoverButton">
                         { shoeSizes.map( (item, index) => (
-                            <li key={index}>
+                            <li onClick={(e) => {setSelectSize(e.target.textContent); setHidden(!hidden)}} key={index}>
                               <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">{item}</a>
                             </li>
                         ))}
