@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom"
 import { useDispatch } from "react-redux"
 import { addItemToCart } from "../store/CartSlice"
 import { Loading } from "../components"
+import { shirtSizes, pantSizes, shoeSizes } from "../sizes/sizes"
 import Logo from "../assests/cube.png"
 import "./ItemDetail.css"
 
@@ -19,6 +20,7 @@ export const ItemDetail = () => {
   const mobileView = "flex flex-col"
   let stringArray
 
+  
   useEffect(() => {
     const fetchProducts = async () => {
       try{
@@ -108,24 +110,11 @@ export const ItemDetail = () => {
                     ( 
                   <aside className="my-4 flex justify-center">
                     <ul className="flex flex-row  text-sm">
-                        <li>
-                          <button  className="flex items-center justify-center px-3 h-8 leading-tight text-gray-800 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">XS</button>
-                        </li>
-                        <li>
-                          <button className="flex items-center justify-center px-3 h-8 leading-tight text-gray-800 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">S</button>
-                        </li>
-                        <li>
-                          <button className="fleX items-center justify-center px-3 h-8 leading-tight text-gray-800 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">M</button>
-                        </li>
-                        <li>
-                          <button className="flex items-center justify-center px-3 h-8 leading-tight text-gray-800 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">L</button>
-                        </li>
-                        <li>
-                          <button className="flex items-center justify-center px-3 h-8 leading-tight text-gray-800 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">XXL</button>
-                        </li>
-                        <li>
-                          <button className="flex items-center justify-center px-3 h-8 leading-tight text-gray-800 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">XXXL</button>
-                        </li>
+                    {shirtSizes.map( (item, index) => (
+                      <li key={index}>
+                        <button className=" shirtSize flex items-center justify-center px-3 h-8 leading-tight text-gray-800 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">{item}</button>
+                      </li>
+                    ))}
                     </ul>
                   </aside>
                 ) 
@@ -140,45 +129,11 @@ export const ItemDetail = () => {
                       {/* Dropdwon */}
                         <div id="dropdownHover" className={ hidden ? "z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700" : "z-10 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 h-[150px] overflow-y-scroll"}>
                             <ul className="py-2 text-sm text-gray-700" aria-labelledby="dropdownHoverButton">
-                              <li>
-                                <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">28(US)</a>
-                              </li>
-                              <li>
-                                <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">29(US)</a>
-                              </li>
-                              <li>
-                                <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">30(US)</a>
-                              </li>
-                              <li>
-                                <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">31(US)</a>
-                              </li>
-                              <li>
-                                <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">32(US)</a>
-                              </li>
-                              <li>
-                                <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">33(US)</a>
-                              </li>
-                              <li>
-                                <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">34(US)</a>
-                              </li>
-                              <li>
-                                <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">35(US)</a>
-                              </li>
-                              <li>
-                                <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">36(US)</a>
-                              </li>
-                              <li>
-                                <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">37(US)</a>
-                              </li>
-                              <li>
-                                <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">38(US)</a>
-                              </li>
-                              <li>
-                                <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">39(US)</a>
-                              </li>
-                              <li>
-                                <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">40(US)</a>
-                              </li>
+                              { pantSizes.map((item, index) => (
+                                  <li key={index}>
+                                     <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">    {item}</a>
+                                   </li>
+                              ))}
                             </ul>
                         </div>
                   </aside>
@@ -192,27 +147,11 @@ export const ItemDetail = () => {
                     {/* Dropdwon */}
                       <div id="dropdownHover" className={ hidden ? "z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700" : "z-10 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 h-[150px] overflow-y-scroll"}>
                           <ul className="py-2 text-sm text-gray-700" aria-labelledby="dropdownHoverButton">
-                            <li>
-                              <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">7</a>
+                          { shoeSizes.map( (item, index) => (
+                            <li key={index}>
+                              <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">{item}</a>
                             </li>
-                            <li>
-                              <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">8</a>
-                            </li>
-                            <li>
-                              <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">9</a>
-                            </li>
-                            <li>
-                              <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">10</a>
-                            </li>
-                            <li>
-                              <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">11</a>
-                            </li>
-                            <li>
-                              <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">12</a>
-                            </li>
-                            <li>
-                              <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">13</a>
-                            </li>
+                          ))}
                           </ul>
                       </div>
                   </aside>
@@ -252,24 +191,11 @@ export const ItemDetail = () => {
               ( 
               <aside className="my-4 flex">
                 <ul className=" flex flex-row  text-sm ">
-                    <li>
-                      <button onClick={(e) => setSelectSize(e.target.textContent)} className=" shirtSize flex items-center justify-center px-3 h-8 leading-tight text-gray-800 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">XS</button>
-                    </li>
-                    <li>
-                      <button className=" shirtSize flex items-center justify-center px-3 h-8 leading-tight text-gray-800 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">S</button>
-                    </li>
-                    <li>
-                      <button className="shirtSize flex items-center justify-center px-3 h-8 leading-tight text-gray-800 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">M</button>
-                    </li>
-                    <li>
-                      <button className="shirtSize flex items-center justify-center px-3 h-8 leading-tight text-gray-800 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">L</button>
-                    </li>
-                    <li>
-                      <button className="shirtSize flex items-center justify-center px-3 h-8 leading-tight text-gray-800 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">XXL</button>
-                    </li>
-                    <li>
-                      <button className="shirtSize flex items-center justify-center px-3 h-8 leading-tight text-gray-800 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">XXXL</button>
-                    </li>
+                  {shirtSizes.map( (item, index) => (
+                  <li key={index}>
+                    <button className=" shirtSize flex items-center justify-center px-3 h-8 leading-tight text-gray-800 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">{item}</button>
+                  </li>
+                  ))}
                 </ul>
               </aside>
             ) 
@@ -282,45 +208,11 @@ export const ItemDetail = () => {
                    {/* Dropdwon */}
                     <div id="dropdownHover" className={ hidden ? "z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700" : "z-10 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 h-[150px] overflow-y-scroll"}>
                         <ul className=" py-2 text-sm text-gray-700" aria-labelledby="dropdownHoverButton">
-                          <li>
-                            <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">28(US)</a>
-                          </li>
-                          <li>
-                            <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">29(US)</a>
-                          </li>
-                          <li>
-                            <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">30(US)</a>
-                          </li>
-                          <li>
-                            <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">31(US)</a>
-                          </li>
-                          <li>
-                            <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">32(US)</a>
-                          </li>
-                          <li>
-                            <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">33(US)</a>
-                          </li>
-                          <li>
-                            <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">34(US)</a>
-                          </li>
-                          <li>
-                            <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">35(US)</a>
-                          </li>
-                          <li>
-                            <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">36(US)</a>
-                          </li>
-                          <li>
-                            <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">37(US)</a>
-                          </li>
-                          <li>
-                            <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">38(US)</a>
-                          </li>
-                          <li>
-                            <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">39(US)</a>
-                          </li>
-                          <li>
-                            <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">40(US)</a>
-                          </li>
+                        { pantSizes.map((item, index) => (
+                                  <li key={index}>
+                                     <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">    {item}</a>
+                                   </li>
+                              ))}
                         </ul>
                     </div>
                </aside> 
@@ -333,27 +225,11 @@ export const ItemDetail = () => {
                 {/* Dropdwon */}
                   <div id="dropdownHover" className={ hidden ? "z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700" : "z-10 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 h-[150px] overflow-y-scroll"}>
                       <ul className="py-2 text-sm text-gray-700" aria-labelledby="dropdownHoverButton">
-                        <li>
-                          <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">7</a>
-                        </li>
-                        <li>
-                          <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">8</a>
-                        </li>
-                        <li>
-                          <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">9</a>
-                        </li>
-                        <li>
-                          <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">10</a>
-                        </li>
-                        <li>
-                          <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">11</a>
-                        </li>
-                        <li>
-                          <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">12</a>
-                        </li>
-                        <li>
-                          <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">13</a>
-                        </li>
+                        { shoeSizes.map( (item, index) => (
+                            <li key={index}>
+                              <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">{item}</a>
+                            </li>
+                        ))}
                       </ul>
                   </div>
                 </aside> 
