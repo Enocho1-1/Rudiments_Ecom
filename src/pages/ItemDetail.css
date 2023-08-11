@@ -22,7 +22,7 @@
 
     @media (min-width: 1024px){
         .individualImg img{
-            height: 500px;
+            height: auto;
         }
     }
 

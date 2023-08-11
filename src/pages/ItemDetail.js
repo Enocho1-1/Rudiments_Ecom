@@ -1,5 +1,7 @@
 import { useEffect,useState } from "react"
 import { useParams } from "react-router-dom"
+import { useDispatch } from "react-redux"
+import { addItemToCart } from "../store/CartSlice"
 import { Loading } from "../components"
 import Logo from "../assests/cube.png"
 import "./ItemDetail.css"
@@ -11,7 +13,11 @@ export const ItemDetail = () => {
   const [pants, setPants] = useState(false)
   const [shoes, setShoes] = useState(false)
   const [hidden, setHidden] = useState(true)
+  const [selectSize, setSelectSize] = useState("")
   const param = useParams()
+  const dispatch = useDispatch()
+  const mobileView = "flex flex-col"
+  let stringArray
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -28,16 +34,17 @@ export const ItemDetail = () => {
     fetchProducts();
   },[param.id])
 
- const { title , price, imageUrl, imageUrl_Two, imageUrl_Three, imageUrl_Four} = data
+  // Destructure Returned JSON
+ const {  title , price, imageUrl, imageUrl_Two, imageUrl_Three, imageUrl_Four} = data
 
- let stringArray
+
 
 //  Title Array function
  const productitle = (string) => {
    stringArray = string.split(' ')
  }
 
-
+// Clothing Piece Validation
   useEffect(() => { 
     if(title){
     productitle(title)
@@ -50,8 +57,9 @@ export const ItemDetail = () => {
   }
   })
 
+ 
 
- const mobileView = "flex flex-col"
+
   return (
     <section>
       {loading && <Loading/>}
@@ -101,7 +109,7 @@ export const ItemDetail = () => {
                   <aside className="my-4 flex justify-center">
                     <ul className="flex flex-row  text-sm">
                         <li>
-                          <button className="flex items-center justify-center px-3 h-8 leading-tight text-gray-800 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">XS</button>
+                          <button  className="flex items-center justify-center px-3 h-8 leading-tight text-gray-800 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">XS</button>
                         </li>
                         <li>
                           <button className="flex items-center justify-center px-3 h-8 leading-tight text-gray-800 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">S</button>
@@ -130,7 +138,7 @@ export const ItemDetail = () => {
                             <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4"/>
                           </svg></button>
                       {/* Dropdwon */}
-                        <div id="dropdownHover" className={ hidden ? "z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700" : "z-10 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 h-[150px]"}>
+                        <div id="dropdownHover" className={ hidden ? "z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700" : "z-10 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 h-[150px] overflow-y-scroll"}>
                             <ul className="py-2 text-sm text-gray-700" aria-labelledby="dropdownHoverButton">
                               <li>
                                 <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">28(US)</a>
@@ -213,7 +221,7 @@ export const ItemDetail = () => {
               )
               }
                     {/* Add To Cart */}
-                    <button type="button" className="flex justify-center self-center focus:outline-none text-black font-Bebas text-xl bg-yellow-400  focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg w-[75%] p-2 mt-2 ">Add To Bag<img src={Logo} className="h-6 mx-2"/></button>
+                    <button type="button" onClick={() => dispatch(addItemToCart(data))} className=" cart flex justify-center self-center focus:outline-none text-black font-Bebas text-xl bg-yellow-400  focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg w-[75%] p-2 mt-2 ">Add To Bag<img src={Logo} className="h-6 mx-2"/></button>
             </aside>
           </div>
           </>
@@ -243,24 +251,24 @@ export const ItemDetail = () => {
               ? 
               ( 
               <aside className="my-4 flex">
-                <ul className="flex flex-row  text-sm ">
+                <ul className=" flex flex-row  text-sm ">
                     <li>
-                      <button className="flex items-center justify-center px-3 h-8 leading-tight text-gray-800 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">XS</button>
+                      <button onClick={(e) => setSelectSize(e.target.textContent)} className=" shirtSize flex items-center justify-center px-3 h-8 leading-tight text-gray-800 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">XS</button>
                     </li>
                     <li>
-                      <button className="flex items-center justify-center px-3 h-8 leading-tight text-gray-800 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">S</button>
+                      <button className=" shirtSize flex items-center justify-center px-3 h-8 leading-tight text-gray-800 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">S</button>
                     </li>
                     <li>
-                      <button className="fleX items-center justify-center px-3 h-8 leading-tight text-gray-800 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">M</button>
+                      <button className="shirtSize flex items-center justify-center px-3 h-8 leading-tight text-gray-800 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">M</button>
                     </li>
                     <li>
-                      <button className="flex items-center justify-center px-3 h-8 leading-tight text-gray-800 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">L</button>
+                      <button className="shirtSize flex items-center justify-center px-3 h-8 leading-tight text-gray-800 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">L</button>
                     </li>
                     <li>
-                      <button className="flex items-center justify-center px-3 h-8 leading-tight text-gray-800 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">XXL</button>
+                      <button className="shirtSize flex items-center justify-center px-3 h-8 leading-tight text-gray-800 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">XXL</button>
                     </li>
                     <li>
-                      <button className="flex items-center justify-center px-3 h-8 leading-tight text-gray-800 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">XXXL</button>
+                      <button className="shirtSize flex items-center justify-center px-3 h-8 leading-tight text-gray-800 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">XXXL</button>
                     </li>
                 </ul>
               </aside>
@@ -353,7 +361,7 @@ export const ItemDetail = () => {
               }
 
               {/* Add To Cart */}
-              <button type="button" className=" flex flew-row justify-center focus:outline-none text-black font-Bebas text-xl bg-yellow-400  focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg w-[75%] p-2 mt-8 ">Add To Bag<img src={Logo} className="h-6 mx-2"/></button>
+              <button type="button" onClick={() => dispatch(addItemToCart(data))} className=" cart flex flew-row justify-center focus:outline-none text-black font-Bebas text-xl bg-yellow-400  focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg w-[75%] p-2 mt-8 ">Add To Bag<img src={Logo} className="h-6 mx-2"/></button>
             </div>
         </>
       )}
