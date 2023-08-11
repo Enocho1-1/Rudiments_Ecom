@@ -10,7 +10,7 @@ export const Header = () => {
   return (
     
     <nav className="bg-white border-gray-200 top-0 fixed z-20 w-screen">
-      <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto">
+      <div className="max-w-screen-xl flex flex-wrap items-center justify-between px-3 mx-auto">
         <Link to="/" className="flex items-center">
             <img src={Logo} className="h-8 mr-3" alt="Rudiments Logo" />
             <span className="self-center text-3xl leading-loose font-semibold whitespace-nowrap text-blk font-Bebas ">RUDIMENTS</span>
