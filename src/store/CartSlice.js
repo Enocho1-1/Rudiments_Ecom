@@ -8,16 +8,9 @@ const CartSlice = createSlice({
     },
     reducers :{
         addItemToCart(state,action){
-            // const cartItem = {
-            //     id: action.payload.id,
-            //     title: action.payload.title,
-            //     price: action.payload.price,
-            //     quantity: 1,
-            //     size: size,
-            //     imageURL: action.payload.imageURL
-            // }
+            const updateCart = state.cartItems.concat(action.payload)
 
-            console.log(action.payload)
+            return {...state, cartItems: updateCart}
         }
     }
 })
