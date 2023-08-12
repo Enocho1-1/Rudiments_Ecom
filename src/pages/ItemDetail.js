@@ -191,7 +191,7 @@ export const ItemDetail = () => {
           // Responsive Design range: minimum 769px 
         <>
             {/* Side Cart Reveal */}
-            { sidecart && < SideCart sidecart={sidecart} setSideCart={setSideCart}/>}
+            { sidecart && < SideCart setSideCart={setSideCart}/>}
             {/* Product Images */}
             <div className="grid grid-cols-2 grid-rows-2 px-4 tablet:max-laptop:grid-cols-gridCols tablet:max-laptop:grid-rows-gridRows tablet:max-laptop:w-[50%] laptop:max-desktop:w-[70%] desktop:w-[75%]  individualImg">
               <img src={imageUrl} className=" w-full " alt="..."/>
