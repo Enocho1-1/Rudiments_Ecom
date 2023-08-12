@@ -1,8 +1,8 @@
 import { useEffect,useState } from "react"
 import { useParams } from "react-router-dom"
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { addItemToCart } from "../store/CartSlice"
-import { Loading } from "../components"
+import { Loading,SideCart } from "../components"
 import { shirtSizes, pantSizes, shoeSizes } from "../sizes/sizes"
 import Logo from "../assests/cube.png"
 import "./ItemDetail.css"
@@ -14,7 +14,9 @@ export const ItemDetail = () => {
   const [pants, setPants] = useState(false)
   const [shoes, setShoes] = useState(false)
   const [hidden, setHidden] = useState(true)
+  const [sidecart, setSideCart] = useState(false)
   const [selectSize, setSelectSize] = useState("")
+  const cart = useSelector(state => state => state.cart.cartItems)
   const param = useParams()
   const dispatch = useDispatch()
   const mobileView = "flex flex-col"
@@ -39,7 +41,7 @@ export const ItemDetail = () => {
   // Destructure Returned JSON
  const {  title , price, imageUrl, imageUrl_Two, imageUrl_Three, imageUrl_Four} = data
 
-
+ 
 
 //  Title Array function
  const productitle = (string) => {
@@ -57,8 +59,16 @@ export const ItemDetail = () => {
   } else {
     console.log('no title')
   }
-  })
+  },[title])
 
+
+// Side Cart Reveal 
+  // useEffect(() => {
+  //   const revealCart = () => {
+   
+  //   }
+  //   revealCart()
+  // },[cart])
 // Cart Item Object
   const item = {
     id: data.id,
@@ -73,7 +83,7 @@ export const ItemDetail = () => {
 
 
   return (
-    <section>
+    <section className="relative">
       {loading && <Loading/>}
       <aside className={window.innerWidth < 769 ? mobileView : "flex flex-row"}>
         {window.innerWidth < 769 
@@ -178,9 +188,12 @@ export const ItemDetail = () => {
       ) 
       : 
       (
+          // Responsive Design range: minimum 769px 
         <>
+            {/* Side Cart Reveal */}
+            { sidecart && < SideCart sidecart={sidecart} setSideCart={setSideCart}/>}
             {/* Product Images */}
-            <div className="grid grid-cols-2 grid-rows-2 px-4 tablet:max-laptop:grid-cols-gridCols tablet:max-laptop:grid-rows-gridRows tablet:max-laptop:w-[70%] desktop:w-[75%]  individualImg">
+            <div className="grid grid-cols-2 grid-rows-2 px-4 tablet:max-laptop:grid-cols-gridCols tablet:max-laptop:grid-rows-gridRows tablet:max-laptop:w-[50%] laptop:max-desktop:w-[70%] desktop:w-[75%]  individualImg">
               <img src={imageUrl} className=" w-full " alt="..."/>
               <img src={imageUrl_Two} className="w-full " alt="..."/>
               <img src={imageUrl_Three} className=" w-full " alt="..."/>
@@ -188,10 +201,10 @@ export const ItemDetail = () => {
             </div>
 
             {/* Product Info */}
-            <div className="flex flex-col">
-              <aside className="mt-12">
-                <h1 className=" font-Inconsolata text-3xl">{title}</h1>
-                <p className="font-normal mt-2 text-2xl">{price}</p>
+            <div className="flex flex-col fixed right-0 tablet:max-laptop:w-[50%] laptop:max-desktop:w-[30%] desktop:w-[25%]">
+              <aside className="mt-12 flex flex-col">
+                <h1 className=" font-Inconsolata text-2xl justify-self-center">{title}</h1>
+                <p className="font-normal mt-2 text-xl">{price}</p>
               </aside>
 
               {/* Sizes */}
@@ -247,7 +260,7 @@ export const ItemDetail = () => {
               }
 
               {/* Add To Cart */}
-              <button type="button" onClick={() => dispatch(addItemToCart(item))} className=" cart flex flew-row justify-center focus:outline-none text-black font-Bebas text-xl bg-yellow-400  focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg w-[75%] p-2 mt-8 ">Add To Bag<img src={Logo} className="h-6 mx-2"/></button>
+              <button type="button" onClick={() => {dispatch(addItemToCart(item)); setSideCart(true)}} className=" cart flex flew-row justify-center focus:outline-none text-black font-Bebas text-xl bg-yellow-400  focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg w-[75%] p-2 mt-8 ">Add To Bag<img src={Logo} className="h-6 mx-2"/></button>
             </div>
         </>
       )}

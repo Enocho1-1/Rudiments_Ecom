@@ -22,7 +22,7 @@ module.exports = {
       },
       gridTemplateColumns: {
         // Simple 2 column grid
-        'gridCols': 'repeat(2, minmax(0, 220px))',
+        'gridCols': 'repeat(2, minmax(0, 500px))',
       },
       gridTemplateRows: {
         'gridRows': 'repeat(2, minmax(0, 1fr))',
