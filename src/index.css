@@ -46,3 +46,8 @@ section{
 #buttonSix{
     background-image: url("https://m.media-amazon.com/images/I/61WuMqZ645L.jpg");
 }
+
+#modalOverlay{
+    background-color: rgba( 0, 0, 0, .7);
+    
+}
