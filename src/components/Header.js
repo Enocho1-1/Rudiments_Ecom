@@ -6,7 +6,9 @@ import Logo from "../assests/cube.png"
 
 export const Header = () => {
   const [isHidden, setIsHidden] = useState(false)
-  const cart = useSelector(state => state.cart)
+  const cart = useSelector(state => state.cart.cartItems)
+
+  console.log(cart)
   return (
     
     <nav className="bg-white border-gray-200 top-0 fixed z-20 w-screen">
