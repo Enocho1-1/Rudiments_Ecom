@@ -73,7 +73,7 @@ export const ItemDetail = () => {
 
 
   return (
-    <section>
+    <section className="relative">
       {loading && <Loading/>}
       <aside className={window.innerWidth < 769 ? mobileView : "flex flex-row"}>
         {window.innerWidth < 769 
@@ -178,6 +178,7 @@ export const ItemDetail = () => {
       ) 
       : 
       (
+          // Responsive Design range: minimum 769px 
         <>
             {/* Product Images */}
             <div className="grid grid-cols-2 grid-rows-2 px-4 tablet:max-laptop:grid-cols-gridCols tablet:max-laptop:grid-rows-gridRows tablet:max-laptop:w-[70%] desktop:w-[75%]  individualImg">
@@ -188,10 +189,10 @@ export const ItemDetail = () => {
             </div>
 
             {/* Product Info */}
-            <div className="flex flex-col">
-              <aside className="mt-12">
-                <h1 className=" font-Inconsolata text-3xl">{title}</h1>
-                <p className="font-normal mt-2 text-2xl">{price}</p>
+            <div className="flex flex-col fixed right-0 tablet:max-laptop:w-[30%] desktop:w-[25%]">
+              <aside className="mt-12 flex flex-col">
+                <h1 className=" font-Inconsolata text-2xl justify-self-center">{title}</h1>
+                <p className="font-normal mt-2 text-xl">{price}</p>
               </aside>
 
               {/* Sizes */}
