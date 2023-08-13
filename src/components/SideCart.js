@@ -2,10 +2,12 @@ import { useSelector } from "react-redux"
 import { Link } from "react-router-dom"
 
 export const SideCart = ({setSideCart}) => {
-  const cart = useSelector( state => state.cart.cartItems)
+  const cart = useSelector( state => state.cart.cartItems )
+  const total = useSelector( state => state.cart.totalPrice)
+
   return (
     <section className="fixed top-0 left-0 right-0 bottom-0 w-screen flex justify-end z-40" id="modalOverlay">
-        <div className="absolute top-0 bg-white h-full laptop:w-[35%]">
+        <div className="absolute flex flex-col top-0 bg-white h-full laptop:w-[35%]">
             <header className="mt-6 px-4 flex flex-row justify-between">
                 <h1 className="text-2xl font-Bebas">Cart</h1>
                 <svg onClick={() => {setSideCart(false)}} xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-x-lg hover:cursor-pointer" viewBox="0 0 16 16">
@@ -14,7 +16,7 @@ export const SideCart = ({setSideCart}) => {
             </header>
 
             {/* Cart Items */}
-            <aside className=" mt-4 px-4 h-[400px] overflow-y-scroll">
+            <aside className=" mt-2 px-4 h-[300px] overflow-y-scroll">
               <div className="flex flex-col justify-evenly p-2">
                 { cart.map( item => (
                   <span className=" mt-4 flex flex-row">
@@ -31,6 +33,15 @@ export const SideCart = ({setSideCart}) => {
                 ))}
               </div>
             </aside>
+            {/*  Total */}
+            <aside className="mt-2 px-8 flex flex-row justify-between">
+              <p className="font-bold font-Bebas text-xl">Total:</p>
+              <p>${total}</p>
+            </aside>
+            <Link to={`/cart`} className=" text-xl font-Bebas text-center mt-4 mx-4 border-1 border-black p-2">
+             View Bag
+            </Link>
+       
         </div>
     </section>
   )
