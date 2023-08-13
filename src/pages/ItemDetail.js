@@ -54,21 +54,12 @@ export const ItemDetail = () => {
     productitle(title)
 
     stringArray.includes("Tee") || stringArray.includes( "Button") || stringArray.includes("Shirt") ? 
-    setShirt(true) : stringArray.includes("trousers") || stringArray.includes( "Joggers") || stringArray.includes("Jeans") || stringArray.includes("shorts")? 
+    setShirt(true) : stringArray.includes("trousers") || stringArray.includes( "joggers") || stringArray.includes("Jeans") || stringArray.includes("shorts")? 
     setPants(true) : stringArray.includes("Shoes") || stringArray.includes( "loafers") || stringArray.includes("trainers") ||     stringArray.includes("sandals") || stringArray.includes("sliders") ? setShoes(true) : console.log("done")
   } else {
     console.log('no title')
   }
   },[title])
-
-
-// Side Cart Reveal 
-  // useEffect(() => {
-  //   const revealCart = () => {
-   
-  //   }
-  //   revealCart()
-  // },[cart])
 // Cart Item Object
   const item = {
     id: data.id,
@@ -119,7 +110,7 @@ export const ItemDetail = () => {
           <div className="w-full">
             <aside className="flex justify-between p-3 mt-4">
               <h1 className=" font-Bebas text-2xl">{title}</h1>
-              <p className="font-semibold text-xl">{price}</p>
+              <p className="font-semibold text-xl">${price}.00</p>
             </aside>
             <hr />
             <aside className="flex flex-col">
@@ -191,7 +182,7 @@ export const ItemDetail = () => {
           // Responsive Design range: minimum 769px 
         <>
             {/* Side Cart Reveal */}
-            { sidecart && < SideCart sidecart={sidecart} setSideCart={setSideCart}/>}
+            { sidecart && < SideCart setSideCart={setSideCart}/>}
             {/* Product Images */}
             <div className="grid grid-cols-2 grid-rows-2 px-4 tablet:max-laptop:grid-cols-gridCols tablet:max-laptop:grid-rows-gridRows tablet:max-laptop:w-[50%] laptop:max-desktop:w-[70%] desktop:w-[75%]  individualImg">
               <img src={imageUrl} className=" w-full " alt="..."/>
@@ -204,7 +195,7 @@ export const ItemDetail = () => {
             <div className="flex flex-col fixed right-0 tablet:max-laptop:w-[50%] laptop:max-desktop:w-[30%] desktop:w-[25%]">
               <aside className="mt-12 flex flex-col">
                 <h1 className=" font-Inconsolata text-2xl justify-self-center">{title}</h1>
-                <p className="font-normal mt-2 text-xl">{price}</p>
+                <p className="font-normal mt-2 text-xl">${price}.00</p>
               </aside>
 
               {/* Sizes */}
