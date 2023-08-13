@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 
 export const SideCart = ({setSideCart}) => {
   const cart = useSelector( state => state.cart.cartItems )
-  const total = useSelector( state => state.cart.totalPrice)
+  const total = useSelector( state => state.cart.total)
 
   return (
     <section className="fixed top-0 left-0 right-0 bottom-0 w-screen flex justify-end z-40" id="modalOverlay">
@@ -25,7 +25,7 @@ export const SideCart = ({setSideCart}) => {
                     </Link>
                     <aside className="flex flex-col mx-2">
                       <h1 className="text-xl font-Inconsolata">{item.title}</h1>
-                      <p className="text-md font-semibold font-Inconsolata">{item.price}</p>
+                      <p className="text-md font-semibold font-Inconsolata">${item.price}.00</p>
                       <p className="text-md font-Inconsolata">{item.size}</p>
                       <span className="mt-6 text-md font-Inconsolata">Qty:{item.quantity}</span>
                     </aside>
@@ -36,7 +36,7 @@ export const SideCart = ({setSideCart}) => {
             {/*  Total */}
             <aside className="mt-2 px-8 flex flex-row justify-between">
               <p className="font-bold font-Bebas text-xl">Total:</p>
-              <p>${total}</p>
+              <p>${total}.00</p>
             </aside>
             <Link to={`/cart`} className=" text-xl font-Bebas text-center mt-4 mx-4 border-1 border-black p-2">
              View Bag

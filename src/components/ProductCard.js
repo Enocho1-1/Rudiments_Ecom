@@ -24,7 +24,7 @@ export const ProductCard = ({product}) => {
             <Link  onClick={() => dispatch(addItemToCart(product))} >
                 <h5 className="mb-2 text-2xl font-Inconsolata tracking-tight text-black">{title}</h5>
             </Link>
-            <p className="mb-3 font-semibold text-black">{price}</p>
+            <p className="mb-3 font-semibold text-black">${price}.00</p>
         </div>
     </div>
 
