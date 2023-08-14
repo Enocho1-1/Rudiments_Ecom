@@ -10,12 +10,38 @@
 }
 
 main{
+    position: relative;
     overflow-x: hidden;
+    min-height: 100vh;
 }
 
 section{
     padding-top: 75px;
+    height: auto;
 }
+
+ /* Media Query for Mobile Devices */
+ @media (max-width: 480px) {
+    section{
+        padding-top: 50px;
+        padding-bottom: 45%;
+    }
+}
+
+ /* Media Query for low resolution  Tablets, Ipads */
+ @media (min-width: 481px) and (max-width: 769px) {
+    section{
+        padding-top: 50px;
+        padding-bottom: 35%;
+    }
+ }
+
+ @media (min-width: 769px){
+    section{
+        padding-bottom: 10%;
+    }
+}
+  
 /* Home Page Button Images */
 
 #buttonOne,#buttonTwo,#buttonThree, #buttonFour,#buttonFive,#buttonSix{

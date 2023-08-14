@@ -6,7 +6,7 @@ export const Home = ({title}) => {
 
   useTitle(title)
   return (
-    <section className="">
+    <section className=" my-6">
       <Carousel />
       {/* Collection Buttons */}
       <aside className="w-full grid max-mobile:grid-cols-2 mobile:max-tablet:grid-cols-2 tablet:grid-cols-3">

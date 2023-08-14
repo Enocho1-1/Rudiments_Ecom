@@ -3,8 +3,8 @@
 export const Footer = () => {
   return (
       
-    <footer className="bg-white mt-24 border-t-2 border-slate-200">
-        <div className="mx-auto w-full p-4 py-6 lg:py-8 ">
+    <footer className="w-full absolute bottom-0 bg-white  border-t-2 border-slate-200 ">
+        <div className="mx-auto  p-4 py-6 lg:py-8 ">
         <div className="sm:flex sm:items-center sm:justify-between">
             <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a href="https://flowbite.com/" className="hover:underline">Rudiments™</a>. All Rights Reserved.
             </span>
