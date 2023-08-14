@@ -82,6 +82,7 @@ export const ItemDetail = () => {
         // Responsive Design range:0px - 769px
         (
           <> 
+          { sidecart && < SideCart setSideCart={setSideCart}/>}
           {/* Image Carousel  */}
           <div id="carouselExample" className="carousel slide">
           <div className="carousel-inner items-carousel">
@@ -171,7 +172,7 @@ export const ItemDetail = () => {
               )
               }
                     {/* Add To Cart */}
-                    <button type="button" onClick={() => dispatch(addItemToCart(item))} className=" cart flex justify-center self-center focus:outline-none text-black font-Bebas text-xl bg-yellow-400  focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg w-[75%] p-2 mt-2 ">Add To Bag<img src={Logo} className="h-6 mx-2"/></button>
+                    <button type="button" onClick={() => {dispatch(addItemToCart(item)); setSideCart(true)}} className=" cart flex justify-center self-center focus:outline-none text-black font-Bebas text-xl bg-yellow-400  focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg w-[75%] p-2 mt-2 ">Add To Bag<img src={Logo} className="h-6 mx-2"/></button>
             </aside>
           </div>
           </>

@@ -2,6 +2,8 @@ import { useSelector } from "react-redux"
 import { Link } from "react-router-dom"
 
 export const SideCart = ({setSideCart}) => {
+
+
   const cart = useSelector( state => state.cart.cartItems )
   const total = useSelector( state => state.cart.total)
 
