@@ -7,7 +7,8 @@ export const SideCart = ({setSideCart}) => {
 
   return (
     <section className="fixed top-0 left-0 right-0 bottom-0 w-screen flex justify-end z-40" id="modalOverlay">
-        <div className="absolute flex flex-col top-0 bg-white h-full laptop:w-[35%]">
+      {/* Side Cart */}
+        <div className="absolute flex flex-col top-0 bg-white h-full mobile:max-tablet:w-[100%] tablet:max-laptop:w-[35%] laptop:w-[25%]">
             <header className="mt-6 px-4 flex flex-row justify-between">
                 <h1 className="text-2xl font-Bebas">Cart</h1>
                 <svg onClick={() => {setSideCart(false)}} xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-x-lg hover:cursor-pointer" viewBox="0 0 16 16">
@@ -16,7 +17,9 @@ export const SideCart = ({setSideCart}) => {
             </header>
 
             {/* Cart Items */}
-            <aside className=" mt-2 px-4 h-[300px] overflow-y-scroll">
+            <aside className=" mt-2 px-4  h-[300px] laptop:h-[400px] overflow-y-scroll">
+                <h1 className="text-xl font-semibold font-Inconsolata text-center block">ADDED ITEM<span>({cart.length})</span></h1>
+             
               <div className="flex flex-col justify-evenly p-2">
                 { cart.map( item => (
                   <span className=" mt-4 flex flex-row">
@@ -35,7 +38,7 @@ export const SideCart = ({setSideCart}) => {
             </aside>
             {/*  Total */}
             <aside className="mt-2 px-8 flex flex-row justify-between">
-              <p className="font-bold font-Bebas text-xl">Total:</p>
+              <p className="font-Bebas text-xl">Total (Excl. delivery)</p>
               <p>${total}.00</p>
             </aside>
             <Link to={`/cart`} className=" text-xl font-Bebas text-center mt-4 mx-4 border-1 border-black p-2">
