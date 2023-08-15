@@ -20,7 +20,7 @@ const CartSlice = createSlice({
         },
 
         removeItemCart(state,action){
-            const updateCart = state.cartItems.filter(item => item.id != action.payload.id)
+            const updateCart = state.cartItems.filter(item => item.id !== action.payload.id)
             const updateTotal = state.total > 0 ? state.total - action.payload.price : 0
             AddtolocalStorage(updateCart, updateTotal)
             return {...state, cartItems:updateCart, total:updateTotal}

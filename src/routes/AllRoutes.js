@@ -6,7 +6,7 @@ export const AllRoutes = () => {
     <>
       <Routes>
         <Route path="/" element={(<Home title="Home" />)}/>
-        <Route path="cart" element={(<Cart title="Cart"/>)}/>
+        <Route path="cart" element={(<Cart name="Cart"/>)}/>
         <Route path="shop" element={(<CollectionPage apiPath="/shop" title="Collections"/>)}/>
         <Route path="t-shirt" element={(<PiecePage apiPath="/t-shirt" title="MEN'S Essential Tees"/>)}/>
         <Route path="shirt" element={(<PiecePage apiPath="/shirt" title="Men's Shirts"/>)}/>
