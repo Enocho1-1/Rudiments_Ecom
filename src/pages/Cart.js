@@ -2,6 +2,10 @@ import { useTitle } from "../hooks"
 import { useSelector,useDispatch } from "react-redux"
 import { removeItemCart } from "../store/CartSlice"
 import { Link } from "react-router-dom"
+import visa from "../assests/visa.png"
+import mastercard from "../assests/mastercard.png"
+import americanexpress from "../assests/american-express.png"
+import paypal from "../assests/paypal.png"
 import empty from "../assests/empty-cart.png"
 import arrow from "../assests/arrow.png"
 
@@ -58,6 +62,36 @@ export const Cart = ({name}) => {
                 ))
               }
               <hr />
+              {/* Subtotal & Total */}
+              <div className="mt-8">
+                <aside>
+                  <span className="grid grid-cols-2">
+                      <h1 className="text-2xl font-Inconsolata font-light mx-4">Subtotal</h1>
+                      <p className="text-xl">${total}.00</p>
+                    </span>
+                    <span className="grid grid-cols-2">
+                      <h1 className="text-2xl font-Inconsolata font-bold mx-4">Total (Excl. delivery)</h1>
+                      <p className="text-xl font-bold">${total}.00</p>
+                    </span>
+                </aside>
+                <button type="button" className="focus:outline-none text-black text-xl font-Bebas bg-yellow-300 px-5 py-2.5 mx-4 mt-3">Checkout</button>
+
+                {/* Acceptable Payment Options */}
+                <div className="flex flex-row mx-4 mt-2">
+                  <span className="h-8 w-8 border border-slate-500 rounded-md mx-1">
+                    <img src={visa} className="h-auto w-auto" alt="" />
+                  </span>
+                  <span className="h-8 w-8 border border-slate-500 rounded-md  mx-1">
+                    <img src={mastercard} className="h-auto w-auto" alt="" />
+                  </span>
+                  <span className="h-8 w-8 border border-slate-500 rounded-md  mx-1">
+                    <img src={americanexpress} className="h-auto w-auto" alt="" />
+                  </span>
+                  <span className="h-8 w-8 border border-slate-500 rounded-md  mx-1">
+                    <img src={paypal} className="h-auto w-auto" alt="" />
+                  </span>
+                </div>
+              </div>
             </div>
           </div>
         </aside>
