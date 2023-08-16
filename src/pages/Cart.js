@@ -35,56 +35,75 @@ export const Cart = ({name}) => {
             
             {/* Cart Items */}
             <div className="mt-8">
-              {
               
-                cart.map( item => (
+              {window.innerWidth < 769 ?
+                // Mobile Max Tablet View
+                (
+                <>
+                  {cart.map( item => (
+                    <span>
+
+                    </span>
+                  ))}
+                </>
+                ) :
+                (
                   <>
-                    <span className="grid grid-cols-6 mt-2 p-4">
-                      <Link to={`/${item.id}`}>
-                         <img src={item.image} className="h-24 w-24" alt="product image" />
-                      </Link>
-       
-                      <div className="whitespace-normal w-auto mx-4">
-                        <h1 className="text-2xl font-Inconsolata">{item.title}</h1>
-                      </div>
-                      <div className="mx-4 relative flex justify-center w-auto">
-                        <h1 className="text-2xl text-center font-Inconsolata absolute top-0">Size</h1>
-                        <p className="text-2xl font-Inconsolata self-center">{item.size}</p>
-                      </div>
-                      <div className="mx-4 relative flex justify-center w-auto">
-                        <h1 className="text-2xl text-center font-Inconsolata absolute top-0">Quantity</h1>
-                        <p className="text-2xl font-Inconsolata self-center">{item.quantity}</p>
-                      </div>
-                      <div className="mx-4 relative flex justify-center w-auto">
-                        <h1 className="text-2xl text-center font-Inconsolata absolute top-0">Price</h1>
-                        <p className="text-2xl font-Inconsolata self-center">${item.price}.00</p>
-                      </div>
-                      {/* Delete Item Button */}
-                      <svg onClick={() => {dispatch(removeItemCart(item))}} xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-x-lg hover:cursor-pointer self-center" viewBox="0 0 16 16">
-                        <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
-                      </svg>
-                    </span> 
-                    <hr />
+                  
+                    {
+                    cart.map( item => (
+                      <>
+                    
+                        <span className="grid grid-cols-6 mt-2 p-4">
+                          <Link to={`/${item.id}`}>
+                             <img src={item.image} className="h-24 w-24" alt="product image" />
+                          </Link>
+           
+                          <div className="whitespace-normal w-auto mx-4">
+                            <h1 className="text-2xl font-Inconsolata">{item.title}</h1>
+                          </div>
+                          <div className="mx-4 relative flex justify-center w-auto">
+                            <h1 className="text-2xl text-center font-Inconsolata absolute top-0">Size</h1>
+                            <p className="text-2xl font-Inconsolata self-center">{item.size}</p>
+                          </div>
+                          <div className="mx-4 relative flex justify-center w-auto">
+                            <h1 className="text-2xl text-center font-Inconsolata absolute top-0">Quantity</h1>
+                            <p className="text-2xl font-Inconsolata self-center">{item.quantity}</p>
+                          </div>
+                          <div className="mx-4 relative flex justify-center w-auto">
+                            <h1 className="text-2xl text-center font-Inconsolata absolute top-0">Price</h1>
+                            <p className="text-2xl font-Inconsolata self-center">${item.price}.00</p>
+                          </div>
+                          {/* Delete Item Button */}
+                          <svg onClick={() => {dispatch(removeItemCart(item))}} xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-x-lg hover:cursor-pointer self-center" viewBox="0 0 16 16">
+                            <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+                          </svg>
+                        </span> 
+                        <hr />
+                      </>
+                     
+                    ))
+                  }
                   </>
-                 
-                ))
+                )
               }
+              
               {/* Subtotal & Total */}
               <div className="mt-8">
-                <aside>
-                  <span className="grid grid-cols-2">
-                      <h1 className="text-2xl font-Inconsolata font-light mx-4">Subtotal</h1>
-                      <p className="text-xl">${total}.00</p>
+                <aside className="">
+                  <span className="grid grid-cols-2 max-mobile:flex max-mobile:justify-between max-mobile:mx-2">
+                      <h1 className="text-2xl font-Inconsolata font-light max-mobile:text-lg">Subtotal</h1>
+                      <p className="text-xl max-mobile:text-lg">${total}.00</p>
                     </span>
-                    <span className="grid grid-cols-2">
-                      <h1 className="text-2xl font-Inconsolata font-bold mx-4">Total (Excl. delivery)</h1>
-                      <p className="text-xl font-bold">${total}.00</p>
+                    <span className="grid grid-cols-2 max-mobile:flex max-mobile:justify-between max-mobile:mx-2">
+                      <h1 className="text-2xl font-Inconsolata font-bold max-mobile:text-lg">Total</h1>
+                      <p className="text-xl font-bold max-mobile:text-lg">${total}.00</p>
                     </span>
                 </aside>
-                <button type="button" className="focus:outline-none text-black text-xl font-Bebas bg-yellow-300 px-5 py-2.5 mx-4 mt-3">Checkout</button>
+                <button type="button" className="focus:outline-none text-black text-xl font-Bebas bg-yellow-300 px-5 py-2.5 mt-3 max-mobile:w-full ">Checkout</button>
 
                 {/* Acceptable Payment Options */}
-                <div className="flex flex-row mx-4 mt-2">
+                <div className="flex flex-row mt-2">
                   <span className="h-8 w-8 border border-slate-500 rounded-md mx-1">
                     <img src={visa} className="h-auto w-auto" alt="" />
                   </span>
