@@ -27,7 +27,7 @@ export const SideCart = ({setSideCart}) => {
                 { cart.map( item => (
                   <span className=" mt-4 flex flex-row">
                     <Link to={`/${item.id}`}>
-                      <img src={item.image} className="h-max w-[150px]" alt="" />
+                      <img src={item.image} className="h-max w-[150px] max-mobile:h-[150px]" alt="" />
                     </Link>
                     <aside className="flex flex-col mx-2">
                       <h1 className="text-xl font-Inconsolata">{item.title}</h1>
