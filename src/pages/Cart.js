@@ -41,8 +41,23 @@ export const Cart = ({name}) => {
                 (
                 <>
                   {cart.map( item => (
-                    <span>
-
+                    <span className="flex flex-row w-full py-2">
+                          <Link to={`/${item.id}`}>
+                             <img src={item.image} className="h-32 w-32" alt="product image" />
+                          </Link>
+                          <div className="flex flex-col justify-items-start w-[150px] mx-2">
+                            <h1 className="text-md font-Inconsolata font-semibold">{item.title}</h1>
+                            <span className="flex mt-2">
+                              <p className="text-sm font-Inconsolata mr-2">size: {item.size}</p>
+                              <p className="text-sm font-Inconsolata">Qty: {item.quantity}</p>
+                            </span>
+                            <p className="text-sm font-Inconsolata font-semibold mt-2">${item.price}.00</p>
+                          </div>
+                          {/* Delete Item Button */}
+                          <svg onClick={() => {dispatch(removeItemCart(item))}} xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-x-lg hover:cursor-pointer ml-3" viewBox="0 0 16 16">
+                            <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+                          </svg>
+                        <hr />
                     </span>
                   ))}
                 </>
