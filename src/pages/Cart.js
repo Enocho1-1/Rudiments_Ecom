@@ -41,20 +41,20 @@ export const Cart = ({name}) => {
                 (
                 <>
                   {cart.map( item => (
-                    <span className="flex flex-row w-full py-2">
+                    <span className="flex flex-row py-2 mobile:max-tablet:px-2">
                           <Link to={`/${item.id}`}>
-                             <img src={item.image} className="h-32 w-32" alt="product image" />
+                             <img src={item.image} className="h-32 w-32 mobile:max-tablet:mr-4" alt="product image" />
                           </Link>
-                          <div className="flex flex-col justify-items-start w-[150px] mx-2">
-                            <h1 className="text-md font-Inconsolata font-semibold">{item.title}</h1>
+                          <div className="flex flex-col justify-items-start w-[150px] mobile:max-tablet:w-[350px] ml-2">
+                            <h1 className="text-md font-Inconsolata font-semibold mobile:max-tablet:text-xl">{item.title}</h1>
                             <span className="flex mt-2">
-                              <p className="text-sm font-Inconsolata mr-2">size: {item.size}</p>
-                              <p className="text-sm font-Inconsolata">Qty: {item.quantity}</p>
+                              <p className="text-sm font-Inconsolata mr-4 mobile:max-tablet:text-lg">Size: {item.size}</p>
+                              <p className="text-sm font-Inconsolata mobile:max-tablet:text-lg">Qty: {item.quantity}</p>
                             </span>
-                            <p className="text-sm font-Inconsolata font-semibold mt-2">${item.price}.00</p>
+                            <p className="text-sm font-Inconsolata font-semibold mobile:max-tablet:text-lg mt-2">${item.price}.00</p>
                           </div>
                           {/* Delete Item Button */}
-                          <svg onClick={() => {dispatch(removeItemCart(item))}} xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-x-lg hover:cursor-pointer ml-3" viewBox="0 0 16 16">
+                          <svg onClick={() => {dispatch(removeItemCart(item))}} xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-x-lg hover:cursor-pointer ml-3 mobile:max-tablet:mr-3" viewBox="0 0 16 16">
                             <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
                           </svg>
                         <hr />
@@ -105,17 +105,17 @@ export const Cart = ({name}) => {
               
               {/* Subtotal & Total */}
               <div className="mt-8">
-                <aside className="">
-                  <span className="grid grid-cols-2 max-mobile:flex max-mobile:justify-between max-mobile:mx-2">
+                <aside>
+                  <span className="grid grid-cols-2 max-tablet:flex mobile:max-tablet:flex max-mobile:justify-between mobile:max-tablet:justify-between max-mobile:mx-2">
                       <h1 className="text-2xl font-Inconsolata font-light max-mobile:text-lg">Subtotal</h1>
                       <p className="text-xl max-mobile:text-lg">${total}.00</p>
                     </span>
-                    <span className="grid grid-cols-2 max-mobile:flex max-mobile:justify-between max-mobile:mx-2">
+                    <span className="grid grid-cols-2 max-mobile:flex mobile:max-tablet:flex max-mobile:justify-between mobile:max-tablet:justify-between max-mobile:mx-2">
                       <h1 className="text-2xl font-Inconsolata font-bold max-mobile:text-lg">Total</h1>
                       <p className="text-xl font-bold max-mobile:text-lg">${total}.00</p>
                     </span>
                 </aside>
-                <button type="button" className="focus:outline-none text-black text-xl font-Bebas bg-yellow-300 px-5 py-2.5 mt-3 max-mobile:w-full ">Checkout</button>
+                <button type="button" className="focus:outline-none text-black text-xl font-Bebas bg-yellow-300 px-5 py-2.5 mt-3 max-mobile:w-full mobile:max-tablet:w-full">Checkout</button>
 
                 {/* Acceptable Payment Options */}
                 <div className="flex flex-row mt-2">
