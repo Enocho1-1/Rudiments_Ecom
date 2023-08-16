@@ -48,7 +48,7 @@ export const Cart = ({name}) => {
                           <div className="flex flex-col justify-items-start w-[150px] mobile:max-tablet:w-[350px] ml-2">
                             <h1 className="text-md font-Inconsolata font-semibold mobile:max-tablet:text-xl">{item.title}</h1>
                             <span className="flex mt-2">
-                              <p className="text-sm font-Inconsolata mr-4 mobile:max-tablet:text-lg">Size: {item.size}</p>
+                              <p className="text-sm font-Inconsolata mr-4 mobile:max-tablet:text-lg">Size: {item.size ? item.size : "n/a"}</p>
                               <p className="text-sm font-Inconsolata mobile:max-tablet:text-lg">Qty: {item.quantity}</p>
                             </span>
                             <p className="text-sm font-Inconsolata font-semibold mobile:max-tablet:text-lg mt-2">${item.price}.00</p>
@@ -79,7 +79,7 @@ export const Cart = ({name}) => {
                           </div>
                           <div className="mx-4 relative flex justify-center w-auto">
                             <h1 className="text-2xl text-center font-Inconsolata absolute top-0">Size</h1>
-                            <p className="text-2xl font-Inconsolata self-center">{item.size}</p>
+                            <p className="text-2xl font-Inconsolata self-center">{item.size ? item.size : "n/a"}</p>
                           </div>
                           <div className="mx-4 relative flex justify-center w-auto">
                             <h1 className="text-2xl text-center font-Inconsolata absolute top-0">Quantity</h1>
@@ -104,7 +104,7 @@ export const Cart = ({name}) => {
               }
               
               {/* Subtotal & Total */}
-              <div className="mt-8">
+              <div className="mt-8 pl-4">
                 <aside>
                   <span className="grid grid-cols-2 max-tablet:flex mobile:max-tablet:flex max-mobile:justify-between mobile:max-tablet:justify-between max-mobile:mx-2">
                       <h1 className="text-2xl font-Inconsolata font-light max-mobile:text-lg">Subtotal</h1>
