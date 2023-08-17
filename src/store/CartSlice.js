@@ -15,6 +15,7 @@ const CartSlice = createSlice({
         addItemToCart(state,action){
 
             const duplicateItem = state.cartItems.find(item => item.id == action.payload.id)
+            const differentSize = state.cartItems.find( item => item.size == action.payload.size)
             const updateCart = state.cartItems.concat(action.payload)
             const updateTotal = state.total + action.payload.price 
 
@@ -34,10 +35,19 @@ const CartSlice = createSlice({
         },
 
         removeItemCart(state,action){
+            
             const updateCart = state.cartItems.filter(item => item.id !== action.payload.id)
             const updateTotal = state.total > 0 ? state.total - action.payload.price : 0
-            AddtolocalStorage(updateCart, updateTotal)
-            return {...state, cartItems:updateCart, total:updateTotal}
+
+            if(action.payload.quantity > 1){
+                const subtractQuantity = action.payload.quantity--
+                action.payload.quantity = subtractQuantity
+            } else {
+                
+                AddtolocalStorage(updateCart, updateTotal)
+                return {...state, cartItems:updateCart, total:updateTotal}
+            }
+           
         }
     }
 })
