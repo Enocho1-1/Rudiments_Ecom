@@ -13,10 +13,24 @@ const CartSlice = createSlice({
     },
     reducers :{
         addItemToCart(state,action){
+
+            const duplicateItem = state.cartItems.find(item => item.id == action.payload.id)
             const updateCart = state.cartItems.concat(action.payload)
             const updateTotal = state.total + action.payload.price 
-            AddtolocalStorage(updateCart, updateTotal)
-            return {...state, cartItems:updateCart, total:updateTotal}
+
+            if(duplicateItem){
+                duplicateItem.quantity++
+                const doubleTotal = state.total + duplicateItem.price
+                
+                state.total = doubleTotal
+               
+            } else {
+               
+                AddtolocalStorage(updateCart, updateTotal)
+                return {...state, cartItems:updateCart, total:updateTotal}
+            }
+
+            
         },
 
         removeItemCart(state,action){
