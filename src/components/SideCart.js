@@ -25,7 +25,7 @@ export const SideCart = ({setSideCart}) => {
              
               <div className="flex flex-col justify-evenly p-2">
                 { cart.map( item => (
-                  <span className=" mt-4 flex flex-row">
+                  <span key={item.id}  className=" mt-4 flex flex-row" >
                     <Link to={`/${item.id}`}>
                       <img src={item.image} className="h-max w-[150px] max-mobile:h-[150px]" alt="" />
                     </Link>
