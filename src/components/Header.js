@@ -7,12 +7,12 @@ import Logo from "../assests/cube.png"
 export const Header = () => {
   const [isHidden, setIsHidden] = useState(false)
   const cart = useSelector(state => state.cart.cartItems)
-
+  const navigate = useNavigate()
   const handleSubmit = (e) =>{
     e.preventDefault()
     const userSeach = e.target.item.value
-    console.log(userSeach)
     e.target.reset()
+    navigate(`search?item=${userSeach}`)
   }
 
   return (
