@@ -17,7 +17,7 @@ export const Cart = ({name}) => {
 
   return (
     <section>
-      {cart.length == 0 ?
+      {cart.length === 0 ?
         <aside className="mt-24 flex flex-col  items-center">
           <img src={empty} className="h-12 w-auto" alt="empty" />
           <h1 className="mt-4 text-2xl font-Inconsolata font-medium">YOUR BAG IS EMPTY</h1> 
@@ -43,7 +43,7 @@ export const Cart = ({name}) => {
                   {cart.map( item => (
                     <span className="flex flex-row py-2 mobile:max-tablet:px-2">
                           <Link to={`/${item.id}`}>
-                             <img src={item.image} className="h-32 w-32 mobile:max-tablet:mr-4" alt="product image" />
+                             <img src={item.image} className="h-32 w-32 mobile:max-tablet:mr-4" alt="" />
                           </Link>
                           <div className="flex flex-col justify-items-start w-[150px] mobile:max-tablet:w-[350px] ml-2">
                             <h1 className="text-md font-Inconsolata font-semibold mobile:max-tablet:text-xl">{item.title}</h1>
@@ -71,7 +71,7 @@ export const Cart = ({name}) => {
                     
                         <span className="grid grid-cols-6 mt-2 p-4">
                           <Link to={`/${item.id}`}>
-                             <img src={item.image} className="h-24 w-24" alt="product image" />
+                             <img src={item.image} className="h-24 w-24" alt="" />
                           </Link>
            
                           <div className="whitespace-normal w-auto mx-4">
