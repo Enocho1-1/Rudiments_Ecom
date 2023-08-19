@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom";
-import { Home, Cart, CollectionPage, PiecePage, ItemDetail, NotFound } from "../pages";
+import { Home, Cart, CollectionPage, PiecePage, ItemDetail, SearchItem, NotFound } from "../pages";
 
 export const AllRoutes = () => {
   return (
@@ -15,6 +15,7 @@ export const AllRoutes = () => {
         <Route path="shoes" element={(<PiecePage apiPath="/shoes" title="Men's Shoes & Sandals"/>)}/>
         <Route path="accessories" element={(<PiecePage apiPath="/accessories" title="Men's Accessories"/>)}/>
         <Route path="/:id" element={(<ItemDetail/>)}/>
+        <Route path="search" element={(<SearchItem apiPath="/search"/>)}/>
         <Route path="*" element={(<NotFound/>)}/>
       </Routes>
     </>
