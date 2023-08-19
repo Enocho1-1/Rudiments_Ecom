@@ -1,9 +1,10 @@
 import { useSearchParams } from "react-router-dom"
 import { useEffect, useState } from "react"
+import { NotFound } from "./NotFound"
 import { Loading } from "../components"
 
 export const SearchItem = ({apiPath}) => {
-  const [item, setItem] = useState([])
+  const [item, setItem] = useState({})
   const [loading, setLoading] = useState(true)
   const [searchParam] = useSearchParams()
   const queryItem = searchParam.get('item')
@@ -27,7 +28,7 @@ export const SearchItem = ({apiPath}) => {
 
 
 
- console.log(item.length)
+console.log(item)
 
   return (
     <section>
@@ -37,16 +38,15 @@ export const SearchItem = ({apiPath}) => {
 
       {loading && <Loading/>}
       <aside>
-        {item.length === 0 ?
-          (
-            <div>
-              <h1>Not Found</h1>
-            </div>
-          ):
+        {item.length > 0 ?
           (
             <div>
               <h1>Item Found</h1>
             </div>
+          
+          ):
+          (
+            <NotFound/>
           )
         }
       </aside>
