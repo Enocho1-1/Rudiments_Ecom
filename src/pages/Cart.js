@@ -69,7 +69,7 @@ export const Cart = ({name}) => {
                     cart.map( item => (
                       <>
                     
-                        <span className="grid grid-cols-6 mt-2 p-4">
+                        <span className="grid place-items-center grid-cols-6 mt-2 p-4">
                           <Link to={`/${item.id}`}>
                              <img src={item.image} className="h-24 w-24" alt="" />
                           </Link>
@@ -77,16 +77,16 @@ export const Cart = ({name}) => {
                           <div className="whitespace-normal w-auto mx-4">
                             <h1 className="text-2xl font-Inconsolata">{item.title}</h1>
                           </div>
-                          <div className="mx-4 relative flex justify-center w-auto">
-                            <h1 className="text-2xl text-center font-Inconsolata absolute top-0">Size</h1>
+                          <div className="mx-4 flex flex-col items-center w-auto">
+                            <h1 className="text-2xl text-center font-Inconsolata mb-2">Size</h1>
                             <p className="text-2xl font-Inconsolata self-center">{item.size ? item.size : "n/a"}</p>
                           </div>
-                          <div className="mx-4 relative flex justify-center w-auto">
-                            <h1 className="text-2xl text-center font-Inconsolata absolute top-0">Quantity</h1>
+                          <div className="mx-4 flex flex-col w-auto">
+                            <h1 className="text-2xl text-center font-Inconsolata  mb-2">Quantity</h1>
                             <p className="text-2xl font-Inconsolata self-center">{item.quantity}</p>
                           </div>
-                          <div className="mx-4 relative flex justify-center w-auto">
-                            <h1 className="text-2xl text-center font-Inconsolata absolute top-0">Price</h1>
+                          <div className="mx-4 flex flex-col w-auto">
+                            <h1 className="text-2xl text-center font-Inconsolata  mb-2">Price</h1>
                             <p className="text-2xl font-Inconsolata self-center">${item.price}.00</p>
                           </div>
                           {/* Delete Item Button */}

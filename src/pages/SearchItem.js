@@ -1,5 +1,6 @@
 import { useSearchParams } from "react-router-dom"
 import { useFetch } from "../hooks"
+import { ProductCard } from "../components"
 import { NotFound } from "./NotFound"
 import { Loading } from "../components"
 
@@ -7,10 +8,9 @@ export const SearchItem = ({apiPath}) => {
   const [searchParam] = useSearchParams()
   const queryItem = searchParam.get('item')
 
-  // Custom Hook
+  // Custom Fetch Hook
   const { data, loading } = useFetch(apiPath,queryItem)
   
-
 
   return (
     <section>
@@ -19,11 +19,13 @@ export const SearchItem = ({apiPath}) => {
       </header>
 
       {loading && <Loading/>}
-      <aside>
+      <aside className="px-6">
         {data.length > 0 ?
           (
-            <div>
-              <h1>Item Found</h1>
+            <div className="grid place-items-center max-mobile:grid-cols-2  mobile:max-tablet:grid-cols-2 mobile:max-tablet:gap-y-2 tablet:grid-cols-3 tablet:gap-y-4 ">
+              {data.map( item => (
+                <ProductCard key={item.id} product={item} />
+              ))}
             </div>
           
           ):
