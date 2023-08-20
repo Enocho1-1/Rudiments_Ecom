@@ -14,12 +14,14 @@ export const NotFound = ({queryItem}) => {
 
         <h1 className="mt-2 text-2xl font-Inconsolata font-semibold">Top Searches</h1>
         <ol className="mt-2 list-decimal px-4">
-          <li className="text-xl font-Inconsolata">Bags</li>
           <li className="text-xl font-Inconsolata">Shoes</li>
-          <li className="text-xl font-Inconsolata">Jeans</li>
-          <li className="text-xl font-Inconsolata">Watches</li>
           <li className="text-xl font-Inconsolata">Shirts</li>
+          <li className="text-xl font-Inconsolata">Jeans</li>
+          <li className="text-xl font-Inconsolata">Trousers</li>
+          <li className="text-xl font-Inconsolata">Shorts</li>
           <li className="text-xl font-Inconsolata">Cargos</li>
+          <li className="text-xl font-Inconsolata">Bags</li>
+          <li className="text-xl font-Inconsolata">Watches</li>
           <li className="text-xl font-Inconsolata">Glasses</li>
           <li className="text-xl font-Inconsolata">Graphic</li>
         </ol>
