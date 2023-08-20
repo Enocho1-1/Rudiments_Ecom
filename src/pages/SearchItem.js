@@ -6,7 +6,7 @@ import { Loading } from "../components"
 export const SearchItem = ({apiPath}) => {
   const [searchParam] = useSearchParams()
   const queryItem = searchParam.get('item')
-  
+
   // Custom Hook
   const { data, loading } = useFetch(apiPath,queryItem)
   
@@ -28,7 +28,7 @@ export const SearchItem = ({apiPath}) => {
           
           ):
           (
-            <NotFound/>
+            <NotFound queryItem={queryItem} />
           )
         }
       </aside>
