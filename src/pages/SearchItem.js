@@ -1,44 +1,26 @@
 import { useSearchParams } from "react-router-dom"
-import { useEffect, useState } from "react"
+import { useFetch } from "../hooks"
 import { NotFound } from "./NotFound"
 import { Loading } from "../components"
 
 export const SearchItem = ({apiPath}) => {
-  const [item, setItem] = useState({})
-  const [loading, setLoading] = useState(true)
   const [searchParam] = useSearchParams()
   const queryItem = searchParam.get('item')
   
+  // Custom Hook
+  const { data, loading } = useFetch(apiPath,queryItem)
+  
 
-  // Fetch Searched Items
-  useEffect(() => {
-    const fetchSearch = async () => {
-      try{
-        setLoading(true)
-        const response = await fetch(`https://api.mocki.io/v2/f3308aac/search/${queryItem}`)
-        const result = await response.json()
-        setItem(result)
-        setLoading(false)
-      } catch(error){
-        console.log(error)
-      }
-    }
-    fetchSearch()
-  },[queryItem])
-
-
-
-console.log(item)
 
   return (
     <section>
       <header className="flex justify-center p-4">
-        <h1 className="mt-12 text-xl font-Inconsolata">Searched Item: "{queryItem}"</h1>
+        <h1 className="mt-12 text-xl font-Inconsolata ">Searched Item: <p className="text-xl font-Inconsolata font-semibold inline-block">"{queryItem}"</p></h1>
       </header>
 
       {loading && <Loading/>}
       <aside>
-        {item.length > 0 ?
+        {data.length > 0 ?
           (
             <div>
               <h1>Item Found</h1>
