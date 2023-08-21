@@ -23,7 +23,7 @@ export const CollectionPage = ({apiPath, title}) => {
     <section> 
       <h1 className="text-center text-5xl font-Bebas mb-4 py-4 max-mobile:text-4xl mobile:max-tablet:text-4xl">MEN'S CLOTHES Collection</h1>
       {loading && <Loading/>}
-      <aside className="m-auto px-4 grid max-mobile:grid-cols-2  mobile:max-tablet:grid-cols-2 mobile:max-tablet:gap-y-2 tablet:grid-cols-3 tablet:gap-y-4 justify-items-center">
+      <aside className="m-auto px-4 grid place-items-center max-mobile:grid-cols-2  mobile:max-tablet:grid-cols-2 mobile:max-tablet:gap-y-2 tablet:grid-cols-3 tablet:gap-y-4">
         {products.map( item => (
           <ProductCard key={item.id} product={item}/>
         ))}

@@ -58,7 +58,7 @@ export const ItemDetail = () => {
   } else {
     console.log('no title')
   }
-  },[title,stringArray,productitle])
+  },[title,stringArray])
   
 // Cart Item Object Literal
   const item = {
