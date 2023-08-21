@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { useFetch, useTitle } from "../hooks"
-import { ProductCard, Pagination, Loading } from "../components"
+import { ProductCard, Pagination, Loading, FilterMenu } from "../components"
+import { totalCollection } from "../filterArrays/totalCategory"
 
 export const CollectionPage = ({apiPath, title}) => {
   
@@ -14,6 +15,7 @@ export const CollectionPage = ({apiPath, title}) => {
   const firstIndex = lastIndex - postsPerPage
   const products = data.slice(firstIndex, lastIndex)
 
+  
   const paginate = (pageNumber) => {
     setPage(pageNumber)
   }
@@ -23,7 +25,11 @@ export const CollectionPage = ({apiPath, title}) => {
     <section> 
       <h1 className="text-center text-5xl font-Bebas mb-4 py-4 max-mobile:text-4xl mobile:max-tablet:text-4xl">MEN'S CLOTHES Collection</h1>
       {loading && <Loading/>}
-      <aside className="m-auto px-4 grid place-items-center max-mobile:grid-cols-2  mobile:max-tablet:grid-cols-2 mobile:max-tablet:gap-y-2 tablet:grid-cols-3 tablet:gap-y-4">
+      {/* Filter Options Menu */}
+      <aside className="max-w-xl my-4 p-2">
+        <FilterMenu name="Category" array={totalCollection}/>
+      </aside>
+      <aside className="m-auto relative px-4 grid place-items-center max-mobile:grid-cols-2  mobile:max-tablet:grid-cols-2 mobile:max-tablet:gap-y-2 tablet:grid-cols-3 tablet:gap-y-4">
         {products.map( item => (
           <ProductCard key={item.id} product={item}/>
         ))}

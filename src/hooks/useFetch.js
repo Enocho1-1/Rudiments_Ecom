@@ -18,6 +18,6 @@ export const useFetch = (apiPath, queryItem = "") => {
       }
     }
     fetchProducts();
-  },[endPoint])
+  },[endPoint,queryItem])
   return { data, loading }
 }
