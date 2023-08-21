@@ -44,7 +44,9 @@ export const Header = () => {
       </div>
         <div className={isHidden ? "items-center justify-between  w-full md:flex md:w-auto md:order-1" : "items-center justify-between hidden w-full md:flex md:w-auto md:order-1" } id="navbar-search">
           <div className="relative mt-3 md:hidden">
-            <input type="text" name="userSearch" id="search-navbar" className="block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 " placeholder="Search Clothing Piece..."/>
+            <form onSubmit={handleSubmit}>
+              <input type="text" name="userSearch" id="search-navbar" className="block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 " placeholder="Search Clothing Piece..."/>
+            </form>
           </div>
           <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium font-Bebas bg-white md:flex-row md:space-x-8 md:mt-0 md:border-0">
             <li>
