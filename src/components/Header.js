@@ -45,7 +45,7 @@ export const Header = () => {
         <div className={isHidden ? "items-center justify-between  w-full md:flex md:w-auto md:order-1" : "items-center justify-between hidden w-full md:flex md:w-auto md:order-1" } id="navbar-search">
           <div className="relative mt-3 md:hidden">
             <form onSubmit={handleSubmit}>
-              <input type="text" name="userSearch" id="search-navbar" className="block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 " placeholder="Search Clothing Piece..."/>
+              <input type="text" name="item" id="search-navbar" className="block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 " placeholder="Search Clothing Piece..."/>
             </form>
           </div>
           <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium font-Bebas bg-white md:flex-row md:space-x-8 md:mt-0 md:border-0">
@@ -57,8 +57,8 @@ export const Header = () => {
             </li>
             <li>
                 <NavLink to="/cart" className=" pl-3 pr-4 text-xl font-Bebas text-blk rounded hover:text-slate-500">
-                <span className="text-4xl bi bi-cart-fill relative">
-                    <span className="text-white text-sm absolute -top-1 left-3.5 bg-rose-500 px-2 rounded-full ">{cart.length}</span>
+                <span className="text-4xl max-mobile:text-xl bi bi-cart-fill relative">
+                    <span className="text-white text-sm absolute -top-1 left-3.5 bg-rose-500 px-2 max-mobile:px-1 rounded-full ">{cart.length}</span>
                   </span> 
                 </NavLink>
             </li>
