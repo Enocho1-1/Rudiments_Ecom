@@ -60,15 +60,19 @@ export const ItemDetail = () => {
   }
   },[title,stringArray])
   
-// Cart Item Object Literal
-  const item = {
-    id: data.id,
-    title: data.title,
-    price: data.price,
-    quantity: 1,
-    size: selectSize,
-    image: imageUrl
+
+
+  // Contructor Function 
+  function Item(id,title,price,size,image){
+    this.id= id
+    this.title= title
+    this.price= price;
+    this.quantity= 1 ;
+    this.size= size;
+    this.image= image;
   }
+
+  const userItem = new Item(data.id,data.title,data.price,selectSize,imageUrl)
 
 
 
@@ -172,7 +176,7 @@ export const ItemDetail = () => {
               )
               }
                     {/* Add To Cart */}
-                    <button type="button" onClick={() => {dispatch(addItemToCart(item)); setSideCart(true)}} className=" cart flex justify-center self-center focus:outline-none text-black font-Bebas text-xl bg-yellow-400  focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg w-[75%] p-2 mt-2 ">Add To Bag<img src={Logo} className="h-6 mx-2"/></button>
+                    <button type="button" onClick={() => {dispatch(addItemToCart(userItem )); setSideCart(true)}} className=" cart flex justify-center self-center focus:outline-none text-black font-Bebas text-xl bg-yellow-400  focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg w-[75%] p-2 mt-2 ">Add To Bag<img src={Logo} className="h-6 mx-2"/></button>
             </aside>
           </div>
           </>
@@ -252,7 +256,7 @@ export const ItemDetail = () => {
               }
 
               {/* Add To Cart */}
-              <button type="button" onClick={() => {dispatch(addItemToCart(item)); setSideCart(true)}} className=" cart flex flew-row justify-center focus:outline-none text-black font-Bebas text-xl bg-yellow-400  focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg w-[75%] p-2 mt-8 ">Add To Bag<img src={Logo} className="h-6 mx-2"/></button>
+              <button type="button" onClick={() => {dispatch(addItemToCart(userItem )); setSideCart(true)}} className=" cart flex flew-row justify-center focus:outline-none text-black font-Bebas text-xl bg-yellow-400  focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg w-[75%] p-2 mt-8 ">Add To Bag<img src={Logo} className="h-6 mx-2"/></button>
             </div>
         </>
       )}
