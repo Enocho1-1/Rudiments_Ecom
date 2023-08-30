@@ -34,7 +34,7 @@ export const SideCart = ({setSideCart}) => {
               <p className="font-Bebas text-xl">Total (Excl. delivery)</p>
               <p>${total}.00</p>
             </aside>
-            <Link to={`/cart`} className=" text-xl font-Bebas text-center mt-4 mx-4 border-1 border-black p-2">
+            <Link to={`/cart`} className=" text-xl font-Bebas text-center mt-4 mx-4 border-1 border-black p-2 hover:text-slate-500">
              View Bag
             </Link>
        
