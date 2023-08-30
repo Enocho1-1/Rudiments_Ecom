@@ -25,18 +25,18 @@ export const CartItem = ({product}) => {
 
   
     const increasePrice = () => {
-      setItemPrice((prevState)=> prevState+ (price))
+      setItemPrice((prevState)=> prevState+ (originalPrice))
     }
 
     const decreasePrice = () => {
-      setItemPrice((prevState)=> prevState- (price))
+      setItemPrice((prevState)=> prevState- (originalPrice))
       itemprice === originalPrice ? dispatch(removeItemCart(product)) : console.log('price is higher')
     }
 
 
 
   return (
-      <span  className=" mt-4 flex flex-row" >
+      <span  className=" mt-4 flex flex-row border border-b-gray-950" >
         <Link to={`/${id}`}>
           <img src={image} className="h-[200px] w-[175px] max-mobile:h-[150px]" alt="" />
         </Link>
@@ -45,14 +45,14 @@ export const CartItem = ({product}) => {
           <p className="text-md font-semibold font-Inconsolata">${itemprice}.00</p>
           <p className="text-md font-Inconsolata">{size}</p>
           <div className="flex">
-            <span className="mt-6 text-md font-Inconsolata">Qty:{quantity}</span>
-            <span className="flex ml-4">
+            <span className="flex">
               <button onClick={() => {handleAddQuantity(); 
-    increasePrice()} } className=" font-Inconsolata text-md flex justify-center items-center self-end text-white bg-black hover:bg-slate-400 p-[5px]"> + </button>
-              <button onClick={() => {handleSubQuantity(); decreasePrice() }} className=" font-Inconsolata text-md ml-2 flex justify-center items-center self-end text-white bg-black hover:bg-slate-400 p-[5px]">  - </button>
+    increasePrice()} } className=" font-Inconsolata text-md flex justify-center items-center self-end text-white bg-black hover:bg-slate-400 p-2"> + </button>
+              <span className="mt-6 text-md font-Inconsolata p-2 bg-white border border-b-gray-950">{quantity}</span>
+              <button onClick={() => {handleSubQuantity(); decreasePrice() }} className=" font-Inconsolata text-md flex justify-center items-center self-end text-white bg-black hover:bg-slate-400 p-2">  - </button>
             </span>
           </div>
-          <span onClick={() =>  dispatch(removeItemCart(product))} className="text-sm hover:underline-offset-auto hover:cursor-pointer">REMOVE</span>
+          <span onClick={() =>  dispatch(removeItemCart(product))} className="mt-2 text-md hover:underline-offset-auto hover:cursor-pointer">REMOVE</span>
         </aside>
       </span>
   )
