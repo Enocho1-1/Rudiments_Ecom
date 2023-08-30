@@ -1,34 +1,43 @@
 import { useTitle } from "../hooks"
-import { useSelector,useDispatch } from "react-redux"
-import { removeItemCart } from "../store/CartSlice"
+import { useState, useEffect } from "react"
+import { useSelector } from "react-redux"
 import { Link } from "react-router-dom"
+import { MobileCart  } from "./Cart/MobileCart"
+import { DesktopCart } from "./Cart/DesktopCart"
+import { CartEmpty } from "./Cart/CartEmpty"
 import visa from "../assests/visa.png"
 import mastercard from "../assests/mastercard.png"
 import americanexpress from "../assests/american-express.png"
 import paypal from "../assests/paypal.png"
-import empty from "../assests/empty-cart.png"
 import arrow from "../assests/arrow.png"
 
 export const Cart = ({name}) => {
   useTitle(name)
+  const [myQuery, setMyQuery] = useState({
+    matches: window.innerWidth < 769 ? true : false
+  })
+
+  //  Window MatchMedia
+ useEffect(() => {
+  let mediaQuery = window.matchMedia("(max-width: 769px)")
+  mediaQuery.addListener(setMyQuery)
+
+  return () => mediaQuery.removeListener(setMyQuery)
+ },[])
+
   const cart = useSelector(state => state.cart.cartItems)
   const total = useSelector(state => state.cart.total)
-  const dispatch = useDispatch()
+
 
   return (
     <section>
       {cart.length === 0 ?
-        <aside className="mt-24 flex flex-col  items-center">
-          <img src={empty} className="h-12 w-auto" alt="empty" />
-          <h1 className="mt-4 text-2xl font-Inconsolata font-medium">YOUR BAG IS EMPTY</h1> 
-          <Link to={"/"} className="text-xl font-Inconsolata mt-4 underline underline-offset-1">
-            Continue Shopping
-          </Link>
-        </aside>:
+        <CartEmpty />
+        :
         <aside className=" m-auto max-w-7xl mt-24 flex flex-col">
          <Link to={"/"} className="mt-4 px-4 flex">
             <img src={arrow} className="h-6 self-center" alt="" />
-            <h1 className="text-xl font-Inconsolata font-semibold mx-2 ">Continue Shopping</h1>
+            <h1 className="text-xl font-Inconsolata font-semibold mx-2 hover:text-slate-500">Continue Shopping</h1>
           </Link>
           <div className="mt-12 self-center">
             <h1 className="text-4xl font-Inconsolata font-semibold text-center">MY SHOPPING BAG</h1>
@@ -36,29 +45,12 @@ export const Cart = ({name}) => {
             {/* Cart Items */}
             <div className="mt-8">
               
-              {window.innerWidth < 769 ?
+              {myQuery && myQuery.matches ?
                 // Mobile Max Tablet View
                 (
                 <>
-                  {cart.map( (item, index )=> (
-                    <span key={item.id} className="flex flex-row py-2 mobile:max-tablet:px-2">
-                          <Link to={`/${item.id}`}>
-                             <img src={item.image} className="h-32 w-32 mobile:max-tablet:mr-4" alt="" />
-                          </Link>
-                          <div className="flex flex-col justify-items-start w-[150px] mobile:max-tablet:w-[350px] ml-2">
-                            <h1 className="text-md font-Inconsolata font-semibold mobile:max-tablet:text-xl">{item.title}</h1>
-                            <span className="flex mt-2">
-                              <p className="text-sm font-Inconsolata mr-4 mobile:max-tablet:text-lg">Size: {item.size ? item.size : "n/a"}</p>
-                              <p className="text-sm font-Inconsolata mobile:max-tablet:text-lg">Qty: {item.quantity}</p>
-                            </span>
-                            <p className="text-sm font-Inconsolata font-semibold mobile:max-tablet:text-lg mt-2">${item.price}.00</p>
-                          </div>
-                          {/* Delete Item Button */}
-                          <svg onClick={() => {dispatch(removeItemCart(item))}} xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-x-lg hover:cursor-pointer ml-3 mobile:max-tablet:mr-3" viewBox="0 0 16 16">
-                            <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
-                          </svg>
-                        <hr />
-                    </span>
+                  {cart.map( (item, index) => (
+                    <MobileCart  key={index} product={item} /> 
                   ))}
                 </>
                 ) :
@@ -67,36 +59,7 @@ export const Cart = ({name}) => {
                   
                     {
                     cart.map( (item, index) => (
-                      <>
-                    
-                        <span key={item.id} className="grid place-items-center grid-cols-6 mt-2 p-4">
-                          <Link to={`/${item.id}`}>
-                             <img src={item.image} className="h-24 w-24" alt="" />
-                          </Link>
-           
-                          <div className="whitespace-normal w-auto mx-4">
-                            <h1 className="text-2xl font-Inconsolata">{item.title}</h1>
-                          </div>
-                          <div className="mx-4 flex flex-col items-center w-auto">
-                            <h1 className="text-2xl text-center font-Inconsolata mb-2">Size</h1>
-                            <p className="text-2xl font-Inconsolata self-center">{item.size ? item.size : "n/a"}</p>
-                          </div>
-                          <div className="mx-4 flex flex-col w-auto">
-                            <h1 className="text-2xl text-center font-Inconsolata  mb-2">Quantity</h1>
-                            <p className="text-2xl font-Inconsolata self-center">{item.quantity}</p>
-                          </div>
-                          <div className="mx-4 flex flex-col w-auto">
-                            <h1 className="text-2xl text-center font-Inconsolata  mb-2">Price</h1>
-                            <p className="text-2xl font-Inconsolata self-center">${item.price}.00</p>
-                          </div>
-                          {/* Delete Item Button */}
-                          <svg onClick={() => {dispatch(removeItemCart(item))}} xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-x-lg hover:cursor-pointer self-center" viewBox="0 0 16 16">
-                            <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
-                          </svg>
-                        </span> 
-                        <hr />
-                      </>
-                     
+                      <DesktopCart key={index} product={item} /> 
                     ))
                   }
                   </>

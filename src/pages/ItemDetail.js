@@ -40,6 +40,7 @@ export const ItemDetail = ({apiPath}) => {
    stringArray = string.split(' ')
  }
 
+//  Window MatchMedia
  useEffect(() => {
   let mediaQuery = window.matchMedia("(max-width: 769px)")
   mediaQuery.addListener(setMyQuery)
