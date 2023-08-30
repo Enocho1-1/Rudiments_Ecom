@@ -40,6 +40,13 @@ export const ItemDetail = ({apiPath}) => {
    stringArray = string.split(' ')
  }
 
+ useEffect(() => {
+  let mediaQuery = window.matchMedia("(max-width: 769px)")
+  mediaQuery.addListener(setMyQuery)
+
+  return () => mediaQuery.removeListener(setMyQuery)
+ },[])
+
 // Clothing Piece Validation
   useEffect(() => { 
     if(title){
@@ -71,11 +78,89 @@ export const ItemDetail = ({apiPath}) => {
   return (
     <section className="relative">
       {loading && <Loading/>}
-      <aside className={window.innerWidth < 769 ? mobileView : "flex flex-row"}>
-        {window.innerWidth < 769 
+      <aside className={myQuery && myQuery.matches ? mobileView : "flex flex-row"}>
+        {myQuery && !myQuery.matches
         ? 
-        // Responsive Design range:0px - 769px
         (
+          // Responsive Design range: minimum 769px 
+        <>
+            {/* Side Cart Reveal */}
+            { sidecart && < SideCart setSideCart={setSideCart}/>}
+            {/* Product Images */}
+            <div className="grid grid-cols-2 grid-rows-2 px-4 tablet:max-laptop:grid-cols-gridCols tablet:max-laptop:grid-rows-gridRows tablet:max-laptop:w-[50%] laptop:max-desktop:w-[70%] desktop:w-[75%]  individualImg">
+              <img src={imageUrl} className=" w-full " alt="..."/>
+              <img src={imageUrl_Two} className="w-full " alt="..."/>
+              <img src={imageUrl_Three} className=" w-full " alt="..."/>
+              {imageUrl_Four ? ( <img src={imageUrl_Four} className="block w-full " alt="..."/>):(<div className="bg-white w-fit h-fit"></div>)}
+            </div>
+
+            {/* Product Info */}
+            <div className="flex flex-col fixed right-0 tablet:max-laptop:w-[50%] laptop:max-desktop:w-[30%] desktop:w-[25%]">
+              <aside className="mt-12 flex flex-col">
+                <h1 className=" font-Inconsolata text-2xl justify-self-center">{title}</h1>
+                <p className="font-normal mt-2 text-xl">${price}.00</p>
+              </aside>
+
+              {/* Sizes */}
+              { 
+              shirt
+              ? 
+              ( 
+              <aside className="my-4 flex">
+                <ul className=" flex flex-row  text-sm ">
+                  {shirtSizes.map( (item, index) => (
+                  <li key={index}>
+                    <button onClick={(e)=> {setSelectSize(e.target.textContent)}} className=" shirtSize flex items-center justify-center px-3 h-8 leading-tight text-gray-800 bg-white border border-gray-300  hover:text-gray-700">{item}</button>
+                  </li>
+                  ))}
+                </ul>
+              </aside>
+            ) 
+              : pants ?
+              (
+               <aside className="">
+                  <button onClick={() => setHidden(!hidden)} id="dropdownHoverButton" data-dropdown-toggle="dropdownHover" data-dropdown-trigger="hover" className="mt-4 mx-2 text-black bg-white hover:bg-slate-800 border border-slate-400 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center" type="button">{selectSize ? selectSize : "Select Size"} <svg className="w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                        <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4"/>
+                      </svg></button>
+                   {/* Dropdwon */}
+                    <div id="dropdownHover" className={ hidden ? "z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700" : "z-10 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 h-[150px] overflow-y-scroll"}>
+                        <ul className=" py-2 text-sm text-gray-700" aria-labelledby="dropdownHoverButton">
+                        { pantSizes.map((item, index) => (
+                                  <li onClick={(e) => {setSelectSize(e.target.textContent); setHidden(!hidden)}} key={index}>
+                                     <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">    {item}</a>
+                                   </li>
+                              ))}
+                        </ul>
+                    </div>
+               </aside> 
+              ) : shoes ? 
+              ( 
+                <aside className="">
+                <button onClick={() => setHidden(!hidden)} id="dropdownHoverButton" data-dropdown-toggle="dropdownHover" data-dropdown-trigger="hover" className="mt-4 mx-2 text-black bg-white hover:bg-slate-800 border border-slate-400 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center" type="button">{selectSize ? selectSize : "Select Size"}  <svg className="w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                      <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4"/>
+                    </svg></button>
+                {/* Dropdwon */}
+                  <div id="dropdownHover" className={ hidden ? "z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700" : "z-10 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 h-[150px] overflow-y-scroll"}>
+                      <ul className="py-2 text-sm text-gray-700" aria-labelledby="dropdownHoverButton">
+                        { shoeSizes.map( (item, index) => (
+                            <li onClick={(e) => {setSelectSize(e.target.textContent); setHidden(!hidden)}} key={index}>
+                              <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">{item}</a>
+                            </li>
+                        ))}
+                      </ul>
+                  </div>
+                </aside> 
+           ) : (<div></div>)
+              }
+
+              {/* Add To Cart */}
+              <button type="button" onClick={() => {dispatch(addItemToCart(userItem )); setSideCart(true)}} className=" cart flex flew-row justify-center focus:outline-none text-black font-Bebas text-xl bg-yellow-400  focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg w-[75%] p-2 mt-8 ">Add To Bag<img src={Logo} className="h-6 mx-2"/></button>
+            </div>
+        </>
+        ): 
+       
+        (
+           // Responsive Design range:0px - 769px
           <> 
           { sidecart && < SideCart setSideCart={setSideCart}/>}
           {/* Image Carousel  */}
@@ -173,84 +258,8 @@ export const ItemDetail = ({apiPath}) => {
           </>
           
       ) 
-      : 
-      (
-          // Responsive Design range: minimum 769px 
-        <>
-            {/* Side Cart Reveal */}
-            { sidecart && < SideCart setSideCart={setSideCart}/>}
-            {/* Product Images */}
-            <div className="grid grid-cols-2 grid-rows-2 px-4 tablet:max-laptop:grid-cols-gridCols tablet:max-laptop:grid-rows-gridRows tablet:max-laptop:w-[50%] laptop:max-desktop:w-[70%] desktop:w-[75%]  individualImg">
-              <img src={imageUrl} className=" w-full " alt="..."/>
-              <img src={imageUrl_Two} className="w-full " alt="..."/>
-              <img src={imageUrl_Three} className=" w-full " alt="..."/>
-              {imageUrl_Four ? ( <img src={imageUrl_Four} className="block w-full " alt="..."/>):(<div className="bg-white w-fit h-fit"></div>)}
-            </div>
-
-            {/* Product Info */}
-            <div className="flex flex-col fixed right-0 tablet:max-laptop:w-[50%] laptop:max-desktop:w-[30%] desktop:w-[25%]">
-              <aside className="mt-12 flex flex-col">
-                <h1 className=" font-Inconsolata text-2xl justify-self-center">{title}</h1>
-                <p className="font-normal mt-2 text-xl">${price}.00</p>
-              </aside>
-
-              {/* Sizes */}
-              { 
-              shirt
-              ? 
-              ( 
-              <aside className="my-4 flex">
-                <ul className=" flex flex-row  text-sm ">
-                  {shirtSizes.map( (item, index) => (
-                  <li key={index}>
-                    <button onClick={(e)=> {setSelectSize(e.target.textContent)}} className=" shirtSize flex items-center justify-center px-3 h-8 leading-tight text-gray-800 bg-white border border-gray-300  hover:text-gray-700">{item}</button>
-                  </li>
-                  ))}
-                </ul>
-              </aside>
-            ) 
-              : pants ?
-              (
-               <aside className="">
-                  <button onClick={() => setHidden(!hidden)} id="dropdownHoverButton" data-dropdown-toggle="dropdownHover" data-dropdown-trigger="hover" className="mt-4 mx-2 text-black bg-white hover:bg-slate-800 border border-slate-400 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center" type="button">{selectSize ? selectSize : "Select Size"} <svg className="w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                        <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4"/>
-                      </svg></button>
-                   {/* Dropdwon */}
-                    <div id="dropdownHover" className={ hidden ? "z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700" : "z-10 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 h-[150px] overflow-y-scroll"}>
-                        <ul className=" py-2 text-sm text-gray-700" aria-labelledby="dropdownHoverButton">
-                        { pantSizes.map((item, index) => (
-                                  <li onClick={(e) => {setSelectSize(e.target.textContent); setHidden(!hidden)}} key={index}>
-                                     <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">    {item}</a>
-                                   </li>
-                              ))}
-                        </ul>
-                    </div>
-               </aside> 
-              ) : shoes ? 
-              ( 
-                <aside className="">
-                <button onClick={() => setHidden(!hidden)} id="dropdownHoverButton" data-dropdown-toggle="dropdownHover" data-dropdown-trigger="hover" className="mt-4 mx-2 text-black bg-white hover:bg-slate-800 border border-slate-400 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center" type="button">{selectSize ? selectSize : "Select Size"}  <svg className="w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                      <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4"/>
-                    </svg></button>
-                {/* Dropdwon */}
-                  <div id="dropdownHover" className={ hidden ? "z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700" : "z-10 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 h-[150px] overflow-y-scroll"}>
-                      <ul className="py-2 text-sm text-gray-700" aria-labelledby="dropdownHoverButton">
-                        { shoeSizes.map( (item, index) => (
-                            <li onClick={(e) => {setSelectSize(e.target.textContent); setHidden(!hidden)}} key={index}>
-                              <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">{item}</a>
-                            </li>
-                        ))}
-                      </ul>
-                  </div>
-                </aside> 
-           ) : (<div></div>)
-              }
-
-              {/* Add To Cart */}
-              <button type="button" onClick={() => {dispatch(addItemToCart(userItem )); setSideCart(true)}} className=" cart flex flew-row justify-center focus:outline-none text-black font-Bebas text-xl bg-yellow-400  focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg w-[75%] p-2 mt-8 ">Add To Bag<img src={Logo} className="h-6 mx-2"/></button>
-            </div>
-        </>
-      )}
+     
+      }
      
        
       </aside>
