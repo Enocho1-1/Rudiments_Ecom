@@ -41,7 +41,7 @@ export const Cart = ({name}) => {
                 (
                 <>
                   {cart.map( (item, index )=> (
-                    <span key={index} className="flex flex-row py-2 mobile:max-tablet:px-2">
+                    <span key={item.id} className="flex flex-row py-2 mobile:max-tablet:px-2">
                           <Link to={`/${item.id}`}>
                              <img src={item.image} className="h-32 w-32 mobile:max-tablet:mr-4" alt="" />
                           </Link>
@@ -69,7 +69,7 @@ export const Cart = ({name}) => {
                     cart.map( (item, index) => (
                       <>
                     
-                        <span key={index} className="grid place-items-center grid-cols-6 mt-2 p-4">
+                        <span key={item.id} className="grid place-items-center grid-cols-6 mt-2 p-4">
                           <Link to={`/${item.id}`}>
                              <img src={item.image} className="h-24 w-24" alt="" />
                           </Link>

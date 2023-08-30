@@ -1,4 +1,6 @@
+
 import { useEffect,useState } from "react"
+import { useFetch } from "../hooks"
 import { useParams } from "react-router-dom"
 import { useDispatch } from "react-redux"
 import { addItemToCart } from "../store/CartSlice"
@@ -7,35 +9,26 @@ import { shirtSizes, pantSizes, shoeSizes } from "../sizes/sizes"
 import Logo from "../assests/cube.png"
 import "./ItemDetail.css"
 
-export const ItemDetail = () => {
-  const [data, setData] = useState([])
-  const [loading, setLoading] = useState(true)
+export const ItemDetail = ({apiPath}) => {
   const [shirt, setShirt] = useState(false)
   const [pants, setPants] = useState(false)
   const [shoes, setShoes] = useState(false)
   const [hidden, setHidden] = useState(true)
   const [sidecart, setSideCart] = useState(false)
   const [selectSize, setSelectSize] = useState("")
+  const [myQuery, setMyQuery] = useState({
+    matches: window.innerWidth < 769 ? true : false
+  })
+
   const param = useParams()
+  const productId = param.id
   const dispatch = useDispatch()
   const mobileView = "flex flex-col"
   let stringArray
 
+  // Custom Fetch Hook
+  const { data, loading } = useFetch(apiPath, productId)
   
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try{
-        setLoading(true)
-        const response = await fetch(`https://api.mocki.io/v2/f3308aac/items/${param.id}`)
-        const result = await response.json()
-        setData(result)
-        setLoading(false)
-      }catch(error){
-        console.log(error)
-      }
-    }
-    fetchProducts();
-  },[param.id])
 
   // Destructure Returned JSON
  const {  title , price, imageUrl, imageUrl_Two, imageUrl_Three, imageUrl_Four} = data
@@ -62,17 +55,15 @@ export const ItemDetail = () => {
   
 
 
-  // Contructor Function 
-  function Item(id,title,price,size,image){
-    this.id= id
-    this.title= title
-    this.price= price;
-    this.quantity= 1 ;
-    this.size= size;
-    this.image= image;
+  // Object Literal
+  const userItem = {
+    id: data.id,
+    title : data.title,
+    price: data.price,
+    quantity: '1',
+    size: selectSize,
+    image: imageUrl
   }
-
-  const userItem = new Item(data.id,data.title,data.price,selectSize,imageUrl)
 
 
 
@@ -147,7 +138,7 @@ export const ItemDetail = () => {
                             <ul className="py-2 text-sm text-gray-700" aria-labelledby="dropdownHoverButton">
                               { pantSizes.map((item, index) => (
                                   <li onClick={(e) => {setSelectSize(e.target.textContent); setHidden(!hidden)}} key={index}>
-                                     <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">    {item}</a>
+                                     <a href="" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">{item}</a>
                                    </li>
                               ))}
                             </ul>
