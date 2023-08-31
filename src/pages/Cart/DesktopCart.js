@@ -13,7 +13,7 @@ export const DesktopCart = ({product}) => {
             </Link>
 
             <div className="whitespace-normal w-auto mx-4">
-            <h1 className="text-2xl font-Inconsolata">{title}</h1>
+            <h1 className="text-2xl font-Inconsolata font-semibold">{title}</h1>
             </div>
             <div className="mx-4 flex flex-col items-center w-auto">
             <h1 className="text-2xl text-center font-Inconsolata mb-2">Size</h1>
