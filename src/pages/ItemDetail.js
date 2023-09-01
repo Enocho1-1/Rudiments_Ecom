@@ -44,8 +44,6 @@ export const ItemDetail = ({apiPath}) => {
  useEffect(() => {
   let mediaQuery = window.matchMedia("(max-width: 769px)")
   mediaQuery.addEventListener("change", setMyQuery)
-
-  // return () => mediaQuery.removeListener(setMyQuery)
  },[])
 
 // Clothing Piece Validation
@@ -56,8 +54,6 @@ export const ItemDetail = ({apiPath}) => {
     stringArray.includes("Tee") || stringArray.includes( "Button") || stringArray.includes("Shirt") ? 
     setShirt(true) : stringArray.includes("trousers") || stringArray.includes( "joggers") || stringArray.includes("Jeans") || stringArray.includes("shorts")? 
     setPants(true) : stringArray.includes("Shoes") || stringArray.includes( "loafers") || stringArray.includes("trainers") ||     stringArray.includes("sandals") || stringArray.includes("sliders") ? setShoes(true) : console.log("done")
-  } else {
-    console.log('no title')
   }
   },[title,stringArray])
   

@@ -19,7 +19,7 @@ export const ProductCard = ({product}) => {
         </Link>
         <div className="p-2">
             <Link  to={`/${id}`}  >
-                <h5 className="mb-2 text-2xl max-mobile:text-sm font-Inconsolata tracking-tight text-black">{title}</h5>
+                <h5 className="mb-2 text-lg max-mobile:text-sm font-Inconsolata tracking-tight text-black">{title}</h5>
             </Link>
             <p className="mb-3 font-semibold text-black">${price}.00</p>
         </div>
