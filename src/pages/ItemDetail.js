@@ -6,6 +6,7 @@ import { useDispatch } from "react-redux"
 import { addItemToCart } from "../store/CartSlice"
 import { Loading,SideCart } from "../components"
 import { shirtSizes, pantSizes, shoeSizes } from "../sizes/sizes"
+import { DesktopShirtSize, DesktopSizes, MobileShirtSize, MobileSizes} from "./Sizes"
 import Logo from "../assests/cube.png"
 import "./ItemDetail.css"
 
@@ -100,54 +101,10 @@ export const ItemDetail = ({apiPath}) => {
 
               {/* Sizes */}
               { 
-              shirt
-              ? 
-              ( 
-              <aside className="my-4 flex">
-                <ul className=" flex flex-row  text-sm ">
-                  {shirtSizes.map( (item, index) => (
-                  <li key={index}>
-                    <button onClick={(e)=> {setSelectSize(e.target.textContent)}} className=" shirtSize flex items-center justify-center px-3 h-8 leading-tight text-gray-800 bg-white border border-gray-300  hover:text-gray-700">{item}</button>
-                  </li>
-                  ))}
-                </ul>
-              </aside>
-            ) 
-              : pants ?
-              (
-               <aside className="">
-                  <button onClick={() => setHidden(!hidden)} id="dropdownHoverButton" data-dropdown-toggle="dropdownHover" data-dropdown-trigger="hover" className="mt-4 mx-2 text-black bg-white hover:bg-slate-800 border border-slate-400 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center" type="button">{selectSize ? selectSize : "Select Size"} <svg className="w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                        <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4"/>
-                      </svg></button>
-                   {/* Dropdwon */}
-                    <div id="dropdownHover" className={ hidden ? "z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700" : "z-10 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 h-[150px] overflow-y-scroll"}>
-                        <ul className=" py-2 text-sm text-gray-700" aria-labelledby="dropdownHoverButton">
-                        { pantSizes.map((item, index) => (
-                                  <li onClick={(e) => {setSelectSize(e.target.textContent); setHidden(!hidden)}} key={index}>
-                                     <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">    {item}</a>
-                                   </li>
-                              ))}
-                        </ul>
-                    </div>
-               </aside> 
-              ) : shoes ? 
-              ( 
-                <aside className="">
-                <button onClick={() => setHidden(!hidden)} id="dropdownHoverButton" data-dropdown-toggle="dropdownHover" data-dropdown-trigger="hover" className="mt-4 mx-2 text-black bg-white hover:bg-slate-800 border border-slate-400 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center" type="button">{selectSize ? selectSize : "Select Size"}  <svg className="w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                      <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4"/>
-                    </svg></button>
-                {/* Dropdwon */}
-                  <div id="dropdownHover" className={ hidden ? "z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700" : "z-10 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 h-[150px] overflow-y-scroll"}>
-                      <ul className="py-2 text-sm text-gray-700" aria-labelledby="dropdownHoverButton">
-                        { shoeSizes.map( (item, index) => (
-                            <li onClick={(e) => {setSelectSize(e.target.textContent); setHidden(!hidden)}} key={index}>
-                              <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">{item}</a>
-                            </li>
-                        ))}
-                      </ul>
-                  </div>
-                </aside> 
-           ) : (<div></div>)
+              shirt ? (<DesktopShirtSize array={shirtSizes} setSelectSize={setSelectSize} />) 
+              : pants ?(< DesktopSizes array={pantSizes} selectSize={selectSize} setSelectSize={setSelectSize}/>
+              ): shoes ? ( < DesktopSizes array={shoeSizes} selectSize={selectSize} setSelectSize={setSelectSize}/> ) 
+              : (<div></div>)
               }
 
               {/* Add To Cart */}
@@ -195,59 +152,16 @@ export const ItemDetail = ({apiPath}) => {
 
                 { 
                     // Shirt Size CSS
-                    shirt ? 
-                    ( 
-                  <aside className="my-4 flex justify-center">
-                    <ul className="flex flex-row  text-sm">
-                    {shirtSizes.map( (item, index) => (
-                      <li key={index}>
-                        <button onClick={(e)=> {setSelectSize(e.target.textContent)}} className=" shirtSize flex items-center justify-center px-3 h-8 leading-tight text-gray-800 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">{item}</button>
-                      </li>
-                    ))}
-                    </ul>
-                  </aside>
-                ) 
+                    shirt ? (<MobileShirtSize array={shirtSizes} setSelectSize={selectSize} />) 
                   : 
                   // Pants Size CSS
                   pants ?
                   (
-                  <aside className=" mt-2 self-center">
-                      <button onClick={() => setHidden(!hidden)} id="dropdownHoverButton" data-dropdown-toggle="dropdownHover" data-dropdown-trigger="hover" className="text-black bg-white hover:bg-slate-800 border border-slate-400 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center" type="button">{selectSize ? selectSize : "Select Size"} <svg className="w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                            <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4"/>
-                          </svg></button>
-                      {/* Dropdwon */}
-                        <div id="dropdownHover" className={ hidden ? "z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700" : "z-10 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 h-[150px] overflow-y-scroll"}>
-                            <ul className="py-2 text-sm text-gray-700" aria-labelledby="dropdownHoverButton">
-                              { pantSizes.map((item, index) => (
-                                  <li onClick={(e) => {setSelectSize(e.target.textContent); setHidden(!hidden)}} key={index}>
-                                     <a href="" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">{item}</a>
-                                   </li>
-                              ))}
-                            </ul>
-                        </div>
-                  </aside>
+                    <MobileSizes array={pantSizes} selectSize={selectSize} setSelectSize={setSelectSize}/>
 
-                  ): shoes ? 
-                  (  
-                  <aside className=" mt-2 self-center">
-                    <button onClick={() => setHidden(!hidden)} id="dropdownHoverButton" data-dropdown-toggle="dropdownHover" data-dropdown-trigger="hover" className="text-black bg-white hover:bg-slate-800 border border-slate-400 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center" type="button">{selectSize ? selectSize : "Select Size"}  <svg className="w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                          <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4"/>
-                        </svg></button>
-                    {/* Dropdwon */}
-                      <div id="dropdownHover" className={ hidden ? "z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700" : "z-10 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 h-[150px] overflow-y-scroll"}>
-                          <ul className="py-2 text-sm text-gray-700" aria-labelledby="dropdownHoverButton">
-                          { shoeSizes.map( (item, index) => (
-                            <li onClick={(e) => {setSelectSize(e.target.textContent); setHidden(!hidden)}} key={index}>
-                              <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">{item}</a>
-                            </li>
-                          ))}
-                          </ul>
-                      </div>
-                  </aside>
-              ) : (
-              <div></div>
-              )
-              }
+                  ): shoes ? (<MobileSizes array={shoeSizes} selectSize={selectSize} setSelectSize={setSelectSize}/>) 
+                  : ( <div></div>)
+                  }
                     {/* Add To Cart */}
                     <button type="button" onClick={() => {dispatch(addItemToCart(userItem )); setSideCart(true)}} className=" cart flex justify-center self-center focus:outline-none text-black font-Bebas text-xl bg-yellow-400  focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg w-[75%] p-2 mt-2 ">Add To Bag<img src={Logo} className="h-6 mx-2"/></button>
             </aside>
