@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState,useEffect } from "react"
 import { useSelector } from "react-redux"
 import { Link, NavLink, useNavigate } from "react-router-dom"
 import Logo from "../assests/cube.png"
@@ -14,6 +14,8 @@ export const Header = () => {
     e.target.reset()
     navigate(`search?item=${userSeach}`)
   }
+
+
 
   return (
     
