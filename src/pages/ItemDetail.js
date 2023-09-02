@@ -176,8 +176,10 @@ export const ItemDetail = ({apiPath}) => {
       }
       </aside>
 
-      {/* Trending Array */}
-      <TrendingSlider/>
+      <aside className="h-[700px]">
+        {/* Trending Array */}
+        <TrendingSlider/>
+      </aside>
     </section>
   )
 }
