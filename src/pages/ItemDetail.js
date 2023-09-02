@@ -4,9 +4,10 @@ import { useFetch } from "../hooks"
 import { useParams } from "react-router-dom"
 import { useDispatch } from "react-redux"
 import { addItemToCart } from "../store/CartSlice"
-import { TrendingSlider } from "../components"
+import { Slider } from "./ProductPage/Slider"
 import { Loading,SideCart } from "../components"
 import { shirtSizes, pantSizes, shoeSizes } from "../DataArray/sizes"
+import { Trending } from "../DataArray/Trending"
 import { DesktopShirtSize, DesktopSizes, MobileShirtSize, MobileSizes} from "./Sizes"
 import Logo from "../assests/cube.png"
 import "./ItemDetail.css"
@@ -87,7 +88,7 @@ export const ItemDetail = ({apiPath}) => {
             <div></div>
             
             {/* Product Images */}
-            <div className="grid grid-cols-2 grid-rows-2 px-4 tablet:max-laptop:grid-cols-gridCols tablet:max-laptop:grid-rows-gridRows tablet:max-laptop:w-[50%] laptop:max-desktop:w-[70%] desktop:w-[75%]  individualImg">
+            <div className="grid grid-cols-2 grid-rows-2 px-4 tablet:max-laptop:grid-cols-gridCols tablet:max-laptop:grid-rows-gridRows tablet:max-laptop:w-[60%] laptop:max-desktop:w-[70%] desktop:w-[75%]  individualImg">
               <img src={imageUrl} className=" w-full " alt="..."/>
               <img src={imageUrl_Two} className="w-full " alt="..."/>
               <img src={imageUrl_Three} className=" w-full " alt="..."/>
@@ -95,9 +96,9 @@ export const ItemDetail = ({apiPath}) => {
             </div>
 
             {/* Product Info */}
-            <div className=" z-20 flex flex-col fixed right-0 tablet:max-laptop:w-[50%] laptop:max-desktop:w-[30%] desktop:w-[25%]">
+            <div className=" flex flex-col laptop:fixed right-0 tablet:max-laptop:w-[50%] laptop:max-desktop:w-[30%] desktop:w-[25%]">
               <aside className="mt-12 flex flex-col">
-                <h1 className=" font-Inconsolata text-2xl justify-self-center">{title}</h1>
+                <h1 className=" font-Inconsolata text-xl justify-self-center">{title}</h1>
                 <p className="font-normal mt-2 text-xl">${price}.00</p>
               </aside>
 
@@ -176,9 +177,9 @@ export const ItemDetail = ({apiPath}) => {
       }
       </aside>
 
-      <aside className="h-[700px]">
+      <aside className="h-[400px] my-8">
         {/* Trending Array */}
-        <TrendingSlider/>
+        <Slider section="Trending Now" array={Trending}/>
       </aside>
     </section>
   )
