@@ -21,7 +21,7 @@ export const Slider = ({section,array}) => {
   }
 
   return (
-     <div className="h-36 p-8 max-w-5xl mt-8">
+     <div className="h-36 p-8 max-tablet:w-full desktop:max-w-5xl mt-8">
         <header className="flex justify-between">
           <h1 className="font-Bebas text-3xl font-semibold self-center">{section}</h1>
 
