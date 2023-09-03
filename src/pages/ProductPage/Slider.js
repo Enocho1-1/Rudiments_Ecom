@@ -15,13 +15,13 @@ export const Slider = ({section,array}) => {
     slider.scrollLeft = slider.scrollLeft + 235;
   };
 
-  function navigateProduct(event,id){
+  const navigateProduct = (event,id) => {
     event.preventDefault()
     navigate(`/${id}`)
   }
 
   return (
-     <div className="h-36 p-8 max-tablet:w-full desktop:max-w-5xl mt-8">
+     <div className="h-36 p-8 max-tablet:w-full desktop:max-w-7xl mt-8">
         <header className="flex justify-between">
           <h1 className="font-Bebas text-3xl font-semibold self-center">{section}</h1>
 
@@ -46,10 +46,10 @@ export const Slider = ({section,array}) => {
                    <img src={item.imageUrl} className="h-72 w-fit" alt="" />
                   </Link>
                 </span>
-                <div className="mt-2">
-                  <h1 className="font-Inconsolata text-md px-2 font-semibold">{item.title}</h1>
-                  <h1 className="font-Inconsolata text-lg font-semibold px-2">${item.price}.00</h1>
-                </div>
+                <span className="mt-2">
+                  <h1 className="font-Inconsolata font-semibold p-2">{item.title}</h1>
+                  <h1 className="font-Inconsolata text-lg font-semibold p-2">${item.price}.00</h1>
+                </span>
          
               </div>
           ))}

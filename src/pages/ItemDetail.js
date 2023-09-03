@@ -1,10 +1,12 @@
 
 import { useEffect,useState } from "react"
 import { useFetch } from "../hooks"
+import { useRecent } from "../hooks"
 import { useParams } from "react-router-dom"
 import { useDispatch } from "react-redux"
 import { addItemToCart } from "../store/CartSlice"
 import { Slider } from "./ProductPage/Slider"
+import { TrendingSlider } from "./ProductPage/TrendingSlider"
 import { Loading,SideCart } from "../components"
 import { shirtSizes, pantSizes, shoeSizes } from "../DataArray/sizes"
 import { Trending } from "../DataArray/Trending"
@@ -30,7 +32,10 @@ export const ItemDetail = ({apiPath}) => {
 
   // Custom Fetch Hook
   const { data, loading } = useFetch(apiPath, productId)
-  
+
+   // Recent Item Custom Hook
+  // const recent =  useRecent(data);
+
 
   // Destructure Returned JSON
  const {  title , price, imageUrl, imageUrl_Two, imageUrl_Three, imageUrl_Four} = data
@@ -71,7 +76,7 @@ export const ItemDetail = ({apiPath}) => {
     image: imageUrl
   }
 
-
+ 
 
 
   return (
@@ -156,15 +161,15 @@ export const ItemDetail = ({apiPath}) => {
 
                 { 
                     // Shirt Size CSS
-                    shirt ? (<MobileShirtSize array={shirtSizes} setSelectSize={selectSize} />) 
-                  : 
-                  // Pants Size CSS
-                  pants ?
-                  (
-                    <MobileSizes array={pantSizes} selectSize={selectSize} setSelectSize={setSelectSize}/>
-
-                  ): shoes ? (<MobileSizes array={shoeSizes} selectSize={selectSize} setSelectSize={setSelectSize}/>) 
-                  : ( <div></div>)
+                    shirt ? 
+                    (<MobileShirtSize array={shirtSizes} setSelectSize={selectSize} />) 
+                    : 
+                    // Pants Size CSS
+                    pants ?
+                    (<MobileSizes array={pantSizes} selectSize={selectSize} setSelectSize={setSelectSize}/>)
+                    : shoes ? 
+                    (<MobileSizes array={shoeSizes} selectSize={selectSize} setSelectSize={setSelectSize}/>) 
+                    : ( <div></div>)
                   }
                     {/* Add To Cart */}
                     <button type="button" onClick={() => {dispatch(addItemToCart(userItem )); setSideCart(true)}} className=" cart flex justify-center self-center focus:outline-none text-black font-Bebas text-xl bg-yellow-400  focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg w-[75%] p-2 mt-2 ">Add To Bag<img src={Logo} className="h-6 mx-2"/></button>
@@ -179,7 +184,10 @@ export const ItemDetail = ({apiPath}) => {
 
       <aside className="h-[400px] my-8">
         {/* Trending Array */}
-        <Slider section="Trending Now" array={Trending}/>
+        <TrendingSlider  array={Trending}/>
+
+        {/* Recently Viewed */}
+        {/* <Slider section="Trending Now" array={Trending}/> */}
       </aside>
     </section>
   )

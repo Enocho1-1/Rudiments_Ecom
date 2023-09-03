@@ -20,9 +20,8 @@ export const Cart = ({name}) => {
   //  Window MatchMedia
  useEffect(() => {
   let mediaQuery = window.matchMedia("(max-width: 769px)")
-  mediaQuery.addListener(setMyQuery)
+  mediaQuery.addEventListener("change", setMyQuery)
 
-  return () => mediaQuery.removeListener(setMyQuery)
  },[])
 
   const cart = useSelector(state => state.cart.cartItems)

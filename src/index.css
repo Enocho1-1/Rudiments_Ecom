@@ -6,6 +6,7 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css");
 
 
+
 *{
     box-sizing: border-box;
     margin: 0;
@@ -42,19 +43,20 @@ section{
 
   .row-container {
     display: flex;
-    gap: 2.2rem;
+    gap: 2rem;
     overflow-x: scroll;
     overflow-y: hidden;
-    padding: 1rem .6rem;
+    padding: 1rem;
     position: relative;
     scroll-behavior: smooth;
     white-space: nowrap;
   }
 
-  .row-item {
+  .row-item { 
     cursor: pointer;
     outline: 2px solid rgba(0,0,0,.205);
     transition: all .15s ease-in;
+    max-width: 350px;
   }
 
  /* Media Query for Mobile Devices */
