@@ -67,9 +67,9 @@ export const ItemDetail = ({apiPath}) => {
 
     stringArray.includes("Tee") || stringArray.includes( "Button") || stringArray.includes("Shirt") ? 
     setShirt(true) : stringArray.includes("trousers") || stringArray.includes( "joggers") || stringArray.includes("Jeans") || stringArray.includes("shorts")? 
-    setPants(true) : stringArray.includes("Shoes") || stringArray.includes( "loafers") || stringArray.includes("trainers") ||     stringArray.includes("sandals") || stringArray.includes("sliders") ? setShoes(true) : console.log("done")
+    setPants(true) : stringArray.includes("Shoes") || stringArray.includes( "loafers") || stringArray.includes("trainers") || stringArray.includes("sandals") || stringArray.includes("sliders") ? setShoes(true) : console.log("done")
   }
-  },[title,stringArray])
+  },[title,stringArray,id])
   
 
 
@@ -108,7 +108,7 @@ export const ItemDetail = ({apiPath}) => {
             </div>
 
             {/* Product Info */}
-            <div className=" flex flex-col desktop:fixed right-0 tablet:max-laptop:w-[50%] laptop:max-desktop:w-[30%] desktop:w-[25%]">
+            <div className=" flex flex-col min-[1690px]:fixed right-0 tablet:max-laptop:w-[50%] laptop:max-desktop:w-[30%] desktop:w-[25%]">
               <aside className="mt-12 flex flex-col">
                 <h1 className=" font-Inconsolata text-xl justify-self-center">{title}</h1>
                 <p className="font-normal mt-2 text-xl">${price}.00</p>

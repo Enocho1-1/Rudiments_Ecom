@@ -1,9 +1,6 @@
-import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom"
 
 export const Slider = ({array}) => {
-
-  const navigate = useNavigate()
 
   const slideLeft = () => {
     let slider = document.getElementById("recentSlider");
@@ -15,13 +12,9 @@ export const Slider = ({array}) => {
     slider.scrollLeft = slider.scrollLeft + 235;
   };
 
-  const navigateProduct = (event,id) => {
-    event.preventDefault()
-    navigate(`/${id}`)
-  }
 
   return (
-     <div className="h-36 p-8 max-tablet:w-full desktop:max-w-7xl mt-[300px]">
+     <div className="h-36 p-8 max-[1690px]:w-full min-[1690px]:max-w-7xl mt-[300px]">
         <header className="flex justify-between px-4">
           <h1 className="font-Bebas text-3xl font-semibold self-center">Recently Viewed</h1>
 
@@ -37,12 +30,12 @@ export const Slider = ({array}) => {
         </header>
         
 
-        {/* Trending Products */}
+        {/* Recently Viewed Products */}
         <div className="mt-2 px-3 row-container" id="recentSlider">
           { array.map( (item, index) => (
               <div key={index} className="row-item">
                 <span>
-                  <Link onClick={ (event) => navigateProduct(event,item.id)}>
+                  <Link to={`/${item.id}`}>
                    <img src={item.imageUrl} className="h-72 w-fit" alt="" />
                   </Link>
                 </span>

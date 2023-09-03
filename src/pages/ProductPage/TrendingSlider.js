@@ -1,9 +1,7 @@
-import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom"
 
 export const TrendingSlider = ({array}) => {
 
-    const navigate = useNavigate()
 
     const slideLeft = () => {
       let slider = document.getElementById("slider");
@@ -15,13 +13,9 @@ export const TrendingSlider = ({array}) => {
       slider.scrollLeft = slider.scrollLeft + 235;
     };
   
-    const navigateProduct = (event,id) => {
-      event.preventDefault()
-      navigate(`/${id}`)
-    }
   
   return (
-    <div className="h-36 p-8 max-tablet:w-full desktop:max-w-7xl my-8">
+    <div className="h-36 p-8 max-[1690px]:w-full min-[1690px]:max-w-7xl my-8">
         <header className="flex justify-between px-4">
         <h1 className="font-Bebas text-3xl font-semibold self-center">Trending Now</h1>
 
@@ -42,7 +36,7 @@ export const TrendingSlider = ({array}) => {
         { array.map( (item, index) => (
             <div key={index} className="row-item">
                 <span>
-                <Link onClick={ (event) => navigateProduct(event,item.id)}>
+                <Link to={`/${item.id}`}>
                 <img src={item.imageUrl} className="h-72 w-fit" alt="" />
                 </Link>
                 </span>
