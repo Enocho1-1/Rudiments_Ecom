@@ -1,17 +1,17 @@
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom"
 
-export const Slider = ({section,array}) => {
+export const Slider = ({array}) => {
 
   const navigate = useNavigate()
 
   const slideLeft = () => {
-    let slider = document.getElementById("slider");
+    let slider = document.getElementById("recentSlider");
     slider.scrollLeft = slider.scrollLeft - 235;
   };
 
   const slideRight = () => {
-    let slider = document.getElementById("slider");
+    let slider = document.getElementById("recentSlider");
     slider.scrollLeft = slider.scrollLeft + 235;
   };
 
@@ -21,9 +21,9 @@ export const Slider = ({section,array}) => {
   }
 
   return (
-     <div className="h-36 p-8 max-tablet:w-full desktop:max-w-7xl mt-8">
-        <header className="flex justify-between">
-          <h1 className="font-Bebas text-3xl font-semibold self-center">{section}</h1>
+     <div className="h-36 p-8 max-tablet:w-full desktop:max-w-7xl mt-[300px]">
+        <header className="flex justify-between px-4">
+          <h1 className="font-Bebas text-3xl font-semibold self-center">Recently Viewed</h1>
 
           {/* Buttons */}
           <span className="btns flex ">
@@ -38,7 +38,7 @@ export const Slider = ({section,array}) => {
         
 
         {/* Trending Products */}
-        <div className="mt-2 px-3 row-container" id="slider">
+        <div className="mt-2 px-3 row-container" id="recentSlider">
           { array.map( (item, index) => (
               <div key={index} className="row-item">
                 <span>

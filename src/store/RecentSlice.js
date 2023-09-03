@@ -2,10 +2,14 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const RecentSlice = createSlice({
   name: "recent",
-  initialState: [],
+  initialState: {
+    recents: []
+  },
   reducers: {
     addRecent(state, action){
-      console.log(action.payload)
+      const updateViews = state.recents.concat(action.payload)
+
+      return{...state, recents:updateViews}
     }
   }
 

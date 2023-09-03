@@ -2,7 +2,7 @@
 import { useEffect,useState } from "react"
 import { useFetch } from "../hooks"
 import { useParams } from "react-router-dom"
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { addItemToCart } from "../store/CartSlice"
 import { addRecent } from "../store/RecentSlice"
 import { Slider } from "./ProductPage/Slider"
@@ -15,6 +15,8 @@ import Logo from "../assests/cube.png"
 import "./ItemDetail.css"
 
 export const ItemDetail = ({apiPath}) => {
+
+  // useState Variables
   const [shirt, setShirt] = useState(false)
   const [pants, setPants] = useState(false)
   const [shoes, setShoes] = useState(false)
@@ -24,11 +26,15 @@ export const ItemDetail = ({apiPath}) => {
     matches: window.innerWidth < 769 ? true : false
   })
 
+
+
   const param = useParams()
   const productId = param.id
   const dispatch = useDispatch()
+  const recentArray = useSelector( state => state.recent.recents)
   const mobileView = "flex flex-col"
   let stringArray
+
 
   // Custom Fetch Hook
   const { data, loading } = useFetch(apiPath, productId)
@@ -183,12 +189,13 @@ export const ItemDetail = ({apiPath}) => {
       }
       </aside>
 
-      <aside className="h-[400px] my-8">
+      <aside className="h-[1000px] flex flex-col my-8">
         {/* Trending Array */}
         <TrendingSlider  array={Trending}/>
 
         {/* Recently Viewed */}
-        {/* <Slider section="Trending Now" array={Trending}/> */}
+        <Slider array={recentArray}/>
+     
       </aside>
     </section>
   )
