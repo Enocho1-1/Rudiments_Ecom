@@ -22,7 +22,7 @@ export const TrendingSlider = ({array}) => {
   
   return (
     <div className="h-36 p-8 max-tablet:w-full desktop:max-w-7xl mt-8">
-        <header className="flex justify-between">
+        <header className="flex justify-between px-4">
         <h1 className="font-Bebas text-3xl font-semibold self-center">Trending Now</h1>
 
         {/* Buttons */}

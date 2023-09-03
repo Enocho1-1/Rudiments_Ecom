@@ -1,14 +1,11 @@
-import { createSlice } from "@reduxjs/toolkit"
+import { createSlice } from "@reduxjs/toolkit";
 
-export const RecentSlice = createSlice({
-  name:"recent",
-  initialState : {
-   recentItems: []
-  },
+const RecentSlice = createSlice({
+  name: "recent",
+  initialState: [],
   reducers: {
-    addRecent:(state,action)=>{
-      const updateViews = state. recentItems.concat(action.payload)
-      return { ...state,  recentItems: updateViews}
+    addRecent(state, action){
+      console.log(action.payload)
     }
   }
 
@@ -16,6 +13,3 @@ export const RecentSlice = createSlice({
 
 export const { addRecent } = RecentSlice.actions
 export const recentReducer = RecentSlice.reducer
-
- 
-

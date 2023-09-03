@@ -1,10 +1,10 @@
 
 import { useEffect,useState } from "react"
 import { useFetch } from "../hooks"
-import { useRecent } from "../hooks"
 import { useParams } from "react-router-dom"
 import { useDispatch } from "react-redux"
 import { addItemToCart } from "../store/CartSlice"
+import { addRecent } from "../store/RecentSlice"
 import { Slider } from "./ProductPage/Slider"
 import { TrendingSlider } from "./ProductPage/TrendingSlider"
 import { Loading,SideCart } from "../components"
@@ -33,25 +33,26 @@ export const ItemDetail = ({apiPath}) => {
   // Custom Fetch Hook
   const { data, loading } = useFetch(apiPath, productId)
 
-   // Recent Item Custom Hook
-  // const recent =  useRecent(data);
-
-
   // Destructure Returned JSON
- const {  title , price, imageUrl, imageUrl_Two, imageUrl_Three, imageUrl_Four} = data
+ const {  id, title , price, imageUrl, imageUrl_Two, imageUrl_Three, imageUrl_Four} = data
 
- 
+//  Recently Viewed Reducer 
+ useEffect(() => {
+  dispatch(addRecent(data))
+},[id])
 
-//  Title Array function
- const productitle = (string) => {
-   stringArray = string.split(' ')
- }
+
 
 //  Window MatchMedia
  useEffect(() => {
   let mediaQuery = window.matchMedia("(max-width: 769px)")
   mediaQuery.addEventListener("change", setMyQuery)
  },[])
+
+ //  Title Array function
+ const productitle = (string) => {
+  stringArray = string.split(' ')
+}
 
 // Clothing Piece Validation
   useEffect(() => { 
@@ -116,7 +117,7 @@ export const ItemDetail = ({apiPath}) => {
               }
 
               {/* Add To Cart */}
-              <button type="button" onClick={() => {dispatch(addItemToCart(userItem )); setSideCart(true)}} className=" cart flex flew-row justify-center focus:outline-none text-black font-Bebas text-xl bg-yellow-400  focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg w-[75%] p-2 mt-8 ">Add To Bag<img src={Logo} className="h-6 mx-2"/></button>
+              <button type="button" onClick={() => {dispatch(addItemToCart(userItem)); setSideCart(true)}} className=" cart flex flew-row justify-center focus:outline-none text-black font-Bebas text-xl bg-yellow-400  focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg w-[75%] p-2 mt-8 ">Add To Bag<img src={Logo} className="h-6 mx-2"/></button>
             </div> 
         </>
  
