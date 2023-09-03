@@ -7,9 +7,15 @@ const RecentSlice = createSlice({
   },
   reducers: {
     addRecent(state, action){
-      const updateViews = state.recents.concat(action.payload)
+      const duplicate = state.recents.find( item => item.id === action.payload.id)
 
-      return{...state, recents:updateViews}
+      if(!duplicate){
+        const updateViews = state.recents.concat(action.payload)
+        return{...state, recents:updateViews}
+      } else{
+        return console.log("already in recent list")
+      }
+   
     }
   }
 
