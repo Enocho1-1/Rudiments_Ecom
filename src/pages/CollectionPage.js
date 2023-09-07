@@ -1,14 +1,18 @@
-import { useState } from "react"
+import { useState,useEffect } from "react"
 import { useFetch, useTitle } from "../hooks"
+import { useFilter } from "../context/filterContext"
 import { ProductCard, Pagination, Loading } from "../components"
 
 export const CollectionPage = ({apiPath, title}) => {
   
+  const { product } = useFilter()
+
   useTitle(title)
   const [page, setPage] = useState(1)
   const [postsPerPage] = useState(12)
   const { data, loading } = useFetch(apiPath)
 
+  // useEffect(() => {}, [])
 
   const lastIndex = page * postsPerPage
   const firstIndex = lastIndex - postsPerPage
