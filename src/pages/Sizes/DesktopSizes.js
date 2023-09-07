@@ -12,7 +12,7 @@ export const DesktopSizes = ({array, selectSize, setSelectSize}) => {
             <ul className=" py-2 text-sm text-gray-700" aria-labelledby="dropdownHoverButton">
             { array.map((item, index) => (
                       <li onClick={(e) => {setSelectSize(e.target.textContent); setHidden(!hidden)}} key={index}>
-                        <a href="#" rel="noopener"  className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">    {item}</a>
+                        <a href="# " rel="noopener"  className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">    {item}</a>
                       </li>
                   ))}
             </ul>

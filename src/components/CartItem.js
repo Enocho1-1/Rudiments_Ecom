@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux"
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { removeItemCart } from "../store/CartSlice"
 import { Link } from "react-router-dom"
 
