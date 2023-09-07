@@ -3,14 +3,15 @@ import { useTitle } from "../hooks"
 import { useFilter } from "../context/filterContext"
 import { ProductCard, Pagination, Loading } from "../components"
 
-export const CollectionPage = ({title}) => {
+export const CollectionPage = () => {
   
   // Use Context Destructure
-  const { product, allProducts } = useFilter()
+  const { state, dispatch, product, allProducts } = useFilter()
   const [page, setPage] = useState(1)
   const [postsPerPage] = useState(12)
   const [loading, setLoading] = useState(true)
   useTitle("Collections")
+
   // Fetch All Products
   useEffect(() => {
     const fetchProducts = async () => {
@@ -37,14 +38,15 @@ export const CollectionPage = ({title}) => {
   }
 
 
+
   return (
     <section> 
       <h1 className="text-center text-5xl font-Bebas mb-4 py-4 max-mobile:text-4xl mobile:max-tablet:text-4xl">MEN'S CLOTHES Collection</h1>
       {/* Filter Buttons */}
       <aside className="max-w-2xl my-4 m-auto flex justify-evenly">
-        <span className="font-Inconsolata font-medium text-md text-black hover:cursor-pointer hover:text-slate-500 px-3 border border-slate-500 "> All</span>
-        <span className="font-Inconsolata font-medium text-md text-black hover:cursor-pointer hover:text-slate-500 px-3 border border-slate-500 ">T-Shirts</span>
-        <span className="font-Inconsolata font-medium text-md text-black hover:cursor-pointer hover:text-slate-500 px-3 border border-slate-500 "> Shirts</span>
+        <span onClick={() => {dispatch({type:"CLEAR", payload:{value:false, value_two:false}})}} className="font-Inconsolata font-medium text-md text-black hover:cursor-pointer hover:text-slate-500 active:bg-slate-500 active:text-white px-3 border border-slate-500 "> All</span>
+        <span onClick={() => {dispatch({type:"T-SHIRTS", payload:{value: !state.TShirts}})}} className="font-Inconsolata font-medium text-md text-black hover:cursor-pointer hover:text-slate-500 active:bg-slate-500 active:text-white  px-3 border border-slate-500 ">T-Shirts</span>
+        <span onClick={() => {dispatch({type:"SHIRTS", payload:{value: !state.Shirts}})}} className="font-Inconsolata font-medium text-md text-black hover:cursor-pointer hover:text-slate-500 active:bg-slate-500 active:text-white  px-3 border border-slate-500 "> Shirts</span>
         <span className="font-Inconsolata font-medium text-md text-black hover:cursor-pointer hover:text-slate-500 px-3 border border-slate-500 "> Jeans</span>
         <span className="font-Inconsolata font-medium text-md text-black hover:cursor-pointer hover:text-slate-500 px-3 border border-slate-500 "> Shorts</span>
         <span className="font-Inconsolata font-medium text-md text-black hover:cursor-pointer hover:text-slate-500 px-3 border border-slate-500 "> Shoes</span>
