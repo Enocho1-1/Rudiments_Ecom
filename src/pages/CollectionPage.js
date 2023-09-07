@@ -1,22 +1,35 @@
 import { useState,useEffect } from "react"
-import { useFetch, useTitle } from "../hooks"
+import { useTitle } from "../hooks"
 import { useFilter } from "../context/filterContext"
 import { ProductCard, Pagination, Loading } from "../components"
 
-export const CollectionPage = ({apiPath, title}) => {
+export const CollectionPage = ({title}) => {
   
-  const { product } = useFilter()
-
-  useTitle(title)
+  // Use Context Destructure
+  const { product, allProducts } = useFilter()
   const [page, setPage] = useState(1)
   const [postsPerPage] = useState(12)
-  const { data, loading } = useFetch(apiPath)
-
-  // useEffect(() => {}, [])
+  const [loading, setLoading] = useState(true)
+  useTitle("Collections")
+  // Fetch All Products
+  useEffect(() => {
+    const fetchProducts = async () => {
+    try{
+      setLoading(true)
+      const response = await fetch(`https://api.mocki.io/v2/f3308aac/shop`)
+      const result = await response.json()
+      allProducts(result)
+      setLoading(false)
+    }catch(error){
+      console.log(error)
+    }
+  }
+  fetchProducts();
+},[])
 
   const lastIndex = page * postsPerPage
   const firstIndex = lastIndex - postsPerPage
-  const products = data.slice(firstIndex, lastIndex)
+  const products = product.slice(firstIndex, lastIndex)
 
   
   const paginate = (pageNumber) => {
@@ -44,7 +57,7 @@ export const CollectionPage = ({apiPath, title}) => {
           <ProductCard key={item.id} product={item}/>
         ))}
       </aside>
-      <Pagination totalAmount={data.length} postsPerPage={postsPerPage} paginate={paginate} />
+      <Pagination totalAmount={product.length} postsPerPage={postsPerPage} paginate={paginate} />
     </section>
   )
 }
