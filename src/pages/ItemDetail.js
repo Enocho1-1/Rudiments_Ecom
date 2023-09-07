@@ -27,6 +27,7 @@ export const ItemDetail = ({apiPath}) => {
   })
 
 
+  
 
   const param = useParams()
   const productId = param.id
