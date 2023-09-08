@@ -5,12 +5,12 @@ export const TrendingSlider = ({array}) => {
 
     const slideLeft = () => {
       let slider = document.getElementById("slider");
-      slider.scrollLeft = slider.scrollLeft - 235;
+      slider.scrollLeft = slider.scrollLeft - 300;
     };
   
     const slideRight = () => {
       let slider = document.getElementById("slider");
-      slider.scrollLeft = slider.scrollLeft + 235;
+      slider.scrollLeft = slider.scrollLeft + 300;
     };
   
   
@@ -37,7 +37,7 @@ export const TrendingSlider = ({array}) => {
             <div key={index} className="row-item">
                 <span>
                 <Link to={`/${item.id}`}>
-                <img src={item.imageUrl} className="h-72 w-fit" alt="" />
+                <img src={item.imageUrl} className="" alt="" />
                 </Link>
                 </span>
                 <span className="mt-2">
