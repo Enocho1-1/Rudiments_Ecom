@@ -4,7 +4,11 @@ import {FilterReducer} from "../reducer/FilterReducer"
 const filterInitialState = {
   product: [],
   TShirts: false,
-  Shirts: false
+  Shirts: false,
+  Pants:false,
+  Shorts:false,
+  Shoes:false,
+  Accessories:false
 }
 
 const FilterContext = createContext(filterInitialState)
@@ -32,7 +36,28 @@ export const FilterProvider = ({children}) => {
     return state.Shirts ? products.filter(item => item.category === "shirt") : products
   }
 
-  const filteredProducts = allShirts(allTShirts(state.product))
+   // Filter Shirts
+   function allPants(products){
+    return state.Pants ? products.filter(item => item.category === "pants") : products
+  }
+
+
+  // Filter Shorts
+   function allShorts(products){
+    return state.Shorts ? products.filter(item => item.category === "shorts") : products
+  }
+  
+  // Filter Shoes
+  function allShoes(products){
+    return state.Shoes ? products.filter(item => item.category === "shoes") : products
+  }
+
+  // Filter Accessories
+  function allAccessories(products){
+    return state.Accessories ? products.filter(item => item.category === "accessories") : products
+  }
+
+  const filteredProducts = allAccessories(allShoes(allShorts(allPants(allShirts(allTShirts(state.product))))))
   const value = {
     state,
     dispatch,

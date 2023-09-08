@@ -55,7 +55,8 @@ export const Header = () => {
                 <NavLink to="/shop" className="block py-2 pl-3 pr-4 text-xl font-Bebas text-blk rounded hover:text-slate-500">Shop</NavLink>
             </li>
             <li>
-                <NavLink to="/about" className="block py-2 pl-3 pr-4 text-xl font-Bebas text-blk rounded hover:text-slate-500">About</NavLink>
+            {   /* eslint-disable */}
+                <a href="#" className="block py-2 pl-3 pr-4 text-xl font-Bebas text-blk rounded hover:text-slate-500">About</a>
             </li>
             <li>
                 <NavLink to="/cart" className=" pl-3 pr-4 text-xl font-Bebas text-blk rounded hover:text-slate-500">
