@@ -46,17 +46,21 @@ section{
     gap: 2rem;
     overflow-x: scroll;
     overflow-y: hidden;
-    padding: 1rem;
+    padding: 2rem;
     position: relative;
     scroll-behavior: smooth;
-    white-space: nowrap;
+  }
+
+  .row-container img{
+    height: 250px;
+    width: fit-content;
   }
 
   .row-item { 
     cursor: pointer;
     outline: 2px solid rgba(0,0,0,.205);
     transition: all .15s ease-in;
-    max-width: 350px;
+    width: 250px;
   }
 
  /* Media Query for Mobile Devices */

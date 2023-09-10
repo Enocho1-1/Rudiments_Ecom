@@ -52,7 +52,7 @@ export const CartItem = ({product}) => {
               <button onClick={() => {handleSubQuantity(); decreasePrice() }} className=" font-Inconsolata text-md flex justify-center items-center self-end text-white bg-black hover:bg-slate-400 p-2">  - </button>
             </span>
           </div>
-          <span onClick={() =>  dispatch(removeItemCart(product))} className="mt-2 text-md hover:underline-offset-auto hover:cursor-pointer">REMOVE</span>
+          <span onClick={() =>  dispatch(removeItemCart(product))} className="text-md hover:underline-offset-auto hover:cursor-pointer">REMOVE</span>
         </aside>
       </span>
   )
