@@ -8,7 +8,7 @@ export const CollectionPage = () => {
   // Use Context Destructure
   const { state, dispatch, product, allProducts } = useFilter()
   const [page, setPage] = useState(1)
-  const [postsPerPage] = useState(12)
+  const [postsPerPage] = useState(20)
   const [loading, setLoading] = useState(true)
   useTitle("Collections")
 
