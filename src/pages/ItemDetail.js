@@ -7,7 +7,7 @@ import { addItemToCart } from "../store/CartSlice"
 import { addRecent } from "../store/RecentSlice"
 import { Slider } from "./ProductPage/Slider"
 import { TrendingSlider } from "./ProductPage/TrendingSlider"
-import { Loading,SideCart } from "../components"
+import { Loading,SideCart,Accordion } from "../components"
 import { shirtSizes, pantSizes, shoeSizes } from "../DataArray/sizes"
 import { Trending } from "../DataArray/Trending"
 import { DesktopShirtSize, DesktopSizes, MobileShirtSize, MobileSizes} from "./Sizes"
@@ -123,6 +123,11 @@ export const ItemDetail = ({apiPath}) => {
               : (<div></div>)
               }
 
+              {/* Product Detail */}
+              <div>
+                <Accordion/>
+              </div>
+
               {/* Add To Cart */}
               <button type="button" onClick={() => {dispatch(addItemToCart(userItem)); setSideCart(true)}} className=" cart flex flew-row justify-center focus:outline-none text-black font-Bebas text-xl bg-yellow-400  focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg w-[75%] p-2 mt-8 ">Add To Bag<img src={Logo} className="h-6 mx-2"/></button>
             </div> 
@@ -179,6 +184,10 @@ export const ItemDetail = ({apiPath}) => {
                     (<MobileSizes array={shoeSizes} selectSize={selectSize} setSelectSize={setSelectSize}/>) 
                     : ( <div></div>)
                   }
+                   {/* Product Detail */}
+                    <div>
+                      <Accordion/>
+                    </div>
                     {/* Add To Cart */}
                     <button type="button" onClick={() => {dispatch(addItemToCart(userItem )); setSideCart(true)}} className=" cart flex justify-center self-center focus:outline-none text-black font-Bebas text-xl bg-yellow-400  focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg w-[75%] p-2 mt-2 ">Add To Bag<img src={Logo} className="h-6 mx-2"/></button>
             </aside>
