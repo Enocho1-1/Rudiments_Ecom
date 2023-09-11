@@ -1,4 +1,4 @@
-
+/* eslint-disable */
 import { useEffect,useState } from "react"
 import { useFetch } from "../hooks"
 import { useParams } from "react-router-dom"
@@ -190,7 +190,7 @@ export const ItemDetail = ({apiPath}) => {
       }
       </aside>
 
-      <aside className="h-[1000px] flex flex-col my-8">
+      <aside className="h-fit flex flex-col my-12">
         {/* Trending Array */}
         <TrendingSlider  array={Trending}/>
 

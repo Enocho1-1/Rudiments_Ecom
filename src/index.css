@@ -44,24 +44,15 @@ section{
   .row-container {
     display: flex;
     gap: 2rem;
-    overflow-x: scroll;
+    overflow-x: auto;
     overflow-y: hidden;
     padding: 2rem;
     position: relative;
     scroll-behavior: smooth;
+    white-space: nowrap;
+    width: inherit;
   }
 
-  .row-container img{
-    height: 250px;
-    width: fit-content;
-  }
-
-  .row-item { 
-    cursor: pointer;
-    outline: 2px solid rgba(0,0,0,.205);
-    transition: all .15s ease-in;
-    width: 250px;
-  }
 
  /* Media Query for Mobile Devices */
  @media (max-width: 480px) {

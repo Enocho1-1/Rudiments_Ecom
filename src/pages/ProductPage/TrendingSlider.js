@@ -34,18 +34,18 @@ export const TrendingSlider = ({array}) => {
         {/* Trending Products */}
         <div className="mt-2 px-3 row-container" id="slider">
         { array.map( (item, index) => (
-            <div key={index} className="row-item">
-                <span>
-                <Link to={`/${item.id}`}>
-                <img src={item.imageUrl} className="" alt="" />
-                </Link>
-                </span>
-                <span className="mt-2">
-                <h1 className="font-Inconsolata font-semibold p-2">{item.title}</h1>
-                <h1 className="font-Inconsolata text-lg font-semibold p-2">${item.price}.00</h1>
-                </span>
-        
-            </div>
+              <div key={index}  className="bg-white border border-gray-200 rounded-lg shadow">
+                  <Link to={`/${item.id}`}>
+                      <img className="rounded-t-lg h-72 w-fit" src={item.imageUrl} alt={item.title} />
+                  </Link>
+                  <div className="p-2">
+                      <Link to={`/${item.id}`}>
+                          <h5 className="mb-2 text-xl font-Bebas tracking-tight text-gray-900">{item.title}</h5>
+                      </Link>
+                      <p className="mb-3 font-normal  text-gray-700">${item.price}.00</p>
+                  </div>
+              </div>
+
         ))}
         
         </div>
