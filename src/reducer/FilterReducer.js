@@ -3,7 +3,7 @@ export const FilterReducer = (state, action) => {
   const { type, payload} = action
   switch(type){
     case 'CLEAR':
-      return {...state,  TShirts:payload.value, Shirts:payload.value_two, Pants:payload.value_three, Shorts:payload.value_four,  Shoes:payload.value_five,  Accessories:payload.value_six}
+      return {...state,  TShirts:false, Shirts:false, Pants: false, Shorts:false,  Shoes:false,  Accessories:false}
     case 'ALL_PRODUCTS':
       return {...state, product: payload.product}
     case 'T-SHIRTS':
