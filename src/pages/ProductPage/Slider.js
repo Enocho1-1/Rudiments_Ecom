@@ -39,7 +39,7 @@ export const Slider = ({array}) => {
                 </Link>
                 <div className="p-2">
                     <Link to={`/${item.id}`}>
-                        <h5 className="mb-2 text-xl font-Bebas tracking-tight text-gray-900">{item.title}</h5>
+                        <h5 className="mb-2 text-xl font-Bebas tracking-tight text-gray-900 truncate">{item.title}</h5>
                     </Link>
                     <p className="mb-3 font-normal  text-gray-700">${item.price}.00</p>
                 </div>
