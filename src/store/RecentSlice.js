@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+
 const RecentSlice = createSlice({
   name: "recent",
   initialState: {
@@ -12,9 +13,7 @@ const RecentSlice = createSlice({
       if(!duplicate){
         const updateViews = state.recents.concat(action.payload)
         return{...state, recents:updateViews}
-      } else{
-        return console.log("already in recent list")
-      }
+      } 
    
     }
   }

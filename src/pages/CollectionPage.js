@@ -1,6 +1,7 @@
 /* eslint-disable */
-import { useState,useEffect } from "react"
+import { useState} from "react"
 import { useTitle } from "../hooks"
+import { useQuery } from "react-query"
 import { useFilter } from "../context/filterContext"
 import { ProductCard, Pagination, Loading } from "../components"
 
@@ -10,25 +11,27 @@ export const CollectionPage = () => {
   const { state, dispatch, product, allProducts } = useFilter()
   const [page, setPage] = useState(1)
   const [postsPerPage] = useState(20)
-  const [loading, setLoading] = useState(true)
+
   useTitle("Collections")
 
   // Fetch All Products
-  useEffect(() => {
-    const fetchProducts = async () => {
+  const fetchProducts = async () => {
     try{
-      setLoading(true)
       const response = await fetch(`https://api.mocki.io/v2/f3308aac/shop`)
-      const result = await response.json()
-      allProducts(result) 
-      setLoading(false)
+      if(!response.ok){
+        throw new Error(`${response.status}`)
+      } else{
+        const result = await response.json()
+        allProducts(result) 
+      }
     }catch(error){
-      console.log(error)
+      throw new Error(error.message)
     }
   }
 
-  fetchProducts();
-},[] )
+  // Use Query invokation
+  const {isLoading } = useQuery("products", fetchProducts)
+
 
   const lastIndex = page * postsPerPage
   const firstIndex = lastIndex - postsPerPage
@@ -55,9 +58,9 @@ export const CollectionPage = () => {
         <button onClick={() => {dispatch({type:"ACCESSORIES", payload:{value: !state.Accessories}})}} className="font-Inconsolata font-medium text-md text-black hover:cursor-pointer hover:text-slate-500 px-3 border border-slate-500 "> Accessories</button>
       </aside>
       <aside className="relative left-16 tablet:left-0 tablet:text-center my-3">
-        <h1 className="font-Inconsolata text-2xl font-semibold text-slate-500">Product Count({product.length})</h1>
+        <h1 className="font-Inconsolata text-xl font-semibold text-slate-500">Product Count({product.length})</h1>
       </aside>
-      {loading && <Loading/>}
+      {isLoading && <Loading/>}
    
       <aside className="m-auto relative px-4 grid place-items-center max-mobile:grid-cols-2  mobile:max-tablet:grid-cols-2 mobile:max-tablet:gap-y-2 tablet:grid-cols-3 tablet:gap-y-4">
         {products.map( item => (

@@ -1,7 +1,7 @@
 /* eslint-disable */
 import { useEffect,useState } from "react"
 import { useFetch } from "../hooks"
-import { useParams } from "react-router-dom"
+import { useParams} from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
 import { addItemToCart } from "../store/CartSlice"
 import { addRecent } from "../store/RecentSlice"
@@ -27,7 +27,6 @@ export const ItemDetail = ({apiPath}) => {
   })
 
 
-  
 
   const param = useParams()
   const productId = param.id
