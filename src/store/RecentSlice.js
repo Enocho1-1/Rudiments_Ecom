@@ -12,6 +12,7 @@ const RecentSlice = createSlice({
 
       if(!duplicate){
         const updateViews = state.recents.concat(action.payload)
+        sessionStorage.setItem("recents", JSON.stringify(updateViews))
         return{...state, recents:updateViews}
       } 
    
