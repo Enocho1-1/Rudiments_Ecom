@@ -45,7 +45,7 @@ export const CollectionPage = () => {
 
 
   return (
-    <section> 
+    <section className="relative"> 
       <h1 className="text-center text-5xl font-Bebas mb-4 py-4 max-mobile:text-4xl mobile:max-tablet:text-4xl">MEN'S CLOTHES Collection</h1>
       {/* Filter Buttons */}
       <aside className="max-w-2xl my-4 m-auto flex justify-evenly flex-wrap">
@@ -57,8 +57,8 @@ export const CollectionPage = () => {
         <button onClick={() => {dispatch({type:"SHOES", payload:{value: !state.Shoes}})}} className="font-Inconsolata font-medium text-md text-black hover:cursor-pointer hover:text-slate-500 px-3 border border-slate-500 "> Shoes</button>
         <button onClick={() => {dispatch({type:"ACCESSORIES", payload:{value: !state.Accessories}})}} className="font-Inconsolata font-medium text-md text-black hover:cursor-pointer hover:text-slate-500 px-3 border border-slate-500 "> Accessories</button>
       </aside>
-      <aside className="relative left-16 tablet:left-0 tablet:text-center my-3">
-        <h1 className="font-Inconsolata text-xl font-semibold text-slate-500">Product Count({product.length})</h1>
+      <aside className="Lrgmoniter:max-w-7xl tablet:max-Lrgmoniter:max-w-5xl max-tablet:justify-center m-auto my-4 px-4 flex justify-start">
+        <h1 className="font-Inconsolata text-lg font-semibold text-slate-400">Product Count-{product.length}</h1>
       </aside>
       {isLoading && <Loading/>}
    

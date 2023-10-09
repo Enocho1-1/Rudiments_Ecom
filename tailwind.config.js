@@ -19,6 +19,8 @@ module.exports = {
         'laptop':'1024px',
         /* Media Query for Large Laptop and Desktops */
         "desktop": "1350px",
+        /* Media Query for 4K UHD Monitors */
+        "Lrgmoniter": "1536px"
       },
       gridTemplateColumns: {
         // Simple 2 column grid
