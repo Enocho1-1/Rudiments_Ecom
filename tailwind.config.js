@@ -25,6 +25,8 @@ module.exports = {
       gridTemplateColumns: {
         // Simple 2 column grid
         'gridCols': 'repeat(2, minmax(0, 500px))',
+          // Simple 3 column grid
+        'gridColsSix': 'repeat(6, minmax(0, 500px))',
       },
       gridTemplateRows: {
         'gridRows': 'repeat(2, minmax(0, 1fr))',
