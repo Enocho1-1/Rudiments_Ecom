@@ -36,11 +36,11 @@ export const TrendingSlider = ({array}) => {
         { array.map( (item, index) => (
               <div key={index}  className="bg-white border border-gray-200 rounded-lg shadow">
                   <Link to={`/${item.id}`}>
-                      <img className="rounded-t-lg h-72 w-fit" src={item.imageUrl} alt={item.title} />
+                      <img className="rounded-t-lg h-72 min-w-[250px]" src={item.imageUrl} alt={item.title} />
                   </Link>
                   <div className="p-2">
                       <Link to={`/${item.id}`}>
-                          <h5 className="mb-2 text-xl font-Bebas tracking-tight text-gray-900 truncate">{item.title}</h5>
+                          <h5 className="max-w-xs mb-2 text-xl font-Bebas tracking-tight text-gray-900 truncate">{item.title}</h5>
                       </Link>
                       <p className="mb-3 font-normal  text-gray-700">${item.price}.00</p>
                   </div>
