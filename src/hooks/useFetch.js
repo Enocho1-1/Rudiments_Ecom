@@ -8,7 +8,9 @@ export const useFetch = (apiPath, queryItem = "", productId = "") => {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
+    // Fetch Clothing Piece and user search
     fetchClothingPiece(endPoint,queryItem,productId,setData,setLoading)
+    
   },[endPoint,queryItem, productId])
   return { data, loading }
 }
