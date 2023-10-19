@@ -3,6 +3,7 @@ import { useState} from "react"
 import { useTitle } from "../hooks"
 import { useQuery } from "react-query"
 import { useFilter } from "../context/filterContext"
+import { fetchProducts } from "../utility"
 import { ProductCard, Pagination, Loading } from "../components"
 
 export const CollectionPage = () => {
@@ -14,23 +15,11 @@ export const CollectionPage = () => {
 
   useTitle("Collections")
 
-  // Fetch All Products
-  const fetchProducts = async () => {
-    try{
-      const response = await fetch(`https://api.mocki.io/v2/f3308aac/shop`)
-      if(!response.ok){
-        throw new Error(`${response.status}`)
-      } else{
-        const result = await response.json()
-        allProducts(result) 
-      }
-    }catch(error){
-      throw new Error(error.message)
-    }
-  }
+
+  fetchProducts(allProducts)
 
   // Use Query invokation
-  const {isLoading } = useQuery("products", fetchProducts)
+   useQuery("products", fetchProducts)
 
 
   const lastIndex = page * postsPerPage
@@ -60,7 +49,7 @@ export const CollectionPage = () => {
       <aside className="Lrgmoniter:max-w-7xl tablet:max-Lrgmoniter:max-w-5xl max-tablet:justify-center m-auto my-4 px-4 flex justify-start">
         <h1 className="font-Inconsolata text-lg font-semibold text-slate-400">Product Count-{product.length}</h1>
       </aside>
-      {isLoading && <Loading/>}
+      {product.length === 0 && <Loading/>}
    
       <aside className="m-auto relative px-4 grid place-items-center max-mobile:grid-cols-2  mobile:max-tablet:grid-cols-2 mobile:max-tablet:gap-y-2 tablet:grid-cols-3 tablet:gap-y-4">
         {products.map( item => (
