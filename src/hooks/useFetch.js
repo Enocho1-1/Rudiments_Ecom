@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { fetchClothingPiece } from "../utility";
 
 
 export const useFetch = (apiPath, queryItem = "", productId = "") => {
@@ -7,23 +8,7 @@ export const useFetch = (apiPath, queryItem = "", productId = "") => {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    const fetchProducts = async () => {
-      try{
-        setLoading(true)
-        const response = await fetch(`https://api.mocki.io/v2/f3308aac${endPoint}${queryItem}${productId}`)
-        if(!response.ok){
-          throw new Error(`${response.status}`)
-        } else{
-          const result = await response.json()
-          setData(result)
-          setLoading(false)
-        }
-       
-      }catch(error){
-        throw new Error(error.message)
-      }
-    }
-    fetchProducts();
+    fetchClothingPiece(endPoint,queryItem,productId,setData,setLoading)
   },[endPoint,queryItem, productId])
   return { data, loading }
 }
