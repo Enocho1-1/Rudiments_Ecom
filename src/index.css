@@ -60,6 +60,10 @@ section{
         padding-top: 50px;
         padding-bottom: 45%;
     }
+
+    .carousel img{
+        height: 450px;
+    }
 }
 
  /* Media Query for low resolution  Tablets, Ipads */
