@@ -2,7 +2,7 @@
 // Fetch All Products Collection Page
 export const fetchProducts = async (allProducts) => {
   try{
-    const response = await fetch(`https://api.mocki.io/v2/f3308aac/shop`)
+    const response = await fetch(`http://localhost:37000/ALL_Products`)
     if(!response.ok){
       throw new Error(`${response.status}`)
     } else{
@@ -15,19 +15,33 @@ export const fetchProducts = async (allProducts) => {
 }
 
 // Fetch Clothing Piece and user search
-export const fetchClothingPiece = async(endPoint,queryItem,productId,setData,setLoading) => {
+export const fetchClothingPiece = async(endPoint,setData) => {
     try{
-        setLoading(true)
-        const response = await fetch(`https://api.mocki.io/v2/f3308aac${endPoint}${queryItem}${productId}`)
+        const response = await fetch(`http://localhost:37000/${endPoint}`)
         if(!response.ok){
           throw new Error(`${response.status}`)
         } else{
           const result = await response.json()
           setData(result)
-          setLoading(false)
         }
        
       }catch(error){
         throw new Error(error.message)
       }
+}
+
+// Fetch Clothing Piece and user search
+export const fetchIndividualItem = async(productId,setData) => {
+  try{
+      const response = await fetch(`http://localhost:37000/ALL_Products/${productId}`)
+      if(!response.ok){
+        throw new Error(`${response.status}`)
+      } else{
+        const result = await response.json()
+        setData(result)
+      }
+     
+    }catch(error){
+      throw new Error(error.message)
+    }
 }

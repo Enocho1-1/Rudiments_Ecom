@@ -1,8 +1,8 @@
 /* eslint-disable */
 import { useEffect,useState } from "react"
-import { useFetch } from "../../hooks"
 import {useParams} from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
+import { fetchIndividualItem } from "../../utility/ProductServices"
 import { addItemToCart } from "../../store/CartSlice"
 import { addRecent } from "../../store/RecentSlice"
 import { Loading,SideCart,Accordion } from "../../components"
@@ -10,9 +10,10 @@ import { DesktopShirtSize, DesktopSizes, MobileShirtSize, MobileSizes,TrendingSl
 import Logo from "../../assests/cube.png"
 import "./ItemDetail.css"
 
-export const ItemDetail = ({apiPath}) => {
+export const ItemDetail = () => {
 
   // useState Variables
+  const [data,setData] = useState([])
   const [shirt, setShirt] = useState(false)
   const [pants, setPants] = useState(false)
   const [shoes, setShoes] = useState(false)
@@ -32,8 +33,10 @@ export const ItemDetail = ({apiPath}) => {
   let stringArray
 
 
+  useEffect(() => {
+    fetchIndividualItem(productId,setData) 
+  },[productId])
   // Custom Fetch Hook
-  const { data, loading } = useFetch(apiPath, productId)
 
   // Destructure Returned JSON
  const {  id, title , price, imageUrl, imageUrl_Two, imageUrl_Three, imageUrl_Four} = data
@@ -84,7 +87,7 @@ export const ItemDetail = ({apiPath}) => {
 
   return (
     <section className="relative">
-      {loading && <Loading/>}
+      {data.length === 0 && <Loading/>}
       <aside className={myQuery && myQuery.matches ? mobileView : "flex flex-row"}>
         {myQuery && !myQuery.matches
         ? 
