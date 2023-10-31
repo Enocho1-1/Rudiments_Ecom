@@ -1,7 +1,7 @@
 import { useState } from "react"
-import { useTitle } from "../hooks/useTitle"
-import { useFetch } from "../hooks/useFetch"
-import { ProductCard, Pagination, Loading } from "../components"
+import { useTitle } from "../../hooks/useTitle"
+import { useFetch } from "../../hooks/useFetch"
+import { ProductCard, Pagination, Loading } from "../../components"
 
 export const PiecePage = ({apiPath, title}) => {
   useTitle(title)

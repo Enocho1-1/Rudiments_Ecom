@@ -1,12 +1,12 @@
-export { Header } from "./Header"
-export { Footer} from "./Footer"
+export { Header } from "./layout/Header"
+export { Footer} from "./layout/Footer"
 
-export { HomeCarousel } from "./HomeCarousel"
-export { ProductCard } from "./ProductCard"
-export { Pagination } from "./Pagination"
-export { SideCart } from "./SideCart"
-export { Accordion } from "./Accordion"
+export { HomeCarousel } from "../pages/Home/components/HomeCarousel"
+export { ProductCard } from "./elements/ProductCard"
+export { Pagination } from "./misc/Pagination"
+export { SideCart } from "../pages/ItemDetail/components/SideCart"
+export { Accordion } from "../pages/ItemDetail/components/Accordion"
 
 
-export { ScrollTop } from "./ScrollTop"
-export { Loading } from "./Loading"
+export { ScrollTop } from "./misc/ScrollTop"
+export { Loading } from "./misc/Loading"

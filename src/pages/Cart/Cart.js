@@ -1,15 +1,13 @@
-import { useTitle } from "../hooks"
+import { useTitle } from "../../hooks"
 import { useState, useEffect } from "react"
 import { useSelector } from "react-redux"
 import { Link } from "react-router-dom"
-import { MobileCart  } from "./Cart/MobileCart"
-import { DesktopCart } from "./Cart/DesktopCart"
-import { CartEmpty } from "./Cart/CartEmpty"
-import visa from "../assests/visa.png"
-import mastercard from "../assests/mastercard.png"
-import americanexpress from "../assests/american-express.png"
-import paypal from "../assests/paypal.png"
-import arrow from "../assests/arrow.png"
+import { MobileCart,DesktopCart,CartEmpty} from "./components"
+import visa from "../../assests/visa.png"
+import mastercard from "../../assests/mastercard.png"
+import americanexpress from "../../assests/american-express.png"
+import paypal from "../../assests/paypal.png"
+import arrow from "../../assests/arrow.png"
 
 export const Cart = ({name}) => {
   useTitle(name)

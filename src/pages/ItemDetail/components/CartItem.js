@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux"
 import { useState } from "react"
-import { removeItemCart } from "../store/CartSlice"
+import { removeItemCart } from "../../../store/CartSlice"
 import { Link } from "react-router-dom"
 
 export const CartItem = ({product}) => {

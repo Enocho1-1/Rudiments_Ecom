@@ -1,0 +1,33 @@
+    /* Media Query for Mobile Devices */
+    @media (max-width: 480px) {
+        .items-carousel img{
+        height: 500px;
+       }
+    }
+      
+    /* Media Query for low resolution  Tablets, Ipads */
+    @media (min-width: 481px) and (max-width: 769px) {
+       .items-carousel img{
+            height: 610px;
+           }
+    }
+      
+
+    @media (min-width: 768px) and (max-width: 1024px){
+       .individualImg img{
+            height: 350px;
+           }
+    }
+      
+
+    @media (min-width: 1024px){
+        .individualImg img{
+            height: auto;
+        }
+    }
+
+    /* @media (min-width: 1281px) {
+        body {
+            background-color: white;
+        }
+    } */

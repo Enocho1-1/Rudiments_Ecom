@@ -1,5 +1,5 @@
-import { useTitle } from "../hooks/useTitle"
-import { HomeCarousel } from "../components"
+import { useTitle } from "../../hooks/useTitle"
+import { HomeCarousel } from "../../components"
 import { NavLink } from "react-router-dom"
 
 export const Home = ({title}) => {

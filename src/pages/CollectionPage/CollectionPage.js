@@ -1,10 +1,10 @@
 /* eslint-disable */
 import { useState} from "react"
-import { useTitle } from "../hooks"
+import { useTitle } from "../../hooks"
 import { useQuery } from "react-query"
-import { useFilter } from "../context/filterContext"
-import { fetchProducts } from "../utility"
-import { ProductCard, Pagination, Loading } from "../components"
+import { useFilter } from "../../context/filterContext"
+import { fetchProducts } from "../../utility"
+import { ProductCard, Pagination, Loading } from "../../components"
 
 export const CollectionPage = () => {
   
