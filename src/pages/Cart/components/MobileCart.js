@@ -8,7 +8,7 @@ export const MobileCart = ({product}) => {
   return (
     
     <span className="flex flex-row py-2 mobile:max-tablet:px-2">
-        <Link to={`/${id}`}>
+        <Link to={`/ALL_Products//${id}`}>
         <img src={image} className="h-32 w-32 mobile:max-tablet:mr-4" alt="" />
         </Link>
         <div className="flex flex-col justify-items-start w-[150px] mobile:max-tablet:w-[350px] ml-2">

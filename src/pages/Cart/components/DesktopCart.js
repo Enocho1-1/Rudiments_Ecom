@@ -8,7 +8,7 @@ export const DesktopCart = ({product}) => {
   return (
     <>
         <span  className="grid place-items-center grid-cols-gridColsSix mt-2 p-4">
-            <Link to={`/${id}`}>
+            <Link to={`/ALL_Products/${id}`}>
                 <img src={image} className="h-24 w-24" alt="" />
             </Link>
 
