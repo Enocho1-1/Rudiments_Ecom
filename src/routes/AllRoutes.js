@@ -19,6 +19,7 @@ export const AllRoutes = () => {
         <Route path="*" element={(<NotFound/>)}/>
 
         <Route path="/login" element={(<Login/>)}/>
+        <Route path="/register" element={(<Register/>)}/>
 
       </Routes>
     </>
