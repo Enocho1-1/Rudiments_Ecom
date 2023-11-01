@@ -45,3 +45,10 @@ export const fetchIndividualItem = async(productId,setData) => {
       throw new Error(error.message)
     }
 }
+
+// Clothing Piece Measurement Validation
+export const validateMeasurements = ( category ,setShirt, setPants,setShoes) => {
+  category === "t-shirt" || category === "shirt" ? setShirt(true) : 
+  category === "pants"|| category === "shorts" ? setPants(true) : 
+  category === "shoes" ? setShoes(true) : <div></div>
+}
