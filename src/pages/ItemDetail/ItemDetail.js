@@ -14,7 +14,6 @@ import "./ItemDetail.css"
 
 export const ItemDetail = () => {
 
-  // useState Variables
   const [data,setData] = useState([])
   const [shirt, setShirt] = useState(false)
   const [pants, setPants] = useState(false)
@@ -22,8 +21,6 @@ export const ItemDetail = () => {
   const [sidecart, setSideCart] = useState(false)
   const [selectSize, setSelectSize] = useState("")
   const {myQuery} = useMatchMedia(769)
-
-
 
   const param = useParams()
   const productId = param.id
@@ -50,17 +47,16 @@ export const ItemDetail = () => {
   
 
 
-  // Object Literal
+  // Cart Item Object Literal
   const userItem = {
     id: data.id,
+    random_index:Math.floor(Math.random() * 99000),
     title : data.title,
     price: data.price,
     quantity: '1',
     size: selectSize,
     image: imageUrl
   }
-
- 
 
 
   return (

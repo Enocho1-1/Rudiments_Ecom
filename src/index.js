@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
-import { QueryClient, QueryClientProvider} from "react-query"
 import { Provider } from 'react-redux';
 import { FilterProvider } from './context/filterContext';
 import { store } from './store/Store';
@@ -10,12 +9,10 @@ import './index.css';
 import App from './App';
 
 
-const queryClient = new QueryClient()
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <QueryClientProvider client={queryClient}>
-      <Provider store={store}>
+    <Provider store={store}>
         <BrowserRouter>
         <FilterProvider >
           <ScrollTop />
@@ -23,8 +20,6 @@ root.render(
         </FilterProvider>
         </BrowserRouter> 
       </Provider>
-    </QueryClientProvider>
-    
   </React.StrictMode>
 );
 

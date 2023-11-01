@@ -36,8 +36,8 @@ export const Cart = ({name}) => {
                 // Mobile Max Tablet View
                 (
                 <>
-                  {cart.map( (item, index) => (
-                    <MobileCart  key={index} product={item} /> 
+                  {cart.map( item => (
+                    <MobileCart  key={item.random_index} product={item} /> 
                   ))}
                 </>
                 ) :
@@ -45,8 +45,8 @@ export const Cart = ({name}) => {
                   <>
                   
                     {
-                    cart.map( (item, index) => (
-                      <DesktopCart key={index} product={item} /> 
+                    cart.map( item => (
+                      <DesktopCart key={item.random_index} product={item} /> 
                     ))
                   }
                   </>
