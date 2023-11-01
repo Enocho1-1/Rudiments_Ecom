@@ -1,5 +1,4 @@
-import { useTitle } from "../../hooks"
-import { useState, useEffect } from "react"
+import { useTitle,useMatchMedia } from "../../hooks"
 import { useSelector } from "react-redux"
 import { Link } from "react-router-dom"
 import { MobileCart,DesktopCart,CartEmpty} from "./components"
@@ -11,16 +10,7 @@ import arrow from "../../assests/arrow.png"
 
 export const Cart = ({name}) => {
   useTitle(name)
-  const [myQuery, setMyQuery] = useState({
-    matches: window.innerWidth < 769 ? true : false
-  })
-
-  //  Window MatchMedia
- useEffect(() => {
-  let mediaQuery = window.matchMedia("(max-width: 769px)")
-  mediaQuery.addEventListener("change", setMyQuery)
-
- },[])
+  const {myQuery} = useMatchMedia(769)
 
   const cart = useSelector(state => state.cart.cartItems)
   const total = useSelector(state => state.cart.total)
