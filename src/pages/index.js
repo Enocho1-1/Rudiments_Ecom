@@ -5,3 +5,9 @@ export { Cart } from "./Cart/Cart"
 export { PiecePage } from "./PiecePage/PiecePage"
 export { SearchItem } from "./Search/SearchItem" 
 export { NotFound } from "./Search/components/NotFound"
+
+export { Login } from "./Login/Login"
+export { Register } from "./Register/Register"
+export { DashBoard } from "./DashBoard/DashBoard"
+export { OrderPage } from "./OrderPage/OrderPage"
+

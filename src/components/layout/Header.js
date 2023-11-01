@@ -67,17 +67,23 @@ export const Header = () => {
           </div>
           <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium font-Bebas bg-white md:flex-row md:space-x-8 md:mt-0 md:border-0">
             <li>
-                <NavLink to="/shop" className="block py-2 pl-3 pr-4 text-xl font-Bebas text-blk rounded hover:text-slate-500">Shop</NavLink>
+                <NavLink to="/shop" className=" pl-3 pr-4 text-xl font-Bebas text-blk rounded hover:text-slate-500">
+                 <span className="text-4xl max-mobile:text-xl bi bi-bag-fill "> </span> 
+                </NavLink>
             </li>
-            <li>
-                <a href="#" className="block py-2 pl-3 pr-4 text-xl font-Bebas text-blk rounded hover:text-slate-500">About</a>
-            </li>
+           
             <li>
                 <NavLink to="/cart" className=" pl-3 pr-4 text-xl font-Bebas text-blk rounded hover:text-slate-500">
-                <span className="text-4xl max-mobile:text-xl bi bi-cart-fill relative">
+                 <span className="text-4xl max-mobile:text-xl bi bi-cart-fill relative">
                     <span className="text-white text-sm absolute -top-1 left-3.5 bg-rose-500 px-2 max-mobile:px-1 rounded-full ">{cart.length}</span>
                   </span> 
                 </NavLink>
+            </li>
+
+            <li>
+              <NavLink to="/login" className=" pl-3 pr-4 text-xl font-Bebas text-blk rounded hover:text-slate-500">
+                <span className="text-4xl max-mobile:text-xl bi bi-person-fill"> </span> 
+              </NavLink>
             </li>
           </ul>
         </div>
