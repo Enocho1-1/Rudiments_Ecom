@@ -2,7 +2,7 @@
 // Fetch All Products Collection Page
 export const fetchProducts = async (allProducts) => {
   try{
-    const response = await fetch(`http://localhost:37000/444/ALL_Products`)
+    const response = await fetch(`${process.env.REACT_APP_HOST}/444/ALL_Products`)
     if(!response.ok){
       throw new Error(`${response.status}`)
     } else{
@@ -17,7 +17,7 @@ export const fetchProducts = async (allProducts) => {
 // Fetch Clothing Piece and user search
 export const fetchClothingPiece = async(endPoint,setData) => {
     try{
-        const response = await fetch(`http://localhost:37000/444/${endPoint}`)
+        const response = await fetch(`${process.env.REACT_APP_HOST}/444/${endPoint}`)
         if(!response.ok){
           throw new Error(`${response.status}`)
         } else{
@@ -33,7 +33,7 @@ export const fetchClothingPiece = async(endPoint,setData) => {
 // Fetch Clothing Piece and user search
 export const fetchIndividualItem = async(productId,setData) => {
   try{
-      const response = await fetch(`http://localhost:37000/444/ALL_Products/${productId}`)
+      const response = await fetch(`${process.env.REACT_APP_HOST}/444/ALL_Products/${productId}`)
       if(!response.ok){
         throw new Error(`${response.status}`)
       } else{
@@ -48,7 +48,7 @@ export const fetchIndividualItem = async(productId,setData) => {
 
 export const userSearchItem = async(searchItem,setData) => {
   try{
-    const response = await fetch(`http://localhost:37000/444/ALL_Products?q=${searchItem}`)
+    const response = await fetch(`${process.env.REACT_APP_HOST}/444/ALL_Products?q=${searchItem}`)
     if(!response.ok){
       throw new Error(`${response.status}`)
     } else{

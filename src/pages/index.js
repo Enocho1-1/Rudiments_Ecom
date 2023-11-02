@@ -9,6 +9,5 @@ export { NotFound } from "./Search/components/NotFound"
 export { Initial } from "./Initial/Initial"
 export { Login } from "./Login/Login"
 export { Register } from "./Register/Register"
-export { DashBoard } from "./DashBoard/DashBoard"
 export { OrderPage } from "./OrderPage/OrderPage"
 

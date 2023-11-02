@@ -4,7 +4,8 @@ import { registerUser } from "../../utility"
 export const Register = () => {
 
   const userEmail = JSON.parse(sessionStorage.getItem("userEmail"))
-
+  const navigate = useNavigate()
+  
   const handleRegister = (e) => {
     e.preventDefault()
 
@@ -24,6 +25,8 @@ export const Register = () => {
 
     // POST New User 
     registerUser(options)
+    navigate("/shop")
+
     e.target.reset()
 
   }

@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom";
-import { Home, Cart, CollectionPage, PiecePage, ItemDetail, SearchItem, NotFound,Initial,Login, Register,DashBoard, OrderPage   } from "../pages";
+import { Home, Cart, CollectionPage, PiecePage, ItemDetail, SearchItem, NotFound,Initial,Login, Register, OrderPage   } from "../pages";
 
 export const AllRoutes = () => {
   return (
@@ -21,7 +21,6 @@ export const AllRoutes = () => {
         <Route path="/login" element={(<Initial/>)}/>
         <Route path="/login/password" element={(<Login/>)}/>
         <Route path="/register" element={(<Register/>)}/>
-        <Route path="/dashboard" element={(<DashBoard/>)}/>
 
       </Routes>
     </>

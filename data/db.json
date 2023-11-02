@@ -1414,11 +1414,27 @@
   "users": [
     {
       "email": "naruto@example.com",
-      "password": "$2a$10$UIkmSnodx824/STfE/nZCOFbMtZ.swYA339QspFo4pEj.mhCYHSQm",
+      "password": "$2a$10$xvCqrs/6vC2EghfcHBZKe.JhL7qAkwxkl0b3PDuJRLCtzQn0iHnIS",
       "title": "Mr",
       "firstName": "Naruto",
       "lastName": "Uzamaki",
       "id": 1
+    },
+    {
+      "email": "janeDoe@example.com",
+      "password": "$2a$10$JStwimZ68V.NIo5lziU72.E.WaVYrz3wWkz20OQ.A/u1IOO8ofyB6",
+      "title": "Ms",
+      "firstName": "Jane",
+      "lastName": "Doe",
+      "id": 2
+    },
+    {
+      "email": "itadori@example.com",
+      "password": "$2a$10$xZop/1dgkU2oW.hUen79DePHy.YcSb4y24pgA7Pj9nF6tOdPvsrBe",
+      "title": "Mr",
+      "firstName": "Itadori",
+      "lastName": "Yuji",
+      "id": 3
     }
   ]
 }
