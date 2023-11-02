@@ -1,24 +1,24 @@
+import { useState,useEffect} from "react"
 import { useSearchParams } from "react-router-dom"
-import { useFetch } from "../../hooks"
+import { userSearchItem } from "../../utility"
 import { ProductCard } from "../../components"
 import { NotFound } from "./components/NotFound"
-import { Loading } from "../../components"
+
 
 export const SearchItem = ({apiPath}) => {
+  const [data,setData] = useState([])
   const [searchParam] = useSearchParams()
   const queryItem = searchParam.get('item')
 
-  // Custom Fetch Hook
-  const { data, loading } = useFetch(apiPath,queryItem)
-  
+  useEffect(() => {
+    userSearchItem(queryItem,setData)
+  },[queryItem])
 
   return (
     <section>
       <header className="flex justify-center p-4">
         <h1 className="mt-12 text-xl font-Inconsolata ">Searched Item: <p className="text-xl font-Inconsolata font-semibold inline-block">"{queryItem}"</p></h1>
       </header>
-
-      {loading && <Loading/>}
       <aside className="px-6">
         {data.length > 0 ?
           (
