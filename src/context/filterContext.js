@@ -57,7 +57,9 @@ export const FilterProvider = ({children}) => {
     return state.Accessories ? products.filter(item => item.category === "accessories") : products
   }
 
+
   const filteredProducts = allAccessories(allShoes(allShorts(allPants(allShirts(allTShirts(state.product))))))
+
   const value = {
     state,
     dispatch,

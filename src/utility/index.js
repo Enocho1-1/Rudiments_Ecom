@@ -1,6 +1,3 @@
-export { fetchProducts } from "./ProductServices"
-export { fetchClothingPiece } from "./ProductServices"
-export { fetchIndividualItem } from "./ProductServices"
-export { userSearchItem } from "./ProductServices"
+export { fetchProducts,fetchClothingPiece,fetchIndividualItem, userSearchItem,validateMeasurements  } from "./ProductServices"
 
-export { validateMeasurements } from "./ProductServices"
+export { fetchUsers  } from "./DataServices"

@@ -1,12 +1,22 @@
 
+import { useState,useEffect } from "react"
+import { useNavigate } from "react-router-dom"
+import { fetchUsers } from "../../utility"
 
 export const Initial = () => {
-
+    const [data, setData] = useState(null)
+    const navigate = useNavigate()
+    useEffect(()=>{ fetchUsers(setData)},[])
+  
     const handleLogin = (e) => {
         e.preventDefault()
-        console.log("click")
+        const userEmail = e.target.email.value
+        const userValidation = data.find(item => item.userEmail === userEmail)
+        sessionStorage.setItem("userEmail", JSON.stringify(userEmail))
+        e.target.reset()
+        userValidation ? navigate("/login/password") : navigate("/register")
       }
-      
+
   return (
     <section className="flex flex-col justify-center items-center">
         <h1 className="mt-[75px] mb-4 text-3xl font-Inconsolata font-light">MY ACCOUNT</h1>
@@ -15,7 +25,7 @@ export const Initial = () => {
         <form onSubmit={handleLogin}>
             <div className="flex flex-col">
             <label htmlFor="email" className="text-xl font-Inconsolata font-medium text-blk">Email Address</label>
-            <input type="email" className="px-6 py-2" required/>
+            <input type="email" name="email" className="px-6 py-2" required/>
             <button type="submit" className="bg-blk p-2  text-xl text-white font-Bebas mt-4">Continue</button>
             </div>
         </form>
