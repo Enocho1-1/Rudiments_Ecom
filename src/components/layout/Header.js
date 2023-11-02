@@ -81,7 +81,7 @@ export const Header = () => {
             </li>
 
             <li>
-              <NavLink to="/login" className=" pl-3 pr-4 text-xl font-Bebas text-blk rounded hover:text-slate-500">
+              <NavLink to="/login/password" className=" pl-3 pr-4 text-xl font-Bebas text-blk rounded hover:text-slate-500">
                 <span className="text-4xl max-mobile:text-xl bi bi-person-fill"> </span> 
               </NavLink>
             </li>
