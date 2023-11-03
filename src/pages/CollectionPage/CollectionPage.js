@@ -1,7 +1,6 @@
 /* eslint-disable */
-import { useState} from "react"
+import { useState,useEffect} from "react"
 import { useTitle } from "../../hooks"
-import { useQuery } from "react-query"
 import { useFilter } from "../../context/filterContext"
 import { fetchProducts } from "../../utility"
 import { ProductCard, Pagination, Loading } from "../../components"
@@ -15,11 +14,9 @@ export const CollectionPage = () => {
 
   useTitle("Collections")
 
+  // Fetch All Products
+  useEffect(() => {fetchProducts(allProducts)},[])
 
-  fetchProducts(allProducts)
-
-  // Use Query invokation
-   useQuery("products", fetchProducts)
 
 
   const lastIndex = page * postsPerPage

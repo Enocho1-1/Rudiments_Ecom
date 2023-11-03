@@ -34,7 +34,7 @@ export const Slider = ({array}) => {
         <div className="row-container " id="recentSlider">
           { array.map( (item, index) => (
               <div key={index}  className=" bg-white border border-gray-200 rounded-lg shadow">
-                <Link to={`/${item.id}`}>
+                <Link to={`/ALL_Products/${item.id}`}>
                     <img className="rounded-t-lg h-72 min-w-[250px]" src={item.imageUrl} alt={item.title} />
                 </Link>
                 <div className="p-2">

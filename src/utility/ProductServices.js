@@ -1,8 +1,9 @@
 
+
 // Fetch All Products Collection Page
 export const fetchProducts = async (allProducts) => {
   try{
-    const response = await fetch(`https://api.mocki.io/v2/f3308aac/shop`)
+    const response = await fetch(`${process.env.REACT_APP_HOST}/444/ALL_Products`)
     if(!response.ok){
       throw new Error(`${response.status}`)
     } else{
@@ -15,19 +16,56 @@ export const fetchProducts = async (allProducts) => {
 }
 
 // Fetch Clothing Piece and user search
-export const fetchClothingPiece = async(endPoint,queryItem,productId,setData,setLoading) => {
+export const fetchClothingPiece = async(endPoint,setData) => {
     try{
-        setLoading(true)
-        const response = await fetch(`https://api.mocki.io/v2/f3308aac${endPoint}${queryItem}${productId}`)
+        const response = await fetch(`${process.env.REACT_APP_HOST}/444/${endPoint}`)
         if(!response.ok){
           throw new Error(`${response.status}`)
         } else{
           const result = await response.json()
           setData(result)
-          setLoading(false)
         }
        
       }catch(error){
         throw new Error(error.message)
       }
+}
+
+// Fetch Clothing Piece and user search
+export const fetchIndividualItem = async(productId,setData) => {
+  try{
+      const response = await fetch(`${process.env.REACT_APP_HOST}/444/ALL_Products/${productId}`)
+      if(!response.ok){
+        throw new Error(`${response.status}`)
+      } else{
+        const result = await response.json()
+        setData(result)
+      }
+     
+    }catch(error){
+      throw new Error(error.message)
+    }
+}
+
+export const userSearchItem = async(searchItem,setData) => {
+
+  try{
+    const response = await fetch(`${process.env.REACT_APP_HOST}/444/ALL_Products?q=${searchItem}`)
+    if(!response.ok){
+      throw new Error(`${response.status}`)
+    } else{
+      const result = await response.json()
+      setData(result)
+    }
+   
+  }catch(error){
+    throw new Error(error.message)
+  }
+}
+
+// Clothing Piece Measurement Validation
+export const validateMeasurements = ( category ,setShirt, setPants,setShoes) => {
+  category === "t-shirt" || category === "shirt" ? setShirt(true) : 
+  category === "pants"|| category === "shorts" ? setPants(true) : 
+  category === "shoes" ? setShoes(true) : <div></div>
 }

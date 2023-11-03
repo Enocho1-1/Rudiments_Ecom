@@ -1,8 +1,9 @@
 /* eslint-disable */
 import { useEffect,useState } from "react"
-import { useFetch } from "../../hooks"
 import {useParams} from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
+import { useMatchMedia } from "../../hooks"
+import { fetchIndividualItem,validateMeasurements  } from "../../utility/ProductServices"
 import { addItemToCart } from "../../store/CartSlice"
 import { addRecent } from "../../store/RecentSlice"
 import { Loading,SideCart,Accordion } from "../../components"
@@ -10,68 +11,46 @@ import { DesktopShirtSize, DesktopSizes, MobileShirtSize, MobileSizes,TrendingSl
 import Logo from "../../assests/cube.png"
 import "./ItemDetail.css"
 
-export const ItemDetail = ({apiPath}) => {
 
-  // useState Variables
+export const ItemDetail = () => {
+
+  const [data,setData] = useState([])
   const [shirt, setShirt] = useState(false)
   const [pants, setPants] = useState(false)
   const [shoes, setShoes] = useState(false)
   const [sidecart, setSideCart] = useState(false)
   const [selectSize, setSelectSize] = useState("")
-  const [myQuery, setMyQuery] = useState({
-    matches: window.innerWidth < 769 ? true : false
-  })
-
-
+  const {myQuery} = useMatchMedia(769)
 
   const param = useParams()
   const productId = param.id
   const dispatch = useDispatch()
   const recentArray = useSelector( state => state.recent.recents)
   const mobileView = "flex flex-col"
-  let stringArray
 
 
-  // Custom Fetch Hook
-  const { data, loading } = useFetch(apiPath, productId)
+  // Fetch Individual Item
+  useEffect(() => {fetchIndividualItem(productId,setData) },[productId])
+
 
   // Destructure Returned JSON
- const {  id, title , price, imageUrl, imageUrl_Two, imageUrl_Three, imageUrl_Four} = data
+ const {  id, title , price, category, imageUrl, imageUrl_Two, imageUrl_Three, imageUrl_Four} = data
+
+
 
 //  Recently Viewed Reducer 
- useEffect(() => {
-  dispatch(addRecent(data))
-},[id])
+ useEffect(() => {dispatch(addRecent(data))},[id])
 
 
-
-//  Window MatchMedia
- useEffect(() => {
-  let mediaQuery = window.matchMedia("(max-width: 769px)")
-  mediaQuery.addEventListener("change", setMyQuery)
- },[])
-
- //  Title Array function
- const productitle = (string) => {
-  stringArray = string.split(' ')
-}
-
-// Clothing Piece Validation
-  useEffect(() => { 
-    if(title){
-    productitle(title)
-
-    stringArray.includes("Tee") || stringArray.includes( "Button") || stringArray.includes("Shirt") ? 
-    setShirt(true) : stringArray.includes("trousers") || stringArray.includes( "joggers") || stringArray.includes("Jeans") || stringArray.includes("shorts")? 
-    setPants(true) : stringArray.includes("Shoes") || stringArray.includes( "loafers") || stringArray.includes("trainers") || stringArray.includes("sandals") || stringArray.includes("sliders") ? setShoes(true) : console.log("done")
-  }
-  },[title,stringArray,id])
+// Clothing Piece Measurement Validation
+  useEffect(() => {validateMeasurements(category,setShirt,setPants,setShoes)},[title,id])
   
 
 
-  // Object Literal
+  // Cart Item Object Literal
   const userItem = {
     id: data.id,
+    random_index:Math.floor(Math.random() * 99000),
     title : data.title,
     price: data.price,
     quantity: '1',
@@ -79,12 +58,10 @@ export const ItemDetail = ({apiPath}) => {
     image: imageUrl
   }
 
- 
-
 
   return (
     <section className="relative">
-      {loading && <Loading/>}
+      {data.length === 0 && <Loading/>}
       <aside className={myQuery && myQuery.matches ? mobileView : "flex flex-row"}>
         {myQuery && !myQuery.matches
         ? 
