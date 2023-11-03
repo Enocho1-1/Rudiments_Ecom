@@ -4,6 +4,7 @@ import { registerUser } from "../../utility"
 export const Register = () => {
 
   const userEmail = JSON.parse(sessionStorage.getItem("userEmail"))
+  sessionStorage.setItem("newUser", JSON.stringify(true))
   const navigate = useNavigate()
   
   const handleRegister = (e) => {

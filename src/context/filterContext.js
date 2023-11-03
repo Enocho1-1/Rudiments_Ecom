@@ -65,8 +65,9 @@ export const FilterProvider = ({children}) => {
     const userEmail = JSON.parse(sessionStorage.getItem("userEmail"))
     const userID = JSON.parse(sessionStorage.getItem("userID"))
     const userToken = JSON.parse(sessionStorage.getItem("userToken"))
+    const firstTimeUser = JSON.parse(sessionStorage.getItem("newUser"))
 
-    return { firstName,lastName,title, userEmail,userID,userToken }
+    return { firstName,lastName,title, userEmail,userID,userToken,firstTimeUser }
   }
 
   const filteredProducts = allAccessories(allShoes(allShorts(allPants(allShirts(allTShirts(state.product))))))

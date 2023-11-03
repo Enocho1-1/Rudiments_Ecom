@@ -5,7 +5,7 @@ import qrCode from "../../../assests/qr-code.png"
 
 export const DashBoard = () => {
   const {  retrieveUserInfo } = useFilter()
-  const { firstName } = retrieveUserInfo()
+  const { firstName, firstTimeUser } = retrieveUserInfo()
   
   return (
     <div className="max-w-7xl m-auto p-4 flex">
@@ -19,6 +19,21 @@ export const DashBoard = () => {
               <img src={qrCode} className="ml-2 h-6 w-6 self-center" alt="" />
             </div>
           </span>
+          {/* First Time user offer */}
+          { firstTimeUser 
+            && 
+            ( 
+              <span className="mt-3 px-4 flex flex-col">
+                <h1 className="font-Inconsolata text-md text-slate-500">MY OFFERS:</h1>
+                <div className='mt-4 p-3 bg-slate-300 w-inherit text-center flex flex-col justify-center items-center'>
+                  <p className='font-Inconsolata text-lg font-semibold text-black'>10% off in-store purchase</p>
+                  <p className='font-Inconsolata text-md font-semibold text-slate-600'>To redeem this offer in store, show your Account ID at the checkout when you purchase in store today.</p>
+                </div>
+              </span>
+            )
+          }
+         
+          <span></span>
           <Link to="/login" onClick={() => sessionStorage.clear()}>Sign Out</Link>
         </aside>
         <aside className="w-[40.625rem] ml-10">

@@ -1413,20 +1413,12 @@
   "orders": [],
   "users": [
     {
-      "email": "MikeDoe@example.com",
-      "password": "$2a$10$7kpShl2WkUsmRXeeBCDH6.QdRVdDr8Ohos.bmeaaopk6sXNn8HxOW",
-      "title": "Mr",
-      "firstName": "Mike",
-      "lastName": "Doe",
-      "id": 1
-    },
-    {
       "email": "JaneDoe@example.com",
-      "password": "$2a$10$IJdG6tS1DPns98Jh/wGMq.q6DBGMkT.ojjmhdab.ug/CMaK5fuPBS",
+      "password": "$2a$10$mlxyYGQkJmuHy/ybDQmLYOaQisy6Zwj0ebfVFtqv6FbqZNvbflNXu",
       "title": "Mrs",
       "firstName": "Jane",
       "lastName": "Doe",
-      "id": 2
+      "id": 1
     }
   ]
 }
