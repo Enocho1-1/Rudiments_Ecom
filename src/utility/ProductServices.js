@@ -1,4 +1,5 @@
 
+
 // Fetch All Products Collection Page
 export const fetchProducts = async (allProducts) => {
   try{
@@ -47,6 +48,7 @@ export const fetchIndividualItem = async(productId,setData) => {
 }
 
 export const userSearchItem = async(searchItem,setData) => {
+
   try{
     const response = await fetch(`${process.env.REACT_APP_HOST}/444/ALL_Products?q=${searchItem}`)
     if(!response.ok){
