@@ -21,7 +21,7 @@ export const Initial = () => {
       }
 
   return (
-    <section className="flex flex-col justify-center items-center">
+    <section>
         { userToken ? <DashBoard/> : <EmailValidation handleLogin={handleLogin} />}
     </section>
   )

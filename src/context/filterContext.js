@@ -57,6 +57,17 @@ export const FilterProvider = ({children}) => {
     return state.Accessories ? products.filter(item => item.category === "accessories") : products
   }
 
+  // Retrieve User Info from Session Store.
+  function retrieveUserInfo(){
+    const firstName = JSON.parse(sessionStorage.getItem("firstName"))
+    const lastName = JSON.parse(sessionStorage.getItem("lastName"))
+    const title = JSON.parse(sessionStorage.getItem("title"))
+    const userEmail = JSON.parse(sessionStorage.getItem("userEmail"))
+    const userID = JSON.parse(sessionStorage.getItem("userID"))
+    const userToken = JSON.parse(sessionStorage.getItem("userToken"))
+
+    return { firstName,lastName,title, userEmail,userID,userToken }
+  }
 
   const filteredProducts = allAccessories(allShoes(allShorts(allPants(allShirts(allTShirts(state.product))))))
 
@@ -65,6 +76,7 @@ export const FilterProvider = ({children}) => {
     dispatch,
     product: filteredProducts,
     allProducts,
+    retrieveUserInfo
   }
 
   return (
