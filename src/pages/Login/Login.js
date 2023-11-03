@@ -1,9 +1,11 @@
+import { useState } from "react"
 import { Link,useNavigate } from "react-router-dom"
 import { loginUser } from "../../utility"
 import reCaptha from "../../assests/RecaptchaLogo.svg.png"
 
 export const Login = () => {
 
+  const [isError,setIsError] = useState(false)
   const userEmail = JSON.parse(sessionStorage.getItem("userEmail"))
   const navigate = useNavigate()
   
@@ -20,18 +22,17 @@ export const Login = () => {
       body: JSON.stringify(user)
     }
 
-    // Login in User
-    loginUser(options)
-    navigate("/shop")
-
+   
+    loginUser(options,setIsError,navigate)
     e.target.reset()
   }
 
   return (
     <section className="flex flex-col justify-center items-center">
       <h1 className="mt-[75px] mb-4 text-3xl font-Inconsolata font-light">SIGN IN</h1>
-      <div className=" p-4 bg-slate-300 rounded-sm flex flex-col items-center">
+      <div className=" p-4 bg-slate-200 rounded-sm flex flex-col items-center">
         <h1 className="my-2 text-2xl font-Bebas text-blk">{userEmail}</h1>
+        { isError && ( <p className="my-3 max-w-[300px] text-red-700 font-Inconsolata text-sm">Unable to find a match for your email or password. Please check your details and try again.</p>)}
         <form onSubmit={handleLogin}>
           <div className="flex flex-col">
             <label htmlFor="password" className="text-xl font-Inconsolata font-medium text-blk">Password</label>
@@ -48,7 +49,7 @@ export const Login = () => {
           </div>
         </form>
       </div>
-      <Link to="/login" className="mt-2 text-lg font-Inconsolata font-semibold underline cursor-pointer">Chooose Another Email</Link>
+      <Link to="/login" onClick={ () => sessionStorage.clear()} className="mt-2 text-lg font-Inconsolata font-semibold underline cursor-pointer">Chooose Another Email</Link>
     </section>
   )
 }

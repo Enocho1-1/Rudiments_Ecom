@@ -9,6 +9,7 @@ const saveSessionStore = (token,id,userEmail,title,firstName,lastName) => {
     sessionStorage.setItem("lastName", JSON.stringify(lastName))
 
 }
+
 // Fetch Users Array
 export const fetchUsers = async(setData) => {
     try{
@@ -41,14 +42,15 @@ export const registerUser = async (options) => {
 }
 
 // Log User In
-export const loginUser = async (options) => {
+export const loginUser = async (options,setIsError,navigate) => {
     try{
         const response = await fetch(`${process.env.REACT_APP_HOST}/signin`,options)
         if(!response.ok){
-            throw new Error(`${response.status}`)
+            setIsError(true)
         } else{
             const result = await response.json()
             saveSessionStore(result.accessToken,result.user.id,result.user.email,result.user.title,result.user.firstName,result.user.lastName)
+            navigate("/")
         }
     }catch(error){
         throw new Error(error.message)
