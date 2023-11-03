@@ -1,5 +1,6 @@
 import { useFilter } from "../../../context/filterContext"
 import { Link } from "react-router-dom"
+import { DashEmpty } from "./DashEmpty"
 import qrCode from "../../../assests/qr-code.png"
 
 export const DashBoard = () => {
@@ -19,6 +20,10 @@ export const DashBoard = () => {
             </div>
           </span>
           <Link to="/login" onClick={() => sessionStorage.clear()}>Sign Out</Link>
+        </aside>
+        <aside className="w-[40.625rem] ml-10">
+          <h1 className="mt-10 font-Inconsolata font-semibold text-3xl">RECENT PURCHASES</h1>
+          <DashEmpty/>
         </aside>
       
     </div>
