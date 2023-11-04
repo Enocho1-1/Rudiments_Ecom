@@ -4,7 +4,7 @@ export const EmailValidation = ({handleLogin}) => {
   return (
     <div className="flex flex-col justify-center items-center">
         <h1 className="mt-[75px] mb-4 text-3xl font-Inconsolata font-light">MY ACCOUNT</h1>
-        <div className=" p-4 bg-slate-300 rounded-sm flex flex-col items-center">
+        <div className=" p-4 bg-slate-200 rounded-sm flex flex-col items-center">
         <h1 className="my-2 text-2xl font-Bebas text-blk">What's You Email?</h1>
         <form onSubmit={handleLogin}>
             <div className="flex flex-col">
