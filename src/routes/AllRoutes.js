@@ -1,12 +1,13 @@
 import { Route, Routes } from "react-router-dom";
 import { Home, Cart, CollectionPage, PiecePage, ItemDetail, SearchItem, NotFound,Initial,Login, Register, OrderPage   } from "../pages";
+import {ProtectedRoutes} from "./components/ProtectedRoutes"
 
 export const AllRoutes = () => {
   return (
     <>
       <Routes>
         <Route path="/" element={(<Home title="Home" />)}/>
-        <Route path="cart" element={(<Cart name="Cart"/>)}/>
+        <Route path="cart" element={(<ProtectedRoutes><Cart name="Cart"/></ProtectedRoutes>)}/>
         <Route path="shop" element={(<CollectionPage apiPath="/shop"/>)}/>
         <Route path="t-shirt" element={(<PiecePage apiPath="TShirts" title="Men's Essential Tees"/>)}/>
         <Route path="shirt" element={(<PiecePage apiPath="Shirts" title="Men's Shirts"/>)}/>
