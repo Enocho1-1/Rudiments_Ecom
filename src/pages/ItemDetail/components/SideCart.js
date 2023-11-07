@@ -1,4 +1,7 @@
-import { useSelector } from "react-redux"
+/* eslint-disable */
+import { useEffect } from "react"
+import { useSelector,useDispatch } from "react-redux"
+import { getSubTotal } from "../../../store/CartSlice"
 import { Link } from "react-router-dom"
 import { CartItem } from "./CartItem"
 
@@ -6,7 +9,11 @@ import { CartItem } from "./CartItem"
 export const SideCart = ({setSideCart}) => {
 
   const cart = useSelector( state => state.cart.cartItems )
-  // const total = useSelector( state => state.cart.total)
+  const total = useSelector( state => state.cart.total )
+  const dispatch = useDispatch()
+  useEffect(() => {
+   dispatch(getSubTotal())
+  },[cart])
 
   return (
     <section className="fixed top-0 left-0 right-0 bottom-0 w-screen flex justify-end z-40" id="modalOverlay">
@@ -32,7 +39,7 @@ export const SideCart = ({setSideCart}) => {
             {/*  Total */}
             <aside className="mt-2 px-8 flex flex-row justify-between">
               <p className="font-Bebas text-xl">Total (Excl. delivery)</p>
-              {/* <p>${total}.00</p> */}
+              <p>${total}.00</p>
             </aside>
             <Link to={`/cart`} className=" text-xl font-Bebas text-center mt-4 mx-4 border-1 border-black p-2 hover:text-slate-500">
              View Bag
