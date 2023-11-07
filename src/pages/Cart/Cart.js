@@ -13,7 +13,7 @@ export const Cart = ({name}) => {
   const {myQuery} = useMatchMedia(769)
 
   const cart = useSelector(state => state.cart.cartItems)
-  const total = useSelector(state => state.cart.total)
+  // const total = useSelector(state => state.cart.total)
 
 
   return (
@@ -58,11 +58,11 @@ export const Cart = ({name}) => {
                 <aside>
                   <span className="grid grid-cols-2 max-tablet:flex mobile:max-tablet:flex max-mobile:justify-between mobile:max-tablet:justify-between max-mobile:mx-2">
                       <h1 className="text-2xl font-Inconsolata font-light max-mobile:text-lg">Subtotal</h1>
-                      <p className="text-xl max-mobile:text-lg">${total}.00</p>
+                      {/* <p className="text-xl max-mobile:text-lg">${total}.00</p> */}
                     </span>
                     <span className="grid grid-cols-2 max-mobile:flex mobile:max-tablet:flex max-mobile:justify-between mobile:max-tablet:justify-between max-mobile:mx-2">
                       <h1 className="text-2xl font-Inconsolata font-bold max-mobile:text-lg">Total</h1>
-                      <p className="text-xl font-bold max-mobile:text-lg">${total}.00</p>
+                      {/* <p className="text-xl font-bold max-mobile:text-lg">${total}.00</p> */}
                     </span>
                 </aside>
                 <button type="button" className="focus:outline-none text-black text-xl font-Bebas bg-yellow-300 px-5 py-2.5 mt-3 max-mobile:w-full mobile:max-tablet:w-full">Checkout</button>

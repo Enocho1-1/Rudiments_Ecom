@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux"
-import { increaseQuantity} from "../../../store/CartSlice"
+import { increaseQuantity, decreaseQuantity} from "../../../store/CartSlice"
 import { Link } from "react-router-dom"
 
 export const CartItem = ({product}) => {
@@ -9,6 +9,10 @@ export const CartItem = ({product}) => {
 
   const handleQuantityIncrease = (product) => {
     dispatch(increaseQuantity(product))
+  }
+
+  const handleQuantityDecrease = (product) => {
+    dispatch(decreaseQuantity(product))
   }
 
   return (
@@ -24,7 +28,7 @@ export const CartItem = ({product}) => {
             <span className="flex">
               <button onClick={() => {handleQuantityIncrease(product) }} className=" font-Inconsolata text-md flex justify-center items-center self-end text-white bg-black hover:bg-slate-400 p-2"> + </button>
               <span className="mt-6 text-md font-Inconsolata p-2 bg-white border border-b-gray-950">{quantity}</span>
-              <button  className=" font-Inconsolata text-md flex justify-center items-center self-end text-white bg-black hover:bg-slate-400 p-2">  - </button>
+              <button onClick={() => {handleQuantityDecrease(product) }}  className=" font-Inconsolata text-md flex justify-center items-center self-end text-white bg-black hover:bg-slate-400 p-2">  - </button>
             </span>
           </div>
         </aside>

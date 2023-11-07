@@ -1,10 +1,19 @@
 import { useDispatch } from "react-redux"
-import { removeItemCart } from "../../../store/CartSlice"
+import { removeItemCart,increaseQuantity, decreaseQuantity } from "../../../store/CartSlice"
 import { Link } from "react-router-dom"
 
 export const DesktopCart = ({product}) => {
     const { id, image, title, size, quantity, price} = product
     const dispatch = useDispatch()
+
+    const handleQuantityIncrease = (product) => {
+      dispatch(increaseQuantity(product))
+    }
+  
+    const handleQuantityDecrease = (product) => {
+      dispatch(decreaseQuantity(product))
+    }
+  
   return (
     <>
         <span  className="grid place-items-center grid-cols-gridColsSix mt-2 p-4">
@@ -17,14 +26,14 @@ export const DesktopCart = ({product}) => {
             </div>
             <div className="mx-4 flex flex-col items-center w-auto">
             <h1 className="text-2xl text-center font-Inconsolata mb-2">Size</h1>
-              <p className="text-2xl font-Inconsolata self-center border border-black py-2 px-4">{size ? size : "n/a"}</p>
+              <p className="text-2xl font-Inconsolata self-center border border-black py-2 px-4">{size ? size : "one size"}</p>
             </div>
             <div className="mx-4 flex flex-col w-auto">
               <h1 className="text-2xl text-center font-Inconsolata  mb-2">Quantity</h1>
               <span className="flex">
-                <button className=" bg-slate-200 py-2 px-3 rounded-sm text-black text-md">-</button>
+                <button onClick={() => {handleQuantityDecrease(product) }}  className=" bg-slate-200 py-2 px-3 rounded-sm text-black text-md">-</button>
                 <p className="text-2xl font-Inconsolata self-center border border-black py-2 px-3">{quantity}</p>
-                <button className=" bg-slate-200 py-2 px-3 rounded-sm text-black text-md">+</button>
+                <button onClick={() => {handleQuantityIncrease(product) }} className=" bg-slate-200 py-2 px-3 rounded-sm text-black text-md">+</button>
               </span>
        
             </div>
