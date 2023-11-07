@@ -38,10 +38,9 @@ const CartSlice = createSlice({
             let updateCart
             if(updateCartItem.quantity > 1){
                 updateCartItem.quantity -= 1 
-                // updateTotal = state.total -= updateCartItem.price
             } else{
                  updateCart = state.cartItems.filter(item => item.random_index !== action.payload.random_index) 
-                 localStorage.setItem("cartItem",JSON.stringify(  updateCart))
+                 localStorage.setItem("cartItem",JSON.stringify(updateCart))
                  return {...state, cartItems:updateCart}
             }
         }, 

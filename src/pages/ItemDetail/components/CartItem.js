@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux"
-import { increaseQuantity, decreaseQuantity} from "../../../store/CartSlice"
+import { increaseQuantity, decreaseQuantity,removeItemCart} from "../../../store/CartSlice"
 import { Link } from "react-router-dom"
 
 export const CartItem = ({product}) => {
@@ -15,6 +15,11 @@ export const CartItem = ({product}) => {
     dispatch(decreaseQuantity(product))
   }
 
+  const handleRemoveCart = (product) => {
+    dispatch(removeItemCart(product))
+  }
+  
+  
   return (
       <span  className=" mt-4 flex flex-row border border-b-gray-950" >
         <Link to={`/${id}`}>
@@ -31,6 +36,7 @@ export const CartItem = ({product}) => {
               <button onClick={() => {handleQuantityDecrease(product) }}  className=" font-Inconsolata text-md flex justify-center items-center self-end text-white bg-black hover:bg-slate-400 p-2">  - </button>
             </span>
           </div>
+          <span onClick={() => {handleRemoveCart(product)}} className="text-lg font-Inconsolata hover:cursor-pointer">Remove</span>
         </aside>
       </span>
   )
