@@ -1,23 +1,18 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-
-function AddtolocalStorage(cart, total){
-    localStorage.setItem('cart', JSON.stringify(cart))
-    localStorage.setItem('total', JSON.stringify(total))
-}
+// const addtoLocalStore = (cart,total) => {}
 const CartSlice = createSlice({
     name: "cart",
     initialState:{
-        cartItems: JSON.parse(localStorage.getItem('cart')) || [],
-        total: JSON.parse(localStorage.getItem('total')) || 0
+        cartItems: [],
+        total: 0
     },
     reducers :{
         addItemToCart(state,action){
-
             const updateCart = state.cartItems.concat(action.payload)
             const updateTotal = state.total + action.payload.price 
 
-            AddtolocalStorage(updateCart, updateTotal)
+    
             return {...state, cartItems:updateCart, total:updateTotal}
         },
 
@@ -26,11 +21,23 @@ const CartSlice = createSlice({
             const updateCart = state.cartItems.filter(item => item.random_index !== action.payload.random_index)
             const updateTotal = state.total > 0 ? state.total - action.payload.price : 0
 
-            AddtolocalStorage(updateCart, updateTotal)
+       
             return {...state, cartItems:updateCart, total:updateTotal}
-        }
+        },
+
+        increaseQuantity(state,action){
+            const updateCartItem = state.cartItems.find( item => item.random_index === action.payload.random_index)
+            if(updateCartItem.quantity >= 1){
+                updateCartItem.quantity += 1; 
+            }
+       }
+        // removeItemToTotalPrice(state,action){
+           
+        //     const updateTotal = state.total > 0 ? state.total - action.payload.price : 0
+        //     return { ...state, total:updateTotal }
+        // },
     }
 })
 
-export const { addItemToCart,  removeItemCart } = CartSlice.actions
+export const { addItemToCart,increaseQuantity, removeItemCart} = CartSlice.actions
 export const cartReducers = CartSlice.reducer

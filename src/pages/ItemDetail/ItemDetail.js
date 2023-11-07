@@ -53,7 +53,7 @@ export const ItemDetail = () => {
     random_index:Math.floor(Math.random() * 99000),
     title : data.title,
     price: data.price,
-    quantity: '1',
+    quantity: 1,
     size: selectSize,
     image: imageUrl
   }
