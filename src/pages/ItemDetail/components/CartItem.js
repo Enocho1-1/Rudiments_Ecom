@@ -22,7 +22,7 @@ export const CartItem = ({product}) => {
           <p className="text-md font-Inconsolata">{size}</p>
           <div className="flex">
             <span className="flex">
-              <button onClick={() => handleQuantityIncrease(product) } className=" font-Inconsolata text-md flex justify-center items-center self-end text-white bg-black hover:bg-slate-400 p-2"> + </button>
+              <button onClick={() => {handleQuantityIncrease(product) }} className=" font-Inconsolata text-md flex justify-center items-center self-end text-white bg-black hover:bg-slate-400 p-2"> + </button>
               <span className="mt-6 text-md font-Inconsolata p-2 bg-white border border-b-gray-950">{quantity}</span>
               <button  className=" font-Inconsolata text-md flex justify-center items-center self-end text-white bg-black hover:bg-slate-400 p-2">  - </button>
             </span>

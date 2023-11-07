@@ -27,9 +27,13 @@ const CartSlice = createSlice({
 
         increaseQuantity(state,action){
             const updateCartItem = state.cartItems.find( item => item.random_index === action.payload.random_index)
+            let updateTotal 
+
             if(updateCartItem.quantity >= 1){
-                updateCartItem.quantity += 1; 
+                updateCartItem.quantity += 1 
+                updateTotal = state.total += updateCartItem.price
             }
+
        }
         // removeItemToTotalPrice(state,action){
            
