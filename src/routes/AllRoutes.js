@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom";
-import { Home, Cart, CollectionPage, PiecePage, ItemDetail, SearchItem, NotFound,Initial,Login, Register, OrderPage   } from "../pages";
+import { Home, Cart, CollectionPage, PiecePage, ItemDetail, SearchItem, NotFound,Initial,Login, Register, Delivery,OrderPage   } from "../pages";
 import {ProtectedRoutes} from "./components/ProtectedRoutes"
 
 export const AllRoutes = () => {
@@ -7,7 +7,6 @@ export const AllRoutes = () => {
     <>
       <Routes>
         <Route path="/" element={(<Home title="Home" />)}/>
-        <Route path="cart" element={(<ProtectedRoutes><Cart name="Cart"/></ProtectedRoutes>)}/>
         <Route path="shop" element={(<CollectionPage apiPath="/shop"/>)}/>
         <Route path="t-shirt" element={(<PiecePage apiPath="TShirts" title="Men's Essential Tees"/>)}/>
         <Route path="shirt" element={(<PiecePage apiPath="Shirts" title="Men's Shirts"/>)}/>
@@ -18,6 +17,9 @@ export const AllRoutes = () => {
         <Route path="ALL_Products/:id" element={(<ItemDetail />)}/>
         <Route path="search" element={(<SearchItem apiPath="/search/"/>)}/>
         <Route path="*" element={(<NotFound/>)}/>
+
+        <Route path="cart" element={(<ProtectedRoutes><Cart name="Cart"/></ProtectedRoutes>)}/>
+        <Route path="/checkout/delivery" element={(<Delivery/>)}/>
 
         <Route path="/login" element={(<Initial/>)}/>
         <Route path="/login/password" element={(<Login/>)}/>

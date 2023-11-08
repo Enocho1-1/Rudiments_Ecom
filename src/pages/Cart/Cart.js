@@ -1,6 +1,7 @@
 import { useEffect } from "react"
 import { useTitle,useMatchMedia } from "../../hooks"
 import { useSelector,useDispatch } from "react-redux"
+import { useNavigate } from "react-router-dom"
 import { getSubTotal } from "../../store/CartSlice"
 import { Link } from "react-router-dom"
 import { MobileCart,DesktopCart,CartEmpty} from "./components"
@@ -13,7 +14,7 @@ import arrow from "../../assests/arrow.png"
 export const Cart = ({name}) => {
   useTitle(name)
   const {myQuery} = useMatchMedia(769)
-
+  const navigate = useNavigate()
   const cart = useSelector(state => state.cart.cartItems)
   const total = useSelector(state => state.cart.total)
   const dispatch = useDispatch()
@@ -72,7 +73,7 @@ export const Cart = ({name}) => {
                       <p className="text-xl font-bold ml-[20rem] max-mobile:ml-[9.375rem] max-mobile:text-lg">US${total}.00</p>
                     </span>
                 </aside>
-                <button type="button" className="focus:outline-none text-black text-xl font-Bebas bg-yellow-300 px-5 py-2.5 mt-3 max-tablet:w-full">Checkout</button>
+                <button onClick={() => navigate("/checkout/delivery")} type="button" className="focus:outline-none text-black text-xl font-Bebas bg-yellow-300 px-5 py-2.5 mt-3 max-tablet:w-full">Checkout</button>
 
                 {/* Acceptable Payment Options */}
                 <div className="flex flex-row mt-2">
