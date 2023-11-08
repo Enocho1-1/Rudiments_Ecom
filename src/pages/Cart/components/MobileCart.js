@@ -16,9 +16,9 @@ export const MobileCart = ({product}) => {
   
   return (
     
-    <span className="flex flex-row py-2 mobile:max-tablet:px-2">
+    <span className="flex flex-row py-2 max-tablet:px-2">
         <Link to={`/ALL_Products//${id}`}>
-        <img src={image} className="h-32 w-32 mobile:max-tablet:mr-4" alt="" />
+          <img src={image} className="h-32 w-32 mobile:max-tablet:mr-4" alt="" />
         </Link>
         <div className="flex flex-col justify-items-start w-[150px] mobile:max-tablet:w-[350px] ml-2">
         <h1 className="text-md font-Inconsolata font-semibold mobile:max-tablet:text-xl">{title}</h1>
@@ -31,7 +31,7 @@ export const MobileCart = ({product}) => {
         <p className="text-sm font-Inconsolata font-semibold mobile:max-tablet:text-lg mt-2">${price}.00</p>
         </div>
         {/* Delete Item Button */}
-        <svg onClick={() => {dispatch(removeItemCart(product))}} xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-x-lg hover:cursor-pointer ml-3 mobile:max-tablet:mr-3" viewBox="0 0 16 16">
+        <svg onClick={() => {dispatch(removeItemCart(product))}} xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-x-lg hover:cursor-pointer ml-[4.688rem] " viewBox="0 0 16 16">
         <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
         </svg>
          <hr />

@@ -1411,5 +1411,14 @@
     }
   ],
   "orders": [],
-  "users": []
+  "users": [
+    {
+      "email": "MikeDoe@example.com",
+      "password": "$2a$10$CM/O19PDAPXkYKEm2zlydeHAkwWgyu05tUzksAAO6poyzHsQIfeKq",
+      "title": "Mr",
+      "firstName": "Mike",
+      "lastName": "Doe",
+      "id": 1
+    }
+  ]
 }

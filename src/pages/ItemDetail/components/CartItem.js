@@ -26,7 +26,7 @@ export const CartItem = ({product}) => {
           <img src={image} className="h-[200px] w-[175px] max-mobile:h-[150px]" alt="" />
         </Link>
         <aside className="flex flex-col mx-2">
-          <h1 className="text-xl font-Inconsolata">{title}</h1>
+          <h1 className=" max-w-[12.5rem] text-lg font-Inconsolata truncate ...">{title}</h1>
           <p className="text-md font-semibold font-Inconsolata">${price}.00</p>
           <p className="text-md font-Inconsolata">{size}</p>
           <div className="flex">

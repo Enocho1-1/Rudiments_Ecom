@@ -16,8 +16,8 @@ export const Cart = ({name}) => {
 
   const cart = useSelector(state => state.cart.cartItems)
   const total = useSelector(state => state.cart.total)
-
   const dispatch = useDispatch()
+
   useEffect(() => {
    dispatch(getSubTotal())
   },[cart])
@@ -28,7 +28,7 @@ export const Cart = ({name}) => {
       {cart.length === 0 ?
         <CartEmpty />
         :
-        <aside className=" m-auto max-w-7xl mt-24 flex flex-col">
+        <aside className="m-auto max-w-7xl mt-24 flex flex-col">
          <Link to={"/"} className="mt-4 px-4 flex hover:text-slate-500">
             <img src={arrow} className="h-6 self-center" alt="" />
             <h1 className="text-xl font-Inconsolata font-semibold mx-2 ">Continue Shopping</h1>
@@ -61,18 +61,18 @@ export const Cart = ({name}) => {
               }
               
               {/* Subtotal & Total */}
-              <div className="mt-8 pl-4">
-                <aside>
-                  <span className="grid grid-cols-2 max-tablet:flex mobile:max-tablet:flex max-mobile:justify-between mobile:max-tablet:justify-between max-mobile:mx-2">
+              <div className="max-w-inherit mt-8 py-2">
+                <aside className="flex">
+                  <span className="flex flex-col">
                       <h1 className="text-2xl font-Inconsolata font-light max-mobile:text-lg">Subtotal</h1>
-                      <p className="text-xl max-mobile:text-lg">${total}.00</p>
+                      <h1 className="text-xl font-Inconsolata font-bold max-mobile:text-lg">Total(Excl. delivery)</h1>
                     </span>
-                    <span className="grid grid-cols-2 max-mobile:flex mobile:max-tablet:flex max-mobile:justify-between mobile:max-tablet:justify-between max-mobile:mx-2">
-                      <h1 className="text-2xl font-Inconsolata font-bold max-mobile:text-lg">Total</h1>
-                      <p className="text-xl font-bold max-mobile:text-lg">${total}.00</p>
+                    <span className="flex flex-col">
+                      <p className="ml-[20rem] max-mobile:ml-[9.375rem] text-lg">US${total}.00</p>
+                      <p className="text-xl font-bold ml-[20rem] max-mobile:ml-[9.375rem] max-mobile:text-lg">US${total}.00</p>
                     </span>
                 </aside>
-                <button type="button" className="focus:outline-none text-black text-xl font-Bebas bg-yellow-300 px-5 py-2.5 mt-3 max-mobile:w-full mobile:max-tablet:w-full">Checkout</button>
+                <button type="button" className="focus:outline-none text-black text-xl font-Bebas bg-yellow-300 px-5 py-2.5 mt-3 max-tablet:w-full">Checkout</button>
 
                 {/* Acceptable Payment Options */}
                 <div className="flex flex-row mt-2">
@@ -89,7 +89,9 @@ export const Cart = ({name}) => {
                     <img src={paypal} className="h-auto w-auto" alt="" />
                   </span>
                 </div>
+
               </div>
+
             </div>
           </div>
         </aside>
