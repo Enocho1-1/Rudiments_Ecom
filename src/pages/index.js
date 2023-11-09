@@ -7,6 +7,7 @@ export { NotFound } from "./Search/components/NotFound"
 
 export { Cart } from "./Cart/Cart"
 export { Delivery } from "./Delivery/Delivery"
+export { Payment} from "./Payment/Payment"
 
 export { Initial } from "./Initial/Initial"
 export { Login } from "./Login/Login"
