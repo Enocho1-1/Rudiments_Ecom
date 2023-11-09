@@ -2,6 +2,6 @@
 
 export const OrderPage = () => {
   return (
-    <div>OrderPage</div>
+    <section>OrderPage</section>
   )
 }

@@ -1419,6 +1419,14 @@
       "firstName": "Mike",
       "lastName": "Doe",
       "id": 1
+    },
+    {
+      "email": "JaneDoe@example.com",
+      "password": "$2a$10$qSvdpNSBKExJxqdB2g0Lb.TzlNNxLZyjqldKBgvf3ZvW2L1ln4/bK",
+      "title": "Miss",
+      "firstName": "Jane",
+      "lastName": "Doe",
+      "id": 2
     }
   ]
 }

@@ -22,6 +22,9 @@ const CartSlice = createSlice({
             localStorage.setItem("cartItem",JSON.stringify(updateCart))
             return {...state, cartItems:updateCart}
         },
+        clearCart(state,action){
+            return {...state, cartItems:[]}
+        },
 
         increaseQuantity(state,action){
             const updateCartItem = state.cartItems.find( item => item.random_index === action.payload.random_index)
@@ -60,10 +63,8 @@ const CartSlice = createSlice({
              state.total = total
         }
 
- 
-
     }
 })
 
-export const { addItemToCart, removeItemCart,increaseQuantity, decreaseQuantity,getSubTotal} = CartSlice.actions
+export const { addItemToCart, removeItemCart,clearCart,increaseQuantity, decreaseQuantity,getSubTotal} = CartSlice.actions
 export const cartReducers = CartSlice.reducer

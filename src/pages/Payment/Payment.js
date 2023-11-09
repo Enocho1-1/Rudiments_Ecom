@@ -1,5 +1,8 @@
 import { useFilter } from "../../context/filterContext"
-import{ MyBag } from "../Delivery/components/MyBag"
+import { useNavigate } from "react-router-dom"
+import { useSelector,useDispatch } from "react-redux"
+import { clearCart } from "../../store/CartSlice"
+import { MyBag } from "../Delivery/components/MyBag"
 import visa from "../../assests/visa.png"
 import mastercard from "../../assests/mastercard.png"
 import americanexpress from "../../assests/american-express.png"
@@ -8,6 +11,15 @@ import paypal from "../../assests/paypal.png"
 export const Payment = () => {
     const { retrieveUserInfo } = useFilter()
     const { firstName,lastName,title } = retrieveUserInfo()
+    const navigate = useNavigate()
+    const dispatch = useDispatch()
+    const cart = useSelector(state => state.cart.cartItems)
+
+    const handleSubmitOrder = () => {
+        navigate("/checkout/order-confirmation")
+        dispatch(clearCart())
+        localStorage.clear()
+    }
   return (
     <section className="font-Inconsolata">
         <div className="mt-[4.688rem] flex justify-center">
@@ -55,8 +67,8 @@ export const Payment = () => {
                                     <p  className="ml-3 my-2 text-lg self-end">Pay by Card</p>
                                 </div>
                                 <div className="flex flex-row mt-2">
-                                    {[visa,mastercard,americanexpress,paypal].map(image => (
-                                         <span className="h-8 w-8 border border-slate-500 rounded-md mx-1">
+                                    {[visa,mastercard,americanexpress,paypal].map((image, index) => (
+                                         <span  key={index} className="h-8 w-8 border border-slate-500 rounded-md mx-1">
                                             <img src={image} className="h-auto w-auto" alt="" />
                                         </span>
                                     ))}
@@ -79,14 +91,14 @@ export const Payment = () => {
                     <div className="mt-3 flex flex-col justify-center">
                         <p className="text-md text-center">You may be asked for further identification by your card issuer.</p>
                         <span className="mt-3 flex justify-center">
-                            {[visa,mastercard].map(image => (
-                                <span className="h-6 w-6 border border-slate-500 rounded-md mx-2">
+                            {[visa,mastercard].map((image,index) => (
+                                <span key={index} className="h-6 w-6 border border-slate-500 rounded-md mx-2">
                                     <img src={image} className="h-auto w-auto" alt="" />
                                 </span>
                             ))}
                         </span>
                         
-                        <button  className="m-auto min-w-[250px]  bg-yellow-200 py-3 px-2  text-lg text-black mt-4">CONFIRM ORDER</button>
+                        <button onClick={() => handleSubmitOrder()}  className="m-auto min-w-[250px]  bg-yellow-200 py-3 px-2  text-lg text-black mt-4">CONFIRM ORDER</button>
                         <p className="mt-4 text-center text-sm">By confirming your order, you accept our <strong className="underline">Terms & Conditions.</strong></p>
                     </div>
             </aside>
