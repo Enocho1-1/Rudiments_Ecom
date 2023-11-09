@@ -1,6 +1,7 @@
 /* eslint-disable */
 import { useEffect } from "react"
 import { useSelector,useDispatch } from "react-redux"
+import { useFilter } from "../../../context/filterContext"
 import { getSubTotal } from "../../../store/CartSlice"
 import { Link } from "react-router-dom"
 import { CartItem } from "./CartItem"
@@ -8,9 +9,12 @@ import { CartItem } from "./CartItem"
 
 export const SideCart = ({setSideCart}) => {
 
+  const {  retrieveUserInfo } = useFilter()
+  const { userToken } = retrieveUserInfo()
   const cart = useSelector( state => state.cart.cartItems )
   const total = useSelector( state => state.cart.total )
   const dispatch = useDispatch()
+  
   useEffect(() => {
    dispatch(getSubTotal())
   },[cart])
@@ -42,7 +46,7 @@ export const SideCart = ({setSideCart}) => {
               <p>${total}.00</p>
             </aside>
             <Link to="/cart" className=" text-xl font-Bebas text-center mt-4 mx-4 border-1 border-black p-2 hover:text-slate-500">View Bag </Link>
-            <Link to="/checkout/delivery" className="text-xl font-Bebas bg-yellow-300  text-center mt-4 mx-4 border-1  p-2 text-black hover:text-black">CHECKOUT</Link>
+            { userToken && (<Link to="/checkout/delivery" className="text-xl font-Bebas bg-yellow-300  text-center mt-4 mx-4 border-1  p-2 text-black hover:text-black">CHECKOUT</Link>)}
         </div>
     </section>
   )
