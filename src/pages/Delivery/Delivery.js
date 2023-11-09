@@ -23,7 +23,7 @@ export const Delivery = () => {
                     <p className="my-2 text-lg font-Inconsolata"> US</p>
                     <p className="my-2 text-lg font-Inconsolata"> Tel: (689) 472-2872</p>
                 </span>
-                <button onClick={() => navigate("/checkout/payment")} className="m-auto min-w-[200px]  bg-blk p-2  text-xl text-white font-Bebas mt-4">NEXT STEP</button>
+                <button onClick={() => navigate("/checkout/review-and-pay")} className="m-auto min-w-[200px]  bg-blk p-2  text-xl text-white font-Bebas mt-4">NEXT STEP</button>
             </aside>
             {/* User Order Summary */}
             <MyBag />

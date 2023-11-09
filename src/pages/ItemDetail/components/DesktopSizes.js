@@ -13,7 +13,7 @@ export const DesktopSizes = ({array, selectSize, setSelectSize}) => {
             { array.map((item, index) => (
                       <li onClick={(e) => {setSelectSize(e.target.textContent); setHidden(!hidden)}} key={index}>
                      {   /* eslint-disable */}
-                        <a href="# " rel="noopener"  className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">{item}</a>
+                        <span   className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">{item}</span>
                       </li>
                   ))}
             </ul>

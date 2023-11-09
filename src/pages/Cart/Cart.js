@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { useEffect } from "react"
 import { useTitle,useMatchMedia } from "../../hooks"
 import { useSelector,useDispatch } from "react-redux"
@@ -77,18 +78,11 @@ export const Cart = ({name}) => {
 
                 {/* Acceptable Payment Options */}
                 <div className="flex flex-row mt-2">
-                  <span className="h-8 w-8 border border-slate-500 rounded-md mx-1">
-                    <img src={visa} className="h-auto w-auto" alt="" />
-                  </span>
-                  <span className="h-8 w-8 border border-slate-500 rounded-md  mx-1">
-                    <img src={mastercard} className="h-auto w-auto" alt="" />
-                  </span>
-                  <span className="h-8 w-8 border border-slate-500 rounded-md  mx-1">
-                    <img src={americanexpress} className="h-auto w-auto" alt="" />
-                  </span>
-                  <span className="h-8 w-8 border border-slate-500 rounded-md  mx-1">
-                    <img src={paypal} className="h-auto w-auto" alt="" />
-                  </span>
+                   {[visa,mastercard,americanexpress,paypal].map(image => (
+                          <span className="h-8 w-8 border border-slate-500 rounded-md mx-1">
+                            <img src={image} className="h-auto w-auto" alt="" />
+                        </span>
+                    ))}
                 </div>
 
               </div>

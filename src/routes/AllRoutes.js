@@ -20,7 +20,7 @@ export const AllRoutes = () => {
 
         <Route path="cart" element={(<ProtectedRoutes><Cart name="Cart"/></ProtectedRoutes>)}/>
         <Route path="/checkout/delivery" element={(<Delivery/>)}/>
-        <Route path="/checkout/payment" element={(<Payment/>)}/>
+        <Route path="/checkout/review-and-pay" element={(<Payment/>)}/>
 
         <Route path="/login" element={(<Initial/>)}/>
         <Route path="/login/password" element={(<Login/>)}/>
