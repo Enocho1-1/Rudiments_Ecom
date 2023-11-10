@@ -22,7 +22,7 @@ export const SideCart = ({setSideCart}) => {
   return (
     <section className="fixed top-0 left-0 right-0 bottom-0 w-screen flex justify-end z-40" id="modalOverlay">
       {/* Side Cart */}
-        <div className="absolute flex flex-col top-0 bg-white h-full mobile:max-tablet:w-[100%] tablet:max-laptop:w-[35%] laptop:w-[25%]">
+        <div className="absolute flex flex-col top-0 bg-white h-full mobile:max-tablet:w-[100%] tablet:max-desktop:w-[35%] desktop:w-[25%]">
             <header className="mt-6 px-4 flex flex-row justify-between">
                 <h1 className="text-2xl font-Bebas">Cart</h1>
                 <svg onClick={() => {setSideCart(false)}} xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-x-lg hover:cursor-pointer" viewBox="0 0 16 16">
