@@ -3,9 +3,13 @@ import { OrderSuccess,OrderFail } from "./components"
 
 export const OrderPage = () => {
   const location = useLocation();
+  const status = location.state
+  const { userData, Order_status } = status
   
-  console.log(location)
+  console.log(Order_status)
   return (
-    <section>OrderPage</section>
+    <section>
+      {!Order_status ? <OrderFail data={userData} />  : <OrderSuccess data={userData} /> }
+    </section>
   )
 }

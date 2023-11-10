@@ -1414,22 +1414,22 @@
     {
       "userCart": [
         {
-          "id": 1025,
-          "random_index": 43574,
-          "title": "Ecru tapered plisse trousers",
-          "price": 65,
+          "id": 1001,
+          "random_index": 23520,
+          "title": "Essential White Regular Tee",
+          "price": 15,
           "quantity": 1,
-          "size": "32 (US)",
-          "image": "https://images.riverisland.com/is/image/RiverIsland/ecru-tapered-fit-plisse-smart-trousers_384127_main?$ProductImagePortraitLarge$"
+          "size": "M",
+          "image": "https://images.riverisland.com/is/image/RiverIsland/white-regular-fit-t-shirt_385132_main?$ProductImagePortraitLarge$"
         },
         {
-          "id": 1024,
-          "random_index": 8005,
-          "title": "Black tapered plisse trousers",
-          "price": 65,
-          "quantity": 1,
-          "size": "32 (US)",
-          "image": "https://images.riverisland.com/is/image/RiverIsland/black-tapered-fit-plisse-smart-trousers_387064_rollover?$ProductImagePortraitLarge$"
+          "id": 1002,
+          "random_index": 24531,
+          "title": "Essential Black Slim Tee",
+          "price": 17,
+          "quantity": 2,
+          "size": "M",
+          "image": "https://images.riverisland.com/is/image/RiverIsland/black-slim-fit-t-shirt_385251_main?$ProductImagePortraitLarge$"
         }
       ],
       "userInfo": {
@@ -1444,19 +1444,11 @@
   "users": [
     {
       "email": "MikeDoe@example.com",
-      "password": "$2a$10$CM/O19PDAPXkYKEm2zlydeHAkwWgyu05tUzksAAO6poyzHsQIfeKq",
+      "password": "$2a$10$zGtCQJQNAz0Y75.NfVe3t.FxpTFp7KmN13gmLW/Cmm6Q7K6vcOHwW",
       "title": "Mr",
       "firstName": "Mike",
       "lastName": "Doe",
       "id": 1
-    },
-    {
-      "email": "JaneDoe@example.com",
-      "password": "$2a$10$qSvdpNSBKExJxqdB2g0Lb.TzlNNxLZyjqldKBgvf3ZvW2L1ln4/bK",
-      "title": "Miss",
-      "firstName": "Jane",
-      "lastName": "Doe",
-      "id": 2
     }
   ]
 }

@@ -64,6 +64,6 @@ export const postUserOrder = async (options,navigate) => {
       throw new Error(`${response.status}`)
     }else {
         const result = await response.json();
-        navigate("/checkout/order-confirmation",{status: { userData:result, Order_status:true}})
+        navigate("/checkout/order-confirmation",{state: { userData:result, Order_status:true}})
     }
 }
