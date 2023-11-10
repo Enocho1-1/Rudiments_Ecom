@@ -6,10 +6,9 @@ export const OrderPage = () => {
   const status = location.state
   const { userData, Order_status } = status
   
-  console.log(Order_status)
   return (
     <section>
-      {!Order_status ? <OrderFail data={userData} />  : <OrderSuccess data={userData} /> }
+      {!Order_status ? <OrderFail />  : <OrderSuccess data={userData} /> }
     </section>
   )
 }
