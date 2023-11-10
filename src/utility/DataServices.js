@@ -56,3 +56,14 @@ export const loginUser = async (options,setIsError,navigate) => {
         throw new Error(error.message)
     }
 }
+
+// POST User Order
+export const postUserOrder = async (options,navigate) => {
+    const response = await fetch(`${process.env.REACT_APP_HOST}/660/orders`,options)
+    if (!response.ok) {
+      throw new Error(`${response.status}`)
+    }else {
+        const result = await response.json();
+        navigate("/checkout/order-confirmation",{status: { userData:result, Order_status:true}})
+    }
+}

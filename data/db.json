@@ -1410,7 +1410,37 @@
       "imageUrl_Four": "https://st.mngbcn.com/rcs/pics/static/T5/fotos/S20/57014394_30_D1.jpg?ts=1689606192616&imwidth=311&imdensity=2"
     }
   ],
-  "orders": [],
+  "orders": [
+    {
+      "userCart": [
+        {
+          "id": 1025,
+          "random_index": 43574,
+          "title": "Ecru tapered plisse trousers",
+          "price": 65,
+          "quantity": 1,
+          "size": "32 (US)",
+          "image": "https://images.riverisland.com/is/image/RiverIsland/ecru-tapered-fit-plisse-smart-trousers_384127_main?$ProductImagePortraitLarge$"
+        },
+        {
+          "id": 1024,
+          "random_index": 8005,
+          "title": "Black tapered plisse trousers",
+          "price": 65,
+          "quantity": 1,
+          "size": "32 (US)",
+          "image": "https://images.riverisland.com/is/image/RiverIsland/black-tapered-fit-plisse-smart-trousers_387064_rollover?$ProductImagePortraitLarge$"
+        }
+      ],
+      "userInfo": {
+        "title": "Mr",
+        "name": "Mike Doe",
+        "email": "MikeDoe@example.com",
+        "id": 1
+      },
+      "id": 1
+    }
+  ],
   "users": [
     {
       "email": "MikeDoe@example.com",

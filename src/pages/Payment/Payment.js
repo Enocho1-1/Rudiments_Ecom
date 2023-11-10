@@ -1,6 +1,7 @@
 import { useFilter } from "../../context/filterContext"
 import { useNavigate } from "react-router-dom"
 import { useSelector,useDispatch } from "react-redux"
+import { postUserOrder } from "../../utility"
 import { clearCart } from "../../store/CartSlice"
 import { MyBag } from "../Delivery/components/MyBag"
 import visa from "../../assests/visa.png"
@@ -10,13 +11,30 @@ import paypal from "../../assests/paypal.png"
 
 export const Payment = () => {
     const { retrieveUserInfo } = useFilter()
-    const { firstName,lastName,title } = retrieveUserInfo()
+    const { firstName,lastName,title,userEmail,userID,userToken } = retrieveUserInfo()
     const navigate = useNavigate()
     const dispatch = useDispatch()
     const cart = useSelector(state => state.cart.cartItems)
 
+    const userOrder = {
+        userCart: cart,
+        userInfo:{
+            title:title,
+            name:`${firstName} ${lastName}`,
+            email:userEmail,
+            id:userID
+        } 
+    }
+
+    const Post = {
+        method:"POST",
+        headers:{'Content-Type':'application/json',Authorization: `Bearer ${userToken}`},
+        body:JSON.stringify(userOrder)
+    }
+        
+    
     const handleSubmitOrder = () => {
-        navigate("/checkout/order-confirmation")
+        postUserOrder(Post,navigate)
         dispatch(clearCart())
         localStorage.clear()
     }

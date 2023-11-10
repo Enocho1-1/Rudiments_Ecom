@@ -1,3 +1,3 @@
 export { fetchProducts,fetchClothingPiece,fetchIndividualItem, userSearchItem,validateMeasurements  } from "./ProductServices"
 
-export { fetchUsers,registerUser,loginUser  } from "./DataServices"
+export { fetchUsers,registerUser,loginUser,postUserOrder  } from "./DataServices"
