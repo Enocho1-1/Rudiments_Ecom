@@ -15,6 +15,12 @@ export const Payment = () => {
     const navigate = useNavigate()
     const dispatch = useDispatch()
     const cart = useSelector(state => state.cart.cartItems)
+    const date = new Date(),
+          day = date.getUTCDay(),
+          month = date.getUTCMonth(),
+          year = date.getFullYear();
+    
+
 
     const userOrder = {
         userCart: cart,
@@ -22,11 +28,13 @@ export const Payment = () => {
             title:title,
             name:`${firstName} ${lastName}`,
             email:userEmail,
+            orderNo: Math.floor(Math.random() * 12000000),
+            orderDate: `${day} ${month} ${year}`,
             id:userID
         } 
     }
 
-    const Post = {
+    const Post_Options = {
         method:"POST",
         headers:{'Content-Type':'application/json',Authorization: `Bearer ${userToken}`},
         body:JSON.stringify(userOrder)
@@ -34,7 +42,7 @@ export const Payment = () => {
         
     
     const handleSubmitOrder = () => {
-        postUserOrder(Post,navigate)
+        postUserOrder(Post_Options,navigate)
         dispatch(clearCart())
         localStorage.clear()
     }

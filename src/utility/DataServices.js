@@ -67,3 +67,19 @@ export const postUserOrder = async (options,navigate) => {
         navigate("/checkout/order-confirmation",{state: { userData:result, Order_status:true}})
     }
 }
+
+// GET User Orders
+export const getUserOrders = async (options,setData,setNotFound,userID) => {
+    try{
+        const response = await fetch(`${process.env.REACT_APP_HOST}/660/orders/${userID}`,options)
+        if(response.status === 404){
+            setNotFound(true)
+        } else{
+            const result = await response.json()
+            setNotFound(false)
+            setData(result)
+        }
+    }catch(error){
+        throw new Error(error.message)
+    }
+}
