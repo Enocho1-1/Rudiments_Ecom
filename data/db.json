@@ -1410,6 +1410,69 @@
       "imageUrl_Four": "https://st.mngbcn.com/rcs/pics/static/T5/fotos/S20/57014394_30_D1.jpg?ts=1689606192616&imwidth=311&imdensity=2"
     }
   ],
-  "orders": [],
-  "users": []
+  "orders": [
+    {
+      "userCart": [
+        {
+          "id": 1002,
+          "random_index": 22473,
+          "title": "Essential Black Slim Tee",
+          "price": 17,
+          "quantity": 1,
+          "size": "M",
+          "image": "https://images.riverisland.com/is/image/RiverIsland/black-slim-fit-t-shirt_385251_main?$ProductImagePortraitLarge$"
+        },
+        {
+          "id": 1006,
+          "random_index": 28102,
+          "title": "Essential  Green Slim Tee",
+          "price": 17,
+          "quantity": 1,
+          "size": "M",
+          "image": "https://images.riverisland.com/is/image/RiverIsland/sage-green-slim-fit-t-shirt_384031_main?$ProductImagePortraitLarge$"
+        }
+      ],
+      "userInfo": {
+        "title": "Mr",
+        "name": "Yuno Grinberryall",
+        "email": "yuno@example.com",
+        "orderNo": 6052200,
+        "orderDate": "6 10 2023",
+        "id": 1
+      },
+      "id": 1
+    },
+    {
+      "userCart": [
+        {
+          "id": 1052,
+          "random_index": 51474,
+          "title": "Black Brogue Dress Shoes",
+          "price": 62,
+          "quantity": 1,
+          "size": "10",
+          "image": "https://images.riverisland.com/is/image/RiverIsland/black-formal-brogue-derby-shoes_384694_rollover?$ProductImagePortraitLarge$"
+        }
+      ],
+      "userInfo": {
+        "title": "Mr",
+        "name": "Yuno Grinberryall",
+        "email": "yuno@example.com",
+        "orderNo": 1295033,
+        "orderDate": "6 10 2023",
+        "id": 1
+      },
+      "id": 2
+    }
+  ],
+  "users": [
+    {
+      "email": "yuno@example.com",
+      "password": "$2a$10$lafI13sgTnXf8o46Ak1Ux.HiHp.4wRGEs4SelGVdd02NsAw28vknK",
+      "title": "Mr",
+      "firstName": "Yuno",
+      "lastName": "Grinberryall",
+      "id": 1
+    }
+  ]
 }

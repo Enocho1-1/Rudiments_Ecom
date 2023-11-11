@@ -1,11 +1,25 @@
+/* eslint-disable */
+import { useState,useEffect } from "react"
 import { useFilter } from "../../../context/filterContext"
+import { getUserOrders} from "../../../utility/index"
 import { Link } from "react-router-dom"
-import { DashEmpty } from "./DashEmpty"
+import { RecentPurchases,DashEmpty } from "./index"
 import qrCode from "../../../assests/qr-code.png"
 
 export const DashBoard = () => {
   const {  retrieveUserInfo } = useFilter()
-  const { firstName, firstTimeUser } = retrieveUserInfo()
+  const { firstName, firstTimeUser,userToken,userID } = retrieveUserInfo()
+  const [data,setData] = useState([])
+  const [ notFound,setNotFound] = useState(true)
+
+  const Get_Options = {
+    method:"GET",
+    headers:{ 'Content-Type': 'application/json', Authorization: `Bearer ${userToken}`}
+  }
+
+  useEffect(() => {
+    getUserOrders(Get_Options,setData,setNotFound,userID)
+  },[])
   
   return (
     <div className="max-w-7xl m-auto p-4 flex">
@@ -38,7 +52,7 @@ export const DashBoard = () => {
         </aside>
         <aside className="w-[40.625rem] ml-10">
           <h1 className="mt-10 font-Inconsolata font-semibold text-3xl">RECENT PURCHASES</h1>
-          <DashEmpty/>
+          { notFound ? <DashEmpty/> : <RecentPurchases userData={data}/>}
         </aside>
       
     </div>
