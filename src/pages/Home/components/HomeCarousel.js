@@ -8,23 +8,10 @@ import "./Carousel.css"
 
 export const HomeCarousel = () => {
   return (
-        <Carousel className="carousel h-[850px] max-mobile:h-[450px] mobile:max-tablet:h-[650px]">
-            <img
-                alt="..."
-                src={ImgOne}
-            />
-            <img
-                alt="..."
-                src={ImgTwo}
-            />
-            <img
-                alt="..."
-                src={ImgThree}
-            />
-            <img
-                alt="..."
-                src={ImgFour}
-            />
+        <Carousel className="carousel h-[53.125rem] max-mobile:h-[28.125rem] mobile:max-tablet:h-[40.625rem]">
+            { [ImgOne,ImgTwo,ImgThree,ImgFour].map((image,index) => (
+                  <img key={index}  src={image} alt="carousel"/>
+            ))}
         </Carousel>
   )
 }
