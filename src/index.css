@@ -53,6 +53,14 @@ section{
     width: inherit;
   }
 
+  .tracking h1::after{
+    content: "";
+    display: block;
+    height: 1.2px;
+    width: auto;
+    background-color: black;
+  }
+
 
  /* Media Query for Mobile Devices */
  @media (max-width: 480px) {
