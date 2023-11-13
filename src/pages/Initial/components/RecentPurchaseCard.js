@@ -2,7 +2,8 @@ import { Link } from "react-router-dom"
 
 export const RecentPurchaseCard = ({item}) => {
     const {userCart, userInfo} = item
-    const {orderNo, orderDate} = userInfo
+    const {orderNo, orderDate,orderTime} = userInfo
+    console.log(userCart)
     const User_Cart = userCart.slice(0,1)
     const orderDetails = [{title:"Ordered on:", value:orderDate}, {title:"Order no:", value:orderNo},{title:"Status:", value:"Despatched"}]
   return (

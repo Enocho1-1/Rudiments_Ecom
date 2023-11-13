@@ -1410,139 +1410,15 @@
       "imageUrl_Four": "https://st.mngbcn.com/rcs/pics/static/T5/fotos/S20/57014394_30_D1.jpg?ts=1689606192616&imwidth=311&imdensity=2"
     }
   ],
-  "orders": [
-    {
-      "userCart": [
-        {
-          "id": 1008,
-          "random_index": 68493,
-          "title": "Regular Cactus Graphic Tee",
-          "price": 24,
-          "quantity": 1,
-          "size": "M",
-          "image": "https://images.riverisland.com/is/image/RiverIsland/rust-regular-fit-cactus-graphic-t-shirt_382903_main?$ProductImagePortraitLarge$"
-        },
-        {
-          "id": 1011,
-          "random_index": 76594,
-          "title": "Essential Black Long Tee",
-          "price": 22,
-          "quantity": 1,
-          "size": "M",
-          "image": "https://images.riverisland.com/is/image/RiverIsland/black-muscle-fit-long-sleeve-t-shirt_386566_main?$ProductImagePortraitLarge$"
-        }
-      ],
-      "userInfo": {
-        "title": "Mr",
-        "name": "Mike Doe",
-        "email": "MikeDoe@example.com",
-        "orderNo": 7063627,
-        "orderDate": "12 November 2023",
-        "id": 1
-      },
-      "id": 1
-    },
-    {
-      "userCart": [
-        {
-          "id": 1059,
-          "random_index": 90683,
-          "title": "Stone leather sliders",
-          "price": 60,
-          "quantity": 1,
-          "size": "10",
-          "image": "https://images.riverisland.com/is/image/RiverIsland/stone-leather-sliders_384808_rollover?$ProductImagePortraitLarge$"
-        }
-      ],
-      "userInfo": {
-        "title": "Mr",
-        "name": "Mike Doe",
-        "email": "MikeDoe@example.com",
-        "orderNo": 75251,
-        "orderDate": "12 November 2023",
-        "id": 1
-      },
-      "id": 2
-    },
-    {
-      "userCart": [
-        {
-          "id": 1070,
-          "random_index": 48824,
-          "title": "Leather-effect travel  bag",
-          "price": 75,
-          "quantity": 1,
-          "size": "",
-          "image": "https://st.mngbcn.com/rcs/pics/static/T5/fotos/S20/57014394_30.jpg?ts=1689606192616&imwidth=630&imdensity=2"
-        },
-        {
-          "id": 1067,
-          "random_index": 36809,
-          "title": "Men's Watch Shiny Silver Tone Round Case",
-          "price": 54,
-          "quantity": 1,
-          "size": "",
-          "image": "https://i5.walmartimages.com/asr/72bd53ba-eee2-4459-b22d-da1daf77e684.3f3d6b1bce703d19ce1510c86dcd0252.jpeg?odnHeight=768&odnWidth=768&odnBg=FFFFFF"
-        }
-      ],
-      "userInfo": {
-        "title": "Mr",
-        "name": "Mike Doe",
-        "email": "MikeDoe@example.com",
-        "orderNo": 10806052,
-        "orderDate": "12 November 2023",
-        "id": 1
-      },
-      "id": 3
-    },
-    {
-      "userCart": [
-        {
-          "id": 1038,
-          "random_index": 29142,
-          "title": "Black slim waffle shorts",
-          "price": 56,
-          "quantity": 1,
-          "size": "32 (US)",
-          "image": "https://images.riverisland.com/is/image/RiverIsland/black-slim-fit-waffle-shorts_383920_main?$ProductImagePortraitLarge$"
-        },
-        {
-          "id": 1036,
-          "random_index": 86726,
-          "title": "Blue Tapered Cropped Jeans",
-          "price": 45,
-          "quantity": 1,
-          "size": "32 (US)",
-          "image": "https://st.mngbcn.com/rcs/pics/static/T5/fotos/S20/57010702_TO.jpg?ts=1681742006441&imwidth=1366&imdensity=2&impolicy=featured"
-        }
-      ],
-      "userInfo": {
-        "title": "Mr",
-        "name": "Mike Doe",
-        "email": "MikeDoe@example.com",
-        "orderNo": 1905459,
-        "orderDate": "12 November 2023",
-        "id": 1
-      },
-      "id": 4
-    }
-  ],
+  "orders": [],
   "users": [
     {
-      "email": "MikeDoe@example.com",
-      "password": "$2a$10$EmC3qJl1HzAYdBpi.y/Dm.9yRNH7LRBooTu333w0501SQIBOpCQsa",
+      "email": "naruto@example.com",
+      "password": "$2a$10$Xt/je.LUDJXh7dblw/LPEuZU8g4AqkGdcsuQhX4oz3lKLHQ1fubhm",
       "title": "Mr",
-      "firstName": "Mike",
-      "lastName": "Doe",
+      "firstName": "Naruto",
+      "lastName": "Uzamaki",
       "id": 1
-    },
-    {
-      "email": "JaneDoe@example.com",
-      "password": "$2a$10$khd9KGnKyds7hXx8a5URhOeifWdlCEB5brdX5Hn3pZKVzXyMFUiTy",
-      "title": "Miss",
-      "firstName": "Jane",
-      "lastName": "Doe",
-      "id": 2
     }
   ]
 }
