@@ -1,9 +1,13 @@
-
+import { RecentPurchaseCard } from "./RecentPurchaseCard"
 
 export const RecentPurchases = ({userData}) => {
 
-    console.log(userData)
+
   return (
-    <div>RecentPurchases</div>
+    <div className=' font-Inconsolata mt-4 w-inherit flex flex-col'>
+      { userData.map( (item,index) => (
+        <RecentPurchaseCard key={index} item={item} />
+      ))}
+    </div>
   )
 }
