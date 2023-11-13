@@ -31,7 +31,7 @@ export const Cart = ({name}) => {
         <CartEmpty />
         :
         <aside className="m-auto max-w-7xl mt-24 flex flex-col">
-         <Link to={"/"} className="mt-4 px-4 flex hover:text-slate-500">
+         <Link to="/" className="mt-4 px-4 flex hover:text-slate-500">
             <img src={arrow} className="h-6 self-center" alt="" />
             <h1 className="text-xl font-Inconsolata font-semibold mx-2 ">Continue Shopping</h1>
           </Link>
