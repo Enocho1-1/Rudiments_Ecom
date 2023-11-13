@@ -1,9 +1,10 @@
-import { Link } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
+
 
 export const RecentPurchaseCard = ({item}) => {
     const {userCart, userInfo} = item
-    const {orderNo, orderDate,orderTime} = userInfo
-    console.log(userCart)
+    const {orderNo, orderDate} = userInfo
+    const  navigate = useNavigate()
     const User_Cart = userCart.slice(0,1)
     const orderDetails = [{title:"Ordered on:", value:orderDate}, {title:"Order no:", value:orderNo},{title:"Status:", value:"Despatched"}]
   return (
@@ -19,7 +20,7 @@ export const RecentPurchaseCard = ({item}) => {
                 </span>
             ))}
         </div>
-        <Link to="" className="absolute top-[50%] right-[5%] ml-6 text-sm   font-semibold underline cursor-pointer hover:text-black">View</Link>
+        <span onClick={() => navigate("/myaccount/order-details",{state:{data:item}})} className="absolute top-[50%] right-[5%] ml-6 text-sm   font-semibold underline cursor-pointer hover:text-black">View</span>
     </span>
   )
 }

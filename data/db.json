@@ -1410,7 +1410,49 @@
       "imageUrl_Four": "https://st.mngbcn.com/rcs/pics/static/T5/fotos/S20/57014394_30_D1.jpg?ts=1689606192616&imwidth=311&imdensity=2"
     }
   ],
-  "orders": [],
+  "orders": [
+    {
+      "userCart": [
+        {
+          "id": 1016,
+          "random_index": 87757,
+          "title": "Blue Slim Oxford Shirt",
+          "price": 28,
+          "quantity": 1,
+          "size": "M",
+          "image": "https://images.riverisland.com/is/image/RiverIsland/blue-slim-fit-stretch-oxford-shirt_386091_main?$ProductImagePortraitLarge$"
+        },
+        {
+          "id": 1039,
+          "random_index": 79650,
+          "title": "White slim waffle shorts",
+          "price": 56,
+          "quantity": 1,
+          "size": "32 (US)",
+          "image": "https://images.riverisland.com/is/image/RiverIsland/white-slim-fit-waffle-shorts_383922_main?$ProductImagePortraitLarge$"
+        },
+        {
+          "id": 1055,
+          "random_index": 38848,
+          "title": "White canvas trainers",
+          "price": 50,
+          "quantity": 1,
+          "size": "10",
+          "image": "https://images.riverisland.com/is/image/RiverIsland/white-canvas-lace-up-trainers_385357_rollover?$ProductImagePortraitLarge$"
+        }
+      ],
+      "userInfo": {
+        "name": "Mr. Naruto Uzamaki",
+        "email": "naruto@example.com",
+        "orderNo": 2428268,
+        "orderDate": "13 November 2023",
+        "orderTime": "10:43:53 AM",
+        "orderTotal": 134,
+        "id": 1
+      },
+      "id": 1
+    }
+  ],
   "users": [
     {
       "email": "naruto@example.com",
