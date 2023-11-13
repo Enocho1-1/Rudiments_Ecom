@@ -71,7 +71,7 @@ export const postUserOrder = async (options,navigate) => {
 // GET User Orders
 export const getUserOrders = async (options,setData,setNoOrder,userID) => {
     try{
-        const response = await fetch(`${process.env.REACT_APP_HOST}/660/orders?options.id=${userID}`,options)
+        const response = await fetch(`${process.env.REACT_APP_HOST}/660/orders?userInfo.id=${userID}`,options)
         if(response.status === 404){
             setNoOrder(true)
         } else{

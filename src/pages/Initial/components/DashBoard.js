@@ -22,9 +22,9 @@ export const DashBoard = () => {
   },[])
   
   return (
-    <div className="max-w-7xl m-auto p-4 flex">
+    <div className="max-w-7xl m-auto p-4 flex max-tablet:flex-col">
 
-        <aside className="w-[21.875rem] flex flex-col">
+        <aside className="w-[21.875rem] max-tablet:w-[100%] flex flex-col">
           <span className="w-inherit border border-slate-200 rounded-md p-4 flex justify-between">
             <p className="max-w-[75px] font-Inconsolata font-semibold text-2xl truncate ...">{firstName}</p>
 
@@ -49,7 +49,7 @@ export const DashBoard = () => {
          
           <Link to="/login" onClick={() => sessionStorage.clear()}>Sign Out</Link>
         </aside>
-        <aside className="w-[46.875rem] ml-10">
+        <aside className="w-[46.875rem] ml-10 max-tablet:w-[100%] max-tablet:ml-[0px]">
           <h1 className="mt-10 font-Inconsolata font-semibold text-3xl">RECENT PURCHASES</h1>
           {  data.length === 0 || noOrder ? <DashEmpty/> : <RecentPurchases userData={data}/>}
         </aside>

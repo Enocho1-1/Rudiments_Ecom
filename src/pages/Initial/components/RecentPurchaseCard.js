@@ -10,11 +10,11 @@ export const RecentPurchaseCard = ({item}) => {
         {User_Cart.map( (item,index) => (
             <img key={index} src={item.image} className="h-[175px] w-[175px]" alt="" />
         ))}
-        <div className=" ml-[25px] w-fit flex items-center max-[1085px]:flex-col max-[1085px]:justify-center">
+        <div className="  w-fit flex items-center max-[1085px]:flex-col max-[1085px]:justify-center">
             {orderDetails.map((item,index) => (
-                <span key={index} className="mx-4 flex flex-col max-[1100px]:flex-row max-[1100px]:items-center">
-                    <h1 className="text-md">{item.title}</h1>
-                    <strong><p className="text-md">{item.value}</p></strong>
+                <span key={index} className="mx-4 flex flex-col text-md max-mobile:text-sm max-[1100px]:items-center">
+                    <h1 className="">{item.title}</h1>
+                    <strong><p className="">{item.value}</p></strong>
                 </span>
             ))}
         </div>
