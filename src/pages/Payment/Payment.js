@@ -15,9 +15,10 @@ export const Payment = () => {
     const navigate = useNavigate()
     const dispatch = useDispatch()
     const cart = useSelector(state => state.cart.cartItems)
+    const months = ["January","February","March","April","May","June","July","August","September","October","November","December"]
     const date = new Date(),
-          day = date.getUTCDay(),
-          month = date.getUTCMonth(),
+          month = months[date.getMonth()],
+          day = date.getDate(),
           year = date.getFullYear();
     
 
@@ -29,7 +30,7 @@ export const Payment = () => {
             name:`${firstName} ${lastName}`,
             email:userEmail,
             orderNo: Math.floor(Math.random() * 12000000),
-            orderDate: `${day} ${month} ${year}`,
+            orderDate : `${day} ${month} ${year}`,
             id:userID
         } 
     }

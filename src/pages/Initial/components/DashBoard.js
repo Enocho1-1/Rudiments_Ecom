@@ -10,7 +10,7 @@ export const DashBoard = () => {
   const {  retrieveUserInfo } = useFilter()
   const { firstName, firstTimeUser,userToken,userID } = retrieveUserInfo()
   const [data,setData] = useState([])
-  const [ notFound,setNotFound] = useState(true)
+  const [ noOrder,setNoOrder] = useState(true)
 
   const Get_Options = {
     method:"GET",
@@ -18,13 +18,13 @@ export const DashBoard = () => {
   }
 
   useEffect(() => {
-    getUserOrders(Get_Options,setData,setNotFound,userID)
+     getUserOrders(Get_Options,setData,setNoOrder,userID)
   },[])
   
   return (
-    <div className="max-w-7xl m-auto p-4 flex">
+    <div className="max-w-7xl m-auto p-4 flex max-tablet:flex-col">
 
-        <aside className="w-[21.875rem] flex flex-col">
+        <aside className="w-[21.875rem] max-tablet:w-[100%] flex flex-col">
           <span className="w-inherit border border-slate-200 rounded-md p-4 flex justify-between">
             <p className="max-w-[75px] font-Inconsolata font-semibold text-2xl truncate ...">{firstName}</p>
 
@@ -39,7 +39,7 @@ export const DashBoard = () => {
             ( 
               <span className="mt-3 px-4 flex flex-col">
                 <h1 className="font-Inconsolata text-md text-slate-500">MY OFFERS:</h1>
-                <div className='mt-4 p-3 bg-slate-300 w-inherit text-center flex flex-col justify-center items-center'>
+                <div className='mt-4 p-3 bg-slate-200 w-inherit text-center flex flex-col justify-center items-center'>
                   <p className='font-Inconsolata text-lg font-semibold text-black'>10% off in-store purchase</p>
                   <p className='font-Inconsolata text-md font-semibold text-slate-600'>To redeem this offer in store, show your Account ID at the checkout when you purchase in store today.</p>
                 </div>
@@ -47,12 +47,11 @@ export const DashBoard = () => {
             )
           }
          
-          <span></span>
           <Link to="/login" onClick={() => sessionStorage.clear()}>Sign Out</Link>
         </aside>
-        <aside className="w-[40.625rem] ml-10">
+        <aside className="w-[46.875rem] ml-10 max-tablet:w-[100%] max-tablet:ml-[0px]">
           <h1 className="mt-10 font-Inconsolata font-semibold text-3xl">RECENT PURCHASES</h1>
-          { notFound ? <DashEmpty/> : <RecentPurchases userData={data}/>}
+          {  data.length === 0 || noOrder ? <DashEmpty/> : <RecentPurchases userData={data}/>}
         </aside>
       
     </div>
