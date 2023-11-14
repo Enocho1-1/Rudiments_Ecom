@@ -15,7 +15,7 @@ export const AllRoutes = () => {
         <Route path="shoes" element={(<PiecePage apiPath="Shoes" title="Men's Shoes & Sandals"/>)}/>
         <Route path="accessories" element={(<PiecePage apiPath="Accessories" title="Men's Accessories"/>)}/>
         <Route path="ALL_Products/:id" element={(<ItemDetail />)}/>
-        <Route path="search" element={(<SearchItem apiPath="/search/"/>)}/>
+        <Route path="search" element={(<SearchItem />)}/>
         <Route path="*" element={(<NotFound/>)}/>
 
         <Route path="cart" element={(<ProtectedRoutes><Cart name="Cart"/></ProtectedRoutes>)}/>

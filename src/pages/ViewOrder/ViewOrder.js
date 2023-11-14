@@ -17,10 +17,10 @@ export const ViewOrder = () => {
             <img src={arrow} className="mt-[2px] h-6 self-center" alt="" />
             <h1 className="text-xl font-semibold mx-2 ">Back to my purchases</h1>
         </Link>
-      <div className="m-auto max-w-3xl flex flex-col">
-        <div className="mt-[4.688rem] flex">
+      <div className="  m-auto max-w-3xl flex flex-col">
+        <div className="mt-[4.688rem] flex max-tablet:flex-col">
           {/* Order Details & Delivery Info Boxes */}
-          <div className="flex flex-col w-[25rem]">
+          <div className="flex flex-col w-[25rem] max-tablet:w-[100%]">
             <span className="rounded-md flex flex-col  p-4 bg-slate-200 w-inherit">
               <h1 className="text-2xl font-bold">Order Details</h1>
               <aside className="mt-4 text-lg">
@@ -41,7 +41,7 @@ export const ViewOrder = () => {
           </div>
 
           {/* Tracking */}
-          <div className="ml-6 w-[25rem] rounded-md flex flex-col  p-4 bg-slate-200 ">
+          <div className="ml-6 w-[25rem] max-tablet:w-[100%] max-tablet:ml-0 max-tablet:mt-4 rounded-md flex flex-col  p-4 bg-slate-200 ">
             <h1 className="text-2xl font-bold">Track and manage order</h1>
             <span className="mt-3 text-lg inline-block">Arriving on or before  <p className="text-3xl font-bold">1 DEC 2023</p></span>
 
