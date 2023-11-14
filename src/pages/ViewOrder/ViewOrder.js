@@ -64,8 +64,8 @@ export const ViewOrder = () => {
         </div>
         {/* Items in the Order */}
         <div className=" mt-6 p-6 bg-slate-200 w-inherit">
-          <h1 className="text-xl font-semibold mx-2">Items in this order</h1>
-          <div className="mt-2 grid grid-cols-2">
+          <h1 className="text-xl text-center font-semibold mx-2">Items in this order</h1>
+          <div className="mt-2 grid grid-cols-gridResponsive place-content-center">
             {userCart.map( (item, index) => (
               <OrderItems  key={index} product={item}/>
             ))}
