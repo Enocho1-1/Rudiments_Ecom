@@ -1,10 +1,11 @@
 import { useState } from "react"
 import { Link,useNavigate } from "react-router-dom"
+import { useTitle } from "../../hooks"
 import { loginUser } from "../../utility"
 import reCaptha from "../../assests/RecaptchaLogo.svg.png"
 
 export const Login = () => {
-
+  useTitle("Sign-In")
   const [isError,setIsError] = useState(false)
   const userEmail = JSON.parse(sessionStorage.getItem("userEmail"))
   const navigate = useNavigate()
@@ -30,7 +31,7 @@ export const Login = () => {
   return (
     <section className="font-Inconsolata flex flex-col justify-center items-center">
       <h1 className="mt-[4.688rem] mb-4 text-3xl  font-light">SIGN IN</h1>
-      <div className="p-4 bg-slate-200 rounded-sm flex flex-col items-center">
+      <div className="p-4 bg-gray-200 rounded-sm flex flex-col items-center">
         <h1 className="my-2 text-2xl font-Bebas text-blk">{userEmail}</h1>
         { isError && ( <p className="my-3 max-w-[300px] text-red-700  text-sm">Unable to find a match for your email or password. Please check your details and try again.</p>)}
         <form onSubmit={handleLogin}>

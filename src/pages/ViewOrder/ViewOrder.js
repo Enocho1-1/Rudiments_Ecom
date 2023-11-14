@@ -21,7 +21,7 @@ export const ViewOrder = () => {
         <div className="mt-[4.688rem] flex max-tablet:flex-col">
           {/* Order Details & Delivery Info Boxes */}
           <div className="flex flex-col w-[25rem] max-tablet:w-[100%]">
-            <span className="rounded-md flex flex-col  p-4 bg-slate-200 w-inherit">
+            <span className="rounded-md flex flex-col  p-4 bg-gray-200 w-inherit">
               <h1 className="text-2xl font-bold">Order Details</h1>
               <aside className="mt-4 text-lg">
                 <p>Ordered on: {orderDate}</p>
@@ -30,7 +30,7 @@ export const ViewOrder = () => {
               </aside>
             </span>
 
-            <span className="mt-4 rounded-md flex flex-col  p-4 bg-slate-200 w-inherit">
+            <span className="mt-4 rounded-md flex flex-col  p-4 bg-gray-200 w-inherit">
               <h1 className="text-2xl font-bold">Delivery details</h1>
               <aside className="mt-4 text-lg">
                 <p>{name}</p>
@@ -41,7 +41,7 @@ export const ViewOrder = () => {
           </div>
 
           {/* Tracking */}
-          <div className="ml-6 w-[25rem] max-tablet:w-[100%] max-tablet:ml-0 max-tablet:mt-4 rounded-md flex flex-col  p-4 bg-slate-200 ">
+          <div className="ml-6 w-[25rem] max-tablet:w-[100%] max-tablet:ml-0 max-tablet:mt-4 rounded-md flex flex-col  p-4 bg-gray-200 ">
             <h1 className="text-2xl font-bold">Track and manage order</h1>
             <span className="mt-3 text-lg inline-block">Arriving on or before  <p className="text-3xl font-bold">1 DEC 2023</p></span>
 
@@ -63,7 +63,7 @@ export const ViewOrder = () => {
           </div>
         </div>
         {/* Items in the Order */}
-        <div className=" mt-6 p-6 bg-slate-200 w-inherit">
+        <div className=" mt-6 p-6 bg-gray-200 w-inherit">
           <h1 className="text-xl text-center font-semibold mx-2">Items in this order</h1>
           <div className="mt-2 grid grid-cols-gridResponsive place-content-center">
             {userCart.map( (item, index) => (

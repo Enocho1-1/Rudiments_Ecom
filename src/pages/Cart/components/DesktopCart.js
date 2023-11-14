@@ -31,9 +31,9 @@ export const DesktopCart = ({product}) => {
             <div className="mx-4 flex flex-col w-auto">
               <h1 className="text-xl text-center font-Inconsolata  mb-2">Quantity</h1>
               <span className="flex">
-                <button onClick={() => {handleQuantityDecrease(product) }}  className=" bg-slate-200 py-2 px-3 rounded-sm text-black text-md">-</button>
+                <button onClick={() => {handleQuantityDecrease(product) }}  className=" bg-gray-200 py-2 px-3 rounded-sm text-black text-md">-</button>
                 <p className="text-lg font-Inconsolata self-center border border-black py-2 px-3">{quantity}</p>
-                <button onClick={() => {handleQuantityIncrease(product) }} className=" bg-slate-200 py-2 px-3 rounded-sm text-black text-md">+</button>
+                <button onClick={() => {handleQuantityIncrease(product) }} className=" bg-gray-200 py-2 px-3 rounded-sm text-black text-md">+</button>
               </span>
        
             </div>
