@@ -8,7 +8,7 @@ export const RecentPurchaseCard = ({item}) => {
     const User_Cart = userCart.slice(0,1)
     const orderDetails = [{title:"Ordered on:", value:orderDate}, {title:"Order no:", value:orderNo},{title:"Status:", value:"Despatched"}]
   return (
-    <span className="relative mt-2 bg-slate-200 flex border-2 border-black">
+    <span className="relative mt-2 bg-gray-200 flex border-2 border-black">
         {User_Cart.map( (item,index) => (
             <img key={index} src={item.image} className="h-[175px] w-[175px]" alt="" />
         ))}

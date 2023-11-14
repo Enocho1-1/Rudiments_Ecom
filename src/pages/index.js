@@ -9,6 +9,7 @@ export { Cart } from "./Cart/Cart"
 export { Delivery } from "./Delivery/Delivery"
 export {Payment} from "./Payment/Payment"
 export { ViewOrder } from "./ViewOrder/ViewOrder"
+export { AccountDetail } from "./AccountDetails/AccountDetail"
 
 export { Initial } from "./Initial/Initial"
 export { Login } from "./Login/Login"

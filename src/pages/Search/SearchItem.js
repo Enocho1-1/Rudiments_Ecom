@@ -6,7 +6,7 @@ import { NotFound } from "./components/NotFound"
 
 
 
-export const SearchItem = ({apiPath}) => {
+export const SearchItem = () => {
   const [data,setData] = useState([])
   const [searchParam] = useSearchParams()
   const queryItem = searchParam.get('item')
