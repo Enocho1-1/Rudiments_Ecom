@@ -50,7 +50,7 @@ export const DashBoard = () => {
           }
 
           <NavLink to="/myaccount/registered-details" className="mt-2 w-inherit font-semibold text-lg border border-slate-200 rounded-md flex justify-between p-4 hover:text-inherit">Login Details <span className="text-2xl bi bi-arrow-bar-right"></span></NavLink>
-          <Link to="/login" onClick={() => sessionStorage.clear()} className="mt-2 w-inherit font-semibold text-lg border border-slate-200 rounded-md flex justify-between p-4 hover:text-inherit"className="mt-2 w-inherit font-semibold text-lg border border-slate-200 rounded-md flex justify-between p-4 hover:text-inherit">Sign Out<span className="text-2xl bi bi-box-arrow-right"></span></Link>
+          <Link to="/login" onClick={() => sessionStorage.clear()}  className="mt-2 w-inherit font-semibold text-lg border border-slate-200 rounded-md flex justify-between p-4 hover:text-inherit">Sign Out<span className="text-2xl bi bi-box-arrow-right"></span></Link>
         </aside>
         <aside className="w-[46.875rem] ml-10 max-tablet:w-[100%] max-tablet:ml-[0px]">
           <h1 className="mt-10  font-semibold text-3xl">RECENT PURCHASES</h1>

@@ -1,7 +1,6 @@
 import { useLocation, Link  } from "react-router-dom"
 import { useTitle } from "../../hooks/index"
 import { OrderItems } from "./components/OrderItems"
-import  arrow from "../../assests/arrow.png"
 
 export const ViewOrder = () => {
   useTitle("Order Details")
@@ -14,7 +13,7 @@ export const ViewOrder = () => {
   return (
     <section className="font-Inconsolata relative">
         <Link to="/login" className="relative left-[15%] mt-4 px-4 flex hover:text-black">
-            <img src={arrow} className="mt-[2px] h-6 self-center" alt="" />
+            <span className="text-2xl bi bi-arrow-bar-left"></span>
             <h1 className="text-xl font-semibold mx-2 ">Back to my purchases</h1>
         </Link>
       <div className="  m-auto max-w-3xl flex flex-col">
