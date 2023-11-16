@@ -10,7 +10,12 @@ export const RobotModal = ({img,text,setRobotModal}) => {
         const userInput = e.target.text.value
 
         if(userInput === text){
-
+            setIsCorrect(true)
+            setTimeout(() => {setRobotModal(false)},4000)
+        } else{
+            setIsCorrect(false)
+            setTimeout(() => {setIsCorrect(null)},4000)
+            e.target.reset()
         }
     }
 
