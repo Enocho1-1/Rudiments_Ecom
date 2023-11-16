@@ -49,7 +49,6 @@ export const loginUser = async (options,setIsError,navigate) => {
             setIsError(true)
         } else{
             const result = await response.json()
-            console.log(result)
             saveSessionStore(result.accessToken,result.user.id,result.user.email,result.user.title,result.user.firstName,result.user.lastName)
             navigate("/")
         }
