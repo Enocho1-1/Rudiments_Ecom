@@ -15,6 +15,8 @@ export const Login = () => {
   const userEmail = JSON.parse(sessionStorage.getItem("userEmail"))
   const navigate = useNavigate()
 
+  // document.addEventListener("click", () => {setRobotModal(false)})
+
   const handleLogin = (e) => {
     e.preventDefault()
 
@@ -50,13 +52,13 @@ export const Login = () => {
               </div>
               <img src={reCaptha} className="h-[35px] w-[35px]" alt="" />
             </span>
-            { robotModal && <RobotModal text={state.crypticText}/>}
             <button type="submit" className="bg-blk p-2  text-xl text-white font-Bebas mt-4">Sign In</button>
             <p className="mt-2 text-lg text-center  font-semibold underline cursor-pointer">Forgotten Password</p>
           </div>
         </form>
       </div>
       <Link to="/login" onClick={ () => sessionStorage.clear()} className="mt-2 text-lg  font-semibold underline cursor-pointer">Chooose Another Email</Link>
+      { robotModal && <RobotModal img={cryptic} text={state.crypticText}/>}
     </section>
   )
 }
