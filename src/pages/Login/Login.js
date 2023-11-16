@@ -58,7 +58,7 @@ export const Login = () => {
         </form>
       </div>
       <Link to="/login" onClick={ () => sessionStorage.clear()} className="mt-2 text-lg  font-semibold underline cursor-pointer">Chooose Another Email</Link>
-      { robotModal && <RobotModal img={cryptic} text={state.crypticText}/>}
+      { robotModal && <RobotModal img={cryptic} text={state.crypticText} setRobotModal={setRobotModal}/>}
     </section>
   )
 }
