@@ -8,7 +8,8 @@ const filterInitialState = {
   Pants:false,
   Shorts:false,
   Shoes:false,
-  Accessories:false
+  Accessories:false,
+  crypticText: "arch ncemsib"
 }
 
 const FilterContext = createContext(filterInitialState)
