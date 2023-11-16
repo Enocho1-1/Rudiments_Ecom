@@ -15,8 +15,6 @@ export const Login = () => {
   const userEmail = JSON.parse(sessionStorage.getItem("userEmail"))
   const navigate = useNavigate()
 
-  // document.addEventListener("click", () => {setRobotModal(false)})
-
   const handleLogin = (e) => {
     e.preventDefault()
 
