@@ -47,7 +47,7 @@ export const Login = () => {
             <input type="password" name="password" className="px-6 py-2" required/>
             <span className="bg-gray-100 flex justify-between rounded-sm mt-2 px-2 py-3 ">
               <div className="flex items-center">
-                <input  onClick={() => setRobotModal(!robotModal)} type="checkbox" className="p-2" required/>
+                <input  onClick={() => setRobotModal(!robotModal)}  type="checkbox" className="p-2"  required/>
                 <p className=" text-sm mx-2">I'm not a robot</p>
               </div>
               <img src={reCaptha} className="h-[35px] w-[35px]" alt="" />
@@ -58,7 +58,7 @@ export const Login = () => {
         </form>
       </div>
       <Link to="/login" onClick={ () => sessionStorage.clear()} className="mt-2 text-lg  font-semibold underline cursor-pointer">Chooose Another Email</Link>
-      { robotModal && <RobotModal img={cryptic} text={state.crypticText} setRobotModal={setRobotModal}/>}
+      { robotModal && <RobotModal img={cryptic} correct_text={state.crypticText} setRobotModal={setRobotModal}/>}
     </section>
   )
 }
