@@ -40,6 +40,7 @@ export const Home = ({title}) => {
       id:"buttonSix"
     }
   ]
+  const newUser = JSON.parse(sessionStorage.getItem("newUser"))
   return (
     <section className="relative">
       { promoModal &&  <PromoModal setPromoModal={setPromoModal}/>}
