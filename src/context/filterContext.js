@@ -9,7 +9,8 @@ const filterInitialState = {
   Shorts:false,
   Shoes:false,
   Accessories:false,
-  crypticText: "arch ncemsib"
+  crypticText: "arch ncemsib",
+  promo:""
 }
 
 const FilterContext = createContext(filterInitialState)
@@ -71,6 +72,13 @@ export const FilterProvider = ({children}) => {
     return { firstName,lastName,title, userEmail,userID,userToken,firstTimeUser }
   }
 
+  // Random Promo Code Genrator
+  function randomPromoCode() {
+    const promoArray = ["MINIMAL","STYLISH","SUAVE","GAUDY","TRENDSETTER","AUTENTIC","LOUD","BOISTEROUS","ENVOGUE","FIRE"]
+    const promoCode = promoArray[Math.floor(Math.random()*promoArray.length)]
+    state.promo = promoCode
+  }
+
   const filteredProducts = allAccessories(allShoes(allShorts(allPants(allShirts(allTShirts(state.product))))))
 
   const value = {
@@ -78,7 +86,8 @@ export const FilterProvider = ({children}) => {
     dispatch,
     product: filteredProducts,
     allProducts,
-    retrieveUserInfo
+    retrieveUserInfo,
+    randomPromoCode
   }
 
   return (
