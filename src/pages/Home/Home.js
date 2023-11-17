@@ -1,5 +1,6 @@
+
 import { useTitle } from "../../hooks/useTitle"
-import { HomeCarousel } from "../../components"
+import { HomeCarousel,PromoModal  } from "./components"
 import { NavLink } from "react-router-dom"
 
 export const Home = ({title}) => {
@@ -39,7 +40,8 @@ export const Home = ({title}) => {
     }
   ]
   return (
-    <section className=" my-6">
+    <section className="relative">
+      <PromoModal/>
       <HomeCarousel/>
       {/* Collection Buttons */}
       <aside className="w-full grid max-mobile:grid-cols-2 mobile:max-tablet:grid-cols-2 tablet:grid-cols-3">
