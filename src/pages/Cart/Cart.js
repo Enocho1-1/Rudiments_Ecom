@@ -26,17 +26,17 @@ export const Cart = ({name}) => {
 
 
   return (
-    <section>
+    <section className="font-Inconsolata">
       {cart.length === 0 ?
         <CartEmpty />
         :
         <aside className="m-auto max-w-7xl mt-24 flex flex-col">
          <Link to="/" className="mt-4 px-4 flex hover:text-slate-500">
             <span className="text-2xl bi bi-arrow-bar-left"></span>
-            <h1 className="text-xl font-Inconsolata font-semibold mx-2 ">Continue Shopping</h1>
+            <h1 className="text-xl  font-semibold mx-2 ">Continue Shopping</h1>
           </Link>
           <div className="mt-12 self-center">
-            <h1 className="text-4xl font-Inconsolata font-semibold text-center">MY SHOPPING BAG</h1>
+            <h1 className="text-4xl  font-semibold text-center">MY SHOPPING BAG</h1>
             
             {/* Cart Items */}
             <div className="mt-8">
@@ -63,11 +63,11 @@ export const Cart = ({name}) => {
               }
               
               {/* Subtotal & Total */}
-              <div className="max-w-inherit mt-8 py-2">
+              <div className="relative max-w-inherit mt-8 py-2">
                 <aside className="flex">
                   <span className="flex flex-col">
-                      <h1 className="text-2xl font-Inconsolata font-light max-mobile:text-lg">Subtotal</h1>
-                      <h1 className="text-xl font-Inconsolata font-bold max-mobile:text-lg">Total(Excl. delivery)</h1>
+                      <h1 className="text-2xl  font-light max-mobile:text-lg">Subtotal</h1>
+                      <h1 className="text-xl  font-bold max-mobile:text-lg">Total(Excl. delivery)</h1>
                     </span>
                     <span className="flex flex-col">
                       <p className="ml-[20rem] max-mobile:ml-[9.375rem] text-lg">US${total}.00</p>
@@ -76,7 +76,6 @@ export const Cart = ({name}) => {
                 </aside>
                 <button onClick={() => navigate("/checkout/delivery")} type="button" className="focus:outline-none text-black text-xl font-Bebas bg-yellow-300 px-5 py-2.5 mt-3 max-tablet:w-full">Checkout</button>
 
-                {/* Acceptable Payment Options */}
                 <div className="flex flex-row mt-2">
                    {[visa,mastercard,americanexpress,paypal].map((image, index) => (
                           <span key={index} className="h-8 w-8 border border-slate-500 rounded-md mx-1">
@@ -85,6 +84,7 @@ export const Cart = ({name}) => {
                     ))}
                 </div>
 
+                <span className="absolute top-2 right-2 mt-2 text-md  font-semibold underline cursor-pointer hover:text-black">Have a promo code?</span>
               </div>
 
             </div>
