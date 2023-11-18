@@ -1,5 +1,5 @@
 /* eslint-disable */
-import { useEffect } from "react"
+import { useEffect,useState } from "react"
 import { useTitle,useMatchMedia } from "../../hooks"
 import { useSelector,useDispatch } from "react-redux"
 import { useNavigate } from "react-router-dom"
@@ -15,6 +15,7 @@ import paypal from "../../assests/paypal.png"
 export const Cart = ({name}) => {
   useTitle(name)
   const {myQuery} = useMatchMedia(769)
+  const [promo,setPromo] = useState(true)
   const navigate = useNavigate()
   const cart = useSelector(state => state.cart.cartItems)
   const total = useSelector(state => state.cart.total)
@@ -64,12 +65,14 @@ export const Cart = ({name}) => {
               
               {/* Subtotal & Total */}
               <div className="relative max-w-inherit mt-8 py-2 max-mobile:px-4">
-                <span className="absolute top-2 right-2  max-mobile:relative max-mobile:top-0 max-mobile:left-0  mt-2 text-md  font-semibold underline cursor-pointer hover:text-black">Have a promo code?</span>
-
+                <aside className="absolute top-2 right-2 flex flex-col max-tablet:relative max-tablet:top-0 max-tablet:left-0 ">
+                  {promo ? ( <span onClick={() => setPromo(false)} className=" mt-2 text-md  font-semibold underline cursor-pointer hover:text-black">Have a promo code?</span>): (<span className="max-tablet:my-2"><p>Please enter your promo code</p><input className="py-2 px-4" type="text" placeholder="Enter Promo Code"  /><button className="bg-gray-200 font-semibold text-md text-black py-2.5 px-4">Apply</button></span>)}
+                </aside>
+           
                 <aside className="flex">
-                  <span className="flex flex-col">
-                      <h1 className="text-2xl  font-light max-mobile:text-lg">Subtotal</h1>
-                      <h1 className="text-xl  font-bold max-mobile:text-lg">Total <p className="max-mobile:hidden font-light inline">(Excl. delivery)</p></h1>
+                  <span className="flex flex-col text-xl max-mobile:text-lg">
+                      <h1 className="font-light">Subtotal</h1>
+                      <h1 className="font-bold ">Total <p className="max-tablet:hidden font-light inline">(Excl. delivery)</p></h1>
                     </span>
                     <span className="flex flex-col">
                       <p className="ml-[20rem] max-mobile:ml-[9.375rem] text-lg">US${total}.00</p>
