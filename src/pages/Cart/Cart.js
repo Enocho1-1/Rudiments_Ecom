@@ -20,17 +20,17 @@ export const Cart = ({name}) => {
   const {promoCode} = retrieveUserInfo()
   const [promo,setPromo] = useState(true)
   const [promoError, setPromoError] = useState(false)
+  const [discountPrice,setDiscountPrice] = useState(0)
   const navigate = useNavigate()
   const cart = useSelector(state => state.cart.cartItems)
   const total = useSelector(state => state.cart.total)
   const dispatch = useDispatch()
 
-
   const handlePromo = (e) => {
     e.preventDefault()
     const userPromo = e.target.promo.value
     if(userPromo === promoCode){
-      console.log("promo applied")
+       setDiscountPrice(Math.floor(total - (total * 0.20) ))
     }else{
       setPromoError(true)
       setTimeout(() => {setPromoError(false)}, 4000)
@@ -42,7 +42,7 @@ export const Cart = ({name}) => {
    dispatch(getSubTotal())
   },[cart])
 
-
+  console.log(discountPrice)
   return (
     <section className="font-Inconsolata">
       {cart.length === 0 ?
