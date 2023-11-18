@@ -1411,38 +1411,5 @@
     }
   ],
   "orders": [],
-  "users": [
-    {
-      "email": "yuno@example.com",
-      "password": "$2a$10$dYEVAiY7epkJrLR7TmQwg.VDhL0gzw7cfgZUyQE/Rt3ala7YIF2j2",
-      "title": "Mr",
-      "firstName": "Yuno",
-      "lastName": "Grinberryall",
-      "id": 1
-    },
-    {
-      "email": "edward@example.com",
-      "password": "$2a$10$v2r6jEFYarwfJSBXQqRiIOLFH5uAlt10LB7HOoujHAyaosYuRs2z.",
-      "title": "Mr",
-      "firstName": "Edward",
-      "lastName": "Elric",
-      "id": 2
-    },
-    {
-      "email": "Sasuke@example.com",
-      "password": "$2a$10$R.frnOrrPkxoM5Cobt9QN.4LnnwJJ3/NNTAkRmViPHmmedb2dhKbS",
-      "title": "Mr",
-      "firstName": "Sasuke",
-      "lastName": "Uchiha",
-      "id": 3
-    },
-    {
-      "email": "mimosa@example.com",
-      "password": "$2a$10$19FAu/og/WU/cmdAqf7iwOVTWIAsy2twYz8cC3flx1gjLpdQ/m8Ba",
-      "title": "Miss",
-      "firstName": "Mimosa",
-      "lastName": "Vermillion",
-      "id": 4
-    }
-  ]
+  "users": []
 }
