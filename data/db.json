@@ -1411,5 +1411,14 @@
     }
   ],
   "orders": [],
-  "users": []
+  "users": [
+    {
+      "email": "naruto@example.com",
+      "password": "$2a$10$j/krC/3pAbUoSKQXVHjhX.rQgdV.sGXuwoY9FcNuEp3w8aTDBSWP6",
+      "title": "Mr",
+      "firstName": "Naruto",
+      "lastName": "Uzamaki",
+      "id": 1
+    }
+  ]
 }
