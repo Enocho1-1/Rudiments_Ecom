@@ -7,7 +7,6 @@ import { NavLink } from "react-router-dom"
 export const Home = ({title}) => {
 
   useTitle(title)
-  const [promoModal,setPromoModal] = useState(true)
   const pieceButtons = [
     {
       name:"T-Shirts",
@@ -43,7 +42,7 @@ export const Home = ({title}) => {
   const newUser = JSON.parse(sessionStorage.getItem("newUser"))
   return (
     <section className="relative">
-      { promoModal &&  <PromoModal setPromoModal={setPromoModal}/>}
+      { newUser  &&  <PromoModal/>}
       <HomeCarousel/>
       {/* Collection Buttons */}
       <aside className="w-full grid max-mobile:grid-cols-2 mobile:max-tablet:grid-cols-2 tablet:grid-cols-3">

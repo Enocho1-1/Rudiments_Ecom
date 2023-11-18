@@ -1411,5 +1411,14 @@
     }
   ],
   "orders": [],
-  "users": []
+  "users": [
+    {
+      "email": "yuno@example.com",
+      "password": "$2a$10$dYEVAiY7epkJrLR7TmQwg.VDhL0gzw7cfgZUyQE/Rt3ala7YIF2j2",
+      "title": "Mr",
+      "firstName": "Yuno",
+      "lastName": "Grinberryall",
+      "id": 1
+    }
+  ]
 }
