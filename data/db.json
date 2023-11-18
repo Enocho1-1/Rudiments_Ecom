@@ -1410,7 +1410,31 @@
       "imageUrl_Four": "https://st.mngbcn.com/rcs/pics/static/T5/fotos/S20/57014394_30_D1.jpg?ts=1689606192616&imwidth=311&imdensity=2"
     }
   ],
-  "orders": [],
+  "orders": [
+    {
+      "userCart": [
+        {
+          "id": 1052,
+          "random_index": 7132,
+          "title": "Black Brogue Dress Shoes",
+          "price": 62,
+          "quantity": 1,
+          "size": "10",
+          "image": "https://images.riverisland.com/is/image/RiverIsland/black-formal-brogue-derby-shoes_384694_rollover?$ProductImagePortraitLarge$"
+        }
+      ],
+      "userInfo": {
+        "name": "Mr. Itadori Yuji",
+        "email": "itadori@example.com",
+        "orderNo": 11879297,
+        "orderDate": "18 November 2023",
+        "orderTime": "5:14:13 PM",
+        "orderTotal": 62,
+        "id": 4
+      },
+      "id": 1
+    }
+  ],
   "users": [
     {
       "email": "naruto@example.com",
@@ -1435,6 +1459,14 @@
       "firstName": "Edward",
       "lastName": "Elric",
       "id": 3
+    },
+    {
+      "email": "itadori@example.com",
+      "password": "$2a$10$vv8SzCus.dLpj6km2HSLIueaRAlg05fAQtCBJHxNp0ImVPo1p4aD2",
+      "title": "Mr",
+      "firstName": "Itadori",
+      "lastName": "Yuji",
+      "id": 4
     }
   ]
 }

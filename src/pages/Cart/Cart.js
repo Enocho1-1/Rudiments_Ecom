@@ -38,11 +38,13 @@ export const Cart = ({name}) => {
     e.target.reset()
   }
 
+  sessionStorage.setItem("discountPrice",JSON.stringify(discountPrice))
+
   useEffect(() => {
    dispatch(getSubTotal())
   },[cart])
 
-  console.log(discountPrice)
+
   return (
     <section className="font-Inconsolata">
       {cart.length === 0 ?
@@ -92,8 +94,8 @@ export const Cart = ({name}) => {
                       <h1 className="font-bold ">Total <p className="max-tablet:hidden font-light inline">(Excl. delivery)</p></h1>
                     </span>
                     <span className="flex flex-col">
-                      <p className="ml-[20rem] max-mobile:ml-[9.375rem] text-lg">US${total}.00</p>
-                      <p className="text-xl font-bold ml-[20rem] max-mobile:ml-[9.375rem] max-mobile:text-lg">US${total}.00</p>
+                      <p className="ml-[20rem] max-mobile:ml-[9.375rem] text-lg">US${discountPrice === 0 ? total : discountPrice}.00</p>
+                      <p className="text-xl font-bold ml-[20rem] max-mobile:ml-[9.375rem] max-mobile:text-lg">US${discountPrice === 0 ? total : discountPrice}.00</p>
                     </span>
                 </aside>
                 <button onClick={() => navigate("/checkout/delivery")} type="button" className="focus:outline-none text-black text-xl font-Bebas bg-yellow-300 px-5 py-2.5 mt-3 max-tablet:w-full">Checkout</button>
