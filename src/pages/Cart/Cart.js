@@ -63,11 +63,13 @@ export const Cart = ({name}) => {
               }
               
               {/* Subtotal & Total */}
-              <div className="relative max-w-inherit mt-8 py-2">
+              <div className="relative max-w-inherit mt-8 py-2 max-mobile:px-4">
+                <span className="absolute top-2 right-2  max-mobile:relative max-mobile:top-0 max-mobile:left-0  mt-2 text-md  font-semibold underline cursor-pointer hover:text-black">Have a promo code?</span>
+
                 <aside className="flex">
                   <span className="flex flex-col">
                       <h1 className="text-2xl  font-light max-mobile:text-lg">Subtotal</h1>
-                      <h1 className="text-xl  font-bold max-mobile:text-lg">Total(Excl. delivery)</h1>
+                      <h1 className="text-xl  font-bold max-mobile:text-lg">Total <p className="max-mobile:hidden font-light inline">(Excl. delivery)</p></h1>
                     </span>
                     <span className="flex flex-col">
                       <p className="ml-[20rem] max-mobile:ml-[9.375rem] text-lg">US${total}.00</p>
@@ -84,7 +86,7 @@ export const Cart = ({name}) => {
                     ))}
                 </div>
 
-                <span className="absolute top-2 right-2 mt-2 text-md  font-semibold underline cursor-pointer hover:text-black">Have a promo code?</span>
+                
               </div>
 
             </div>
