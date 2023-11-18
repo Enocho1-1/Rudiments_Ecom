@@ -67,14 +67,14 @@ export const FilterProvider = ({children}) => {
     const userEmail = JSON.parse(sessionStorage.getItem("userEmail"))
     const userID = JSON.parse(sessionStorage.getItem("userID"))
     const userToken = JSON.parse(sessionStorage.getItem("userToken"))
-    const firstTimeUser = JSON.parse(sessionStorage.getItem("newUser"))
+    const promoCode = JSON.parse(sessionStorage.getItem("promoCode"))
 
-    return { firstName,lastName,title, userEmail,userID,userToken,firstTimeUser }
+    return { firstName,lastName,title, userEmail,userID,userToken,promoCode }
   }
 
   // Random Promo Code Genrator
   function randomPromoCode() {
-    const promoArray = ["MINIMAL","STYLISH","SUAVE","GAUDY","TRENDSETTER","AUTENTIC","LOUD","BOISTEROUS","ENVOGUE","FIRE"]
+    const promoArray = ["MINIMAL","STYLISH","SUAVE","GAUDY","TREND-SETTER","AUTHENTIC","LOUD","BOISTEROUS","ENVOGUE","FIRE"]
     const promoCode = promoArray[Math.floor(Math.random()*promoArray.length)]
     state.promo = promoCode
   }

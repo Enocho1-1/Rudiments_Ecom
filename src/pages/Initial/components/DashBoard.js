@@ -10,7 +10,7 @@ import qrCode from "../../../assests/qr-code.png"
 export const DashBoard = () => {
   useTitle("My Account")
   const {  retrieveUserInfo } = useFilter()
-  const { firstName, firstTimeUser,userToken,userID } = retrieveUserInfo()
+  const { firstName, promoCode,userToken,userID } = retrieveUserInfo()
   const [data,setData] = useState([])
   const [ noOrder,setNoOrder] = useState(true)
 
@@ -36,14 +36,14 @@ export const DashBoard = () => {
             </div>
           </span>
           {/* First Time user offer */}
-          { firstTimeUser 
+          { promoCode
             && 
             ( 
               <span className="mt-3 px-4 flex flex-col">
                 <h1 className=" text-md text-slate-500">MY OFFERS:</h1>
                 <div className='mt-4 p-3 bg-slate-200 w-inherit text-center flex flex-col justify-center items-center'>
-                  <p className=' text-lg font-semibold text-black'>10% off in-store purchase</p>
-                  <p className=' text-md font-semibold text-slate-600'>To redeem this offer in store, show your Account ID at the checkout when you purchase in store today.</p>
+                  <p className=' text-lg font-semibold text-black'>20% off first purchase</p>
+                  <p className=' text-md font-semibold text-slate-600'>Use Promo-Code: {promoCode}</p>
                 </div>
               </span>
             )
