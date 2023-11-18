@@ -144,5 +144,6 @@ section{
     background-image: url("https://www.apetogentleman.com/wp-content/uploads/2022/05/FALL-WINTER-TRENDS.jpg");
     background-repeat: no-repeat;
     background-size: cover;
+    overflow-y: hidden;
 }
 

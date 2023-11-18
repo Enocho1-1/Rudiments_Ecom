@@ -6,6 +6,7 @@ export const MyBag = () => {
     
     const cart = useSelector(state => state.cart.cartItems)
     const total = useSelector(state => state.cart.total)
+    const discountPrice = JSON.parse(sessionStorage.getItem("discountPrice"))
   return (
     <aside className="h-fit min-w-[21.875rem] ml-4 p-4 bg-slate-200 flex flex-col max-[900px]:hidden">
         <h1 className="text-center text-2xl font-Inconsolata font-semibold">My bag ({cart.length})</h1>
@@ -21,8 +22,8 @@ export const MyBag = () => {
             <h1 className="text-xl  font-semibold max-mobile:text-lg">Total To Pay</h1>
             </span>
             <span className="flex flex-col">
-            <p className=" text-lg">US${total}.00</p>
-            <p className="text-xl font-bold max-mobile:text-lg">US${total}.00</p>
+            <p className=" text-lg">US${discountPrice ? discountPrice : total}.00</p>
+            <p className="text-xl font-bold max-mobile:text-lg">US${discountPrice ? discountPrice : total}.00</p>
             </span>
         </div>
     </aside>
