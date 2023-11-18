@@ -1410,63 +1410,6 @@
       "imageUrl_Four": "https://st.mngbcn.com/rcs/pics/static/T5/fotos/S20/57014394_30_D1.jpg?ts=1689606192616&imwidth=311&imdensity=2"
     }
   ],
-  "orders": [
-    {
-      "userCart": [
-        {
-          "id": 1052,
-          "random_index": 7132,
-          "title": "Black Brogue Dress Shoes",
-          "price": 62,
-          "quantity": 1,
-          "size": "10",
-          "image": "https://images.riverisland.com/is/image/RiverIsland/black-formal-brogue-derby-shoes_384694_rollover?$ProductImagePortraitLarge$"
-        }
-      ],
-      "userInfo": {
-        "name": "Mr. Itadori Yuji",
-        "email": "itadori@example.com",
-        "orderNo": 11879297,
-        "orderDate": "18 November 2023",
-        "orderTime": "5:14:13 PM",
-        "orderTotal": 62,
-        "id": 4
-      },
-      "id": 1
-    }
-  ],
-  "users": [
-    {
-      "email": "naruto@example.com",
-      "password": "$2a$10$j/krC/3pAbUoSKQXVHjhX.rQgdV.sGXuwoY9FcNuEp3w8aTDBSWP6",
-      "title": "Mr",
-      "firstName": "Naruto",
-      "lastName": "Uzamaki",
-      "id": 1
-    },
-    {
-      "email": "yuno@example.com",
-      "password": "$2a$10$bXHmBfEch5me2QyO03wkSOvBBXqz3890CcuP3o5g5SsX9YvVpXGG6",
-      "title": "Mr",
-      "firstName": "Yuno",
-      "lastName": "Grinberryall",
-      "id": 2
-    },
-    {
-      "email": "edward@example.com",
-      "password": "$2a$10$xsij69TA9ABN5h0Au35Hvu7Mj6PF6vyRHGk4pPxw6yxUHERRAVEN6",
-      "title": "Mr",
-      "firstName": "Edward",
-      "lastName": "Elric",
-      "id": 3
-    },
-    {
-      "email": "itadori@example.com",
-      "password": "$2a$10$vv8SzCus.dLpj6km2HSLIueaRAlg05fAQtCBJHxNp0ImVPo1p4aD2",
-      "title": "Mr",
-      "firstName": "Itadori",
-      "lastName": "Yuji",
-      "id": 4
-    }
-  ]
+  "orders": [],
+  "users": []
 }
