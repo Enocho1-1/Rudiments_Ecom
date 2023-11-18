@@ -1,14 +1,20 @@
 import { useState } from "react"
 import { Link,useNavigate } from "react-router-dom"
+import { useFilter } from "../../context/filterContext"
+import { useTitle } from "../../hooks"
 import { loginUser } from "../../utility"
+import { RobotModal } from "./components/RobotModal"
+import cryptic from "../../assests/robotText.PNG"
 import reCaptha from "../../assests/RecaptchaLogo.svg.png"
 
 export const Login = () => {
-
+  useTitle("Sign-In")
+  const { state } = useFilter()
   const [isError,setIsError] = useState(false)
+  const [robotModal,setRobotModal] = useState(false)
   const userEmail = JSON.parse(sessionStorage.getItem("userEmail"))
   const navigate = useNavigate()
-  
+
   const handleLogin = (e) => {
     e.preventDefault()
 
@@ -28,9 +34,9 @@ export const Login = () => {
   }
 
   return (
-    <section className="font-Inconsolata flex flex-col justify-center items-center">
+    <section className="relative font-Inconsolata flex flex-col justify-center items-center">
       <h1 className="mt-[4.688rem] mb-4 text-3xl  font-light">SIGN IN</h1>
-      <div className="p-4 bg-slate-200 rounded-sm flex flex-col items-center">
+      <div className="p-4 bg-gray-200 rounded-sm flex flex-col items-center">
         <h1 className="my-2 text-2xl font-Bebas text-blk">{userEmail}</h1>
         { isError && ( <p className="my-3 max-w-[300px] text-red-700  text-sm">Unable to find a match for your email or password. Please check your details and try again.</p>)}
         <form onSubmit={handleLogin}>
@@ -39,7 +45,7 @@ export const Login = () => {
             <input type="password" name="password" className="px-6 py-2" required/>
             <span className="bg-gray-100 flex justify-between rounded-sm mt-2 px-2 py-3 ">
               <div className="flex items-center">
-                <input type="checkbox" className="p-2" required/>
+                <input  onClick={() => setRobotModal(!robotModal)}  type="checkbox" className="p-2"  required/>
                 <p className=" text-sm mx-2">I'm not a robot</p>
               </div>
               <img src={reCaptha} className="h-[35px] w-[35px]" alt="" />
@@ -50,6 +56,7 @@ export const Login = () => {
         </form>
       </div>
       <Link to="/login" onClick={ () => sessionStorage.clear()} className="mt-2 text-lg  font-semibold underline cursor-pointer">Chooose Another Email</Link>
+      { robotModal && <RobotModal img={cryptic} correct_text={state.crypticText} setRobotModal={setRobotModal}/>}
     </section>
   )
 }

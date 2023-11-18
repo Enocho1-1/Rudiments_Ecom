@@ -1,12 +1,14 @@
-import { Link } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
+
 
 export const RecentPurchaseCard = ({item}) => {
     const {userCart, userInfo} = item
     const {orderNo, orderDate} = userInfo
+    const  navigate = useNavigate()
     const User_Cart = userCart.slice(0,1)
     const orderDetails = [{title:"Ordered on:", value:orderDate}, {title:"Order no:", value:orderNo},{title:"Status:", value:"Despatched"}]
   return (
-    <span className="relative mt-2 bg-slate-200 flex border-2 border-black">
+    <span className="relative mt-2 bg-gray-200 flex border-2 border-black">
         {User_Cart.map( (item,index) => (
             <img key={index} src={item.image} className="h-[175px] w-[175px]" alt="" />
         ))}
@@ -18,7 +20,7 @@ export const RecentPurchaseCard = ({item}) => {
                 </span>
             ))}
         </div>
-        <Link to="" className="absolute top-[50%] right-[5%] ml-6 text-sm   font-semibold underline cursor-pointer hover:text-black">View</Link>
+        <span onClick={() => navigate("/myaccount/order-details",{state:{data:item}})} className="absolute top-[50%] right-[5%] ml-6 text-sm   font-semibold underline cursor-pointer hover:text-black">View</span>
     </span>
   )
 }

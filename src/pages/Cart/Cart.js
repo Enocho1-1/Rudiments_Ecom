@@ -10,7 +10,7 @@ import visa from "../../assests/visa.png"
 import mastercard from "../../assests/mastercard.png"
 import americanexpress from "../../assests/american-express.png"
 import paypal from "../../assests/paypal.png"
-import arrow from "../../assests/arrow.png"
+
 
 export const Cart = ({name}) => {
   useTitle(name)
@@ -31,8 +31,8 @@ export const Cart = ({name}) => {
         <CartEmpty />
         :
         <aside className="m-auto max-w-7xl mt-24 flex flex-col">
-         <Link to={"/"} className="mt-4 px-4 flex hover:text-slate-500">
-            <img src={arrow} className="h-6 self-center" alt="" />
+         <Link to="/" className="mt-4 px-4 flex hover:text-slate-500">
+            <span className="text-2xl bi bi-arrow-bar-left"></span>
             <h1 className="text-xl font-Inconsolata font-semibold mx-2 ">Continue Shopping</h1>
           </Link>
           <div className="mt-12 self-center">

@@ -24,6 +24,17 @@ section{
     height: auto;
 }
 
+.modalOverlay{
+    background-color: rgba( 0, 0, 0, .7);
+    
+}
+
+.promoOverlay{
+    background-color: rgba( 0, 0, 0, .4);
+    
+}
+
+
 
 .btns button {
     background-color: #0f172a;
@@ -52,6 +63,24 @@ section{
     white-space: nowrap;
     width: inherit;
   }
+
+  .tracking h1::after{
+    content: "";
+    display: block;
+    height: 1.2px;
+    width: auto;
+    background-color: black;
+  }
+
+  .robotModal{
+    background: rgba( 255, 255, 255, 0.2 );
+    box-shadow: 0 8px 32px 0 rgba( 0, 0, 0, .7);
+    backdrop-filter: blur( 7px );
+    -webkit-backdrop-filter: blur( 7px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+
 
 
  /* Media Query for Mobile Devices */
@@ -111,7 +140,9 @@ section{
     background-image: url("https://m.media-amazon.com/images/I/61WuMqZ645L.jpg");
 }
 
-#modalOverlay{
-    background-color: rgba( 0, 0, 0, .7);
-    
+#promoModal span{
+    background-image: url("https://www.apetogentleman.com/wp-content/uploads/2022/05/FALL-WINTER-TRENDS.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
+

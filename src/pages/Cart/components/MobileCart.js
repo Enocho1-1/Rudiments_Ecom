@@ -24,9 +24,9 @@ export const MobileCart = ({product}) => {
         <h1 className="text-md font-Inconsolata font-semibold mobile:max-tablet:text-xl">{title}</h1>
         <span className="flex mt-2">
             <p className="text-sm font-Inconsolata mr-4 mobile:max-tablet:text-lg">Size: {size ? size : "one size"}</p>
-            <button onClick={() => {handleQuantityDecrease(product) }}  className=" bg-slate-200 py-2 px-2 rounded-sm text-black text-md">-</button>
+            <button onClick={() => {handleQuantityDecrease(product) }}  className=" bg-gray-200 py-2 px-2 rounded-sm text-black text-md">-</button>
             <p className="text-sm font-Inconsolata border border-black py-2 px-2 mobile:max-tablet:text-lg">{quantity}</p>
-            <button onClick={() => {handleQuantityIncrease(product) }}  className=" bg-slate-200 py-2 px-2 rounded-sm text-black text-md">+</button>
+            <button onClick={() => {handleQuantityIncrease(product) }}  className=" bg-gray-200 py-2 px-2 rounded-sm text-black text-md">+</button>
         </span>
         <p className="text-sm font-Inconsolata font-semibold mobile:max-tablet:text-lg mt-2">${price}.00</p>
         </div>

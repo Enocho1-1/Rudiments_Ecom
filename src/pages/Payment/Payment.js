@@ -15,22 +15,23 @@ export const Payment = () => {
     const navigate = useNavigate()
     const dispatch = useDispatch()
     const cart = useSelector(state => state.cart.cartItems)
+    const total = useSelector(state => state.cart.total)
     const months = ["January","February","March","April","May","June","July","August","September","October","November","December"]
     const date = new Date(),
           month = months[date.getMonth()],
           day = date.getDate(),
-          year = date.getFullYear();
-    
-
+          year = date.getFullYear(),
+          time = date.toLocaleTimeString()
 
     const userOrder = {
         userCart: cart,
         userInfo:{
-            title:title,
-            name:`${firstName} ${lastName}`,
+            name:`${title}. ${firstName} ${lastName}`,
             email:userEmail,
             orderNo: Math.floor(Math.random() * 12000000),
             orderDate : `${day} ${month} ${year}`,
+            orderTime:time,
+            orderTotal:total,
             id:userID
         } 
     }

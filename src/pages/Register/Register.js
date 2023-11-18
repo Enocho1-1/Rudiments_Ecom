@@ -1,8 +1,9 @@
 import { Link, useNavigate } from "react-router-dom"
+import { useTitle } from "../../hooks"
 import { registerUser } from "../../utility"
 
 export const Register = () => {
-
+  useTitle("Register")
   const userEmail = JSON.parse(sessionStorage.getItem("userEmail"))
   sessionStorage.setItem("newUser", JSON.stringify(true))
   const navigate = useNavigate()
@@ -36,7 +37,7 @@ export const Register = () => {
   return (
     <section className="font-Inconsolata flex flex-col my-2 items-center">
       <h1 className="mt-[75px] mb-4 text-3xl  font-light">CREATE AN ACCOUNT</h1>
-      <div className="p-4 bg-slate-200 rounded-sm flex flex-col my-2 items-center justify-center">
+      <div className="p-4 bg-gray-200 rounded-sm flex flex-col my-2 items-center justify-center">
         <h1 className="my-2 text-xl font-Bebas text-blk">{userEmail}</h1>
         <form onSubmit={handleRegister} className="flex flex-col justify-center">
           <div className="flex flex-col my-2">
