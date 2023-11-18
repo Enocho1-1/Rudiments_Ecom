@@ -1419,6 +1419,22 @@
       "firstName": "Naruto",
       "lastName": "Uzamaki",
       "id": 1
+    },
+    {
+      "email": "yuno@example.com",
+      "password": "$2a$10$bXHmBfEch5me2QyO03wkSOvBBXqz3890CcuP3o5g5SsX9YvVpXGG6",
+      "title": "Mr",
+      "firstName": "Yuno",
+      "lastName": "Grinberryall",
+      "id": 2
+    },
+    {
+      "email": "edward@example.com",
+      "password": "$2a$10$xsij69TA9ABN5h0Au35Hvu7Mj6PF6vyRHGk4pPxw6yxUHERRAVEN6",
+      "title": "Mr",
+      "firstName": "Edward",
+      "lastName": "Elric",
+      "id": 3
     }
   ]
 }
