@@ -10,7 +10,8 @@ const filterInitialState = {
   Shoes:false,
   Accessories:false,
   crypticText: "arch ncemsib",
-  promo:""
+  promo:"",
+  discount_price:null
 }
 
 const FilterContext = createContext(filterInitialState)
@@ -79,6 +80,11 @@ export const FilterProvider = ({children}) => {
     state.promo = promoCode
   }
 
+  // Discount Price 
+  function discountPriceStore(price) {
+    state.discount_price = price
+  }
+
   const filteredProducts = allAccessories(allShoes(allShorts(allPants(allShirts(allTShirts(state.product))))))
 
   const value = {
@@ -87,7 +93,8 @@ export const FilterProvider = ({children}) => {
     product: filteredProducts,
     allProducts,
     retrieveUserInfo,
-    randomPromoCode
+    randomPromoCode,
+    discountPriceStore
   }
 
   return (
