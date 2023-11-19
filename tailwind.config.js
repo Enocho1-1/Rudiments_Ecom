@@ -5,6 +5,10 @@ module.exports = {
     extend: {
       colors:{
         'blk': '#0d0d0d',
+        'ecru':'#F3EFE0' ,
+        'khaki':'#F0E68C',
+        'beige':'#FFD740',
+        'stone':'#B7B09C'
       },
       fontFamily: {
         Bebas: ['Bebas Neue', 'sans-serif'],

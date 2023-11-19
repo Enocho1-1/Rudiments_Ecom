@@ -16,9 +16,10 @@ import paypal from "../../assests/paypal.png"
 export const Cart = ({name}) => {
   useTitle(name)
   const {myQuery} = useMatchMedia(769)
-  const {retrieveUserInfo} = useFilter()
+  const {retrieveUserInfo,discountPriceStore} = useFilter()
   const {promoCode} = retrieveUserInfo()
   const [promo,setPromo] = useState(true)
+  const [promoApplied,setPromoApplied] = useState(false)
   const [promoError, setPromoError] = useState(false)
   const [discountPrice,setDiscountPrice] = useState(0)
   const navigate = useNavigate()
@@ -30,15 +31,22 @@ export const Cart = ({name}) => {
     e.preventDefault()
     const userPromo = e.target.promo.value
     if(userPromo === promoCode){
-       setDiscountPrice(Math.floor(total - (total * 0.20) ))
+      const newPrice = Math.floor(total - (total * 0.20) )
+       setDiscountPrice(newPrice)
+       discountPriceStore(newPrice)
+       setPromoApplied(true)
+       setTimeout(() => setPromoApplied(false) , 3000)
     }else{
       setPromoError(true)
       setTimeout(() => {setPromoError(false)}, 4000)
     }
     e.target.reset()
+
+    
   }
 
-  sessionStorage.setItem("discountPrice",JSON.stringify(discountPrice))
+  
+
 
   useEffect(() => {
    dispatch(getSubTotal())
@@ -50,11 +58,13 @@ export const Cart = ({name}) => {
       {cart.length === 0 ?
         <CartEmpty />
         :
-        <aside className="m-auto max-w-7xl mt-24 flex flex-col">
+        <aside className="relative m-auto max-w-7xl mt-24 flex flex-col">
          <Link to="/" className="mt-4 px-4 flex hover:text-slate-500">
             <span className="text-2xl bi bi-arrow-bar-left"></span>
             <h1 className="text-xl  font-semibold mx-2 ">Continue Shopping</h1>
           </Link>
+               {promoApplied && (<div className="absolute top-[20%] right-4 max-mobile:relative max-mobile:top-5 max-mobile:left-[23%] py-2 px-2 flex rounded-md border-2 border-green-400 text-green-400 max-w-[15.625rem]"><span className="text-4xl bi bi-check2-circle"></span><p className="ml-2 text-md font-semibold self-center">20% Promo Applied ‼️</p></div>)}
+            
           <div className="mt-12 self-center">
             <h1 className="text-4xl  font-semibold text-center">MY SHOPPING BAG</h1>
             
