@@ -10,7 +10,7 @@ import americanexpress from "../../assests/american-express.png"
 import paypal from "../../assests/paypal.png"
 
 export const Payment = () => {
-    const { retrieveUserInfo } = useFilter()
+    const { state, retrieveUserInfo } = useFilter()
     const { firstName,lastName,title,userEmail,userID,userToken } = retrieveUserInfo()
     const navigate = useNavigate()
     const dispatch = useDispatch()
@@ -31,7 +31,7 @@ export const Payment = () => {
             orderNo: Math.floor(Math.random() * 12000000),
             orderDate : `${day} ${month} ${year}`,
             orderTime:time,
-            orderTotal:total,
+            orderTotal:state.discount_price ? state.discount_price : total,
             id:userID
         } 
     }
@@ -47,6 +47,7 @@ export const Payment = () => {
         postUserOrder(Post_Options,navigate)
         dispatch(clearCart())
         localStorage.clear()
+        sessionStorage.removeItem("promoCode")
     }
   return (
     <section className="font-Inconsolata">

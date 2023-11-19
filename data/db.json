@@ -1471,14 +1471,56 @@
       "imageUrl_Four": "https://st.mngbcn.com/rcs/pics/static/T5/fotos/S20/57014394_30_D1.jpg?ts=1689606192616&imwidth=311&imdensity=2"
     }
   ],
-  "orders": [],
+  "orders": [
+    {
+      "userCart": [
+        {
+          "id": 1002,
+          "random_index": 66285,
+          "title": "Essential Black Slim Tee",
+          "price": 17,
+          "quantity": 1,
+          "size": "M",
+          "image": "https://images.riverisland.com/is/image/RiverIsland/black-slim-fit-t-shirt_385251_main?$ProductImagePortraitLarge$"
+        },
+        {
+          "id": 1032,
+          "random_index": 63404,
+          "title": "Beige smart chino trousers",
+          "price": 50,
+          "quantity": 1,
+          "size": "32 (US)",
+          "image": "https://images.riverisland.com/is/image/RiverIsland/beige-slim-fit-smart-chino-trousers_384957_main?$ProductImagePortraitLarge$"
+        },
+        {
+          "id": 1055,
+          "random_index": 15898,
+          "title": "White canvas trainers",
+          "price": 50,
+          "quantity": 1,
+          "size": "10",
+          "image": "https://images.riverisland.com/is/image/RiverIsland/white-canvas-lace-up-trainers_385357_rollover?$ProductImagePortraitLarge$"
+        }
+      ],
+      "userInfo": {
+        "name": "Mr. Naruto Uzamaki",
+        "email": "naruto@example.com",
+        "orderNo": 6427688,
+        "orderDate": "19 November 2023",
+        "orderTime": "3:35:55 PM",
+        "orderTotal": 93,
+        "id": 1
+      },
+      "id": 1
+    }
+  ],
   "users": [
     {
-      "email": "yuno@example.com",
-      "password": "$2a$10$uffdyBuxVt/DxCL9WGgkMuGYplpN/uDXX6bkfsI5yw7iJEuGGC8y2",
+      "email": "naruto@example.com",
+      "password": "$2a$10$ZuJXyBL4tPIJZkxab99qx.Jxse.b2l3s5cPhBNuLM/gY5i5OZAcUq",
       "title": "Mr",
-      "firstName": "Yuno",
-      "lastName": "Grinberryall",
+      "firstName": "Naruto",
+      "lastName": "Uzamaki",
       "id": 1
     }
   ]
