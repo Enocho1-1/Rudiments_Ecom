@@ -35,7 +35,7 @@ export const Cart = ({name}) => {
        setDiscountPrice(newPrice)
        discountPriceStore(newPrice)
        setPromoApplied(true)
-       setTimeout(() => setPromoApplied(false) , 4000)
+       setTimeout(() => setPromoApplied(false) , 3000)
     }else{
       setPromoError(true)
       setTimeout(() => {setPromoError(false)}, 4000)
