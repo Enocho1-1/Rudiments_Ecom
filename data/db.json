@@ -1512,6 +1512,56 @@
         "id": 1
       },
       "id": 1
+    },
+    {
+      "userCart": [
+        {
+          "id": 1008,
+          "random_index": 1921,
+          "title": "Regular Cactus Graphic Tee",
+          "price": 24,
+          "quantity": 1,
+          "size": "M",
+          "image": "https://images.riverisland.com/is/image/RiverIsland/rust-regular-fit-cactus-graphic-t-shirt_382903_main?$ProductImagePortraitLarge$"
+        },
+        {
+          "id": 1036,
+          "random_index": 12999,
+          "title": "Blue Tapered Cropped Jeans",
+          "price": 45,
+          "quantity": 1,
+          "size": "32 (US)",
+          "image": "https://st.mngbcn.com/rcs/pics/static/T5/fotos/S20/57010702_TO.jpg?ts=1681742006441&imwidth=1366&imdensity=2&impolicy=featured"
+        },
+        {
+          "id": 1055,
+          "random_index": 83480,
+          "title": "White canvas trainers",
+          "price": 50,
+          "quantity": 1,
+          "size": "10",
+          "image": "https://images.riverisland.com/is/image/RiverIsland/white-canvas-lace-up-trainers_385357_rollover?$ProductImagePortraitLarge$"
+        },
+        {
+          "id": 1063,
+          "random_index": 8763,
+          "title": "Essential black cotton hat",
+          "price": 27,
+          "quantity": 1,
+          "size": "",
+          "image": "https://st.mngbcn.com/rcs/pics/static/T5/fotos/S20/57040784_56_D1.jpg?ts=1683718488071&imwidth=1920&imdensity=2&impolicy=featured"
+        }
+      ],
+      "userInfo": {
+        "name": "Mr. Naruto Uzamaki",
+        "email": "naruto@example.com",
+        "orderNo": 2443434,
+        "orderDate": "20 November 2023",
+        "orderTime": "1:10:30 PM",
+        "orderTotal": 116,
+        "id": 2
+      },
+      "id": 2
     }
   ],
   "users": [
@@ -1522,6 +1572,14 @@
       "firstName": "Yuno",
       "lastName": "Grinberryall",
       "id": 1
+    },
+    {
+      "email": "naruto@example.com",
+      "password": "$2a$10$Ms.2OSJdNJnlF/UPim7nquWGhmo0R6NRw8iOnmsoOlUMyZ2abNEdm",
+      "title": "Mr",
+      "firstName": "Naruto",
+      "lastName": "Uzamaki",
+      "id": 2
     }
   ]
 }
