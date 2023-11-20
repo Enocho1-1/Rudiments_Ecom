@@ -63,6 +63,20 @@ export const userSearchItem = async(searchItem,setData) => {
   }
 }
 
+// Discount User Price
+export const discountUserTotal = (total,userPromo,promoCode,setDiscountPrice, setPromoApplied, setPromoError, discountPriceStore) => {
+  if(userPromo === promoCode){
+    const newPrice = Math.floor(total - (total * 0.20) )
+     setDiscountPrice(newPrice)
+     discountPriceStore(newPrice)
+     setPromoApplied(true)
+     setTimeout(() => setPromoApplied(false) , 3000)
+  }else{
+    setPromoError(true)
+    setTimeout(() => {setPromoError(false)}, 4000)
+  }
+}
+
 // Clothing Piece Measurement Validation
 export const validateMeasurements = ( category ,setShirt, setPants,setShoes) => {
   category === "t-shirt" || category === "shirt" ? setShirt(true) : 

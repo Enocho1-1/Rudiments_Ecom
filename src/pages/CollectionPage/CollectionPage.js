@@ -8,15 +8,15 @@ import { ProductCard, Pagination, Loading } from "../../components"
 export const CollectionPage = () => {
   
   // Use Context Destructure
-  const { state, dispatch, product, allProducts } = useFilter()
+  const { state, dispatch, product, allProducts} = useFilter()
   const [page, setPage] = useState(1)
   const [postsPerPage] = useState(20)
-  // const [colorReveal,setColorReveal] = useState(false)
+  const [category,setCategory] = useState("All")
   const colorReveal = state.Colors
   const colorButtonsArr = [
     {
       name:"white",
-      color:"border-gray-200"
+      color:"bg-white"
     },
     {
       name:"black",
@@ -117,6 +117,8 @@ export const CollectionPage = () => {
         value: !state.Colors
     }
   ]
+
+
   useTitle("Collections")
 
   // Fetch All Products
@@ -140,19 +142,23 @@ export const CollectionPage = () => {
       <h1 className="text-center text-5xl font-Bebas mb-4 py-4 max-mobile:text-4xl mobile:max-tablet:text-4xl">MEN'S CLOTHES Collection</h1>
       { colorReveal && 
       (
-        <div className="absolute top-[3%] min-[1560px]:right-[15%] min-[1370px]:max-[1560px]:right-[10%] max-[1370px]:right-[2%] max-[1130px]:relative max-[1130px]:top-0 max-[1130px]:m-auto max-[600px]:mx-4 border-2 border-gray-200 rounded-md p-4 flex flex-wrap gap-y-2 max-w-[12.5rem] max-[1130px]:max-w-[35rem] ">
+        <div className="fixed Lrgmoniter:top-[15%] Lrgmoniter:right-[10%]  max-Lrgmoniter:relative max-Lrgmoniter:top-0 max-Lrgmoniter:m-auto max-[600px]:mx-4 border-2 border-gray-200 bg-gray-200 rounded-md p-4 flex flex-wrap gap-y-2 max-w-[15rem] max-Lrgmoniter:max-w-[35rem] z-50 ">
           {colorButtonsArr.map( (item,index) => (
-            <button key={index} className={`h-[20px] w-[20px] ${item.color} border ${item.color} mx-2`} title={item.name}></button>
+            <button key={index} className={`h-[20px] w-[20px] ${item.color} border ${item.color} mx-2`} title={item.name} onClick={() => {dispatch({type:"SELECT_COLOR", payload:{value:item.name}})}}></button>
           ))}
         </div>
       )}
      
       {/* Filter Buttons */}
       <aside className="relative max-w-2xl my-4 m-auto flex justify-evenly flex-wrap max-[600px]:grid mobile:max-[600px]:grid-cols-4 max-mobile:grid-cols-3">
-        {filterButtonsArr.map( (item,index) => (<button key={index} onClick={() => dispatch({type: item.type ,payload:{value: item.value }})} className="font-Inconsolata font-medium text-md text-black hover:cursor-pointer hover:text-slate-500 active:bg-slate-500 active:text-white px-3 border border-slate-500 ">{item.name}</button>))}
+        {filterButtonsArr.map( (item,index) => (
+          <button key={index} onClick={() => {dispatch({type: item.type ,payload:{value: item.value }}); setCategory(item.name)}} className="font-Inconsolata font-medium text-md text-black hover:cursor-pointer hover:text-slate-500 active:bg-slate-500 active:text-white px-3 border border-slate-500 ">
+            {item.name}
+          </button>
+          ) )}
       </aside>
       <aside className="Lrgmoniter:max-w-7xl tablet:max-Lrgmoniter:max-w-5xl max-tablet:justify-center m-auto my-4 px-4 flex justify-start">
-        <h1 className="font-Inconsolata text-lg font-semibold text-slate-400">Product Count-{product.length}</h1>
+        <h1 className="font-Inconsolata text-lg font-semibold text-slate-400">{product.length}·{category}<i>{state.SelectColor === null ? "" : (`·"${state.SelectColor}"`)}</i> </h1>
       </aside>
       {product.length === 0 && <Loading/>}
    
