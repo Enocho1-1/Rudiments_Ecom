@@ -11,7 +11,112 @@ export const CollectionPage = () => {
   const { state, dispatch, product, allProducts } = useFilter()
   const [page, setPage] = useState(1)
   const [postsPerPage] = useState(20)
-  const [colorReveal,setColorReveal] = useState(false)
+  // const [colorReveal,setColorReveal] = useState(false)
+  const colorReveal = state.Colors
+  const colorButtonsArr = [
+    {
+      name:"white",
+      color:"border-gray-200"
+    },
+    {
+      name:"black",
+      color:"bg-black"
+    },
+    {
+      name:"navy",
+      color:"bg-blue-950"
+    },
+    {
+      name:"grey",
+      color:"bg-gray-400"
+    },
+    {
+      name:"brown",
+      color:"bg-yellow-900"
+    },
+    {
+      name:"green",
+      color:"bg-green-700"
+    },
+    {
+      name:"orange",
+      color:"bg-orange-500"
+    },
+    {
+      name:"pink",
+      color:"bg-red-200"
+    },
+    {
+      name:"blue",
+      color:"bg-blue-600"
+    },
+    {
+      
+      
+      name:"purple",
+      color:"bg-purple-500 "
+    },
+    {
+      name:"ecru",
+      color:"bg-ecru"
+    },
+    {
+      name:"khaki",
+      color:"bg-khaki"
+    },
+    {
+      name:"beige",
+      color:"bg-beige "
+    },
+      
+    {
+      name:"stone",
+      color:"bg-stone"
+    }
+  ]
+
+  const filterButtonsArr = [
+    { 
+      name:"All",
+      type: "CLEAR",  
+      value: null
+    },
+    { 
+      name:"T-Shirts",
+      type: "T-SHIRTS",  
+      value: !state.TShirts
+    },
+    { 
+      name:"Shirts",
+      type: "SHIRTS",  
+      value: !state.Shirts
+    },
+    { 
+      name:"Pants",
+      type:"PANTS",  
+      value: !state.Pants
+    },
+    { 
+      name:"Shorts",
+      type:"SHORTS",  
+      value: !state.Shorts
+    },
+    { 
+      name:"Shoes",
+      type:"SHOES",  
+      value: !state.Shoes
+    },
+    { 
+      name:"Accessories",
+      type:"ACCESSORIES",  
+      value: !state.Accessories
+    },
+    { 
+        name:"Colors",
+        type: "COLORS" ,  
+        value: !state.Colors
+    }
+  ]
   useTitle("Collections")
 
   // Fetch All Products
@@ -36,33 +141,15 @@ export const CollectionPage = () => {
       { colorReveal && 
       (
         <div className="absolute top-[3%] min-[1560px]:right-[15%] min-[1370px]:max-[1560px]:right-[10%] max-[1370px]:right-[2%] max-[1130px]:relative max-[1130px]:top-0 max-[1130px]:m-auto max-[600px]:mx-4 border-2 border-gray-200 rounded-md p-4 flex flex-wrap gap-y-2 max-w-[12.5rem] max-[1130px]:max-w-[35rem] ">
-          <button className="h-[20px] w-[20px] bg-white border border-gray-400 mx-2" title="white"></button>
-          <button className="h-[20px] w-[20px] bg-black mx-2" title="black"></button>
-          <button className="h-[20px] w-[20px] bg-blue-950 mx-2" title="navy"></button>
-          <button className="h-[20px] w-[20px] bg-gray-400 mx-2" title="grey"></button>
-          <button className="h-[20px] w-[20px] bg-yellow-900 mx-2" title="brown"></button>
-          <button className="h-[20px] w-[20px] bg-green-700 mx-2" title="green"></button>
-          <button className="h-[20px] w-[20px] bg-orange-500 mx-2" title="orange"></button>
-          <button className="h-[20px] w-[20px] bg-red-200 mx-2" title="pink"></button>
-          <button className="h-[20px] w-[20px] bg-blue-600 mx-2" title="blue"></button>
-          <button className="h-[20px] w-[20px] bg-purple-500 mx-2" title="purple"></button>
-          <button className="h-[20px] w-[20px] bg-ecru mx-2" title="ecru"></button>
-          <button className="h-[20px] w-[20px] bg-khaki mx-2" title="khaki"></button>
-          <button className="h-[20px] w-[20px] bg-beige mx-2" title="beige"></button>
-          <button className="h-[20px] w-[20px] bg-stone mx-2" title="stone"></button>
+          {colorButtonsArr.map( (item,index) => (
+            <button key={index} className={`h-[20px] w-[20px] ${item.color} border ${item.color} mx-2`} title={item.name}></button>
+          ))}
         </div>
       )}
      
       {/* Filter Buttons */}
       <aside className="relative max-w-2xl my-4 m-auto flex justify-evenly flex-wrap max-[600px]:grid mobile:max-[600px]:grid-cols-4 max-mobile:grid-cols-3">
-        <button onClick={() => {dispatch({type:"CLEAR"})}} className="font-Inconsolata font-medium text-md text-black hover:cursor-pointer hover:text-slate-500 active:bg-slate-500 active:text-white px-3 border border-slate-500 "> All</button>
-        <button onClick={() => {dispatch({type:"T-SHIRTS", payload:{value: !state.TShirts}})}} className="font-Inconsolata font-medium text-md text-black hover:cursor-pointer hover:text-slate-500 active:bg-slate-500 active:text-white  px-3 border border-slate-500 ">T-Shirts</button>
-        <button onClick={() => {dispatch({type:"SHIRTS", payload:{value: !state.Shirts}})}} className="font-Inconsolata font-medium text-md text-black hover:cursor-pointer hover:text-slate-500 active:bg-slate-500 active:text-white  px-3 border border-slate-500 "> Shirts</button>
-        <button onClick={() => {dispatch({type:"PANTS", payload:{value: !state.Pants}})}} className="font-Inconsolata font-medium text-md text-black hover:cursor-pointer hover:text-slate-500 px-3 border border-slate-500 "> Pants</button>
-        <button onClick={() => {dispatch({type:"SHORTS", payload:{value: !state.Shorts}})}} className="font-Inconsolata font-medium text-md text-black hover:cursor-pointer hover:text-slate-500 px-3 border border-slate-500 "> Shorts</button>
-        <button onClick={() => {dispatch({type:"SHOES", payload:{value: !state.Shoes}})}} className="font-Inconsolata font-medium text-md text-black hover:cursor-pointer hover:text-slate-500 px-3 border border-slate-500 "> Shoes</button>
-        <button onClick={() => {dispatch({type:"ACCESSORIES", payload:{value: !state.Accessories}})}} className="font-Inconsolata font-medium text-md text-black hover:cursor-pointer hover:text-slate-500 px-3 border border-slate-500 "> Accessories</button>
-        <button  onClick={() => setColorReveal(!colorReveal)} className="font-Inconsolata font-medium text-md text-black hover:cursor-pointer hover:text-slate-500 px-3 border border-slate-500 ">Colors</button>
+        {filterButtonsArr.map( (item,index) => (<button key={index} onClick={() => dispatch({type: item.type ,payload:{value: item.value }})} className="font-Inconsolata font-medium text-md text-black hover:cursor-pointer hover:text-slate-500 active:bg-slate-500 active:text-white px-3 border border-slate-500 ">{item.name}</button>))}
       </aside>
       <aside className="Lrgmoniter:max-w-7xl tablet:max-Lrgmoniter:max-w-5xl max-tablet:justify-center m-auto my-4 px-4 flex justify-start">
         <h1 className="font-Inconsolata text-lg font-semibold text-slate-400">Product Count-{product.length}</h1>

@@ -18,6 +18,8 @@ export const FilterReducer = (state, action) => {
         return {...state, TShirts:false,  Shirts: false, Pants: false, Shorts:false,  Shoes:payload.value,  Accessories:false }
     case 'ACCESSORIES':
         return {...state, TShirts:false,  Shirts: false, Pants: false, Shorts:false,  Shoes:false,  Accessories:payload.value }
+      case 'COLORS':
+            return {...state,  Colors:payload.value }
       default:
         throw new Error("No Filter")
   }

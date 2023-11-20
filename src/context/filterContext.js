@@ -9,6 +9,7 @@ const filterInitialState = {
   Shorts:false,
   Shoes:false,
   Accessories:false,
+  Colors:false,
   crypticText: "arch ncemsib",
   promo:"",
   discount_price:null
