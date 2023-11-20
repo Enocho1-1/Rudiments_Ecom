@@ -10,6 +10,7 @@ const filterInitialState = {
   Shoes:false,
   Accessories:false,
   Colors:false,
+  SelectColor:null,
   crypticText: "arch ncemsib",
   promo:"",
   discount_price:null
@@ -61,6 +62,43 @@ export const FilterProvider = ({children}) => {
     return state.Accessories ? products.filter(item => item.category === "accessories") : products
   }
 
+  // Filter Colors
+  function colorFilter(products){
+    
+    switch(state.SelectColor){
+      case 'white':
+        return products.filter(product => product.color === 'white')
+      case 'black':
+        return products.filter(product => product.color === 'black')
+      case 'navy':
+        return products.filter(product => product.color === 'navy')
+      case 'grey':
+        return products.filter(product => product.color === 'grey')
+      case 'brown':
+        return products.filter(product => product.color === 'brown')
+      case 'green':
+        return products.filter(product => product.color === 'green')
+      case 'orange':
+        return products.filter(product => product.color === 'orange')
+      case 'pink':
+        return products.filter(product => product.color === 'pink')
+      case 'blue':
+        return products.filter(product => product.color === 'blue')
+      case 'purple':
+        return products.filter(product => product.color === 'purple')
+      case 'ecru':
+        return products.filter(product => product.color === 'ecru')
+      case 'khaki':
+        return products.filter(product => product.color === 'khaki')
+      case 'beige':
+        return products.filter(product => product.color === 'beige')
+      case 'stone':
+        return products.filter(product => product.color === 'stone')
+      default:
+          return products;
+    }
+  }
+
   // Retrieve User Info from Session Store.
   function retrieveUserInfo(){
     const firstName = JSON.parse(sessionStorage.getItem("firstName"))
@@ -86,7 +124,7 @@ export const FilterProvider = ({children}) => {
     state.discount_price = price
   }
 
-  const filteredProducts = allAccessories(allShoes(allShorts(allPants(allShirts(allTShirts(state.product))))))
+  const filteredProducts = allAccessories(allShoes(allShorts(allPants(allShirts(allTShirts(colorFilter(state.product)))))))
 
   const value = {
     state,
