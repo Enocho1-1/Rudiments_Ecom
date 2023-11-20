@@ -11,7 +11,8 @@ export const CollectionPage = () => {
   const { state, dispatch, product, allProducts } = useFilter()
   const [page, setPage] = useState(1)
   const [postsPerPage] = useState(20)
-  const [colorReveal,setColorReveal] = useState(false)
+  // const [colorReveal,setColorReveal] = useState(false)
+  const colorReveal = state.Colors
   const colorButtons = [
     {}
   ]
@@ -53,9 +54,9 @@ export const CollectionPage = () => {
       value: !state.Accessories
     },
     { 
-      name:"Colors",
-      type: null,  
-      value: null
+        name:"Colors",
+        type: "COLORS" ,  
+        value: !state.Colors
     }
   ]
   useTitle("Collections")
