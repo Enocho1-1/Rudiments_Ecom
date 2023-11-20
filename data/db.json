@@ -1512,6 +1512,47 @@
         "id": 1
       },
       "id": 1
+    },
+    {
+      "userCart": [
+        {
+          "id": 1013,
+          "random_index": 15211,
+          "title": "Orange Regular Plisse Shirt",
+          "price": 32,
+          "quantity": 1,
+          "size": "M",
+          "image": "https://images.riverisland.com/is/image/RiverIsland/orange-regular-fit-plisse-revere-shirt_383216_main?$ProductImagePortraitLarge$"
+        },
+        {
+          "id": 1012,
+          "random_index": 78637,
+          "title": "Pink Regular Crochet Shirt",
+          "price": 32,
+          "quantity": 1,
+          "size": "M",
+          "image": "https://images.riverisland.com/is/image/RiverIsland/pink-regular-fit-crochet-revere-shirt_382795_main?$ProductImagePortraitLarge$$"
+        },
+        {
+          "id": 1024,
+          "random_index": 38995,
+          "title": "Black tapered plisse trousers",
+          "price": 65,
+          "quantity": 2,
+          "size": "32 (US)",
+          "image": "https://images.riverisland.com/is/image/RiverIsland/black-tapered-fit-plisse-smart-trousers_387064_rollover?$ProductImagePortraitLarge$"
+        }
+      ],
+      "userInfo": {
+        "name": "Mr. Yuno Grinberryall",
+        "email": "yuno@example.com",
+        "orderNo": 11773405,
+        "orderDate": "19 November 2023",
+        "orderTime": "7:43:05 PM",
+        "orderTotal": 155,
+        "id": 2
+      },
+      "id": 2
     }
   ],
   "users": [
@@ -1522,6 +1563,14 @@
       "firstName": "Naruto",
       "lastName": "Uzamaki",
       "id": 1
+    },
+    {
+      "email": "yuno@example.com",
+      "password": "$2a$10$cmR4AhZriwkfomyNXRwB1etVEM4YJIaYLrnvEB2Y8oS2a2mRWpixq",
+      "title": "Mr",
+      "firstName": "Yuno",
+      "lastName": "Grinberryall",
+      "id": 2
     }
   ]
 }
