@@ -12,6 +12,52 @@ export const CollectionPage = () => {
   const [page, setPage] = useState(1)
   const [postsPerPage] = useState(20)
   const [colorReveal,setColorReveal] = useState(false)
+  const colorButtons = [
+    {}
+  ]
+
+  const filterButtonsArr = [
+    { 
+      name:"All",
+      type: "CLEAR",  
+      value: null
+    },
+    { 
+      name:"T-Shirts",
+      type: "T-SHIRTS",  
+      value: !state.TShirts
+    },
+    { 
+      name:"Shirts",
+      type: "SHIRTS",  
+      value: !state.Shirts
+    },
+    { 
+      name:"Pants",
+      type:"PANTS",  
+      value: !state.Pants
+    },
+    { 
+      name:"Shorts",
+      type:"SHORTS",  
+      value: !state.Shorts
+    },
+    { 
+      name:"Shoes",
+      type:"SHOES",  
+      value: !state.Shoes
+    },
+    { 
+      name:"Accessories",
+      type:"ACCESSORIES",  
+      value: !state.Accessories
+    },
+    { 
+      name:"Colors",
+      type: null,  
+      value: null
+    }
+  ]
   useTitle("Collections")
 
   // Fetch All Products
@@ -55,14 +101,8 @@ export const CollectionPage = () => {
      
       {/* Filter Buttons */}
       <aside className="relative max-w-2xl my-4 m-auto flex justify-evenly flex-wrap max-[600px]:grid mobile:max-[600px]:grid-cols-4 max-mobile:grid-cols-3">
-        <button onClick={() => {dispatch({type:"CLEAR"})}} className="font-Inconsolata font-medium text-md text-black hover:cursor-pointer hover:text-slate-500 active:bg-slate-500 active:text-white px-3 border border-slate-500 "> All</button>
-        <button onClick={() => {dispatch({type:"T-SHIRTS", payload:{value: !state.TShirts}})}} className="font-Inconsolata font-medium text-md text-black hover:cursor-pointer hover:text-slate-500 active:bg-slate-500 active:text-white  px-3 border border-slate-500 ">T-Shirts</button>
-        <button onClick={() => {dispatch({type:"SHIRTS", payload:{value: !state.Shirts}})}} className="font-Inconsolata font-medium text-md text-black hover:cursor-pointer hover:text-slate-500 active:bg-slate-500 active:text-white  px-3 border border-slate-500 "> Shirts</button>
-        <button onClick={() => {dispatch({type:"PANTS", payload:{value: !state.Pants}})}} className="font-Inconsolata font-medium text-md text-black hover:cursor-pointer hover:text-slate-500 px-3 border border-slate-500 "> Pants</button>
-        <button onClick={() => {dispatch({type:"SHORTS", payload:{value: !state.Shorts}})}} className="font-Inconsolata font-medium text-md text-black hover:cursor-pointer hover:text-slate-500 px-3 border border-slate-500 "> Shorts</button>
-        <button onClick={() => {dispatch({type:"SHOES", payload:{value: !state.Shoes}})}} className="font-Inconsolata font-medium text-md text-black hover:cursor-pointer hover:text-slate-500 px-3 border border-slate-500 "> Shoes</button>
-        <button onClick={() => {dispatch({type:"ACCESSORIES", payload:{value: !state.Accessories}})}} className="font-Inconsolata font-medium text-md text-black hover:cursor-pointer hover:text-slate-500 px-3 border border-slate-500 "> Accessories</button>
-        <button  onClick={() => setColorReveal(!colorReveal)} className="font-Inconsolata font-medium text-md text-black hover:cursor-pointer hover:text-slate-500 px-3 border border-slate-500 ">Colors</button>
+        {filterButtonsArr.map( (item,index) => (<button key={index} onClick={() => dispatch({type: item.type ,payload:{value: item.value }})} className="font-Inconsolata font-medium text-md text-black hover:cursor-pointer hover:text-slate-500 active:bg-slate-500 active:text-white px-3 border border-slate-500 ">{item.name}</button>))}
+
       </aside>
       <aside className="Lrgmoniter:max-w-7xl tablet:max-Lrgmoniter:max-w-5xl max-tablet:justify-center m-auto my-4 px-4 flex justify-start">
         <h1 className="font-Inconsolata text-lg font-semibold text-slate-400">Product Count-{product.length}</h1>
