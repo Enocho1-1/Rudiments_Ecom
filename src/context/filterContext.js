@@ -101,6 +101,18 @@ export const FilterProvider = ({children}) => {
     }
   }
 
+  // Price Sort
+  function priceSort(products) {
+    switch(state.Sort_By){
+      case 'LOW_HIGH':
+        return products.sort((a,b) => Number(a.price) - Number(b.price))
+      case 'HIGH_LOW':
+        return products.sort((a,b) => Number(b.price) - Number(a.price))
+      default:
+        return products
+    }
+  }
+
   // Retrieve User Info from Session Store.
   function retrieveUserInfo(){
     const firstName = JSON.parse(sessionStorage.getItem("firstName"))
@@ -126,7 +138,7 @@ export const FilterProvider = ({children}) => {
     state.discount_price = price
   }
 
-  const filteredProducts = allAccessories(allShoes(allShorts(allPants(allShirts(allTShirts(colorFilter(state.product)))))))
+  const filteredProducts = allAccessories(allShoes(allShorts(allPants(allShirts(allTShirts(colorFilter(priceSort(state.product))))))))
 
   const value = {
     state,

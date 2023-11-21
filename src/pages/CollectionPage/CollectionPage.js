@@ -169,7 +169,7 @@ export const CollectionPage = () => {
         (
           <PopUp>
             {PriceButtonsArr.map( (item,index) => (
-              <button key={index} className="font-Bebas border-1 border-black rounded-md bg-yellow-300 p-1.5 mx-2 text-lg self-center">
+              <button key={index} onClick={() => {dispatch({type: "PRICE_SORT", payload:{value: item.type}})}} className="font-Bebas border-1 border-black rounded-md bg-yellow-300 p-1.5 mx-2 text-lg">
                 {item.name}
               </button>
             ))}
