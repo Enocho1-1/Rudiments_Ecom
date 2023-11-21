@@ -3,7 +3,7 @@ export const FilterReducer = (state, action) => {
   const { type, payload} = action
   switch(type){
     case 'CLEAR':
-      return {...state,  TShirts:false, Shirts:false, Pants: false, Shorts:false,  Shoes:false,  Accessories:false,   Colors:false, SelectColor:null}
+      return {...state,  TShirts:false, Shirts:false, Pants: false, Shorts:false,  Shoes:false,  Accessories:false,   Colors:false, SelectColor:null,Price:false, Sort_By:null}
     case 'ALL_PRODUCTS':
       return {...state, product: payload.product}
     case 'T-SHIRTS':
@@ -19,9 +19,13 @@ export const FilterReducer = (state, action) => {
     case 'ACCESSORIES':
         return {...state, TShirts:false,  Shirts: false, Pants: false, Shorts:false,  Shoes:false,  Accessories:payload.value, Colors:false, SelectColor:null }
     case 'COLORS':
-          return {...state,  Colors:payload.value }
+          return {...state,  Colors:payload.value, Price:false }
     case 'SELECT_COLOR':
-      return {...state, TShirts:false, Shirts:false, Pants: false, Shorts:false,  Shoes:false,  Accessories:false, SelectColor:payload.value }
+      return {...state, TShirts:false, Shirts:false, Pants: false, Shorts:false,  Shoes:false,  Accessories:false, SelectColor:payload.value,Sort_By:null }
+    case 'PRICE':
+      return { ...state, Colors:false ,Price:payload.value}
+    case 'PRICE_SORT':
+      return { ...state, TShirts:false, Shirts:false, Pants: false, Shorts:false,  Shoes:false,  Accessories:false, SelectColor:null, Sort_By:payload.value}
     default:
       throw new Error("No Filter")
   }
