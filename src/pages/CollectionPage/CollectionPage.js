@@ -3,6 +3,7 @@ import { useState,useEffect} from "react"
 import { useTitle } from "../../hooks"
 import { useFilter } from "../../context/filterContext"
 import { fetchProducts } from "../../utility"
+import { PopUp } from "./components/PopUp"
 import { ProductCard, Pagination, Loading } from "../../components"
 
 export const CollectionPage = () => {
@@ -12,7 +13,58 @@ export const CollectionPage = () => {
   const [page, setPage] = useState(1)
   const [postsPerPage] = useState(20)
   const [category,setCategory] = useState("All")
-  const colorReveal = state.Colors
+  const colorPopup = state.Colors
+  const pricePopUp = state.Price
+
+
+  const filterButtonsArr = [
+    { 
+      name:"All",
+      type: "CLEAR",  
+      value: null
+    },
+    { 
+      name:"T-Shirts",
+      type: "T-SHIRTS",  
+      value: !state.TShirts
+    },
+    { 
+      name:"Shirts",
+      type: "SHIRTS",  
+      value: !state.Shirts
+    },
+    { 
+      name:"Pants",
+      type:"PANTS",  
+      value: !state.Pants
+    },
+    { 
+      name:"Shorts",
+      type:"SHORTS",  
+      value: !state.Shorts
+    },
+    { 
+      name:"Shoes",
+      type:"SHOES",  
+      value: !state.Shoes
+    },
+    { 
+      name:"Accessories",
+      type:"ACCESSORIES",  
+      value: !state.Accessories
+    },
+    { 
+        name:"Colors",
+        type: "COLORS" ,  
+        value: !state.Colors
+    },
+    { 
+      name:"Price",
+      type: "PRICE" ,  
+      value: !state.Price
+  }
+  ]
+
   const colorButtonsArr = [
     {
       name:"white",
@@ -71,46 +123,14 @@ export const CollectionPage = () => {
     }
   ]
 
-  const filterButtonsArr = [
-    { 
-      name:"All",
-      type: "CLEAR",  
-      value: null
+  const PriceButtonsArr = [
+    {
+      name:"Low to High",
+      type:"LOW_HIGH"
     },
-    { 
-      name:"T-Shirts",
-      type: "T-SHIRTS",  
-      value: !state.TShirts
-    },
-    { 
-      name:"Shirts",
-      type: "SHIRTS",  
-      value: !state.Shirts
-    },
-    { 
-      name:"Pants",
-      type:"PANTS",  
-      value: !state.Pants
-    },
-    { 
-      name:"Shorts",
-      type:"SHORTS",  
-      value: !state.Shorts
-    },
-    { 
-      name:"Shoes",
-      type:"SHOES",  
-      value: !state.Shoes
-    },
-    { 
-      name:"Accessories",
-      type:"ACCESSORIES",  
-      value: !state.Accessories
-    },
-    { 
-        name:"Colors",
-        type: "COLORS" ,  
-        value: !state.Colors
+    {
+      name:"High to Low",
+      type:"HIGH_LOW"
     }
   ]
 
@@ -135,17 +155,30 @@ export const CollectionPage = () => {
     <section className="relative"> 
       <h1 className="text-center text-5xl font-Bebas mb-4 py-4 max-mobile:text-4xl mobile:max-tablet:text-4xl">MEN'S CLOTHES Collection</h1>
       {/* Color Palette */}
-      { colorReveal && 
+      { colorPopup && 
       (
-        <div className="fixed Lrgmoniter:top-[15%] Lrgmoniter:right-[10%]  max-Lrgmoniter:relative max-Lrgmoniter:top-0 max-Lrgmoniter:m-auto max-[600px]:mx-4 border-2 border-gray-200 bg-gray-200 rounded-md p-4 flex flex-wrap gap-y-2 max-w-[15rem] max-Lrgmoniter:max-w-[35rem] z-50 ">
-          {colorButtonsArr.map( (item,index) => (
+        <PopUp>
+           {colorButtonsArr.map( (item,index) => (
             <button key={index} className={`h-[20px] w-[20px] ${item.color} border ${item.color} mx-2`} title={item.name} onClick={() => {dispatch({type:"SELECT_COLOR", payload:{value:item.name}})}}></button>
           ))}
-        </div>
+        </PopUp>
       )}
+
+      {/* Price Sort Pop Up */}
+      { pricePopUp &&
+        (
+          <PopUp>
+            {PriceButtonsArr.map( (item,index) => (
+              <button key={index} className="font-Bebas border-1 border-black rounded-md bg-yellow-300 p-1.5 mx-2 text-lg self-center">
+                {item.name}
+              </button>
+            ))}
+          </PopUp>
+        )
+      }
      
       {/* Filter Buttons */}
-      <aside className="relative max-w-2xl my-4 m-auto flex justify-evenly flex-wrap max-[600px]:grid mobile:max-[600px]:grid-cols-4 max-mobile:grid-cols-3">
+      <aside className="relative max-w-3xl my-4 m-auto flex justify-evenly flex-wrap max-[600px]:grid mobile:max-[600px]:grid-cols-4 max-mobile:grid-cols-3">
         {filterButtonsArr.map( (item,index) => (
           <button key={index} onClick={() => {dispatch({type: item.type ,payload:{value: item.value }}); setCategory(item.name);setPage(1)}} className="font-Bebas text-xl text-black hover:cursor-pointer hover:text-slate-500 active:bg-slate-500 active:text-white px-3 border border-slate-500 ">
             {item.name}

@@ -11,6 +11,8 @@ const filterInitialState = {
   Accessories:false,
   Colors:false,
   SelectColor:null,
+  Price: false,
+  Sort_By:null,
   crypticText: "arch ncemsib",
   promo:"",
   discount_price:null
