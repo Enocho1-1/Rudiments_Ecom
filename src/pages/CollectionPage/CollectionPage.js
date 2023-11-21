@@ -186,7 +186,7 @@ export const CollectionPage = () => {
           ) )}
       </aside>
       <aside className="Lrgmoniter:max-w-7xl tablet:max-Lrgmoniter:max-w-5xl max-tablet:justify-center m-auto my-4 px-4 flex justify-start">
-        <h1 className="font-Inconsolata text-lg font-semibold text-slate-400">{product.length}·{page > 1 && (`${page}·`)}{category}<i>{state.SelectColor === null ? "" : (`·"${state.SelectColor}"`)}</i> </h1>
+        <h1 className="font-Inconsolata text-lg font-semibold text-slate-400">{product.length}·{page > 1 && (`${page}·`)}{category}<i>{state.SelectColor === null ? "" : (`·"${state.SelectColor}"`)}{state.Sort_By === null ? "" : (`·"${state.Sort_By}"`)}</i> </h1>
       </aside>
       {product.length === 0 && <Loading/>}
    
