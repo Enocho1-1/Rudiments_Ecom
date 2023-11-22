@@ -81,6 +81,13 @@ section{
     border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
 
+.priceBtns{
+    border-radius: 20px;
+    background: #e5e7eb;
+    box-shadow:  20px 20px 60px #9e9fa2,
+                -20px -20px 60px #ffffff;
+}
+
 
 
  /* Media Query for Mobile Devices */

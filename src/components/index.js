@@ -2,6 +2,7 @@ export { Header } from "./layout/Header"
 export { Footer} from "./layout/Footer"
 
 export { HomeCarousel } from "../pages/Home/components/HomeCarousel"
+export { ProductsContain} from "./elements/ProductsContain"
 export { ProductCard } from "./elements/ProductCard"
 export { Pagination } from "./misc/Pagination"
 export { SideCart } from "../pages/ItemDetail/components/SideCart"
