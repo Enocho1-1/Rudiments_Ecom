@@ -7,6 +7,8 @@ export const MyBag = () => {
     const { state } = useFilter()
     const cart = useSelector(state => state.cart.cartItems)
     const total = useSelector(state => state.cart.total)
+
+  
    
   return (
     <aside className="h-fit min-w-[21.875rem] ml-4 p-4 bg-slate-200 flex flex-col max-[900px]:hidden">
