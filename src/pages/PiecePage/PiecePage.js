@@ -1,7 +1,7 @@
 import { useState,useEffect } from "react"
 import { useTitle } from "../../hooks/useTitle"
 import { fetchClothingPiece } from "../../utility"
-import { ProductCard, Pagination, Loading } from "../../components"
+import { ProductsContain,ProductCard, Pagination, Loading } from "../../components"
 
 export const PiecePage = ({apiPath, title}) => {
   useTitle(title)
@@ -28,11 +28,11 @@ export const PiecePage = ({apiPath, title}) => {
         <h1 className="font-Inconsolata text-lg font-semibold text-slate-400">{data.length}·{page}</h1>
       </aside>
       {data.length ? 
-( <aside className="m-auto mt-4 px-4 grid place-items-center max-mobile:grid-cols-2  mobile:max-tablet:grid-cols-2 mobile:max-tablet:gap-y-2 tablet:grid-cols-3 tablet:gap-y-4">
+( <ProductsContain>
       {products.map( item => (
         <ProductCard key={item.id} product={item}/>
       ))}
-    </aside>)
+    </ProductsContain>)
       : <Loading/>}
      
       <Pagination totalAmount={data.length} postsPerPage={postsPerPage} paginate={paginate} />

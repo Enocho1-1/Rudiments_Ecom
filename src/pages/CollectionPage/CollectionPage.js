@@ -4,7 +4,7 @@ import { useTitle } from "../../hooks"
 import { useFilter } from "../../context/filterContext"
 import { fetchProducts } from "../../utility"
 import { PopUp } from "./components/PopUp"
-import { ProductCard, Pagination, Loading } from "../../components"
+import { ProductsContain,ProductCard, Pagination, Loading } from "../../components"
 
 export const CollectionPage = () => {
   
@@ -169,7 +169,7 @@ export const CollectionPage = () => {
         (
           <PopUp>
             {PriceButtonsArr.map( (item,index) => (
-              <button key={index} onClick={() => {dispatch({type: "PRICE_SORT", payload:{value: item.type}})}} className="font-Bebas border-1 border-black rounded-md bg-yellow-300 p-1.5 mx-2 text-lg">
+              <button key={index} onClick={() => {dispatch({type: "PRICE_SORT", payload:{value: item.type}})}} className="priceBtns font-Bebas border-1 p-1.5 mx-2 py-2 text-lg">
                 {item.name}
               </button>
             ))}
@@ -190,11 +190,11 @@ export const CollectionPage = () => {
       </aside>
       {product.length === 0 && <Loading/>}
    
-      <aside className="m-auto relative px-4 grid place-items-center max-mobile:grid-cols-2  mobile:max-tablet:grid-cols-2 mobile:max-tablet:gap-y-2 tablet:grid-cols-3 tablet:gap-y-4">
+      <ProductsContain>
         {products.map( item => (
           <ProductCard key={item.id} product={item}/>
         ))}
-      </aside>
+      </ProductsContain>
       <Pagination totalAmount={product.length} postsPerPage={postsPerPage} paginate={paginate} />
     </section>
   )
