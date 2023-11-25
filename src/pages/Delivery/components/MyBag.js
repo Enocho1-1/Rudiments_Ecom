@@ -8,7 +8,7 @@ export const MyBag = () => {
     const { state } = useFilter()
     const cart = useSelector(state => state.cart.cartItems)
     const total = useSelector(state => state.cart.total)
-
+    const discountPrice = state.discount_price
   
    
   return (
@@ -28,8 +28,8 @@ export const MyBag = () => {
             <h1 className="text-xl  font-semibold max-mobile:text-lg">Total To Pay</h1>
             </span>
             <span className="flex flex-col">
-            <p className=" text-lg">US${state.discount_price ? state.discount_price : total}.00</p>
-            <p className="text-xl font-bold max-mobile:text-lg">US${state.discount_price ? state.discount_price : total}.00</p>
+            <p className={`text-lg ${discountPrice > 0 ? (`text-red-500`) : (`text-black`)}`}>US${discountPrice ? discountPrice : total}.00</p>
+            <p className={`text-xl font-bold max-mobile:text-lg ${discountPrice > 0 ? (`text-red-500`) : (`text-black`)}`}>US${discountPrice ? discountPrice : total}.00</p>
             </span>
         </div>
     </aside>
