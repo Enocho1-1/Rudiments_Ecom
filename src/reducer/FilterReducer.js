@@ -26,6 +26,8 @@ export const FilterReducer = (state, action) => {
       return { ...state, Colors:false ,Price:payload.value}
     case 'PRICE_SORT':
       return { ...state, TShirts:false, Shirts:false, Pants: false, Shorts:false,  Shoes:false,  Accessories:false, SelectColor:null, Sort_By:payload.value}
+    case 'PROMO_APPLIED':
+      return {...state, promoApplied:payload.value}
     default:
       throw new Error("No Filter")
   }

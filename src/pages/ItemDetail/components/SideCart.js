@@ -46,7 +46,7 @@ export const SideCart = ({setSideCart}) => {
               <p>${total}.00</p>
             </aside>
             <Link to="/cart" className=" text-xl font-Bebas text-center mt-4 mx-4 border-1 border-black p-2 hover:text-slate-500">View Bag </Link>
-            { userToken && (<Link to="/cart" className="text-xl font-Bebas bg-yellow-300  text-center mt-4 mx-4 border-1  p-2 text-black hover:text-black">CHECKOUT</Link>)}
+            { userToken && (<Link to="/checkout/delivery" className="text-xl font-Bebas bg-yellow-300  text-center mt-4 mx-4 border-1  p-2 text-black hover:text-black">CHECKOUT</Link>)}
         </div>
     </section>
   )
