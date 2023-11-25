@@ -67,7 +67,6 @@ export const userSearchItem = async(searchItem,setData) => {
 export const discountUserTotal = (total,userPromo,promoCode,dispatch , setPromoError, discountPriceStore) => {
   if(userPromo === promoCode){
     const newPrice = Math.floor(total - (total * 0.20) )
-    //  setDiscountPrice(newPrice)
      discountPriceStore(newPrice)
      dispatch({type:"PROMO_APPLIED", payload:{value:true}})
      setTimeout(() =>  dispatch({type:"PROMO_APPLIED", payload:{value:false}}), 3000)

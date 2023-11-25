@@ -17,13 +17,9 @@ import paypal from "../../assests/paypal.png"
 export const Cart = ({name}) => {
   useTitle(name)
   const {myQuery} = useMatchMedia(769)
-  const {retrieveUserInfo,discountPriceStore,state} = useFilter()
+  const {state} = useFilter()
   const discountPrice = state.discount_price
   const promoApplied = state.promoApplied
-  // const {promoCode} = retrieveUserInfo()
-
-  // const [promoApplied,setPromoApplied] = useState(false)
-  // const [discountPrice,setDiscountPrice] = useState(0)
   const navigate = useNavigate()
   const cart = useSelector(state => state.cart.cartItems)
   const total = useSelector(state => state.cart.total)
@@ -76,10 +72,7 @@ export const Cart = ({name}) => {
               
               {/* Subtotal & Total */}
               <div className="relative max-w-inherit mt-8 py-2 max-mobile:px-4">
-                {/* <aside className="absolute top-2 right-2 flex flex-col max-tablet:relative max-tablet:top-0 max-tablet:left-0 ">
-                  {promo ? ( <span onClick={() => setPromo(false)} className=" mt-2 text-md  font-semibold underline cursor-pointer hover:text-black">Have a promo code?</span>): (<span className="max-tablet:my-2"><p>Please enter your promo code</p><form onSubmit={(e) => handlePromo(e)}><input className="py-2 px-4" type="text" name="promo" /><button type="submit" className="bg-gray-200 font-semibold text-md text-black py-2.5 px-4">Apply</button></form>{promoError && <p className="text-xs text-red-500">Sorry, the promo code you entered is not valid</p>}</span>)}
-                </aside> */}
-                <PromoInput/>
+                <PromoInput position="absolute top-2 right-2 flex flex-col max-tablet:relative max-tablet:top-0 max-tablet:left-0 "/>
                 <aside className="flex">
                   <span className="flex flex-col text-xl max-mobile:text-lg">
                       <h1 className="font-light">Subtotal</h1>
