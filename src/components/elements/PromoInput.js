@@ -15,6 +15,7 @@ export const PromoInput = ({position}) => {
         const userPromo = e.target.promo.value
         // Discount Cart Total
         discountUserTotal(total,userPromo,promoCode,dispatch , setPromoError, discountPriceStore)
+        sessionStorage.removeItem("promoCode")
         e.target.reset()
       }
     

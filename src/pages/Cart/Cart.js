@@ -1,5 +1,5 @@
 /* eslint-disable */
-import { useEffect,useState } from "react"
+import { useEffect } from "react"
 import { useTitle,useMatchMedia } from "../../hooks"
 import { useSelector,useDispatch } from "react-redux"
 import { useFilter } from "../../context/filterContext"
