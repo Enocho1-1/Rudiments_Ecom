@@ -15,6 +15,7 @@ const filterInitialState = {
   Sort_By:null,
   crypticText: "arch ncemsib",
   promo:"",
+  promoApplied: false,
   discount_price:null
 }
 

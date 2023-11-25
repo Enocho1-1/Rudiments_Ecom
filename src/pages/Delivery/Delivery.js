@@ -1,17 +1,19 @@
 import { useFilter } from "../../context/filterContext"
 import { MyBag } from "./components/MyBag"
 import { useNavigate } from "react-router"
-
+import {PromoNotification } from "../../components"
 
 export const Delivery = () => {
 
-    const { retrieveUserInfo } = useFilter()
+    const { state,retrieveUserInfo } = useFilter()
     const { firstName,lastName,title } = retrieveUserInfo()
     const navigate = useNavigate()
+    const promoApplied = state.promoApplied
 
   return (
     <section>
-        <div className="mt-[4.688rem] flex justify-center">
+        <div className="relative mt-[4.688rem] flex justify-center">
+            {promoApplied && < PromoNotification/>}
             {/* User Delivery Address */}
             <aside className="min-w-[31.25rem] max-tablet:min-w-[25rem] flex flex-col p-4 border border-gray-200">
                 <h1 className="m-auto mb-4 text-2xl font-Inconsolata font-light">Please confirm your address</h1>
