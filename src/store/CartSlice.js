@@ -41,6 +41,7 @@ const CartSlice = createSlice({
             let updateCart
             if(updateCartItem.quantity > 1){
                 updateCartItem.quantity -= 1 
+                localStorage.setItem("cartItem",JSON.stringify(state.cartItems))
             } else{
                  updateCart = state.cartItems.filter(item => item.random_index !== action.payload.random_index) 
                  localStorage.setItem("cartItem",JSON.stringify(updateCart))

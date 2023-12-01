@@ -72,7 +72,7 @@ export const discountUserTotal = (total,userPromo,promoCode,dispatch , setPromoE
      setTimeout(() =>  dispatch({type:"PROMO_APPLIED", payload:{value:false}}), 3000)
   }else{
     setPromoError(true)
-    setTimeout(() => {setPromoError(false)}, 4000)
+    setTimeout(() => {setPromoError(false)}, 3000)
   }
 }
 

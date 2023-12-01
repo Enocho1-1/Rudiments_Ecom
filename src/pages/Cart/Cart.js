@@ -1,5 +1,5 @@
 /* eslint-disable */
-import { useEffect } from "react"
+import { useEffect} from "react"
 import { useTitle,useMatchMedia } from "../../hooks"
 import { useSelector,useDispatch } from "react-redux"
 import { useFilter } from "../../context/filterContext"
@@ -26,8 +26,9 @@ export const Cart = ({name}) => {
   const dispatch = useDispatch()
 
 
+
   useEffect(() => {
-   dispatch(getSubTotal())
+    dispatch(getSubTotal())
   },[cart])
 
 
