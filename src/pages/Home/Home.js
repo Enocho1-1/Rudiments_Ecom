@@ -44,7 +44,7 @@ export const Home = ({title}) => {
   return (
     <section className="relative">
       { newUser && promoModal  &&  <PromoModal setPromodal={setPromodal}/>}
-      <HomeCarousel/>
+      <HomeCarousel  />
       {/* Collection Buttons */}
       <aside className="w-full grid max-mobile:grid-cols-2 mobile:max-tablet:grid-cols-2 tablet:grid-cols-3">
         { pieceButtons.map( (item, index) => (

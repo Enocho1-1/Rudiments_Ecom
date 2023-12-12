@@ -17,7 +17,6 @@ export const Cart = ({name}) => {
   const promoApplied = state.promoApplied
 
   const cart = useSelector(state => state.cart.cartItems)
-  // const total = useSelector(state => state.cart.total)
   const dispatch = useDispatch()
 
 

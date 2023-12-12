@@ -1,5 +1,5 @@
 import { useFilter } from "../../../context/filterContext"
-import { useSelector,useDispatch } from "react-redux"
+import { useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
 import { PromoInput } from "../../../components"
 import visa from "../../../assests/visa.png"
@@ -11,9 +11,7 @@ export const Checkout = () => {
     const {state} = useFilter()
     const discountPrice = state.discount_price
     const navigate = useNavigate()
-    const cart = useSelector(state => state.cart.cartItems)
     const total = useSelector(state => state.cart.total)
-    const dispatch = useDispatch()
   return (
     <div className="relative max-w-inherit mt-8 py-2 max-mobile:px-4">
         <PromoInput position="absolute top-2 right-2 flex flex-col max-tablet:relative max-tablet:top-0 max-tablet:left-0 "/>

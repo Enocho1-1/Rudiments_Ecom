@@ -8,7 +8,7 @@ import "./Carousel.css"
 
 export const HomeCarousel = () => {
   return (
-        <Carousel className="carousel h-[53.125rem] max-mobile:h-[28.125rem] mobile:max-tablet:h-[40.625rem]">
+        <Carousel className="carousel h-[53.125rem] max-mobile:h-[28.125rem] mobile:max-tablet:h-[40.625rem]" data-testid="carousel">
             { [ImgOne,ImgTwo,ImgThree,ImgFour].map((image,index) => (
                   <img key={index}  src={image} alt="carousel"/>
             ))}
