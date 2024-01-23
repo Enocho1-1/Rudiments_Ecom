@@ -1,8 +1,6 @@
 /* eslint-disable */
-import { useState,useEffect } from "react"
 import { useFilter } from "../../../context/filterContext"
-import { useTitle } from "../../../hooks"
-import { getUserOrders} from "../../../utility/index"
+import { useTitle,useUserOrders } from "../../../hooks"
 import { NavLink,Link } from "react-router-dom"
 import { RecentPurchases,DashEmpty } from "./index"
 import qrCode from "../../../assests/qr-code.png"
@@ -10,19 +8,9 @@ import qrCode from "../../../assests/qr-code.png"
 export const DashBoard = () => {
   useTitle("My Account")
   const {  state,retrieveUserInfo } = useFilter()
-  const { firstName, promoCode,userToken,userID } = retrieveUserInfo()
-  const [data,setData] = useState([])
-  const [ noOrder,setNoOrder] = useState(true)
-
-  const Get_Options = {
-    method:"GET",
-    headers:{ 'Content-Type': 'application/json', Authorization: `Bearer ${userToken}`}
-  }
-
-  useEffect(() => {
-     getUserOrders(Get_Options,setData,setNoOrder,userID)
-  },[])
-
+  const { firstName, promoCode} = retrieveUserInfo()
+  const {data,noOrder} = useUserOrders()
+  
   const handleLogout = () => {
     sessionStorage.clear()
     state.discount_price = null
