@@ -47,6 +47,8 @@ export const Payment = () => {
         postUserOrder(Post_Options,navigate)
         dispatch(clearCart())
         localStorage.clear()
+        sessionStorage.removeItem("promoCode")
+        state.discount_price = null
     }
   return (
     <section className="font-Inconsolata">

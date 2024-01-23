@@ -15,6 +15,7 @@ export const Cart = ({name}) => {
   const {cart} = useSubTotal()
 
 
+
   return (
     <section className="font-Inconsolata">
       {cart.length === 0 ?
