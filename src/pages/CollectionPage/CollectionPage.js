@@ -1,6 +1,6 @@
 /* eslint-disable */
 import { useState} from "react"
-import { useTitle,useAllProducts } from "../../hooks"
+import { useTitle,useAllProducts,usePaginate } from "../../hooks"
 import { useFilter } from "../../context/filterContext"
 import { colorButtonsArr,PriceButtonsArr } from "../../components/DataStructures/FilterArrays"
 import { PopUp } from "./components/PopUp"
@@ -9,10 +9,12 @@ import { ProductsContain,ProductCard, Pagination, Loading } from "../../componen
 export const CollectionPage = () => {
   
   // Use Context Destructure
-  const { state, dispatch} = useFilter()
-  const {product} = useAllProducts()
-  const [page, setPage] = useState(1)
-  const [postsPerPage] = useState(20)
+  const { state, dispatch,product} = useFilter()
+  // Display All Products Hook
+  useAllProducts()
+  // Pagination Hook
+  const {page,setPage,products,postsPerPage,paginate} = usePaginate()
+  
   const [category,setCategory] = useState("All")
   const colorPopup = state.Colors
   const pricePopUp = state.Price
@@ -65,17 +67,6 @@ export const CollectionPage = () => {
   ]
 
   useTitle("Collections")
-
-  const lastIndex = page * postsPerPage
-  const firstIndex = lastIndex - postsPerPage
-  const products = product.slice(firstIndex, lastIndex)
-
-  
-  const paginate = (pageNumber) => {
-    setPage(pageNumber)
-  }
-
-
 
   return (
     <section className="relative"> 

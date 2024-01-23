@@ -6,8 +6,6 @@ export const useAllProducts = () => {
     const { product, allProducts} = useFilter()
 
       // Fetch All Products
-  useEffect(() => {
-    fetchProducts(allProducts)}
-    ,[])
-  return {product}
+  useEffect(() => {fetchProducts(allProducts)},[])
+  return null
 }
