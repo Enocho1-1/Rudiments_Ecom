@@ -1,7 +1,13 @@
-import React from 'react'
+import {useEffect} from "react"
+import {useFilter} from "../context/filterContext"
+import {fetchProducts} from "../utility"
 
 export const useAllProducts = () => {
-  return (
-    <div>useAllProducts</div>
-  )
+    const { product, allProducts} = useFilter()
+
+      // Fetch All Products
+  useEffect(() => {
+    fetchProducts(allProducts)}
+    ,[])
+  return {product}
 }

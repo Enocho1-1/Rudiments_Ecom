@@ -1,16 +1,16 @@
 /* eslint-disable */
-import { useState,useEffect} from "react"
-import { useTitle } from "../../hooks"
+import { useState} from "react"
+import { useTitle,useAllProducts } from "../../hooks"
 import { useFilter } from "../../context/filterContext"
 import { colorButtonsArr,PriceButtonsArr } from "../../components/DataStructures/FilterArrays"
-import { fetchProducts } from "../../utility"
 import { PopUp } from "./components/PopUp"
 import { ProductsContain,ProductCard, Pagination, Loading } from "../../components"
 
 export const CollectionPage = () => {
   
   // Use Context Destructure
-  const { state, dispatch, product, allProducts} = useFilter()
+  const { state, dispatch} = useFilter()
+  const {product} = useAllProducts()
   const [page, setPage] = useState(1)
   const [postsPerPage] = useState(20)
   const [category,setCategory] = useState("All")
@@ -65,9 +65,6 @@ export const CollectionPage = () => {
   ]
 
   useTitle("Collections")
-
-  // Fetch All Products
-  useEffect(() => {fetchProducts(allProducts)},[])
 
   const lastIndex = page * postsPerPage
   const firstIndex = lastIndex - postsPerPage
