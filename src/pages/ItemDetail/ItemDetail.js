@@ -2,8 +2,8 @@
 import { useEffect,useState } from "react"
 import {useParams} from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
-import { useMatchMedia } from "../../hooks"
-import { fetchIndividualItem,validateMeasurements  } from "../../utility/ProductServices"
+import { useMatchMedia,useIndividualItem } from "../../hooks"
+import { validateMeasurements  } from "../../utility/ProductServices"
 import { addItemToCart } from "../../store/CartSlice"
 import { addRecent } from "../../store/RecentSlice"
 import { Loading,SideCart,Accordion } from "../../components"
@@ -14,7 +14,6 @@ import "./ItemDetail.css"
 
 export const ItemDetail = () => {
 
-  const [data,setData] = useState([])
   const [shirt, setShirt] = useState(false)
   const [pants, setPants] = useState(false)
   const [shoes, setShoes] = useState(false)
@@ -24,13 +23,10 @@ export const ItemDetail = () => {
 
   const param = useParams()
   const productId = param.id
+  const {data} = useIndividualItem(productId)
   const dispatch = useDispatch()
   const recentArray = useSelector( state => state.recent.recents)
   const mobileView = "flex flex-col"
-
-
-  // Fetch Individual Item
-  useEffect(() => {fetchIndividualItem(productId,setData) },[productId])
 
 
   // Destructure Returned JSON
