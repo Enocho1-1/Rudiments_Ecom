@@ -1,9 +1,6 @@
 /* eslint-disable */
-import { useEffect} from "react"
-import { useTitle,useMatchMedia } from "../../hooks"
-import { useSelector,useDispatch } from "react-redux"
+import { useTitle,useMatchMedia,useSubTotal } from "../../hooks"
 import { useFilter } from "../../context/filterContext"
-import { getSubTotal } from "../../store/CartSlice"
 import { Link } from "react-router-dom"
 import { MobileCart,DesktopCart,CartEmpty,Checkout} from "./components"
 import {PromoNotification} from "../../components"
@@ -15,15 +12,7 @@ export const Cart = ({name}) => {
   const {myQuery} = useMatchMedia(769)
   const {state} = useFilter()
   const promoApplied = state.promoApplied
-
-  const cart = useSelector(state => state.cart.cartItems)
-  const dispatch = useDispatch()
-
-
-
-  useEffect(() => {
-    dispatch(getSubTotal())
-  },[cart])
+  const {cart} = useSubTotal()
 
 
   return (
