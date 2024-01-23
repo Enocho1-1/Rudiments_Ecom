@@ -2,6 +2,7 @@
 import { useState,useEffect} from "react"
 import { useTitle } from "../../hooks"
 import { useFilter } from "../../context/filterContext"
+import { colorButtonsArr,PriceButtonsArr } from "../../components/DataStructures/FilterArrays"
 import { fetchProducts } from "../../utility"
 import { PopUp } from "./components/PopUp"
 import { ProductsContain,ProductCard, Pagination, Loading } from "../../components"
@@ -15,8 +16,6 @@ export const CollectionPage = () => {
   const [category,setCategory] = useState("All")
   const colorPopup = state.Colors
   const pricePopUp = state.Price
-
-
   const filterButtonsArr = [
     { 
       name:"All",
@@ -64,76 +63,6 @@ export const CollectionPage = () => {
       value: !state.Price
   }
   ]
-
-  const colorButtonsArr = [
-    {
-      name:"white",
-      color:"bg-white"
-    },
-    {
-      name:"black",
-      color:"bg-black"
-    },
-    {
-      name:"navy",
-      color:"bg-blue-950"
-    },
-    {
-      name:"grey",
-      color:"bg-gray-400"
-    },
-    {
-      name:"brown",
-      color:"bg-yellow-900"
-    },
-    {
-      name:"green",
-      color:"bg-green-700"
-    },
-    {
-      name:"orange",
-      color:"bg-orange-500"
-    },
-    {
-      name:"pink",
-      color:"bg-red-200"
-    },
-    {
-      name:"blue",
-      color:"bg-blue-600"
-    },
-    {
-      
-      
-      name:"purple",
-      color:"bg-purple-500 "
-    },
-    {
-      name:"ecru",
-      color:"bg-ecru"
-    },
-    {
-      name:"beige",
-      color:"bg-beige "
-    },
-      
-    {
-      name:"stone",
-      color:"bg-stone"
-    }
-  ]
-
-  const PriceButtonsArr = [
-    {
-      name:"Low to High",
-      type:"LOW_HIGH"
-    },
-    {
-      name:"High to Low",
-      type:"HIGH_LOW"
-    }
-  ]
-
 
   useTitle("Collections")
 
