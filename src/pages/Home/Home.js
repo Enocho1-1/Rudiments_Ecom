@@ -3,43 +3,13 @@ import { useTitle } from "../../hooks/useTitle"
 import { useState } from "react"
 import { HomeCarousel,PromoModal  } from "./components"
 import { NavLink } from "react-router-dom"
+import { pieceButtons } from "../../components/DataStructures/HomePieceArray"
 
 export const Home = ({title}) => {
 
   useTitle(title)
   const [promoModal,setPromodal] = useState(true)
-  const pieceButtons = [
-    {
-      name:"T-Shirts",
-      link:"/t-shirt",
-      id:"buttonOne"
-    },
-    {
-      name:"Shirts",
-      link:"/shirt",
-      id:"buttonTwo"
-    },
-    {
-      name:"Pants",
-      link:"/pants",
-      id:"buttonThree"
-    },
-    {
-      name:"Shorts",
-      link:"/shorts",
-      id:"buttonFour"
-    },
-    {
-      name:"Shoes",
-      link:"/shoes",
-      id:"buttonFive"
-    },
-    {
-      name:"Accessories",
-      link:"/accessories",
-      id:"buttonSix"
-    }
-  ]
+  
   const newUser = JSON.parse(sessionStorage.getItem("newUser"))
   return (
     <section className="relative">
