@@ -8,3 +8,4 @@ export {usePaginate} from "./usePaginate"
 
 export {useUserOrders} from "./useUserOrders"
 export {useIndividualItem} from "./useIndividualItem"
+export {useRecentItems} from "./useRecentItems"

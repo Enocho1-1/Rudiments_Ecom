@@ -2,10 +2,9 @@
 import { useEffect,useState } from "react"
 import {useParams} from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
-import { useMatchMedia,useIndividualItem } from "../../hooks"
+import { useMatchMedia,useIndividualItem,useRecentItems  } from "../../hooks"
 import { validateMeasurements  } from "../../utility/ProductServices"
 import { addItemToCart } from "../../store/CartSlice"
-import { addRecent } from "../../store/RecentSlice"
 import { Loading,SideCart,Accordion } from "../../components"
 import { DesktopShirtSize, DesktopSizes, MobileShirtSize, MobileSizes,TrendingSlider,Slider,Trending,shirtSizes, pantSizes,shoeSizes} from "./components"
 import Logo from "../../assests/cube.png"
@@ -25,17 +24,16 @@ export const ItemDetail = () => {
   const productId = param.id
   const {data} = useIndividualItem(productId)
   const dispatch = useDispatch()
-  const recentArray = useSelector( state => state.recent.recents)
+ 
   const mobileView = "flex flex-col"
 
 
   // Destructure Returned JSON
  const {  id, title , price, category, imageUrl, imageUrl_Two, imageUrl_Three, imageUrl_Four} = data
+  const {recents} = useRecentItems(data,id)
 
 
 
-//  Recently Viewed Reducer 
- useEffect(() => {dispatch(addRecent(data))},[id])
 
 
 // Clothing Piece Measurement Validation
@@ -172,7 +170,7 @@ export const ItemDetail = () => {
         <TrendingSlider  array={Trending}/>
 
         {/* Recently Viewed */}
-        <Slider array={recentArray}/>
+        <Slider array={recents}/>
      
       </aside>
     </section>
