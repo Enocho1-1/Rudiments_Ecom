@@ -7,10 +7,10 @@ import qrCode from "../../../assests/qr-code.png"
 
 export const DashBoard = () => {
   useTitle("My Account")
-  const {  state,retrieveUserInfo } = useFilter()
+  const { state,retrieveUserInfo} = useFilter()
   const { firstName, promoCode} = retrieveUserInfo()
   const {data,noOrder} = useUserOrders()
-  
+
   const handleLogout = () => {
     sessionStorage.clear()
     state.discount_price = null
