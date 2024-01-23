@@ -1,7 +1,7 @@
 /* eslint-disable */
 import { useEffect,useState } from "react"
 import {useParams} from "react-router-dom"
-import { useDispatch, useSelector } from "react-redux"
+import { useDispatch } from "react-redux"
 import { useMatchMedia,useIndividualItem,useRecentItems  } from "../../hooks"
 import { validateMeasurements  } from "../../utility/ProductServices"
 import { addItemToCart } from "../../store/CartSlice"
@@ -13,44 +13,40 @@ import "./ItemDetail.css"
 
 export const ItemDetail = () => {
 
-  const [shirt, setShirt] = useState(false)
-  const [pants, setPants] = useState(false)
-  const [shoes, setShoes] = useState(false)
-  const [sidecart, setSideCart] = useState(false)
-  const [selectSize, setSelectSize] = useState("")
-  const {myQuery} = useMatchMedia(769)
+const [shirt, setShirt] = useState(false)
+const [pants, setPants] = useState(false)
+const [shoes, setShoes] = useState(false)
+const [sidecart, setSideCart] = useState(false)
+const [selectSize, setSelectSize] = useState("")
+const {myQuery} = useMatchMedia(769)
 
-  const param = useParams()
-  const productId = param.id
-  const {data} = useIndividualItem(productId)
-  const dispatch = useDispatch()
- 
-  const mobileView = "flex flex-col"
+const param = useParams()
+const productId = param.id
+const {data} = useIndividualItem(productId)
+const dispatch = useDispatch()
+
+const mobileView = "flex flex-col"
 
 
   // Destructure Returned JSON
- const {  id, title , price, category, imageUrl, imageUrl_Two, imageUrl_Three, imageUrl_Four} = data
-  const {recents} = useRecentItems(data,id)
-
-
-
+const {  id, title , price, category, imageUrl, imageUrl_Two, imageUrl_Three, imageUrl_Four} = data
+const {recents} = useRecentItems(data,id)
 
 
 // Clothing Piece Measurement Validation
   useEffect(() => {validateMeasurements(category,setShirt,setPants,setShoes)},[title,id])
   
 
-
-  // Cart Item Object Literal
-  const userItem = {
-    id: data.id,
-    random_index:Math.floor(Math.random() * 99000),
-    title : data.title,
-    price: data.price,
-    quantity: 1,
-    size: selectSize,
-    image: imageUrl
-  }
+// Cart Item Object Literal
+const userItem = {
+  id: data.id,
+  random_index:Math.floor(Math.random() * 99000),
+  title : data.title,
+  price: data.price,
+  quantity: 1,
+  size: selectSize,
+  image: imageUrl
+}
 
 
   return (
