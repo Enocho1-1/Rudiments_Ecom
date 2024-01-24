@@ -7,6 +7,7 @@ export {useAllProducts} from "./useAllProducts"
 export {usePaginate} from "./usePaginate"
 
 export {useDesktopSizes} from "./useDesktopSizes"
+export {useMobileSizes} from "./useMobileSizes"
 
 export {useUserOrders} from "./useUserOrders"
 export {useIndividualItem} from "./useIndividualItem"

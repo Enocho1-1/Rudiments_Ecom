@@ -2,20 +2,16 @@
 import { useEffect,useState } from "react"
 import {useParams} from "react-router-dom"
 import { useDispatch } from "react-redux"
-import { useMatchMedia,useIndividualItem,useRecentItems,useDesktopSizes  } from "../../hooks"
-import { validateMeasurements  } from "../../utility/ProductServices"
+import { useMatchMedia,useIndividualItem,useRecentItems,useDesktopSizes,useMobileSizes  } from "../../hooks"
 import { addItemToCart } from "../../store/CartSlice"
 import { Loading,SideCart,Accordion } from "../../components"
-import { DesktopShirtSize, DesktopSizes, MobileShirtSize, MobileSizes,MobileCarousel,TrendingSlider,Slider,Trending,shirtSizes, pantSizes,shoeSizes} from "./components"
+import {MobileCarousel,TrendingSlider,Slider,Trending} from "./components"
 import Logo from "../../assests/cube.png"
 import "./ItemDetail.css"
 
 
 export const ItemDetail = () => {
 
-const [shirt, setShirt] = useState(false)
-const [pants, setPants] = useState(false)
-const [shoes, setShoes] = useState(false)
 const [sidecart, setSideCart] = useState(false)
 const [selectSize, setSelectSize] = useState("")
 const {myQuery} = useMatchMedia(769)
@@ -36,10 +32,6 @@ const {recents} = useRecentItems(data,id)
 
 // Image array for mobile view carousel
 const dataImages = [imageUrl,imageUrl_Two,imageUrl_Three,imageUrl_Four]
-
-
-// Clothing Piece Measurement Validation
-  useEffect(() => {validateMeasurements(category,setShirt,setPants,setShoes)},[title,id])
   
 
 // Cart Item Object Literal
@@ -82,14 +74,12 @@ const userItem = {
                 <p className="font-normal mt-2 text-xl">${price}.00</p>
               </aside>
 
-              {/* Sizes */}
-              { useDesktopSizes(category)}
+              {/* Clothing Piece Sizes */}
+              {useDesktopSizes(category,selectSize,setSelectSize)}
 
               {/* Product Detail */}
-              <div>
-                <Accordion/>
-              </div>
-
+              <Accordion/>
+    
               {/* Add To Cart */}
               <button type="button" onClick={() => {dispatch(addItemToCart(userItem)); setSideCart(true)}} className=" cart flex flew-row justify-center focus:outline-none text-black font-Bebas text-xl bg-yellow-400  focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg w-[75%] p-2 mt-8 ">Add To Bag<img src={Logo} className="h-6 mx-2"/></button>
             </div> 
@@ -109,25 +99,12 @@ const userItem = {
               </aside>
               <hr />
               <aside className="flex flex-col">
-
-                  { 
-                      // Shirt Size CSS
-                      shirt ? 
-                      (<MobileShirtSize array={shirtSizes} setSelectSize={selectSize} />) 
-                      : 
-                      // Pants Size CSS
-                      pants ?
-                      (<MobileSizes array={pantSizes} selectSize={selectSize} setSelectSize={setSelectSize}/>)
-                      : shoes ? 
-                      (<MobileSizes array={shoeSizes} selectSize={selectSize} setSelectSize={setSelectSize}/>) 
-                      : ( <div></div>)
-                    }
-                    {/* Product Detail */}
-                      <div>
-                        <Accordion/>
-                      </div>
-                      {/* Add To Cart */}
-                      <button type="button" onClick={() => {dispatch(addItemToCart(userItem )); setSideCart(true)}} className=" cart flex justify-center self-center focus:outline-none text-black font-Bebas text-xl bg-yellow-400  focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg w-[75%] p-2 mt-2 ">Add To Bag<img src={Logo} className="h-6 mx-2"/></button>
+                  {/* Clothing Piece Sizes */}
+                  { useMobileSizes(category,selectSize,setSelectSize) }
+                  {/* Product Detail */}
+                  <Accordion/>
+                  {/* Add To Cart */}
+                  <button type="button" onClick={() => {dispatch(addItemToCart(userItem )); setSideCart(true)}} className=" cart flex justify-center self-center focus:outline-none text-black font-Bebas text-xl bg-yellow-400  focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg w-[75%] p-2 mt-2 ">Add To Bag<img src={Logo} className="h-6 mx-2"/></button>
               </aside>
             </div>
           </>
