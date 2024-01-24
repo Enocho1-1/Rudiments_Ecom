@@ -75,10 +75,3 @@ export const discountUserTotal = (total,userPromo,promoCode,dispatch , setPromoE
     setTimeout(() => {setPromoError(false)}, 3000)
   }
 }
-
-// Clothing Piece Measurement Validation
-export const validateMeasurements = ( category ,setShirt, setPants,setShoes) => {
-  category === "t-shirt" || category === "shirt" ? setShirt(true) : 
-  category === "pants"|| category === "shorts" ? setPants(true) : 
-  category === "shoes" ? setShoes(true) : <div></div>
-}
