@@ -19,7 +19,7 @@ const mobileView = "flex flex-col"
 
 
 
-const {  id, title , price, category, imageUrl, imageUrl_Two, imageUrl_Three, imageUrl_Four} = data
+const { id, title , price, category, imageUrl, imageUrl_Two, imageUrl_Three, imageUrl_Four} = data
 
 // Add user recently viewed items hook
 const {recents} = useRecentItems(data,id)
@@ -35,38 +35,29 @@ const userItem = {
   image: imageUrl
 }
 
-
-  const DesktopData = {
-    One:imageUrl,
-    Two:imageUrl_Two,
-    Three:imageUrl_Three,
-    Four:imageUrl_Four,
-    title:title,
-    price:price,
-    category:category,
-    selectSize:selectSize,
-    setSelectSize:setSelectSize,
-    item: userItem
+class ProductObject{
+  constructor(imageOne,imageTwo,imageThree,imageFour,title,price,category,selectSize,setSelectSize,item){
+    this.imageOne = imageOne
+    this.imageTwo = imageTwo
+    this.imageThree = imageThree
+    this.imageFour = imageFour
+    this.title = title
+    this.price = price
+    this.category = category
+    this.selectSize = selectSize
+    this.setSelectSize = setSelectSize
+    this.item = item
   }
+}
 
-  const MobileData = {
-    One:imageUrl,
-    Two:imageUrl_Two,
-    Three:imageUrl_Three,
-    Four:imageUrl_Four,
-    title:title,
-    price:price,
-    category:category,
-    selectSize:selectSize,
-    setSelectSize:setSelectSize,
-    item: userItem
-  }
+  const desktop = new ProductObject(imageUrl,imageUrl_Two,imageUrl_Three,imageUrl_Four,title,price,category,selectSize,setSelectSize,userItem)
+  const mobile = new ProductObject(imageUrl,imageUrl_Two,imageUrl_Three,imageUrl_Four,title,price,category,selectSize,setSelectSize,userItem)
 
   return (
     <section className="relative">
       {data.length === 0 && <Loading/>}
       <aside className={myQuery && myQuery.matches ? mobileView : "flex flex-row"}>
-        {myQuery && !myQuery.matches ? (<DesktopView data={DesktopData}/> ):  (<MobileView data={MobileData}/>)}
+        {myQuery && !myQuery.matches ? (<DesktopView data={desktop}/> ):  (<MobileView data={mobile}/>)}
       </aside>
 
 

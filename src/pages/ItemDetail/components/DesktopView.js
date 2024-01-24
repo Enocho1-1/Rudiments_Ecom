@@ -6,7 +6,7 @@ import {addItemToCart} from "../../../store/CartSlice"
 import Logo from "../../../assests/cube.png"
 
 export const DesktopView = ({data}) => {
-    const {One,Two,Three,Four,title,price,category,selectSize,setSelectSize,item} = data
+    const {imageOne,imageTwo,imageThree,imageFour,title,price,category,selectSize,setSelectSize,item} = data
     const [sidecart, setSideCart] = useState(false)
     const dispatch = useDispatch()
   return (
@@ -17,10 +17,10 @@ export const DesktopView = ({data}) => {
         
         {/* Product Images */}
         <div className="grid grid-cols-2 grid-rows-2 px-4 tablet:max-laptop:grid-cols-gridCols tablet:max-laptop:grid-rows-gridRows tablet:max-laptop:w-[60%] laptop:max-desktop:w-[70%] desktop:w-[75%]  individualImg">
-        <img src={One} className=" w-full " alt="..."/>
-        <img src={Two} className="w-full " alt="..."/>
-        <img src={Three} className=" w-full " alt="..."/>
-        {Four? ( <img src={Four} className="block w-full " alt="..."/>):(<div className="bg-white w-fit h-fit"></div>)}
+        <img src={imageOne} className=" w-full " alt="..."/>
+        <img src={imageTwo} className="w-full " alt="..."/>
+        <img src={imageThree} className=" w-full " alt="..."/>
+        {imageFour? ( <img src={imageFour} className="block w-full " alt="..."/>):(<div className="bg-white w-fit h-fit"></div>)}
         </div>
 
         {/* Product Info */}

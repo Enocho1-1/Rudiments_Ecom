@@ -7,9 +7,9 @@ import {addItemToCart} from "../../../store/CartSlice"
 import Logo from "../../../assests/cube.png"
 
 export const MobileView = ({data}) => {
-    const {One,Two,Three,Four,title,price,category,selectSize,setSelectSize,item} = data
+  const {imageOne,imageTwo,imageThree,imageFour,title,price,category,selectSize,setSelectSize,item} = data
     // Image array for mobile view carousel
-    const dataImages = [One,Two,Three,Four]
+    const dataImages = [imageOne,imageTwo,imageThree,imageFour]
     const [sidecart, setSideCart] = useState(false)
     const dispatch = useDispatch()
   return (
