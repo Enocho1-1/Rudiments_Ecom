@@ -11,12 +11,12 @@ import "./ItemDetail.css"
 export const ItemDetail = () => {
 
 const [selectSize, setSelectSize] = useState("")
-const {myQuery} = useMatchMedia(769)
+const mobileStyling = "flex flex-col"
 const param = useParams()
 const productId = param.id
-const {data} = useIndividualItem(productId)
-const mobileView = "flex flex-col"
 
+const {data} = useIndividualItem(productId)
+const {myQuery} = useMatchMedia(769)
 
 
 const { id, title , price, category, imageUrl, imageUrl_Two, imageUrl_Three, imageUrl_Four} = data
@@ -56,7 +56,7 @@ class ProductObject{
   return (
     <section className="relative">
       {data.length === 0 && <Loading/>}
-      <aside className={myQuery && myQuery.matches ? mobileView : "flex flex-row"}>
+      <aside className={myQuery && myQuery.matches ? mobileStyling  : "flex flex-row"}>
         {myQuery && !myQuery.matches ? (<DesktopView data={desktop}/> ):  (<MobileView data={mobile}/>)}
       </aside>
 

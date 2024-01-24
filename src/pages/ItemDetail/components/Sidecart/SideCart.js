@@ -1,8 +1,8 @@
 /* eslint-disable */
 import { useEffect } from "react"
 import { useSelector,useDispatch } from "react-redux"
-import { useFilter } from "../../../context/filterContext"
-import { getSubTotal } from "../../../store/CartSlice"
+import { useFilter } from "../../../../context/filterContext"
+import { getSubTotal } from "../../../../store/CartSlice"
 import { Link } from "react-router-dom"
 import { CartItem } from "./CartItem"
 

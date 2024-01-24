@@ -1,6 +1,6 @@
 /* eslint-disable */
 import { useState } from "react"
-import { pantSizes,shoeSizes } from "../../../components/DataStructures/SizeArrays"
+import { pantSizes,shoeSizes } from "../../../../components/DataStructures/SizeArrays"
 
 export const MobileSizes = ({category,selectSize, setSelectSize}) => {
   const [hidden, setHidden] = useState(true)

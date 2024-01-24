@@ -1,10 +1,10 @@
 import {useState} from "react"
 import {useDispatch} from "react-redux"
-import {useMobileSizes} from "../../../hooks/useMobileSizes"
+import {useMobileSizes} from "../../../../hooks/useMobileSizes"
 import { MobileCarousel } from "./MobileCarousel"
-import {SideCart,Accordion} from "../../../components"
-import {addItemToCart} from "../../../store/CartSlice"
-import Logo from "../../../assests/cube.png"
+import {SideCart,Accordion} from "../../../../components"
+import {addItemToCart} from "../../../../store/CartSlice"
+import Logo from "../../../../assests/cube.png"
 
 export const MobileView = ({data}) => {
   const {imageOne,imageTwo,imageThree,imageFour,title,price,category,selectSize,setSelectSize,item} = data

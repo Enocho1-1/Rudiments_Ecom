@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { pantSizes,shoeSizes } from "../../../components/DataStructures/SizeArrays"
+import { pantSizes,shoeSizes } from "../../../../components/DataStructures/SizeArrays"
 
 export const DesktopSizes = ({category, selectSize, setSelectSize}) => {
   const [hidden, setHidden] = useState(true)

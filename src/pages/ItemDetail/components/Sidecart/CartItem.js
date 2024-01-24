@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux"
-import { increaseQuantity, decreaseQuantity,removeItemCart} from "../../../store/CartSlice"
+import { increaseQuantity, decreaseQuantity,removeItemCart} from "../../../../store/CartSlice"
 import { Link } from "react-router-dom"
 
 export const CartItem = ({product}) => {

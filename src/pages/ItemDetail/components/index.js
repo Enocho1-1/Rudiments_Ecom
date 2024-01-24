@@ -1,15 +1,15 @@
 
-export {DesktopView} from "./DesktopView"
-export {DesktopShirtSize} from "./DesktopShirtSize"
-export {DesktopSizes} from "./DesktopSizes"
+export {DesktopView} from "./Desktop/DesktopView"
+export {DesktopShirtSize} from "./Desktop/DesktopShirtSize"
+export {DesktopSizes} from "./Desktop/DesktopSizes"
 
-export {MobileView} from "./MobileView"
-export {MobileShirtSize} from "./MobileShirtSize"
-export {MobileSizes} from "./MobileSizes"
-export {MobileCarousel} from "./MobileCarousel"
+export {MobileView} from "./Mobile/MobileView"
+export {MobileShirtSize} from "./Mobile/MobileShirtSize"
+export {MobileSizes} from "./Mobile/MobileSizes"
+export {MobileCarousel} from "./Mobile/MobileCarousel"
 
-export {TrendingSlider} from "./TrendingSlider"
-export {RecentlyViewedSlider} from "./RecentlyViewedSlider"
+export {TrendingSlider} from "./Sliders/TrendingSlider"
+export {RecentlyViewedSlider} from "./Sliders/RecentlyViewedSlider"
 
 
 

@@ -1,4 +1,4 @@
-import { shirtSizes } from "../../../components/DataStructures/SizeArrays"
+import { shirtSizes } from "../../../../components/DataStructures/SizeArrays"
 
 export const MobileShirtSize = ({setSelectSize}) => {
   return (

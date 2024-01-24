@@ -7,7 +7,7 @@ export { ProductCard } from "./elements/ProductCard"
 export { PromoNotification } from "./elements/PromoNotification"
 export {  PromoInput } from "./elements/PromoInput"
 export { Pagination } from "./misc/Pagination"
-export { SideCart } from "../pages/ItemDetail/components/SideCart"
+export { SideCart } from "../pages/ItemDetail/components/Sidecart/SideCart"
 export { Accordion } from "../pages/ItemDetail/components/Accordion"
 
 
