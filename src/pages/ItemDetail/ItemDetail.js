@@ -6,7 +6,7 @@ import { useMatchMedia,useIndividualItem,useRecentItems  } from "../../hooks"
 import { validateMeasurements  } from "../../utility/ProductServices"
 import { addItemToCart } from "../../store/CartSlice"
 import { Loading,SideCart,Accordion } from "../../components"
-import { DesktopShirtSize, DesktopSizes, MobileShirtSize, MobileSizes,TrendingSlider,Slider,Trending,shirtSizes, pantSizes,shoeSizes} from "./components"
+import { DesktopShirtSize, DesktopSizes, MobileShirtSize, MobileSizes,MobileCarousel,TrendingSlider,Slider,Trending,shirtSizes, pantSizes,shoeSizes} from "./components"
 import Logo from "../../assests/cube.png"
 import "./ItemDetail.css"
 
@@ -30,7 +30,12 @@ const mobileView = "flex flex-col"
 
   // Destructure Returned JSON
 const {  id, title , price, category, imageUrl, imageUrl_Two, imageUrl_Three, imageUrl_Four} = data
+
+// Add user recently viewed items hook
 const {recents} = useRecentItems(data,id)
+
+// Image array for mobile view carousel
+const dataImages = [imageUrl,imageUrl_Two,imageUrl_Three,imageUrl_Four]
 
 
 // Clothing Piece Measurement Validation
@@ -60,7 +65,7 @@ const userItem = {
         <>
             {/* Side Cart Reveal */}
             { sidecart && < SideCart setSideCart={setSideCart}/>}
-            <div></div>
+      
             
             {/* Product Images */}
             <div className="grid grid-cols-2 grid-rows-2 px-4 tablet:max-laptop:grid-cols-gridCols tablet:max-laptop:grid-rows-gridRows tablet:max-laptop:w-[60%] laptop:max-desktop:w-[70%] desktop:w-[75%]  individualImg">
@@ -101,59 +106,35 @@ const userItem = {
            // Responsive Design range:0px - 769px
           <> 
           { sidecart && < SideCart setSideCart={setSideCart}/>}
-          {/* Image Carousel  */}
-          <div id="carouselExample" className="carousel slide">
-          <div className="carousel-inner items-carousel">
-              <div className="carousel-item active">
-                <img src={imageUrl} className="block w-full " alt="..."/>
-              </div>
-              <div className="carousel-item">
-                <img src={imageUrl_Two} className="block w-full" alt="..."/>
-              </div>
-              <div className="carousel-item">
-                <img src={imageUrl_Three} className="block w-full " alt="..."/>
-              </div>
-              <div className="carousel-item">
-                {imageUrl_Four ? ( <img src={imageUrl_Four} className="block w-full " alt="..."/>):(<div className="bg-white w-fit h-fit"></div>)}
-              </div>
-            </div>
-            <button className="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-              <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span className="visually-hidden">Previous</span>
-            </button>
-            <button className="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-              <span className="carousel-control-next-icon" aria-hidden="true"></span>
-              <span className="visually-hidden">Next</span>
-            </button>
-          </div>
-          <div className="w-full">
-            <aside className="flex justify-between p-3 mt-4">
-              <h1 className=" font-Bebas text-2xl">{title}</h1>
-              <p className="font-semibold text-xl">${price}.00</p>
-            </aside>
-            <hr />
-            <aside className="flex flex-col">
+            <MobileCarousel images={dataImages}/>
+            <div className="w-full">
+              <aside className="flex justify-between p-3 mt-4">
+                <h1 className=" font-Bebas text-2xl">{title}</h1>
+                <p className="font-semibold text-xl">${price}.00</p>
+              </aside>
+              <hr />
+              <aside className="flex flex-col">
 
-                { 
-                    // Shirt Size CSS
-                    shirt ? 
-                    (<MobileShirtSize array={shirtSizes} setSelectSize={selectSize} />) 
-                    : 
-                    // Pants Size CSS
-                    pants ?
-                    (<MobileSizes array={pantSizes} selectSize={selectSize} setSelectSize={setSelectSize}/>)
-                    : shoes ? 
-                    (<MobileSizes array={shoeSizes} selectSize={selectSize} setSelectSize={setSelectSize}/>) 
-                    : ( <div></div>)
-                  }
-                   {/* Product Detail */}
-                    <div>
-                      <Accordion/>
-                    </div>
-                    {/* Add To Cart */}
-                    <button type="button" onClick={() => {dispatch(addItemToCart(userItem )); setSideCart(true)}} className=" cart flex justify-center self-center focus:outline-none text-black font-Bebas text-xl bg-yellow-400  focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg w-[75%] p-2 mt-2 ">Add To Bag<img src={Logo} className="h-6 mx-2"/></button>
-            </aside>
-          </div>
+                  { 
+                      // Shirt Size CSS
+                      shirt ? 
+                      (<MobileShirtSize array={shirtSizes} setSelectSize={selectSize} />) 
+                      : 
+                      // Pants Size CSS
+                      pants ?
+                      (<MobileSizes array={pantSizes} selectSize={selectSize} setSelectSize={setSelectSize}/>)
+                      : shoes ? 
+                      (<MobileSizes array={shoeSizes} selectSize={selectSize} setSelectSize={setSelectSize}/>) 
+                      : ( <div></div>)
+                    }
+                    {/* Product Detail */}
+                      <div>
+                        <Accordion/>
+                      </div>
+                      {/* Add To Cart */}
+                      <button type="button" onClick={() => {dispatch(addItemToCart(userItem )); setSideCart(true)}} className=" cart flex justify-center self-center focus:outline-none text-black font-Bebas text-xl bg-yellow-400  focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg w-[75%] p-2 mt-2 ">Add To Bag<img src={Logo} className="h-6 mx-2"/></button>
+              </aside>
+            </div>
           </>
           
       ) 
