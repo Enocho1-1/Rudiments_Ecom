@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 
-export const Slider = ({array}) => {
+export const RecentlyViewedSlider = ({array}) => {
 
   const slideLeft = () => {
     let slider = document.getElementById("recentSlider");

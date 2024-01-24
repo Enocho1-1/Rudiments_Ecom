@@ -9,9 +9,8 @@ export {MobileSizes} from "./MobileSizes"
 export {MobileCarousel} from "./MobileCarousel"
 
 export {TrendingSlider} from "./TrendingSlider"
-export {Slider} from "./Slider"
+export {RecentlyViewedSlider} from "./RecentlyViewedSlider"
 
-export {Trending} from "./Trending"
 
 
 
