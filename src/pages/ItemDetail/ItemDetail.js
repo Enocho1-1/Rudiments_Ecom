@@ -2,7 +2,7 @@
 import { useEffect,useState } from "react"
 import {useParams} from "react-router-dom"
 import { useDispatch } from "react-redux"
-import { useMatchMedia,useIndividualItem,useRecentItems  } from "../../hooks"
+import { useMatchMedia,useIndividualItem,useRecentItems,useDesktopSizes  } from "../../hooks"
 import { validateMeasurements  } from "../../utility/ProductServices"
 import { addItemToCart } from "../../store/CartSlice"
 import { Loading,SideCart,Accordion } from "../../components"
@@ -83,12 +83,7 @@ const userItem = {
               </aside>
 
               {/* Sizes */}
-              { 
-              shirt ? (<DesktopShirtSize array={shirtSizes} setSelectSize={setSelectSize} />) 
-              : pants ?(< DesktopSizes array={pantSizes} selectSize={selectSize} setSelectSize={setSelectSize}/>
-              ): shoes ? ( < DesktopSizes array={shoeSizes} selectSize={selectSize} setSelectSize={setSelectSize}/> ) 
-              : (<div></div>)
-              }
+              { useDesktopSizes(category)}
 
               {/* Product Detail */}
               <div>

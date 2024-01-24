@@ -6,6 +6,8 @@ export {useSubTotal} from "./useSubTotal"
 export {useAllProducts} from "./useAllProducts"
 export {usePaginate} from "./usePaginate"
 
+export {useDesktopSizes} from "./useDesktopSizes"
+
 export {useUserOrders} from "./useUserOrders"
 export {useIndividualItem} from "./useIndividualItem"
 export {useRecentItems} from "./useRecentItems"
