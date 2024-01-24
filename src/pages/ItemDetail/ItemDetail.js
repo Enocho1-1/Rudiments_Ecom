@@ -2,7 +2,7 @@
 import {useState } from "react"
 import {useParams} from "react-router-dom"
 import { useMatchMedia,useIndividualItem,useRecentItems} from "../../hooks"
-import { Loading} from "../../components"
+import {Loading} from "../../components"
 import {DesktopView,MobileView,TrendingSlider,Slider,Trending} from "./components"
 import "./ItemDetail.css"
 
