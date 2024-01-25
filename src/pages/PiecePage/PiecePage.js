@@ -1,25 +1,19 @@
 import { useState,useEffect } from "react"
-import { useTitle } from "../../hooks/useTitle"
+import { useTitle,usePaginate } from "../../hooks"
 import { fetchClothingPiece } from "../../utility"
 import { ProductsContain,ProductCard, Pagination, Loading } from "../../components"
 
 export const PiecePage = ({apiPath, title}) => {
   useTitle(title)
   const [data,setData] = useState([])
-  const [page, setPage] = useState(1)
-  const [postsPerPage] = useState(6)
 
   useEffect(() => {
     fetchClothingPiece(apiPath,setData)
   },[apiPath])
  
-  const lastIndex = page * postsPerPage
-  const firstIndex = lastIndex - postsPerPage
-  const products = data.slice(firstIndex, lastIndex)
+   // Pagination Hook
+   const {page,products,postsPerPage,paginate} = usePaginate(6)
 
-  const paginate = (pageNumber) => {
-    setPage(pageNumber)
-  }
   return (
     <section>
       <header className="w-fit"></header>
@@ -27,13 +21,16 @@ export const PiecePage = ({apiPath, title}) => {
       <aside className="Lrgmoniter:max-w-7xl tablet:max-Lrgmoniter:max-w-5xl max-tablet:justify-center m-auto my-4 px-4 flex justify-start">
         <h1 className="font-Inconsolata text-lg font-semibold text-slate-400">{data.length}·{page}</h1>
       </aside>
-      {data.length ? 
-( <ProductsContain>
-      {products.map( item => (
-        <ProductCard key={item.id} product={item}/>
-      ))}
-    </ProductsContain>)
-      : <Loading/>}
+       {data.length ? 
+        ( 
+        <ProductsContain>
+        {products.map( item => (
+          <ProductCard key={item.id} product={item}/>
+          ))}
+        </ProductsContain>
+        ): 
+        <Loading/>
+        }
      
       <Pagination totalAmount={data.length} postsPerPage={postsPerPage} paginate={paginate} />
     </section>
