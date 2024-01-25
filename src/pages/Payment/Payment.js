@@ -4,6 +4,7 @@ import { useSelector,useDispatch } from "react-redux"
 import { postUserOrder } from "../../utility"
 import { clearCart } from "../../store/CartSlice"
 import { MyBag } from "../Delivery/components/MyBag"
+import { months } from "../../components/DataStructures/MonthsArray"
 import visa from "../../assests/visa.png"
 import mastercard from "../../assests/mastercard.png"
 import americanexpress from "../../assests/american-express.png"
@@ -16,7 +17,6 @@ export const Payment = () => {
     const dispatch = useDispatch()
     const cart = useSelector(state => state.cart.cartItems)
     const total = useSelector(state => state.cart.total)
-    const months = ["January","February","March","April","May","June","July","August","September","October","November","December"]
     const date = new Date(),
           month = months[date.getMonth()],
           day = date.getDate(),
@@ -36,7 +36,7 @@ export const Payment = () => {
         } 
     }
 
-    const Post_Options = {
+    const options = {
         method:"POST",
         headers:{'Content-Type':'application/json',Authorization: `Bearer ${userToken}`},
         body:JSON.stringify(userOrder)
@@ -44,7 +44,7 @@ export const Payment = () => {
         
     
     const handleSubmitOrder = () => {
-        postUserOrder(Post_Options,navigate)
+        postUserOrder(options,navigate)
         dispatch(clearCart())
         localStorage.clear()
         sessionStorage.removeItem("promoCode")

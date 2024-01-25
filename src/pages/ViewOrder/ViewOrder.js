@@ -42,7 +42,7 @@ export const ViewOrder = () => {
           {/* Tracking */}
           <div className="ml-6 w-[25rem] max-tablet:w-[100%] max-tablet:ml-0 max-tablet:mt-4 rounded-md flex flex-col  p-4 bg-gray-200 ">
             <h1 className="text-2xl font-bold">Track and manage order</h1>
-            <span className="mt-3 text-lg inline-block">Arriving on or before  <p className="text-3xl font-bold">1 DEC 2023</p></span>
+            <span className="mt-3 text-lg inline-block">Arriving on or before  <p className="text-3xl font-bold">1 FEB 2024</p></span>
 
             <span className="mt-24">
               <h1 className="text-2xl font-bold">Tracking</h1>

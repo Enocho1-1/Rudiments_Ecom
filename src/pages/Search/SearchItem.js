@@ -26,10 +26,7 @@ export const SearchItem = () => {
               ))}
             </div>
           
-          ):
-          (
-            <NotFound queryItem={queryItem} />
-          )
+          ):( <NotFound queryItem={queryItem} />)
         }
       </aside>
     </section>

@@ -12,7 +12,7 @@ export const MyBag = () => {
   
    
   return (
-    <aside className="relative h-fit min-w-[21.875rem] ml-4 p-4 bg-slate-400 flex flex-col max-[900px]:hidden">
+    <aside className="relative h-fit min-w-[21.875rem] ml-4 p-4 bg-gray-200 flex flex-col max-[900px]:hidden">
         <h1 className="text-center text-2xl font-Inconsolata font-semibold">My bag ({cart.length})</h1>
         <Link to="/cart" className="mt-2 text-center text-md font-Inconsolata font-semibold underline cursor-pointer hover:text-black">Edit bag</Link>
         <div className={cart.length > 1 ? "max-h-[12.5rem] overflow-y-scroll" :"max-h-[12.5rem]" }>
