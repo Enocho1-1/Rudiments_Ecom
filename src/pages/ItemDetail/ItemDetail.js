@@ -15,27 +15,25 @@ const mobileStyling = "flex flex-col"
 const param = useParams()
 const productId = param.id
 
-const {data} = useIndividualItem(productId)
+const {data:product} = useIndividualItem(productId)
 const {myQuery} = useMatchMedia(769)
 
 
-const { id, title , price, category, imageUrl, imageUrl_Two, imageUrl_Three, imageUrl_Four} = data
+const { id, title , price, category, imageUrl, imageUrl_Two, imageUrl_Three, imageUrl_Four} = product
 
 // Add user recently viewed items hook
-const {recents} = useRecentItems(data,id)
+const {recents} = useRecentItems(product,id)
 
 // Cart Item Object
-const userItem = {
-  id: data.id,
+const cartItem = {
+  id: product.id,
   random_index:Math.floor(Math.random() * 99000),
-  title : data.title,
-  price: data.price,
+  title : product.title,
+  price: product.price,
   quantity: 1,
   size: selectSize,
   image: imageUrl
 }
-
-
 
 class ProductObject{
   constructor(imageOne,imageTwo,imageThree,imageFour,title,price,category,selectSize,setSelectSize,item){
@@ -52,21 +50,21 @@ class ProductObject{
   }
 }
 
-const itemData = new ProductObject(imageUrl,imageUrl_Two,imageUrl_Three,imageUrl_Four,title,price,category,selectSize,setSelectSize,userItem)
+const itemData = new ProductObject(imageUrl,imageUrl_Two,imageUrl_Three,imageUrl_Four,title,price,category,selectSize,setSelectSize,cartItem)
 
 
-  return (
-    <section className="relative">
-      {data.length === 0 && <Loading/>}
-      <aside className={myQuery && myQuery.matches ? mobileStyling  : "flex flex-row"}>
-        {myQuery && !myQuery.matches ? (<DesktopView data={itemData}/> ):  (<MobileView data={itemData}/>)}
-      </aside>
+return (
+  <section className="relative">
+    {product.length === 0 && <Loading/>}
+    <aside className={myQuery && myQuery.matches ? mobileStyling  : "flex flex-row"}>
+      {myQuery && !myQuery.matches ? (<DesktopView data={itemData}/> ):  (<MobileView data={itemData}/>)}
+    </aside>
 
 
-      <aside className="h-fit flex flex-col my-12">
-        <TrendingSlider  array={Trending}/>
-        <RecentlyViewedSlider array={recents}/>
-      </aside>
-    </section>
-  )
+    <aside className="h-fit flex flex-col my-12">
+      <TrendingSlider  array={Trending}/>
+      <RecentlyViewedSlider array={recents}/>
+    </aside>
+  </section>
+)
 }
