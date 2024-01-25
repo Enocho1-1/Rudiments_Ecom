@@ -4,7 +4,7 @@ import {useParams} from "react-router-dom"
 import { useMatchMedia,useIndividualItem,useRecentItems} from "../../hooks"
 import {Loading} from "../../components"
 import {Trending} from "../../components/DataStructures/TrendingItems"
-import {DesktopView,MobileView,TrendingSlider,RecentlyViewedSlider} from "./components"
+import {DesktopView,MobileView,TrendingSlider,RecentlyViewedSlider} from "."
 import "./ItemDetail.css"
 
 

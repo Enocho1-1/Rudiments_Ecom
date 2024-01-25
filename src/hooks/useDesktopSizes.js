@@ -1,6 +1,6 @@
 /* eslint-disable */
 
-import { DesktopShirtSize,DesktopSizes} from "../pages/ItemDetail/components"
+import { DesktopShirtSize,DesktopSizes} from "../pages/ItemDetail"
 
 export const useDesktopSizes = (category,selectSize,setSelectSize) => {
 

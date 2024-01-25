@@ -1,4 +1,4 @@
-import { MobileShirtSize,MobileSizes } from "../pages/ItemDetail/components"
+import { MobileShirtSize,MobileSizes } from "../pages/ItemDetail"
 
 export const useMobileSizes = (category,selectSize,setSelectSize) => {
 
