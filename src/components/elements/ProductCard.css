@@ -39,7 +39,7 @@
 /* Media Query for Large screens */
 @media (min-width: 1281px) {
     .individualCard img{
-        height: 500px;
+        height: 475px;
     }
     
 }
