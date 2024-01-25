@@ -52,7 +52,7 @@ class ProductObject{
   }
 }
 
-  const itemData = new ProductObject(imageUrl,imageUrl_Two,imageUrl_Three,imageUrl_Four,title,price,category,selectSize,setSelectSize,userItem)
+const itemData = new ProductObject(imageUrl,imageUrl_Two,imageUrl_Three,imageUrl_Four,title,price,category,selectSize,setSelectSize,userItem)
 
 
   return (

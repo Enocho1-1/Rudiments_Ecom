@@ -1,9 +1,12 @@
 import { useState } from "react"
+import { useClearSize } from "../../../../hooks"
 import { pantSizes,shoeSizes } from "../../../../components/DataStructures/SizeArrays"
 
 export const DesktopSizes = ({category, selectSize, setSelectSize}) => {
   const [hidden, setHidden] = useState(true)
   const sizeArray = category === "pants"|| category === "shorts" ? pantSizes : shoeSizes
+  // Clear Size Dropdown Hook
+  useClearSize(setSelectSize)
   return (
     <aside>
       <button onClick={() => setHidden(!hidden)} id="dropdownHoverButton" data-dropdown-toggle="dropdownHover" data-dropdown-trigger="hover" className="mt-4 mx-2 text-black bg-white hover:bg-slate-800 border border-slate-400 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center" type="button">{selectSize ? selectSize : "Select Size"} <svg className="w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">

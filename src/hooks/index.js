@@ -8,6 +8,7 @@ export {usePaginate} from "./usePaginate"
 
 export {useDesktopSizes} from "./useDesktopSizes"
 export {useMobileSizes} from "./useMobileSizes"
+export {useClearSize} from "./useClearSize"
 
 export {useUserOrders} from "./useUserOrders"
 export {useIndividualItem} from "./useIndividualItem"
