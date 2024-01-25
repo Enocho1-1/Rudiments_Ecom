@@ -3,9 +3,9 @@ import {useFilter} from "../context/filterContext"
 import {fetchProducts} from "../utility"
 
 export const useAllProducts = () => {
-    const { product, allProducts} = useFilter()
+    const {allProducts} = useFilter()
 
-      // Fetch All Products
+  // Fetch All Products
   useEffect(() => {fetchProducts(allProducts)},[])
   return null
 }

@@ -13,7 +13,7 @@ export const CollectionPage = () => {
   // Display All Products Hook
   useAllProducts()
   // Pagination Hook
-  const {page,setPage,products,postsPerPage,paginate} = usePaginate(20)
+  const {page,setPage,products,postsPerPage,paginate} = usePaginate(20,product)
   
   const [category,setCategory] = useState("All")
   const colorPopup = state.Colors

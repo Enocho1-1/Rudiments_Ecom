@@ -16,9 +16,9 @@ export const fetchProducts = async (allProducts) => {
 }
 
 // Fetch Clothing Piece and user search
-export const fetchClothingPiece = async(endPoint,setData) => {
+export const fetchClothingPiece = async(apiPath,setData) => {
     try{
-        const response = await fetch(`${process.env.REACT_APP_HOST}/444/${endPoint}`)
+        const response = await fetch(`${process.env.REACT_APP_HOST}/444/${apiPath}`)
         if(!response.ok){
           throw new Error(`${response.status}`)
         } else{
