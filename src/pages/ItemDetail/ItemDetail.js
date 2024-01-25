@@ -35,6 +35,8 @@ const userItem = {
   image: imageUrl
 }
 
+
+
 class ProductObject{
   constructor(imageOne,imageTwo,imageThree,imageFour,title,price,category,selectSize,setSelectSize,item){
     this.imageOne = imageOne
@@ -50,14 +52,14 @@ class ProductObject{
   }
 }
 
-  const desktop = new ProductObject(imageUrl,imageUrl_Two,imageUrl_Three,imageUrl_Four,title,price,category,selectSize,setSelectSize,userItem)
-  const mobile = new ProductObject(imageUrl,imageUrl_Two,imageUrl_Three,imageUrl_Four,title,price,category,selectSize,setSelectSize,userItem)
+  const itemData = new ProductObject(imageUrl,imageUrl_Two,imageUrl_Three,imageUrl_Four,title,price,category,selectSize,setSelectSize,userItem)
+
 
   return (
     <section className="relative">
       {data.length === 0 && <Loading/>}
       <aside className={myQuery && myQuery.matches ? mobileStyling  : "flex flex-row"}>
-        {myQuery && !myQuery.matches ? (<DesktopView data={desktop}/> ):  (<MobileView data={mobile}/>)}
+        {myQuery && !myQuery.matches ? (<DesktopView data={itemData}/> ):  (<MobileView data={itemData}/>)}
       </aside>
 
 
